@@ -14,8 +14,8 @@ import java.util.Map;
 public class Contract {
     private Client client;
     @Id
-    private int number;
-    private Tariff tariff;
+    private long number;
+    private String tariff;
     private Map<String, Option> options = new HashMap<>();
     private boolean isBlockedByClient = false;
     private boolean isBlockedByOperator = false;
@@ -23,7 +23,7 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(int number, Tariff tariff, Map<String, Option> options, boolean isBlockedByClient, boolean isBlockedByOperator) {
+    public Contract(long number, String tariff, Map<String, Option> options, boolean isBlockedByClient, boolean isBlockedByOperator) {
         this.number = number;
         this.tariff = tariff;
         this.options = options;
@@ -31,7 +31,7 @@ public class Contract {
         this.isBlockedByOperator = isBlockedByOperator;
     }
 
-    public int getNumber() {
+    public long getNumber() {
         return number;
     }
 
@@ -39,11 +39,11 @@ public class Contract {
         this.number = number;
     }
 
-    public Tariff getTariff() {
+    public String getTariff() {
         return tariff;
     }
 
-    public void setTariff(Tariff tariff) {
+    public void setTariff(String tariff) {
         this.tariff = tariff;
     }
 

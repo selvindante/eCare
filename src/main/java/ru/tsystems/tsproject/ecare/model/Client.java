@@ -15,27 +15,25 @@ public class Client {
     private String name;
     private String lastname;
     private String birthDate;
-    private int passportData;
+    private long passport;
     private String address;
     private Map<Integer, Contract> contracts = new HashMap<>();
     @Id
     private String email;
     private String password;
-    private boolean isBlockedByOperator = false;
 
     public Client() {
     }
 
-    public Client(String name, String lastname, String birthDate, int passportData, String address, Map<Integer, Contract> contracts, String email, String password, boolean isBlockedByOperator) {
+    public Client(String name, String lastname, String birthDate, long passport, String address, Map<Integer, Contract> contracts, String email, String password) {
         this.name = name;
         this.lastname = lastname;
         this.birthDate = birthDate;
-        this.passportData = passportData;
+        this.passport = passport;
         this.address = address;
         this.contracts = contracts;
         this.email = email;
         this.password = password;
-        this.isBlockedByOperator = isBlockedByOperator;
     }
 
     public String getName() {
@@ -62,12 +60,12 @@ public class Client {
         this.birthDate = birthDate;
     }
 
-    public int getPassportData() {
-        return passportData;
+    public long getPassport() {
+        return passport;
     }
 
-    public void setPassportData(int passportData) {
-        this.passportData = passportData;
+    public void setPassport(int passport) {
+        this.passport = passport;
     }
 
     public String getAddress() {
@@ -92,13 +90,5 @@ public class Client {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isBlockedByOperator() {
-        return isBlockedByOperator;
-    }
-
-    public void setBlockByOperator(boolean block) {
-        isBlockedByOperator = block;
     }
 }
