@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="836352167">
+  <component name="DataSourceManagerImpl" format="xml" hash="3242548254">
     <data-source source="LOCAL" name="MySQL - ecare@localhost" uuid="9d7a5341-d5d4-4b6d-b000-89fc44e735b5">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -13,6 +13,18 @@
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>
       <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="ECARE" uuid="7f005cd6-b55c-40a4-8608-335e538e77d8">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/ecare</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df9bdf98df99df9edf9fdf9c</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\Selvin\.m2\repository\mysql\mysql-connector-java\5.1.33\mysql-connector-java-5.1.33.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

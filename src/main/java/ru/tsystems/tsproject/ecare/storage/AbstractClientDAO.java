@@ -1,6 +1,8 @@
 package ru.tsystems.tsproject.ecare.storage;
 
-import ru.tsystems.tsproject.ecare.model.Client;
+import ru.tsystems.tsproject.ecare.entities.Client;
+
+import java.util.List;
 
 /**
  * Created by Selvin
@@ -9,23 +11,28 @@ import ru.tsystems.tsproject.ecare.model.Client;
 
 public abstract class AbstractClientDAO {
     protected abstract void doCreateClient(Client cl);
-    protected abstract Client doLoadClient(String email, String password);
+    protected abstract Client doLoadClient(long id);
     protected abstract void doUpdateClient(Client cl);
-    protected abstract void doDeleteClient(String email, String password);
+    protected abstract void doDeleteClient(long id);
+    protected abstract List<Client> doGetAll();
 
     public void createClient(Client cl){
         doCreateClient(cl);
     }
 
-    public Client loadClient(String email, String password) {
-        return doLoadClient(email, password);
+    public Client loadClient(long id) {
+        return doLoadClient(id);
     }
 
     public void updateClient(Client cl) {
         doUpdateClient(cl);
     }
 
-    public void deleteClient(String email, String password) {
-        doDeleteClient(email, password);
+    public void deleteClient(long id) {
+        doDeleteClient(id);
+    }
+
+    public List<Client> getAll() {
+        return doGetAll();
     }
 }

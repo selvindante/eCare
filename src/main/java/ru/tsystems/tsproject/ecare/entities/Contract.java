@@ -1,7 +1,5 @@
-package ru.tsystems.tsproject.ecare.model;
+package ru.tsystems.tsproject.ecare.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,10 +8,8 @@ import java.util.Map;
  * on 30.09.2014.
  */
 
-@Entity
 public class Contract {
     private Client client;
-    @Id
     private long number;
     private String tariff;
     private Map<String, Option> options = new HashMap<>();

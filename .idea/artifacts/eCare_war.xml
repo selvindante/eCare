@@ -3,6 +3,12 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="eCare.war">
       <element id="artifact" artifact-name="eCare:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.33" />
+          <element id="library" level="project" name="hibernate-jpa-2.0-api-1.0.1.Final" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

@@ -1,16 +1,11 @@
-package ru.tsystems.tsproject.ecare.model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+package ru.tsystems.tsproject.ecare.entities;
 
 /**
  * Created by Selvin
  * on 30.09.2014.
  */
 
-@Entity
 public class Option {
-    @Id
     private String title;
     private int price;
     private int costOfConnection;
