@@ -1,25 +1,41 @@
 package ru.tsystems.tsproject.ecare.entities;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Selvin
  * on 30.09.2014.
  */
 
+@Entity
+@Table(name = "tariff")
 public class Tariff {
+    @Id
+    @Column(name = "tariff_id")
+    private long id;
+
+    @Column(name = "tariff_title")
     private String title;
+
+    @Column(name = "price")
     private int price;
-    private Map<String, Option> possibleOptions = new HashMap<>();
+
+    @OneToMany(mappedBy = "tariff")
+    private List<Option> options;
 
     public Tariff() {
     }
 
-    public Tariff(String title, int price, Map<String, Option> possibleOptions) {
+    public Tariff(long id, String title, int price, List<Option> options) {
+        this.id = id;
         this.title = title;
         this.price = price;
-        this.possibleOptions = possibleOptions;
+        this.options = options;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -36,5 +52,13 @@ public class Tariff {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<Option> options) {
+        this.options = options;
     }
 }

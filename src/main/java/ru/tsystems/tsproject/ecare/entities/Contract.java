@@ -1,30 +1,60 @@
 package ru.tsystems.tsproject.ecare.entities;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Selvin
  * on 30.09.2014.
  */
 
+@Entity
+@Table(name = "contract")
 public class Contract {
-    private Client client;
+    @Id
+    @Column(name = "contract_id")
+    private long id;
+
+    @Column(name = "number")
     private long number;
-    private String tariff;
-    private Map<String, Option> options = new HashMap<>();
+
+    @ManyToOne
+    @JoinColumn(name = "tariff_id")
+    private Tariff tariff;
+
+    @Column(name = "blckd_by_cl")
     private boolean isBlockedByClient = false;
+
+    @Column(name = "blckd_by_op")
     private boolean isBlockedByOperator = false;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    @ManyToMany
+    @JoinTable
+            (
+                    name="connected_option",
+                    joinColumns={ @JoinColumn(name="contract_id", referencedColumnName="contract_id") },
+                    inverseJoinColumns={ @JoinColumn(name="option_id", referencedColumnName="option_id") }
+            )
+    private List<Option> options;
 
     public Contract() {
     }
 
-    public Contract(long number, String tariff, Map<String, Option> options, boolean isBlockedByClient, boolean isBlockedByOperator) {
+    public Contract(long id, long number, Tariff tariff, boolean isBlockedByClient, boolean isBlockedByOperator, List<Option> options) {
+        this.id = id;
         this.number = number;
         this.tariff = tariff;
-        this.options = options;
         this.isBlockedByClient = isBlockedByClient;
         this.isBlockedByOperator = isBlockedByOperator;
+        this.options = options;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public long getNumber() {
@@ -35,11 +65,11 @@ public class Contract {
         this.number = number;
     }
 
-    public String getTariff() {
+    public Tariff getTariff() {
         return tariff;
     }
 
-    public void setTariff(String tariff) {
+    public void setTariff(Tariff tariff) {
         this.tariff = tariff;
     }
 
@@ -58,5 +88,25 @@ public class Contract {
 
     public void setBlockByOperator(boolean block) {
         isBlockedByOperator = block;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<Option> options) {
+        this.options = options;
+    }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "id=" + id +
+                ", number=" + number +
+                ", tariff='" + tariff + '\'' +
+                ", isBlockedByClient=" + isBlockedByClient +
+                ", isBlockedByOperator=" + isBlockedByOperator +
+                ", client=" + client +
+                '}';
     }
 }

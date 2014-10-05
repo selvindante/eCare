@@ -6,6 +6,9 @@
 
 <persistence-unit name="ECARE" transaction-type="RESOURCE_LOCAL">
     <class>ru.tsystems.tsproject.ecare.entities.Client</class>
+    <class>ru.tsystems.tsproject.ecare.entities.Contract</class>
+    <class>ru.tsystems.tsproject.ecare.entities.Option</class>
+    <class>ru.tsystems.tsproject.ecare.entities.Tariff</class>
     <properties>
         <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
         <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ecare"/>

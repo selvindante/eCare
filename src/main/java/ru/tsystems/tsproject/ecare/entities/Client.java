@@ -2,6 +2,7 @@ package ru.tsystems.tsproject.ecare.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Selvin
@@ -14,7 +15,12 @@ import java.util.Date;
 public class Client {
     @Id
     @Column(name = "client_id")
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    /*@OneToOne(fetch=FetchType.LAZY)
+    @JoinTable
+            (
+                    name="authorisation",
+                    joinColumns={ @JoinColumn(name="client_id", referencedColumnName="user_id") }
+            )*/
     private long id;
 
     @Column(name = "name")
@@ -39,12 +45,13 @@ public class Client {
     @Column(name = "password")
     private String password;
 
-    //private List<Contract> contracts = new ArrayList<>();
+    @OneToMany(mappedBy = "client")
+    private List<Contract> contracts;
 
     public Client() {
     }
 
-    public Client(long id, String name, String lastname, Date birthDate, long passport, String address, String email, String password) {
+    public Client(long id, String name, String lastname, Date birthDate, long passport, String address, String email, String password, List<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -53,6 +60,7 @@ public class Client {
         this.address = address;
         this.email = email;
         this.password = password;
+        this.contracts = contracts;
     }
 
     public long getId() {
@@ -113,6 +121,14 @@ public class Client {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     @Override

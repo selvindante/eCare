@@ -1409,15 +1409,12 @@
     <schema name="" catalog="test"/>
     <schema name="" catalog="world"/>
     <table name="authorization" schema="" catalog="ecare" type="TABLE">
-      <column name="user_login" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
-      <column name="user_role" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
-      <column name="user_password" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
-    </table>
-    <table name="availible_options" schema="" catalog="ecare" type="TABLE">
-      <column name="tariff_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <column name="option" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="cost_of_connection" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_login" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" def="J2FkbWluJw=="/>
+      <column name="user_role" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" def="J2FkbWluJw=="/>
+      <column name="user_password" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" def="J2FkbWluJw=="/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <index name="user_id_UNIQUE" unique="true" columns="user_id"/>
+      <index name="user_id_idx" unique="false" columns="user_id"/>
     </table>
     <table name="client" schema="" catalog="ecare" type="TABLE">
       <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
@@ -1427,33 +1424,55 @@
       <column name="address" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
       <column name="email" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="password" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
-      <column name="client_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="client_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="client_id"/>
+      <exported-key name="client_id" table="contract" schema="" catalog="ecare" columns="client_id"/>
       <index name="client_id_UNIQUE" unique="true" columns="client_id"/>
       <index name="email_UNIQUE" unique="true" columns="email"/>
       <index name="passport_UNIQUE" unique="true" columns="passport"/>
     </table>
-    <table name="connected_options" schema="" catalog="ecare" type="TABLE">
-      <column name="number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="option_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+    <table name="connected_option" schema="" catalog="ecare" type="TABLE">
+      <column name="contract_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="option_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <index name="option_id_idx" unique="false" columns="option_id"/>
     </table>
-    <table name="contracts" schema="" catalog="ecare" type="TABLE">
-      <column name="passport" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+    <table name="contract" schema="" catalog="ecare" type="TABLE">
       <column name="number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="tariff_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tariff_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="blckd_by_cl" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <column name="blckd_by_op" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="contract_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="client_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="contract_id"/>
+      <foreign-key name="contract_ibfk_1" columns="tariff_id" ref-table="tariff" ref-schema="" ref-catalog="ecare" ref-columns="tariff_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="client_id" columns="client_id" ref-table="client" ref-schema="" ref-catalog="ecare" ref-columns="client_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="contract_id_UNIQUE" unique="true" columns="contract_id"/>
       <index name="number_UNIQUE" unique="true" columns="number"/>
-      <index name="passport_UNIQUE" unique="true" columns="passport"/>
+      <index name="client_id_idx" unique="false" columns="client_id"/>
+      <index name="tariff_id_idx" unique="false" columns="tariff_id"/>
+    </table>
+    <table name="option" schema="" catalog="ecare" type="TABLE">
+      <column name="option_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cost_of_connection" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="option_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="tariff_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="option_id"/>
+      <foreign-key name="tariff_id" columns="tariff_id" ref-table="tariff" ref-schema="" ref-catalog="ecare" ref-columns="tariff_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="option_id_UNIQUE" unique="true" columns="option_id"/>
+      <index name="tariff_id_idx" unique="false" columns="tariff_id"/>
     </table>
     <table name="options_control" schema="" catalog="ecare" type="TABLE">
       <column name="option_title_1" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="option_title_2" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
     </table>
-    <table name="tariffs" schema="" catalog="ecare" type="TABLE">
-      <column name="tariff_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <index name="tariff_title_UNIQUE" unique="true" columns="tariff_title"/>
+    <table name="tariff" schema="" catalog="ecare" type="TABLE">
+      <column name="tariff_title" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="tariff_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="tariff_id"/>
+      <exported-key name="contract_ibfk_1" table="contract" schema="" catalog="ecare" columns="tariff_id"/>
+      <exported-key name="tariff_id" table="option" schema="" catalog="ecare" columns="tariff_id"/>
     </table>
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM VIEW">
       <column name="CHARACTER_SET_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
