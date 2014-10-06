@@ -10,9 +10,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "contract")
+@NamedQuery(name = "Contract.getAll", query = "SELECT c FROM Contract c")
 public class Contract {
     @Id
     @Column(name = "contract_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "number")
@@ -44,13 +46,12 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(long id, long number, Tariff tariff, boolean isBlockedByClient, boolean isBlockedByOperator, List<Option> options) {
-        this.id = id;
+    public Contract(Client client, long number, Tariff tariff, boolean isBlockedByClient, boolean isBlockedByOperator) {
+        this.client = client;
         this.number = number;
         this.tariff = tariff;
         this.isBlockedByClient = isBlockedByClient;
         this.isBlockedByOperator = isBlockedByOperator;
-        this.options = options;
     }
 
     public long getId() {

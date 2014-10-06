@@ -15,6 +15,7 @@ import java.util.List;
 public class Client {
     @Id
     @Column(name = "client_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     /*@OneToOne(fetch=FetchType.LAZY)
     @JoinTable
             (
@@ -45,14 +46,13 @@ public class Client {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private List<Contract> contracts;
 
     public Client() {
     }
 
-    public Client(long id, String name, String lastname, Date birthDate, long passport, String address, String email, String password, List<Contract> contracts) {
-        this.id = id;
+    public Client(String name, String lastname, Date birthDate, long passport, String address, String email, String password) {
         this.name = name;
         this.lastname = lastname;
         this.birthDate = birthDate;
@@ -60,7 +60,6 @@ public class Client {
         this.address = address;
         this.email = email;
         this.password = password;
-        this.contracts = contracts;
     }
 
     public long getId() {

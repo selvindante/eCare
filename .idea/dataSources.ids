@@ -1438,18 +1438,18 @@
     </table>
     <table name="contract" schema="" catalog="ecare" type="TABLE">
       <column name="number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="tariff_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="tariff_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="blckd_by_cl" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <column name="blckd_by_op" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <column name="contract_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="client_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="contract_id"/>
-      <foreign-key name="contract_ibfk_1" columns="tariff_id" ref-table="tariff" ref-schema="" ref-catalog="ecare" ref-columns="tariff_id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="client_id" columns="client_id" ref-table="client" ref-schema="" ref-catalog="ecare" ref-columns="client_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="contract_ibfk_1" columns="tariff_id" ref-table="tariff" ref-schema="" ref-catalog="ecare" ref-columns="tariff_id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="contract_id_UNIQUE" unique="true" columns="contract_id"/>
       <index name="number_UNIQUE" unique="true" columns="number"/>
-      <index name="client_id_idx" unique="false" columns="client_id"/>
-      <index name="tariff_id_idx" unique="false" columns="tariff_id"/>
+      <index name="cient_id_idx" unique="false" columns="client_id"/>
+      <index name="contract_idx" unique="false" columns="tariff_id"/>
     </table>
     <table name="option" schema="" catalog="ecare" type="TABLE">
       <column name="option_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
