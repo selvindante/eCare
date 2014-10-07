@@ -1,6 +1,7 @@
 package ru.tsystems.tsproject.ecare.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class Tariff {
     private int price;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tariff")
-    private List<Option> options;
+    private List<Option> options  = new ArrayList<>();
 
     public Tariff() {
     }
@@ -36,6 +37,10 @@ public class Tariff {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -58,8 +63,8 @@ public class Tariff {
         return options;
     }
 
-    public void setOptions(List<Option> options) {
-        this.options = options;
+    public void addOption(Option op) {
+        this.options.add(op);
     }
 
     @Override
@@ -69,5 +74,27 @@ public class Tariff {
                 ", title='" + title + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tariff tariff = (Tariff) o;
+
+        if (price != tariff.price) return false;
+        if (options != null ? !options.equals(tariff.options) : tariff.options != null) return false;
+        if (!title.equals(tariff.title)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title.hashCode();
+        result = 31 * result + price;
+        result = 31 * result + (options != null ? options.hashCode() : 0);
+        return result;
     }
 }

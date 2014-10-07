@@ -43,6 +43,10 @@ public class Option {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -76,5 +80,29 @@ public class Option {
                 ", costOfConnection=" + costOfConnection +
                 ", tariff=" + tariff +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Option option = (Option) o;
+
+        if (costOfConnection != option.costOfConnection) return false;
+        if (price != option.price) return false;
+        if (!tariff.equals(option.tariff)) return false;
+        if (!title.equals(option.title)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title.hashCode();
+        result = 31 * result + price;
+        result = 31 * result + costOfConnection;
+        result = 31 * result + tariff.hashCode();
+        return result;
     }
 }

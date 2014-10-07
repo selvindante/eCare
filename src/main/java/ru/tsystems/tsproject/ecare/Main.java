@@ -1,8 +1,7 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.entities.Tariff;
-import ru.tsystems.tsproject.ecare.storage.AbstractTariffDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlTariffDAO;
+import ru.tsystems.tsproject.ecare.storage.AbstractClientDAO;
+import ru.tsystems.tsproject.ecare.storage.SqlClientDAO;
 
 /**
  * Created by Selvin
@@ -16,23 +15,20 @@ public class Main {
         options.add(opst.loadOption(38));
         options.add(opst.loadOption(39));
 
-        AbstractTariffDAO trst = new SqlTariffDAO();
+        AbstractTariffDAO trst = new SqlTariffDAO();*/
 
-        Client cl = new Client("Semen", "Semenov", new Date(), 9505601234l, "SPB", "semenov@mail.ru", "qwerty321");
+        /*Client cl = new Client("Semen", "Semenov", new Date(), 9505601234l, "SPB", "semenov@mail.ru", "qwerty321");
 
-        List<Contract> contracts = new ArrayList<>();
-        Contract cn = new Contract(cl, 9650327493l, trst.loadTariff(33), false, false);
-        cn.setOptions(options);
-        contracts.add(cn);
-        cl.setContracts(contracts);
+        Contract cn = new Contract(cl, 9650327493l, null, false, false);
+        cl.addContract(cn);
 
         AbstractClientDAO clst = new SqlClientDAO();
         clst.createClient(cl);*/
 
-        /*AbstractClientDAO clst = new SqlClientDAO();
-        clst.deleteAll();*/
+        AbstractClientDAO clst = new SqlClientDAO();
+        long er = clst.size();
 
-        AbstractTariffDAO trst = new SqlTariffDAO();
-        Tariff tr = trst.loadTariff(33);
+        /*AbstractTariffDAO trst = new SqlTariffDAO();
+        Tariff tr = trst.loadTariff(33);*/
     }
 }

@@ -16,6 +16,7 @@ public abstract class AbstractClientDAO {
     protected abstract void doDeleteClient(long id);
     protected abstract List<Client> doGetAll();
     protected abstract void doDeleteAll();
+    protected abstract long doSize();
 
     public void createClient(Client cl){
         doCreateClient(cl);
@@ -39,5 +40,9 @@ public abstract class AbstractClientDAO {
 
     public void deleteAll() {
         doDeleteAll();
+    }
+
+    public long size() {
+        return doSize();
     }
 }

@@ -3,6 +3,7 @@ package ru.tsystems.tsproject.ecare.storage;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -44,5 +45,19 @@ public class SqlTariffDAO extends AbstractTariffDAO {
     protected List<Tariff> doGetAll() {
         TypedQuery<Tariff> namedQuery = em.createNamedQuery("Tariff.getAll", Tariff.class);
         return namedQuery.getResultList();
+    }
+
+    @Override
+    protected void doDeleteAll() {
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Tariff tariff").executeUpdate();
+        em.getTransaction().commit();
+    }
+
+    @Override
+    protected long doSize() {
+        em.getTransaction().begin();
+        Query q = em.createQuery("SELECT count(tariff) FROM Tariff tariff");
+        return (Long) q.getSingleResult ();
     }
 }

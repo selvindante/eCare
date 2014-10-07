@@ -1,6 +1,7 @@
 package ru.tsystems.tsproject.ecare.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class Client {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
-    private List<Contract> contracts;
+    private List<Contract> contracts = new ArrayList<>();
 
     public Client() {
     }
@@ -64,6 +65,10 @@ public class Client {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -126,8 +131,8 @@ public class Client {
         return contracts;
     }
 
-    public void setContracts(List<Contract> contracts) {
-        this.contracts = contracts;
+    public void addContract(Contract cn) {
+        this.contracts.add(cn);
     }
 
     @Override
@@ -142,5 +147,34 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Client client = (Client) o;
+
+        if (passport != client.passport) return false;
+        if (address != null ? !address.equals(client.address) : client.address != null) return false;
+        if (birthDate != null ? !birthDate.equals(client.birthDate) : client.birthDate != null) return false;
+        if (!email.equals(client.email)) return false;
+        if (lastname != null ? !lastname.equals(client.lastname) : client.lastname != null) return false;
+        if (name != null ? !name.equals(client.name) : client.name != null) return false;
+        if (!password.equals(client.password)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
+        result = 31 * result + (int) (passport ^ (passport >>> 32));
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + email.hashCode();
+        return result;
     }
 }

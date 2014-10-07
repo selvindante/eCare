@@ -3,6 +3,7 @@ package ru.tsystems.tsproject.ecare.storage;
 import ru.tsystems.tsproject.ecare.entities.Client;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -51,5 +52,12 @@ public class SqlClientDAO extends AbstractClientDAO {
         em.getTransaction().begin();
         em.createQuery("DELETE FROM Client client").executeUpdate();
         em.getTransaction().commit();
+    }
+
+    @Override
+    protected long doSize() {
+        em.getTransaction().begin();
+        Query q = em.createQuery("SELECT count(client) FROM Client client");
+        return (Long) q.getSingleResult ();
     }
 }

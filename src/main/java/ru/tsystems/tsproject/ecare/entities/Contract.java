@@ -1,6 +1,7 @@
 package ru.tsystems.tsproject.ecare.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "contract")
 @NamedQuery(name = "Contract.getAll", query = "SELECT c FROM Contract c")
-public class Contract {
+public class Contract{
     @Id
     @Column(name = "contract_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +42,7 @@ public class Contract {
                     joinColumns={ @JoinColumn(name="contract_id", referencedColumnName="contract_id") },
                     inverseJoinColumns={ @JoinColumn(name="option_id", referencedColumnName="option_id") }
             )
-    private List<Option> options;
+    private List<Option> options = new ArrayList<>();
 
     public Contract() {
     }
@@ -56,6 +57,10 @@ public class Contract {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getNumber() {
@@ -95,8 +100,8 @@ public class Contract {
         return options;
     }
 
-    public void setOptions(List<Option> options) {
-        this.options = options;
+    public void addOption(Option op) {
+        this.options.add(op);
     }
 
     @Override
@@ -109,5 +114,31 @@ public class Contract {
                 ", isBlockedByOperator=" + isBlockedByOperator +
                 ", client=" + client +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contract contract = (Contract) o;
+
+        if (isBlockedByClient != contract.isBlockedByClient) return false;
+        if (isBlockedByOperator != contract.isBlockedByOperator) return false;
+        if (number != contract.number) return false;
+        if (!client.equals(contract.client)) return false;
+        if (tariff != null ? !tariff.equals(contract.tariff) : contract.tariff != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (number ^ (number >>> 32));
+        result = 31 * result + (tariff != null ? tariff.hashCode() : 0);
+        result = 31 * result + (isBlockedByClient ? 1 : 0);
+        result = 31 * result + (isBlockedByOperator ? 1 : 0);
+        result = 31 * result + client.hashCode();
+        return result;
     }
 }
