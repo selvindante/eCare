@@ -1,6 +1,6 @@
 package ru.tsystems.tsproject.ecare.storage;
 
-import ru.tsystems.tsproject.ecare.entities.Contract;
+import ru.tsystems.tsproject.ecare.entities.Option;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -10,39 +10,39 @@ import java.util.List;
  * Created by Selvin
  * on 06.10.2014.
  */
-public class SqlContractDAO extends AbstractContractDAO {
+public class SqlOptionDAO extends AbstractOptionDAO {
 
     private EntityManager em = SqlEntityManager.getEm();
 
     @Override
-    protected void doCreateContract(Contract cn) {
+    protected void doCreateOption(Option op) {
         em.getTransaction().begin();
-        em.merge(cn);
+        em.merge(op);
         em.getTransaction().commit();
     }
 
     @Override
-    protected Contract doLoadContract(long id) {
-        return em.find(Contract.class, id);
+    protected Option doLoadOption(long id) {
+        return em.find(Option.class, id);
     }
 
     @Override
-    protected void doUpdateContract(Contract cn) {
+    protected void doUpdateOption(Option op) {
         em.getTransaction().begin();
-        em.merge(cn);
+        em.merge(op);
         em.getTransaction().commit();
     }
 
     @Override
-    protected void doDeleteContract(long id) {
+    protected void doDeleteOption(long id) {
         em.getTransaction().begin();
-        em.remove(doLoadContract(id));
+        em.remove(doLoadOption(id));
         em.getTransaction().commit();
     }
 
     @Override
-    protected List<Contract> doGetAll() {
-        TypedQuery<Contract> namedQuery = em.createNamedQuery("Contract.getAll", Contract.class);
+    protected List<Option> doGetAll() {
+        TypedQuery<Option> namedQuery = em.createNamedQuery("Option.getAll", Option.class);
         return namedQuery.getResultList();
     }
 }

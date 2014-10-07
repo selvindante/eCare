@@ -34,7 +34,7 @@ public class Contract {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable
             (
                     name="connected_option",

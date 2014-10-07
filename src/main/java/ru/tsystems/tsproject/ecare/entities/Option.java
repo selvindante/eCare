@@ -8,10 +8,12 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "option")
+@Table(name = "option1")
+@NamedQuery(name = "Option.getAll", query = "SELECT o FROM Option o")
 public class Option {
     @Id
     @Column(name = "option_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "option_title")
@@ -20,7 +22,7 @@ public class Option {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "cost_of_connection")
+    @Column(name = "cnct_cost")
     private int costOfConnection;
 
     @ManyToOne
@@ -30,8 +32,8 @@ public class Option {
     public Option() {
     }
 
-    public Option(long id, String title, int price, int costOfConnection) {
-        this.id = id;
+    public Option(Tariff tariff, String title, int price, int costOfConnection) {
+        this.tariff = tariff;
         this.title = title;
         this.price = price;
         this.costOfConnection = costOfConnection;
@@ -63,5 +65,16 @@ public class Option {
 
     public void setCostOfConnection(int costOfConnection) {
         this.costOfConnection = costOfConnection;
+    }
+
+    @Override
+    public String toString() {
+        return "Option{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", costOfConnection=" + costOfConnection +
+                ", tariff=" + tariff +
+                '}';
     }
 }

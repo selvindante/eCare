@@ -3,8 +3,6 @@ package ru.tsystems.tsproject.ecare.storage;
 import ru.tsystems.tsproject.ecare.entities.Client;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -14,8 +12,7 @@ import java.util.List;
  */
 public class SqlClientDAO extends AbstractClientDAO {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("ECARE");
-    private EntityManager em = emf.createEntityManager();
+    private EntityManager em = SqlEntityManager.getEm();
 
     @Override
     protected void doCreateClient(Client cl) {
@@ -47,5 +44,12 @@ public class SqlClientDAO extends AbstractClientDAO {
     protected List<Client> doGetAll() {
         TypedQuery<Client> namedQuery = em.createNamedQuery("Client.getAll", Client.class);
         return namedQuery.getResultList();
+    }
+
+    @Override
+    protected void doDeleteAll() {
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Client client").executeUpdate();
+        em.getTransaction().commit();
     }
 }

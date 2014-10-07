@@ -10,9 +10,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "tariff")
+@NamedQuery(name = "Tariff.getAll", query = "SELECT t FROM Tariff t")
 public class Tariff {
     @Id
     @Column(name = "tariff_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "tariff_title")
@@ -21,17 +23,15 @@ public class Tariff {
     @Column(name = "price")
     private int price;
 
-    @OneToMany(mappedBy = "tariff")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tariff")
     private List<Option> options;
 
     public Tariff() {
     }
 
-    public Tariff(long id, String title, int price, List<Option> options) {
-        this.id = id;
+    public Tariff(String title, int price) {
         this.title = title;
         this.price = price;
-        this.options = options;
     }
 
     public long getId() {
@@ -60,5 +60,14 @@ public class Tariff {
 
     public void setOptions(List<Option> options) {
         this.options = options;
+    }
+
+    @Override
+    public String toString() {
+        return "Tariff{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
