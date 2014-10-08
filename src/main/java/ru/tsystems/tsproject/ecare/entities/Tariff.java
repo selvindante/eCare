@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "tariff")
 @NamedQuery(name = "Tariff.getAll", query = "SELECT t FROM Tariff t")
-public class Tariff {
+public class Tariff implements Comparable<Tariff>{
     @Id
     @Column(name = "tariff_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,8 +70,7 @@ public class Tariff {
     @Override
     public String toString() {
         return "Tariff{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
                 ", price=" + price +
                 '}';
     }
@@ -84,7 +83,6 @@ public class Tariff {
         Tariff tariff = (Tariff) o;
 
         if (price != tariff.price) return false;
-        if (options != null ? !options.equals(tariff.options) : tariff.options != null) return false;
         if (!title.equals(tariff.title)) return false;
 
         return true;
@@ -94,7 +92,11 @@ public class Tariff {
     public int hashCode() {
         int result = title.hashCode();
         result = 31 * result + price;
-        result = 31 * result + (options != null ? options.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Tariff o) {
+        return this.toString().compareTo(o.toString());
     }
 }

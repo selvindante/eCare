@@ -16,6 +16,7 @@ public abstract class AbstractContractDAO {
     protected abstract List<Contract> doGetAll();
     protected abstract void doDeleteAll();
     protected abstract long doSize();
+    protected abstract List<Contract> doGetAllForClient(long id);
 
     public void createContract(Contract cn){
         doCreateContract(cn);
@@ -36,6 +37,11 @@ public abstract class AbstractContractDAO {
     public List<Contract> getAll() {
         return doGetAll();
     }
+
+    public List<Contract> getAllForClient(long id) {
+        return doGetAllForClient(id);
+    }
+
 
     public void deleteAll() {
         doDeleteAll();

@@ -16,6 +16,7 @@ public abstract class AbstractOptionDAO {
     protected abstract List<Option> doGetAll();
     protected abstract void doDeleteAll();
     protected abstract long doSize();
+    protected abstract List doGetAllForTariff(long id);
 
     public void createOption(Option op){
         doCreateOption(op);
@@ -35,6 +36,10 @@ public abstract class AbstractOptionDAO {
 
     public List<Option> getAll() {
         return doGetAll();
+    }
+
+    public List<Option> getAllForTariff(long id) {
+        return doGetAllForTariff(id);
     }
 
     public void deleteAll() {

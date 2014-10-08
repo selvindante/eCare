@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "contract")
 @NamedQuery(name = "Contract.getAll", query = "SELECT c FROM Contract c")
-public class Contract{
+public class Contract implements Comparable<Contract>{
     @Id
     @Column(name = "contract_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -107,9 +107,8 @@ public class Contract{
     @Override
     public String toString() {
         return "Contract{" +
-                "id=" + id +
-                ", number=" + number +
-                ", tariff='" + tariff + '\'' +
+                "number=" + number +
+                ", tariff=" + tariff +
                 ", isBlockedByClient=" + isBlockedByClient +
                 ", isBlockedByOperator=" + isBlockedByOperator +
                 ", client=" + client +
@@ -126,8 +125,6 @@ public class Contract{
         if (isBlockedByClient != contract.isBlockedByClient) return false;
         if (isBlockedByOperator != contract.isBlockedByOperator) return false;
         if (number != contract.number) return false;
-        if (!client.equals(contract.client)) return false;
-        if (tariff != null ? !tariff.equals(contract.tariff) : contract.tariff != null) return false;
 
         return true;
     }
@@ -135,10 +132,13 @@ public class Contract{
     @Override
     public int hashCode() {
         int result = (int) (number ^ (number >>> 32));
-        result = 31 * result + (tariff != null ? tariff.hashCode() : 0);
         result = 31 * result + (isBlockedByClient ? 1 : 0);
         result = 31 * result + (isBlockedByOperator ? 1 : 0);
-        result = 31 * result + client.hashCode();
         return result;
+    }
+
+    @Override
+    public int compareTo(Contract o) {
+        return this.toString().compareTo(o.toString());
     }
 }

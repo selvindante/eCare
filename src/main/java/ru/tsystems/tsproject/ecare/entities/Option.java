@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "option1")
 @NamedQuery(name = "Option.getAll", query = "SELECT o FROM Option o")
-public class Option {
+public class Option implements Comparable<Option>{
     @Id
     @Column(name = "option_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,11 +74,9 @@ public class Option {
     @Override
     public String toString() {
         return "Option{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
                 ", price=" + price +
                 ", costOfConnection=" + costOfConnection +
-                ", tariff=" + tariff +
                 '}';
     }
 
@@ -91,7 +89,6 @@ public class Option {
 
         if (costOfConnection != option.costOfConnection) return false;
         if (price != option.price) return false;
-        if (!tariff.equals(option.tariff)) return false;
         if (!title.equals(option.title)) return false;
 
         return true;
@@ -102,7 +99,11 @@ public class Option {
         int result = title.hashCode();
         result = 31 * result + price;
         result = 31 * result + costOfConnection;
-        result = 31 * result + tariff.hashCode();
         return result;
+    }
+
+    @Override
+    public int compareTo(Option o) {
+        return this.toString().compareTo(o.toString());
     }
 }

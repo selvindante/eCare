@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "client")
 @NamedQuery(name = "Client.getAll", query = "SELECT c FROM Client c")
-public class Client {
+public class Client implements Comparable<Client>{
     @Id
     @Column(name = "client_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -138,8 +138,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", birthDate=" + birthDate +
                 ", passport=" + passport +
@@ -176,5 +175,11 @@ public class Client {
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + email.hashCode();
         return result;
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        int cmp = name.compareTo(o.name);
+        return cmp == 0 ? email.compareTo(o.email) : cmp;
     }
 }
