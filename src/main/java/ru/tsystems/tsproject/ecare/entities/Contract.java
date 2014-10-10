@@ -11,7 +11,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "contract")
-@NamedQuery(name = "Contract.getAll", query = "SELECT c FROM Contract c")
+@NamedQueries(
+    {
+        @NamedQuery (name = "Contract.getAllContracts", query = "SELECT c FROM Contract c"),
+        @NamedQuery (name = "Contract.deleteAllContracts", query="DELETE FROM Contract c"),
+        @NamedQuery (name = "Contract.size", query="SELECT count(c) FROM Contract c")
+    })
 public class Contract implements Comparable<Contract>{
     @Id
     @Column(name = "contract_id")
@@ -102,6 +107,10 @@ public class Contract implements Comparable<Contract>{
 
     public void addOption(Option op) {
         this.options.add(op);
+    }
+
+    public void deleteOption(Option op) {
+        this.options.remove(op);
     }
 
     @Override

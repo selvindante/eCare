@@ -12,9 +12,9 @@ public abstract class AbstractTariffDAO {
     protected abstract void doCreateTariff(Tariff tr);
     protected abstract Tariff doLoadTariff(long id);
     protected abstract void doUpdateTariff(Tariff tr);
-    protected abstract void doDeleteTariff(long id);
-    protected abstract List<Tariff> doGetAll();
-    protected abstract void doDeleteAll();
+    protected abstract void doDeleteTariff(Tariff tr);
+    protected abstract List<Tariff> doGetAllTariffs();
+    protected abstract void doDeleteAllTariffs();
     protected abstract long doSize();
 
     public void createTariff(Tariff tr){
@@ -29,16 +29,16 @@ public abstract class AbstractTariffDAO {
         doUpdateTariff(tr);
     }
 
-    public void deleteTariff(long id) {
-        doDeleteTariff(id);
+    public void deleteTariff(Tariff tr) {
+        doDeleteTariff(tr);
     }
 
-    public List<Tariff> getAll() {
-        return doGetAll();
+    public List<Tariff> getAllTariffs() {
+        return doGetAllTariffs();
     }
 
-    public void deleteAll() {
-        doDeleteAll();
+    public void deleteAllTariffs() {
+        doDeleteAllTariffs();
     }
 
     public long size() {

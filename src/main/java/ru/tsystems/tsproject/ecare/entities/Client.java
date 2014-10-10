@@ -12,17 +12,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "client")
-@NamedQuery(name = "Client.getAll", query = "SELECT c FROM Client c")
+@NamedQueries(
+    {
+        @NamedQuery (name = "Client.getAllClients", query = "SELECT c FROM Client c WHERE c.role = 'client'"),
+        @NamedQuery (name = "Client.deleteAllClients", query="DELETE FROM Client c WHERE c.role = 'client'"),
+        @NamedQuery (name = "Client.size", query="SELECT count(c) FROM Client c WHERE c.role = 'client'")
+    })
 public class Client implements Comparable<Client>{
     @Id
     @Column(name = "client_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    /*@OneToOne(fetch=FetchType.LAZY)
-    @JoinTable
-            (
-                    name="authorisation",
-                    joinColumns={ @JoinColumn(name="client_id", referencedColumnName="user_id") }
-            )*/
     private long id;
 
     @Column(name = "name")
@@ -47,13 +46,17 @@ public class Client implements Comparable<Client>{
     @Column(name = "password")
     private String password;
 
+    //TODO entity field "role" and delete table ecare.authorization
+    @Column(name = "role")
+    private String role;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private List<Contract> contracts = new ArrayList<>();
 
     public Client() {
     }
 
-    public Client(String name, String lastname, Date birthDate, long passport, String address, String email, String password) {
+    public Client(String name, String lastname, Date birthDate, long passport, String address, String email, String password, String role) {
         this.name = name;
         this.lastname = lastname;
         this.birthDate = birthDate;
@@ -61,6 +64,7 @@ public class Client implements Comparable<Client>{
         this.address = address;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public long getId() {
@@ -127,6 +131,14 @@ public class Client implements Comparable<Client>{
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public List<Contract> getContracts() {
         return contracts;
     }
@@ -145,6 +157,7 @@ public class Client implements Comparable<Client>{
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 

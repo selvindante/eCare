@@ -1,10 +1,7 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.entities.Contract;
-import ru.tsystems.tsproject.ecare.storage.AbstractContractDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlContractDAO;
-
-import java.util.List;
+import ru.tsystems.tsproject.ecare.business.ClientBusiness;
+import ru.tsystems.tsproject.ecare.entities.Client;
 
 /**
  * Created by Selvin
@@ -22,10 +19,8 @@ public class Main {
 
         /*Client cl = new Client("Semen", "Semenov", new Date(), 9505601234l, "SPB", "semenov@mail.ru", "qwerty321");*/
 
-        AbstractContractDAO cnst = new SqlContractDAO();
-        List<Contract> contracts = cnst.getAll();
-        cnst.deleteContract(contracts.get(0).getId());
-        long i = cnst.size();
+        ClientBusiness cb = new ClientBusiness();
+        Client cl = cb.findClientByNumber(892345678l);
 
         /*AbstractTariffDAO trst = new SqlTariffDAO();
         Tariff tr = trst.loadTariff(33);*/

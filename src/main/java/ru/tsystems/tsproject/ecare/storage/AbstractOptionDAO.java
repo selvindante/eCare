@@ -12,11 +12,11 @@ public abstract class AbstractOptionDAO {
     protected abstract void doCreateOption(Option op);
     protected abstract Option doLoadOption(long id);
     protected abstract void doUpdateOption(Option op);
-    protected abstract void doDeleteOption(long id);
-    protected abstract List<Option> doGetAll();
-    protected abstract void doDeleteAll();
+    protected abstract void doDeleteOption(Option op);
+    protected abstract List<Option> doGetAllOptions();
+    protected abstract void doDeleteAllOptions();
     protected abstract long doSize();
-    protected abstract List doGetAllForTariff(long id);
+    protected abstract List doGetAllOptionsForTariff(long id);
 
     public void createOption(Option op){
         doCreateOption(op);
@@ -30,20 +30,20 @@ public abstract class AbstractOptionDAO {
         doUpdateOption(op);
     }
 
-    public void deleteOption(long id) {
-        doDeleteOption(id);
+    public void deleteOption(Option op) {
+        doDeleteOption(op);
     }
 
-    public List<Option> getAll() {
-        return doGetAll();
+    public List<Option> getAllOptions() {
+        return doGetAllOptions();
     }
 
-    public List<Option> getAllForTariff(long id) {
-        return doGetAllForTariff(id);
+    public List<Option> getAllOptionsForTariff(long id) {
+        return doGetAllOptionsForTariff(id);
     }
 
-    public void deleteAll() {
-        doDeleteAll();
+    public void deleteAllOptions() {
+        doDeleteAllOptions();
     }
 
     public long size() {

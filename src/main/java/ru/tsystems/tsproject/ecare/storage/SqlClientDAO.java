@@ -1,12 +1,9 @@
 package ru.tsystems.tsproject.ecare.storage;
 
-import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.entities.Client;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -14,124 +11,52 @@ import java.util.List;
  * on 02.10.2014.
  */
 public class SqlClientDAO extends AbstractClientDAO {
+    private EntityManager em;
 
-    private EntityManager em = SqlEntityManager.getEm();
+    public SqlClientDAO(EntityManager em) {
+        this.em = em;
+    }
 
     @Override
     protected void doCreateClient(Client cl) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            em.merge(cl);
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
+        em.merge(cl);
     }
 
     @Override
     protected Client doLoadClient(long id) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            Client cl = em.find(Client.class, id);
-            tx.commit();
-            if(cl == null)  throw new ECareException("Client with id = " + id + " not found.", id);
-            return cl;
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
+        return em.find(Client.class, id);
+    }
+
+    @Override
+    protected Client doFindClientByNumber(long number) {
+        Query query = em.createQuery("SELECT cn.client FROM Contract cn WHERE cn.number = :number");
+        query.setParameter("number", number);
+        return (Client) query.getSingleResult();
     }
 
     @Override
     protected void doUpdateClient(Client cl) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            em.merge(cl);
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
+        em.merge(cl);
     }
 
     @Override
-    protected void doDeleteClient(long id) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            Client cl = em.find(Client.class, id);
-            if(cl == null) throw new ECareException("Client with id = " + id + " not exist.", id);
-            em.remove(cl);
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
+    protected void doDeleteClient(Client cl) {
+        em.remove(cl);
     }
 
     @Override
-    protected List<Client> doGetAll() {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            TypedQuery<Client> namedQuery = em.createNamedQuery("Client.getAll", Client.class);
-            tx.commit();
-            return namedQuery.getResultList();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
+    protected List<Client> doGetAllClients() {
+        return em.createNamedQuery("Client.getAllClients", Client.class).getResultList();
     }
 
     @Override
-    protected void doDeleteAll() {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            em.createQuery("DELETE FROM Client client").executeUpdate();
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
+    protected void doDeleteAllClients() {
+        em.createNamedQuery("Client.deleteAllClients", Client.class).executeUpdate();
     }
 
     @Override
     protected long doSize() {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            Query q = em.createQuery("SELECT count(client) FROM Client client");
-            tx.commit();
-            return (Long) q.getSingleResult ();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
+        Query q = em.createNamedQuery("Client.size", Client.class);
+        return (Long) q.getSingleResult();
     }
 }

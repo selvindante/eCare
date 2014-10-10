@@ -9,7 +9,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "option1")
-@NamedQuery(name = "Option.getAll", query = "SELECT o FROM Option o")
+@NamedQueries(
+        {
+            @NamedQuery (name = "Option.getAllOptions", query = "SELECT o FROM Option o"),
+            @NamedQuery (name = "Option.deleteAllOptions", query="DELETE FROM Option o"),
+            @NamedQuery (name = "Option.size", query="SELECT count(o) FROM Option o")
+        })
 public class Option implements Comparable<Option>{
     @Id
     @Column(name = "option_id")

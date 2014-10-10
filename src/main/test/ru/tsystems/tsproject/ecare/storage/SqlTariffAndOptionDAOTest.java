@@ -1,25 +1,11 @@
 package ru.tsystems.tsproject.ecare.storage;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.entities.Option;
-import ru.tsystems.tsproject.ecare.entities.Tariff;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-
 /**
  * Created by Selvin
  * on 08.10.2014.
  */
 public class SqlTariffAndOptionDAOTest {
-    private static AbstractClientDAO clst = new SqlClientDAO();
+    /*private static AbstractClientDAO clst = new SqlClientDAO();
     private static AbstractTariffDAO trst = new SqlTariffDAO();
     private static AbstractOptionDAO opst = new SqlOptionDAO();
 
@@ -45,7 +31,7 @@ public class SqlTariffAndOptionDAOTest {
 
     @Before
     public void before() {
-        clst.deleteAll();
+        clst.deleteAllClients();
         trst.deleteAll();
         trst.createTariff(TR1);
         trst.createTariff(TR2);
@@ -130,9 +116,9 @@ public class SqlTariffAndOptionDAOTest {
         assertEquals(option, opst.loadOption(option.getId()));
     }
 
-    /*@Test
+    *//*@Test
     public void testDeleteOption() throws Exception {
-        List<Option> options = opst.getAll();
+        List<Option> options = opst.getAllClients();
         opst.deleteOption(options.get(0).getId());
         assertEquals(4, opst.size());
         opst.deleteOption(options.get(1).getId());
@@ -143,7 +129,7 @@ public class SqlTariffAndOptionDAOTest {
         assertEquals(1, opst.size());
         opst.deleteOption(options.get(4).getId());
         assertEquals(0, opst.size());
-    }*/
+    }*//*
 
     @Test
     public void testGetAllOptions() throws Exception {
@@ -177,5 +163,5 @@ public class SqlTariffAndOptionDAOTest {
     @Test(expected = ECareException.class)
     public void testDeleteMissedContract() throws Exception {
         opst.deleteOption(-12l);
-    }
+    }*/
 }

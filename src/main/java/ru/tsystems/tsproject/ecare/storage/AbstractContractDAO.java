@@ -12,11 +12,11 @@ public abstract class AbstractContractDAO {
     protected abstract void doCreateContract(Contract cn);
     protected abstract Contract doLoadContract(long id);
     protected abstract void doUpdateContract(Contract cn);
-    protected abstract void doDeleteContract(long id);
-    protected abstract List<Contract> doGetAll();
-    protected abstract void doDeleteAll();
+    protected abstract void doDeleteContract(Contract cn);
+    protected abstract List<Contract> doGetAllContracts();
+    protected abstract void doDeleteAllContracts();
     protected abstract long doSize();
-    protected abstract List<Contract> doGetAllForClient(long id);
+    protected abstract List<Contract> doGetAllContractsForClient(long id);
 
     public void createContract(Contract cn){
         doCreateContract(cn);
@@ -30,21 +30,21 @@ public abstract class AbstractContractDAO {
         doUpdateContract(cn);
     }
 
-    public void deleteContract(long id) {
-        doDeleteContract(id);
+    public void deleteContract(Contract cn) {
+        doDeleteContract(cn);
     }
 
-    public List<Contract> getAll() {
-        return doGetAll();
+    public List<Contract> getAllContracts() {
+        return doGetAllContracts();
     }
 
-    public List<Contract> getAllForClient(long id) {
-        return doGetAllForClient(id);
+    public List<Contract> getAllContractsForClient(long id) {
+        return doGetAllContractsForClient(id);
     }
 
 
-    public void deleteAll() {
-        doDeleteAll();
+    public void deleteAllContracts() {
+        doDeleteAllContracts();
     }
 
     public long size() {

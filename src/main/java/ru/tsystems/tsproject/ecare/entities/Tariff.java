@@ -11,7 +11,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "tariff")
-@NamedQuery(name = "Tariff.getAll", query = "SELECT t FROM Tariff t")
+@NamedQueries(
+    {
+        @NamedQuery (name = "Tariff.getAllTariffs", query = "SELECT t FROM Tariff t"),
+        @NamedQuery (name = "Tariff.deleteAllTariffs", query="DELETE FROM Tariff t"),
+        @NamedQuery (name = "Tariff.size", query="SELECT count(t) FROM Tariff t")
+    })
 public class Tariff implements Comparable<Tariff>{
     @Id
     @Column(name = "tariff_id")
