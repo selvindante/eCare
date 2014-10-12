@@ -1,6 +1,8 @@
 package ru.tsystems.tsproject.ecare.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Selvin
@@ -33,6 +35,24 @@ public class Option implements Comparable<Option>{
     @ManyToOne
     @JoinColumn(name = "tariff_id")
     private Tariff tariff;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+            (
+                    name="dependent_option",
+                    joinColumns={ @JoinColumn(name="option_id", referencedColumnName="option_id") },
+                    inverseJoinColumns={ @JoinColumn(name="dependent_option_id", referencedColumnName="option_id") }
+            )
+    private List<Option> dependentOptions = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+            (
+                    name="incompatible_option",
+                    joinColumns={ @JoinColumn(name="option_id", referencedColumnName="option_id") },
+                    inverseJoinColumns={ @JoinColumn(name="incompatible_option_id", referencedColumnName="option_id") }
+            )
+    private List<Option> incompatibleOptions = new ArrayList<>();
 
     public Option() {
     }
@@ -74,6 +94,30 @@ public class Option implements Comparable<Option>{
 
     public void setCostOfConnection(int costOfConnection) {
         this.costOfConnection = costOfConnection;
+    }
+
+    public List<Option> getDependentOptions() {
+        return dependentOptions;
+    }
+
+    public void addDependentOption(Option op) {
+        this.dependentOptions.add(op);
+    }
+
+    public void deleteDependentOption(Option op) {
+        this.dependentOptions.remove(op);
+    }
+
+    public List<Option> getIncompatibleOptions() {
+        return incompatibleOptions;
+    }
+
+    public void addIncompatibleOption(Option op) {
+        this.incompatibleOptions.add(op);
+    }
+
+    public void deleteIncompatibleOption(Option op) {
+        this.incompatibleOptions.remove(op);
     }
 
     @Override

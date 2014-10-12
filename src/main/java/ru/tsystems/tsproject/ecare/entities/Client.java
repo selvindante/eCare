@@ -46,7 +46,6 @@ public class Client implements Comparable<Client>{
     @Column(name = "password")
     private String password;
 
-    //TODO entity field "role" and delete table ecare.authorization
     @Column(name = "role")
     private String role;
 

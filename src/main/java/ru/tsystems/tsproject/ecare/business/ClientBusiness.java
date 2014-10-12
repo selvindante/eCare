@@ -1,10 +1,10 @@
 package ru.tsystems.tsproject.ecare.business;
 
 import ru.tsystems.tsproject.ecare.ECareException;
+import ru.tsystems.tsproject.ecare.dao.AbstractClientDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlClientDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.entities.Client;
-import ru.tsystems.tsproject.ecare.storage.AbstractClientDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlClientDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlEntityManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -34,7 +34,7 @@ public class ClientBusiness {
         }
     }
 
-    public Client loadClient(long id) {
+    public Client loadClient(long id) throws ECareException {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
@@ -51,7 +51,7 @@ public class ClientBusiness {
         }
     }
 
-    public Client findClientByNumber(long number) {
+    public Client findClientByNumber(long number) throws ECareException {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
@@ -83,7 +83,7 @@ public class ClientBusiness {
         }
     }
 
-    public void deleteClient(long id) {
+    public void deleteClient(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();

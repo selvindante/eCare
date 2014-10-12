@@ -1,10 +1,11 @@
 package ru.tsystems.tsproject.ecare.business;
 
 import ru.tsystems.tsproject.ecare.ECareException;
+import ru.tsystems.tsproject.ecare.dao.AbstractContractDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlContractDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.entities.Contract;
-import ru.tsystems.tsproject.ecare.storage.AbstractContractDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlContractDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlEntityManager;
+import ru.tsystems.tsproject.ecare.entities.Option;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -33,7 +34,7 @@ public class ContractBusiness {
         }
     }
 
-    protected Contract loadContract(long id) {
+    public Contract loadContract(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -50,7 +51,7 @@ public class ContractBusiness {
         }
     }
 
-    protected void updateContract(Contract cn) {
+    public void updateContract(Contract cn) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -65,7 +66,7 @@ public class ContractBusiness {
         }
     }
 
-    protected void deleteContract(long id) {
+    public void deleteContract(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -82,7 +83,7 @@ public class ContractBusiness {
         }
     }
 
-    protected List<Contract> getAllContracts() {
+    public List<Contract> getAllContracts() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -98,7 +99,7 @@ public class ContractBusiness {
         }
     }
 
-    protected List<Contract> getAllContractsForClient(long id) {
+    public List<Contract> getAllContractsForClient(long id) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -114,7 +115,7 @@ public class ContractBusiness {
         }
     }
 
-    protected void deleteAllContracts() {
+    public void deleteAllContracts() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -129,7 +130,7 @@ public class ContractBusiness {
         }
     }
 
-    protected long getNumberOfContracts() {
+    public long getNumberOfContracts() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -143,5 +144,67 @@ public class ContractBusiness {
             }
             throw re;
         }
+    }
+
+    public boolean isBlockedByClient(Contract cn) {
+        return cn.isBlockedByClient();
+    }
+
+    public boolean isBlockedByOperator(Contract cn) {
+        return cn.isBlockedByClient();
+    }
+
+    public void blockByClient(Contract cn) throws ECareException {
+        if(!cn.isBlockedByOperator()) {
+            if(!cn.isBlockedByClient()) {
+                cn.setBlockByClient(true);
+            }
+            else throw new ECareException("Contract " + cn.getId() + " is already blocked by client.");
+        }
+        else throw new ECareException("Contract " + cn.getId() + " is blocked by operator.");
+    }
+
+    public void unblockByClient(Contract cn) throws ECareException {
+        if(!cn.isBlockedByOperator()) {
+            if(cn.isBlockedByClient()) {
+                cn.setBlockByClient(false);
+            }
+            else throw new ECareException("Contract " + cn.getId() + " is already unblocked by client.");
+        }
+        else throw new ECareException("Contract " + cn.getId() + " is blocked by operator.");
+    }
+
+    public void blockByOperator(Contract cn) throws ECareException {
+        if(!cn.isBlockedByOperator()) {
+            cn.setBlockByOperator(true);
+        }
+        else throw new ECareException("Contract " + cn.getId() + " is already blocked by operator.");
+    }
+
+    public void unblockByOperator(Contract cn) throws ECareException {
+        if(cn.isBlockedByOperator()) {
+            cn.setBlockByOperator(false);
+        }
+        else throw new ECareException("Contract " + cn.getId() + " is already unblocked by operator.");
+    }
+
+    public void enableOption(Contract cn, Option op) throws ECareException {
+        if(!cn.getOptions().contains(op)) {
+            cn.addOption(op);
+            for(Option dependentOption: op.getDependentOptions()) {
+                if(!cn.getOptions().contains(dependentOption)) cn.addOption(dependentOption);
+            }
+        }
+        else throw new ECareException("Option " + op.getId() + ":" + op.getTitle() + " is already enabled for contract " + cn.getId() + ".");
+    }
+
+    public void disableOption(Contract cn, Option op) throws ECareException {
+        if(cn.getOptions().contains(op)) {
+            cn.deleteOption(op);
+            for(Option dependentOption: op.getDependentOptions()) {
+                if(cn.getOptions().contains(dependentOption)) cn.deleteOption(dependentOption);
+            }
+        }
+        else throw new ECareException("Option " + op.getId() + ":" + op.getTitle() + " is not enabled for contract " + cn.getId() + ".");
     }
 }

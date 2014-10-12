@@ -1,4 +1,4 @@
-package ru.tsystems.tsproject.ecare.storage;
+package ru.tsystems.tsproject.ecare.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

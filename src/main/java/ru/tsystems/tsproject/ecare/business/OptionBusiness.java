@@ -2,9 +2,9 @@ package ru.tsystems.tsproject.ecare.business;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.entities.Option;
-import ru.tsystems.tsproject.ecare.storage.AbstractOptionDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlEntityManager;
-import ru.tsystems.tsproject.ecare.storage.SqlOptionDAO;
+import ru.tsystems.tsproject.ecare.dao.AbstractOptionDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
+import ru.tsystems.tsproject.ecare.dao.SqlOptionDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -18,7 +18,7 @@ public class OptionBusiness {
     private EntityManager em = SqlEntityManager.getEm();
     private AbstractOptionDAO opDAO = new SqlOptionDAO(em);
 
-    protected void createOption(Option op) {
+    public void createOption(Option op) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -33,7 +33,7 @@ public class OptionBusiness {
         }
     }
 
-    protected Option loadOption(long id) {
+    public Option loadOption(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -50,7 +50,7 @@ public class OptionBusiness {
         }
     }
 
-    protected void updateOption(Option op) {
+    public void updateOption(Option op) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -65,7 +65,7 @@ public class OptionBusiness {
         }
     }
 
-    protected void deleteOption(long id) {
+    public void deleteOption(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -82,7 +82,7 @@ public class OptionBusiness {
         }
     }
 
-    protected List<Option> getAllOptions() {
+    public List<Option> getAllOptions() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -98,7 +98,7 @@ public class OptionBusiness {
         }
     }
 
-    protected List<Option> getAllOptionsForTariff(long id) {
+    public List<Option> getAllOptionsForTariff(long id) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -114,7 +114,7 @@ public class OptionBusiness {
         }
     }
 
-    protected void deleteAllOptions() {
+    public void deleteAllOptions() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -129,7 +129,7 @@ public class OptionBusiness {
         }
     }
 
-    protected long getNumberOfOptions() {
+    public long getNumberOfOptions() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -143,5 +143,40 @@ public class OptionBusiness {
             }
             throw re;
         }
+    }
+
+    public void setDependentOption(Option currentOption, Option dependentOption) throws ECareException {
+        if(!currentOption.getIncompatibleOptions().contains(dependentOption)) {
+            if(!currentOption.getDependentOptions().contains(dependentOption)) {
+                currentOption.addDependentOption(dependentOption);
+                //dependentOption.addDependentOption(currentOption); ??????
+            }
+            else throw new ECareException("Option " + currentOption.getId() + " already contains such dependence.");
+        }
+        else throw new ECareException("These options are incompatible.");
+    }
+
+    public void deleteDependentOption(Option currentOption, Option dependentOption) throws ECareException {
+        if(currentOption.getDependentOptions().contains(dependentOption)) {
+            currentOption.deleteDependentOption(dependentOption);
+        }
+        else throw new ECareException("Option " + currentOption.getId() + " not contains such dependence.");
+    }
+
+    public void setIncompatibleOption(Option currentOption, Option incompatibleOption) throws ECareException {
+        if(!currentOption.getDependentOptions().contains(incompatibleOption)) {
+            if(!currentOption.getIncompatibleOptions().contains(incompatibleOption)) {
+                currentOption.addIncompatibleOption(incompatibleOption);
+            }
+            else throw new ECareException("Option " + currentOption.getId() + " already contains such dependence.");
+        }
+        else throw new ECareException("These options are dependent.");
+    }
+
+    public void deleteIncompatibleOption(Option currentOption, Option incompatibleOption) throws ECareException {
+        if(currentOption.getIncompatibleOptions().contains(incompatibleOption)) {
+            currentOption.deleteIncompatibleOption(incompatibleOption);
+        }
+        else throw new ECareException("Option " + currentOption.getId() + " not contains such incompatibility.");
     }
 }

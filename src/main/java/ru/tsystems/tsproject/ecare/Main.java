@@ -1,7 +1,7 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
-import ru.tsystems.tsproject.ecare.entities.Client;
+import ru.tsystems.tsproject.ecare.business.OptionBusiness;
+import ru.tsystems.tsproject.ecare.entities.Option;
 
 /**
  * Created by Selvin
@@ -19,10 +19,20 @@ public class Main {
 
         /*Client cl = new Client("Semen", "Semenov", new Date(), 9505601234l, "SPB", "semenov@mail.ru", "qwerty321");*/
 
-        ClientBusiness cb = new ClientBusiness();
-        Client cl = cb.findClientByNumber(892345678l);
+        /*ClientBusiness cb = new ClientBusiness();
+        Client cl = cb.findClientByNumber(892345678l);*/
 
         /*AbstractTariffDAO trst = new SqlTariffDAO();
         Tariff tr = trst.loadTariff(33);*/
+
+        Option op1 = new Option(null, "Test1", 400, 200);
+        Option op2 = new Option(null, "Test2", 400, 200);
+        Option op3 = new Option(null, "Test3", 400, 200);
+
+        /*op1.addDependentOption(op2);
+        op1.addIncompatibleOption(op3);*/
+
+        OptionBusiness business = new OptionBusiness();
+        Option loaded = business.loadOption(1216l);
     }
 }

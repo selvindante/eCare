@@ -2,9 +2,9 @@ package ru.tsystems.tsproject.ecare.business;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
-import ru.tsystems.tsproject.ecare.storage.AbstractTariffDAO;
-import ru.tsystems.tsproject.ecare.storage.SqlEntityManager;
-import ru.tsystems.tsproject.ecare.storage.SqlTariffDAO;
+import ru.tsystems.tsproject.ecare.dao.AbstractTariffDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
+import ru.tsystems.tsproject.ecare.dao.SqlTariffDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -18,7 +18,7 @@ public class TariffBusiness {
     private EntityManager em = SqlEntityManager.getEm();
     private AbstractTariffDAO trDAO = new SqlTariffDAO(em);
 
-    protected void createTariff(Tariff tr) {
+    public void createTariff(Tariff tr) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -33,7 +33,7 @@ public class TariffBusiness {
         }
     }
 
-    protected Tariff loadTariff(long id) {
+    public Tariff loadTariff(long id) throws ECareException {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
@@ -50,7 +50,7 @@ public class TariffBusiness {
         }
     }
 
-    protected void updateTariff(Tariff tr) {
+    public void updateTariff(Tariff tr) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -65,7 +65,7 @@ public class TariffBusiness {
         }
     }
 
-    protected void deleteTariff(long id) {
+    public void deleteTariff(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -82,7 +82,7 @@ public class TariffBusiness {
         }
     }
 
-    protected List<Tariff> getAllTariffs() {
+    public List<Tariff> getAllTariffs() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -98,7 +98,7 @@ public class TariffBusiness {
         }
     }
 
-    protected void deleteAllTariffs() {
+    public void deleteAllTariffs() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
@@ -113,7 +113,7 @@ public class TariffBusiness {
         }
     }
 
-    protected long getNumberOfTariffs() {
+    public long getNumberOfTariffs() {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
