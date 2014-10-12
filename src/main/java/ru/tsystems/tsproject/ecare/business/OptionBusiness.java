@@ -147,9 +147,9 @@ public class OptionBusiness {
 
     public void setDependentOption(Option currentOption, Option dependentOption) throws ECareException {
         if(!currentOption.getIncompatibleOptions().contains(dependentOption)) {
-            if(!currentOption.getDependentOptions().contains(dependentOption)) {
+            if(!currentOption.getDependentOptions().contains(dependentOption) && !currentOption.equals(dependentOption)) {
                 currentOption.addDependentOption(dependentOption);
-                //dependentOption.addDependentOption(currentOption); ??????
+                dependentOption.addDependentOption(currentOption);
             }
             else throw new ECareException("Option " + currentOption.getId() + " already contains such dependence.");
         }
@@ -159,14 +159,16 @@ public class OptionBusiness {
     public void deleteDependentOption(Option currentOption, Option dependentOption) throws ECareException {
         if(currentOption.getDependentOptions().contains(dependentOption)) {
             currentOption.deleteDependentOption(dependentOption);
+            dependentOption.deleteDependentOption(currentOption);
         }
         else throw new ECareException("Option " + currentOption.getId() + " not contains such dependence.");
     }
 
     public void setIncompatibleOption(Option currentOption, Option incompatibleOption) throws ECareException {
         if(!currentOption.getDependentOptions().contains(incompatibleOption)) {
-            if(!currentOption.getIncompatibleOptions().contains(incompatibleOption)) {
+            if(!currentOption.getIncompatibleOptions().contains(incompatibleOption) && !currentOption.equals(incompatibleOption)) {
                 currentOption.addIncompatibleOption(incompatibleOption);
+                incompatibleOption.addIncompatibleOption(currentOption);
             }
             else throw new ECareException("Option " + currentOption.getId() + " already contains such dependence.");
         }
@@ -176,6 +178,7 @@ public class OptionBusiness {
     public void deleteIncompatibleOption(Option currentOption, Option incompatibleOption) throws ECareException {
         if(currentOption.getIncompatibleOptions().contains(incompatibleOption)) {
             currentOption.deleteIncompatibleOption(incompatibleOption);
+            incompatibleOption.deleteIncompatibleOption(currentOption);
         }
         else throw new ECareException("Option " + currentOption.getId() + " not contains such incompatibility.");
     }

@@ -1445,6 +1445,18 @@
       <index name="cient_id_idx" unique="false" columns="client_id"/>
       <index name="contract_idx" unique="false" columns="tariff_id"/>
     </table>
+    <table name="dependent_option" schema="" catalog="ecare" type="TABLE">
+      <column name="option_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="dependent_option_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <foreign-key name="dependence_with_option" columns="option_id" ref-table="option1" ref-schema="" ref-catalog="ecare" ref-columns="option_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="dependence_with_option_idx" unique="false" columns="option_id"/>
+    </table>
+    <table name="incompatible_option" schema="" catalog="ecare" type="TABLE">
+      <column name="option_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="incompatible_option_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <foreign-key name="incompatibility_with_option" columns="option_id" ref-table="option1" ref-schema="" ref-catalog="ecare" ref-columns="option_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="incompatibility_with_option_idx" unique="false" columns="option_id"/>
+    </table>
     <table name="option1" schema="" catalog="ecare" type="TABLE">
       <column name="option_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -1453,12 +1465,10 @@
       <column name="tariff_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="option_id"/>
       <foreign-key name="tariff_id" columns="tariff_id" ref-table="tariff" ref-schema="" ref-catalog="ecare" ref-columns="tariff_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="dependence_with_option" table="dependent_option" schema="" catalog="ecare" columns="option_id"/>
+      <exported-key name="incompatibility_with_option" table="incompatible_option" schema="" catalog="ecare" columns="option_id"/>
       <index name="option_id_UNIQUE" unique="true" columns="option_id"/>
       <index name="tariff_id_idx" unique="false" columns="tariff_id"/>
-    </table>
-    <table name="options_control" schema="" catalog="ecare" type="TABLE">
-      <column name="option_title_1" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <column name="option_title_2" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
     </table>
     <table name="tariff" schema="" catalog="ecare" type="TABLE">
       <column name="tariff_title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>

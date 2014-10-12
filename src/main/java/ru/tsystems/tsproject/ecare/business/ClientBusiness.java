@@ -8,6 +8,7 @@ import ru.tsystems.tsproject.ecare.entities.Client;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -41,6 +42,27 @@ public class ClientBusiness {
             Client cl = clDAO.loadClient(id);
             et.commit();
             if(cl == null)  throw new ECareException("Client with id = " + id + " not found.");
+            return cl;
+        }
+        catch (RuntimeException re) {
+            if(et.isActive()) {
+                et.rollback();
+            }
+            throw re;
+        }
+    }
+
+    public Client findClient(String login, String password) throws ECareException {
+        Client cl = null;
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            try {
+                cl = clDAO.findClientByLoginAndPassword(login, password);
+            } catch(NoResultException nrex) {
+                throw new ECareException("Incorrect login/password or client does not exist.", nrex);
+            }
+            et.commit();
             return cl;
         }
         catch (RuntimeException re) {

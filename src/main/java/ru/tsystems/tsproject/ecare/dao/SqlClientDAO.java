@@ -28,6 +28,14 @@ public class SqlClientDAO extends AbstractClientDAO {
     }
 
     @Override
+    protected Client doFindClientByLoginAndPass(String login, String password) {
+        Query query = em.createQuery("SELECT c FROM Client c WHERE c.email = :login AND c.password = :password");
+        query.setParameter("login", login);
+        query.setParameter("password", password);
+        return (Client) query.getSingleResult();
+    }
+
+    @Override
     protected Client doFindClientByNumber(long number) {
         Query query = em.createQuery("SELECT cn.client FROM Contract cn WHERE cn.number = :number");
         query.setParameter("number", number);

@@ -35,7 +35,7 @@ public class Client implements Comparable<Client>{
     private Date birthDate;
 
     @Column(name = "passport")
-    private long passport;
+    private Long passport;
 
     @Column(name = "address")
     private String address;
@@ -55,7 +55,7 @@ public class Client implements Comparable<Client>{
     public Client() {
     }
 
-    public Client(String name, String lastname, Date birthDate, long passport, String address, String email, String password, String role) {
+    public Client(String name, String lastname, Date birthDate, Long passport, String address, String email, String password, String role) {
         this.name = name;
         this.lastname = lastname;
         this.birthDate = birthDate;
@@ -98,11 +98,11 @@ public class Client implements Comparable<Client>{
         this.birthDate = birthDate;
     }
 
-    public long getPassport() {
+    public Long getPassport() {
         return passport;
     }
 
-    public void setPassport(long passport) {
+    public void setPassport(Long passport) {
         this.passport = passport;
     }
 

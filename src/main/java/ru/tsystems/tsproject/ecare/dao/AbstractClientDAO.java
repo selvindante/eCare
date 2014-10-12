@@ -13,6 +13,7 @@ public abstract class AbstractClientDAO {
 
     protected abstract void doCreateClient(Client cl);
     protected abstract Client doLoadClient(long id);
+    protected abstract Client doFindClientByLoginAndPass(String login, String password);
     protected abstract Client doFindClientByNumber(long number);
     protected abstract void doUpdateClient(Client cl);
     protected abstract void doDeleteClient(Client cl);
@@ -26,6 +27,10 @@ public abstract class AbstractClientDAO {
 
     public Client loadClient(long id) {
         return doLoadClient(id);
+    }
+
+    public Client findClientByLoginAndPassword(String login, String password) {
+        return doFindClientByLoginAndPass(login, password);
     }
 
     public Client findClientByNumber(long number) {

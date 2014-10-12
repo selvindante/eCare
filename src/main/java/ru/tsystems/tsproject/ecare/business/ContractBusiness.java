@@ -205,6 +205,6 @@ public class ContractBusiness {
                 if(cn.getOptions().contains(dependentOption)) cn.deleteOption(dependentOption);
             }
         }
-        else throw new ECareException("Option " + op.getId() + ":" + op.getTitle() + " is not enabled for contract " + cn.getId() + ".");
+        else throw new ECareException("Option " + op.getId() + ":" + op.getTitle() + " is not enabled yet for contract " + cn.getId() + ".");
     }
 }
