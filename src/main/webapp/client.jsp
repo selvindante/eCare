@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="ru.tsystems.tsproject.ecare.entities.Client" %>
 <%--
   Created by IntelliJ IDEA.
@@ -8,31 +9,81 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%
-    Client client = (Client) (request.getAttribute("client"));
-%>
 <head>
     <title>Client page</title>
 </head>
 <body>
 <header>Client:</header>
 <p>
-    ID: <%=client.getId()%>
+    Role(temporary): ${role}
 </p>
 <p>
-    Name: <%=client.getName()%>
+    ID: ${client.id}
 </p>
 <p>
-    Lastname: <%=client.getLastname()%>
+    Name: ${client.name}
 </p>
 <p>
-    E-mail: <%=client.getEmail()%>
+    Lastname: ${client.lastname}
 </p>
 <p>
-    Adress: <%=client.getAddress()%>
+    E-mail: ${client.email}
 </p>
 <p>
-    Passport: <%=client.getPassport()%>
+    Address: ${client.address}
 </p>
+<p>
+    Passport: ${client.passport}
+</p>
+<p>
+    Amount: ${client.amount}
+</p>
+<p>
+    <c:if test="${role == 'admin'}">
+        <a href='<%=request.getContextPath()%>client?id=${client.id}&action=createContract'>Create Contract</a>
+    </c:if>
+</p>
+
+<p>
+    List of contracts:
+</p>
+<table>
+    <tr>
+        <td>
+            Contract ID
+        </td>
+        <td>
+            Number
+        </td>
+        <td>
+            Tariff
+        </td>
+        <td>
+            Is blocked by client?
+        </td>
+        <td>
+            Is blocked by operator?
+        </td>
+    </tr>
+    <c:forEach var="contract" items="${client.getContracts()}">
+    <tr>
+        <td>
+            ${contract.id}
+        </td>
+        <td>
+            ${contract.number}
+        </td>
+        <td>
+            ${contract.tariff.title}
+        </td>
+        <td>
+            ${contract.isBlockedByClient()}
+        </td>
+        <td>
+            ${contract.isBlockedByOperator()}
+        </td>
+    </tr>
+    </c:forEach>
+</table>
 </body>
 </html>

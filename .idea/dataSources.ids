@@ -1416,6 +1416,7 @@
       <column name="password" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
       <column name="client_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="role" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="client_id"/>
       <exported-key name="client_id" table="contract" schema="" catalog="ecare" columns="client_id"/>
       <index name="client_id_UNIQUE" unique="true" columns="client_id"/>

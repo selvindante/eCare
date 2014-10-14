@@ -11,6 +11,7 @@ import java.util.List;
 public abstract class AbstractContractDAO {
     protected abstract void doCreateContract(Contract cn);
     protected abstract Contract doLoadContract(long id);
+    protected abstract Contract doFindContractByNumber(long number);
     protected abstract void doUpdateContract(Contract cn);
     protected abstract void doDeleteContract(Contract cn);
     protected abstract List<Contract> doGetAllContracts();
@@ -24,6 +25,10 @@ public abstract class AbstractContractDAO {
 
     public Contract loadContract(long id) {
         return doLoadContract(id);
+    }
+
+    public Contract findContractByNumber(long number) {
+        return doFindContractByNumber(number);
     }
 
     public void updateContract(Contract cn) {

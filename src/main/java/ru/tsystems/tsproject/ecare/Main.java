@@ -1,7 +1,9 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.business.OptionBusiness;
-import ru.tsystems.tsproject.ecare.entities.Option;
+import ru.tsystems.tsproject.ecare.business.ClientBusiness;
+import ru.tsystems.tsproject.ecare.business.ContractBusiness;
+import ru.tsystems.tsproject.ecare.entities.Client;
+import ru.tsystems.tsproject.ecare.entities.Contract;
 
 /**
  * Created by Selvin
@@ -25,14 +27,22 @@ public class Main {
         /*AbstractTariffDAO trst = new SqlTariffDAO();
         Tariff tr = trst.loadTariff(33);*/
 
-        Option op1 = new Option(null, "Test1", 400, 200);
+        /*Option op1 = new Option(null, "Test1", 400, 200);
         Option op2 = new Option(null, "Test2", 400, 200);
-        Option op3 = new Option(null, "Test3", 400, 200);
+        Option op3 = new Option(null, "Test3", 400, 200);*/
 
         /*op1.addDependentOption(op2);
         op1.addIncompatibleOption(op3);*/
 
-        OptionBusiness business = new OptionBusiness();
-        Option loaded = business.loadOption(1216l);
+        /*OptionBusiness business = new OptionBusiness();
+        Option loaded = business.loadOption(1216l);*/
+
+        ClientBusiness clientBusiness = new ClientBusiness();
+        ContractBusiness contractBusiness = new ContractBusiness();
+
+        Client client = clientBusiness.findClient("client@mail.ru", "123456");
+
+        Contract contract = new Contract(client, 123456l, null, false, false);
+        contractBusiness.createContract(contract);
     }
 }

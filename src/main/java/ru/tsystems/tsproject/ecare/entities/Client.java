@@ -49,13 +49,16 @@ public class Client implements Comparable<Client>{
     @Column(name = "role")
     private String role;
 
+    @Column(name = "amount")
+    private int amount = 0;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private List<Contract> contracts = new ArrayList<>();
 
     public Client() {
     }
 
-    public Client(String name, String lastname, Date birthDate, Long passport, String address, String email, String password, String role) {
+    public Client(String name, String lastname, Date birthDate, Long passport, String address, String email, String password, String role, int amount) {
         this.name = name;
         this.lastname = lastname;
         this.birthDate = birthDate;
@@ -64,6 +67,7 @@ public class Client implements Comparable<Client>{
         this.email = email;
         this.password = password;
         this.role = role;
+        this.amount = amount;
     }
 
     public long getId() {
@@ -138,6 +142,14 @@ public class Client implements Comparable<Client>{
         this.role = role;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public List<Contract> getContracts() {
         return contracts;
     }
@@ -157,6 +169,7 @@ public class Client implements Comparable<Client>{
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", amount=" + amount +
                 '}';
     }
 

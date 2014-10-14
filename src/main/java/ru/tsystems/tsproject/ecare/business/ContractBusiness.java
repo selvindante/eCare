@@ -9,6 +9,7 @@ import ru.tsystems.tsproject.ecare.entities.Option;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -46,6 +47,27 @@ public class ContractBusiness {
         catch (RuntimeException re) {
             if(tx.isActive()) {
                 tx.rollback();
+            }
+            throw re;
+        }
+    }
+
+    public Contract findContractByNumber(long number) {
+        Contract cn = null;
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            try {
+                cn = cnDAO.findContractByNumber(number);
+            } catch(NoResultException nrex) {
+                throw new ECareException("Incorrect number or contract does not exist.", nrex);
+            }
+            et.commit();
+            return cn;
+        }
+        catch (RuntimeException re) {
+            if(et.isActive()) {
+                et.rollback();
             }
             throw re;
         }

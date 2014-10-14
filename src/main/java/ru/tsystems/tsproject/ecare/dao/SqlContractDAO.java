@@ -29,6 +29,13 @@ public class SqlContractDAO extends AbstractContractDAO {
     }
 
     @Override
+    protected Contract doFindContractByNumber(long number) {
+        Query query = em.createQuery("SELECT c FROM Contract c WHERE c.number = :number");
+        query.setParameter("number", number);
+        return (Contract) query.getSingleResult();
+    }
+
+    @Override
     protected void doUpdateContract(Contract cn) {
         em.merge(cn);
     }

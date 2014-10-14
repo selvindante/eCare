@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="ru.tsystems.tsproject.ecare.entities.Client" %>
 <%--
   Created by IntelliJ IDEA.
@@ -8,16 +9,50 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%
-    Client client = (Client) (request.getAttribute("client"));
-%>
+
 <head>
-    <title>Operator dashboard</title>
+    <title>Operator's dashboard</title>
 </head>
 <body>
-    <header>trololo, eto operator</header>
+    <header>Operator's Dashboard:</header>
 </body>
 <p>
-    Operator ID: <%=client.getId()%>
+    Role(temporary): ${role}
 </p>
+<p>
+    List of clients:
+</p>
+<table>
+    <tr>
+        <td>
+            Client ID
+        </td>
+        <td>
+            Name
+        </td>
+        <td>
+            Passport
+        </td>
+        <td>
+            E-mail
+        </td>
+    </tr>
+    <c:forEach var="client" items="${clientsList}">
+    <tr>
+        <td>
+            ${client.id}
+        </td>
+        <td>
+            ${client.name}
+        </td>
+        <td>
+            ${client.passport}
+        </td>
+        <td>
+            <a href='<%=request.getContextPath()%>dashboard?id=${client.id}&action=view'>${client.email}</a>
+        </td>
+    </tr>
+    </c:forEach>
+</table>
+
 </html>
