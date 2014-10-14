@@ -59,8 +59,8 @@ public class ClientBusiness {
             et.begin();
             try {
                 cl = clDAO.findClientByLoginAndPassword(login, password);
-            } catch(NoResultException nrex) {
-                throw new ECareException("Incorrect login/password or client does not exist.", nrex);
+            } catch(NoResultException nrx) {
+                throw new ECareException("Incorrect login/password or client does not exist.", nrx);
             }
             et.commit();
             return cl;
@@ -75,11 +75,15 @@ public class ClientBusiness {
 
     public Client findClientByNumber(long number) throws ECareException {
         EntityTransaction et = em.getTransaction();
+        Client cl = null;
         try {
             et.begin();
-            Client cl = clDAO.findClientByNumber(number);
+            try {
+                cl = clDAO.findClientByNumber(number);
+            } catch (NoResultException nrx) {
+                throw new ECareException("Client with number = " + number + " not found.");
+            }
             et.commit();
-            if(cl == null)  throw new ECareException("Client with number = " + number + " not found.");
             return cl;
         }
         catch (RuntimeException re) {

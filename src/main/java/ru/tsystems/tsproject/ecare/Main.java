@@ -1,9 +1,7 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
-import ru.tsystems.tsproject.ecare.business.ContractBusiness;
-import ru.tsystems.tsproject.ecare.entities.Client;
-import ru.tsystems.tsproject.ecare.entities.Contract;
+import ru.tsystems.tsproject.ecare.business.TariffBusiness;
+import ru.tsystems.tsproject.ecare.entities.Tariff;
 
 /**
  * Created by Selvin
@@ -37,12 +35,15 @@ public class Main {
         /*OptionBusiness business = new OptionBusiness();
         Option loaded = business.loadOption(1216l);*/
 
-        ClientBusiness clientBusiness = new ClientBusiness();
+        /*ClientBusiness clientBusiness = new ClientBusiness();
         ContractBusiness contractBusiness = new ContractBusiness();
 
-        Client client = clientBusiness.findClient("client@mail.ru", "123456");
+        Client client = clientBusiness.findClient("testcl@mail.ru", "123456");*/
 
-        Contract contract = new Contract(client, 123456l, null, false, false);
-        contractBusiness.createContract(contract);
+        /*Contract contract = new Contract(client, 123456l, null, false, false);
+        contractBusiness.createContract(contract);*/
+
+        TariffBusiness tb = new TariffBusiness();
+        Tariff tariff = tb.loadTariff(501l);
     }
 }

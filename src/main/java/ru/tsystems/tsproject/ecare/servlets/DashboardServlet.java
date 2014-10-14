@@ -1,13 +1,17 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.business.ClientBusiness;
+import ru.tsystems.tsproject.ecare.business.TariffBusiness;
 import ru.tsystems.tsproject.ecare.entities.Client;
+import ru.tsystems.tsproject.ecare.entities.Tariff;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Selvin
@@ -15,17 +19,24 @@ import java.io.IOException;
  */
 public class DashboardServlet extends HttpServlet {
     ClientBusiness clientBusiness = new ClientBusiness();
+    TariffBusiness tariffBusiness = new TariffBusiness();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        long id = Long.valueOf(req.getParameter("id"));
         String action = req.getParameter("action");
         switch (action) {
-            case "view":
+            case "viewClient":
+                long id = Long.valueOf(req.getParameter("id"));
                 Client client = clientBusiness.loadClient(id);
                 req.setAttribute("role", "admin");
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
+                break;
+            case "viewAllTariffs":
+                List<Tariff> tariffs = tariffBusiness.getAllTariffs();
+                req.setAttribute("role", "admin");
+                req.setAttribute("tariffs", tariffs);
+                req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
             default: break;
         }
@@ -33,6 +44,15 @@ public class DashboardServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        long number = Long.valueOf(req.getParameter("number"));
+        try {
+            Client client = clientBusiness.findClientByNumber(number);
+            req.setAttribute("role", "admin");
+            req.setAttribute("client", client);
+            req.getRequestDispatcher("/client.jsp").forward(req, resp);
+        } catch (ECareException ecx) {
+            req.setAttribute("message", ecx.getMessage());
+            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+        }
     }
 }

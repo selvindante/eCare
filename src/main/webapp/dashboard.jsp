@@ -20,6 +20,17 @@
     Role(temporary): ${role}
 </p>
 <p>
+    Search client by phone number:
+</p>
+<form id="dashboard" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+    <p>
+        Number: <input type="text" name="number" size=25 value=""> <button type="submit">Search</button>
+    </p>
+</form>
+<p>
+    <a href='<%=request.getContextPath()%>dashboard?&action=viewAllTariffs'>View all tariffs</a>
+</p>
+<p>
     List of clients:
 </p>
 <table>
@@ -40,7 +51,7 @@
     <c:forEach var="client" items="${clientsList}">
     <tr>
         <td>
-            ${client.id}
+            <a href='<%=request.getContextPath()%>dashboard?id=${client.id}&action=viewClient'>${client.id}</a>
         </td>
         <td>
             ${client.name}
@@ -49,7 +60,7 @@
             ${client.passport}
         </td>
         <td>
-            <a href='<%=request.getContextPath()%>dashboard?id=${client.id}&action=view'>${client.email}</a>
+            ${client.email}
         </td>
     </tr>
     </c:forEach>

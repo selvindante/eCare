@@ -47,43 +47,50 @@
 <p>
     List of contracts:
 </p>
-<table>
-    <tr>
-        <td>
-            Contract ID
-        </td>
-        <td>
-            Number
-        </td>
-        <td>
-            Tariff
-        </td>
-        <td>
-            Is blocked by client?
-        </td>
-        <td>
-            Is blocked by operator?
-        </td>
-    </tr>
-    <c:forEach var="contract" items="${client.getContracts()}">
-    <tr>
-        <td>
-            ${contract.id}
-        </td>
-        <td>
-            ${contract.number}
-        </td>
-        <td>
-            ${contract.tariff.title}
-        </td>
-        <td>
-            ${contract.isBlockedByClient()}
-        </td>
-        <td>
-            ${contract.isBlockedByOperator()}
-        </td>
-    </tr>
-    </c:forEach>
-</table>
+    <c:choose>
+        <c:when test="${client.getContracts().size() != 0}">
+            <table>
+                <tr>
+                    <td>
+                        Contract ID
+                    </td>
+                    <td>
+                        Number
+                    </td>
+                    <td>
+                        Tariff
+                    </td>
+                    <td>
+                        Is blocked by client?
+                    </td>
+                    <td>
+                        Is blocked by operator?
+                    </td>
+                </tr>
+                <c:forEach var="contract" items="${client.getContracts()}">
+                <tr>
+                    <td>
+                        ${contract.id}
+                    </td>
+                    <td>
+                        ${contract.number}
+                    </td>
+                    <td>
+                        ${contract.tariff.title}
+                    </td>
+                    <td>
+                        ${contract.isBlockedByClient()}
+                    </td>
+                    <td>
+                        ${contract.isBlockedByOperator()}
+                    </td>
+                </tr>
+                </c:forEach>
+            </table>
+        </c:when>
+        <c:otherwise>
+            This client has no contracts yet.
+        </c:otherwise>
+    </c:choose>
 </body>
 </html>
