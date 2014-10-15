@@ -1,6 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
+import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.entities.Client;
 
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.util.Date;
  * on 14.10.2014.
  */
 public class RegistrationServlet extends HttpServlet {
-    ClientBusiness clientBusiness = new ClientBusiness();
+    ClientService clientService = new ClientService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,8 +31,8 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         Client client = new Client(name, lastname, birthdate, passport, address, email, password, "client", 0);
-        clientBusiness.createClient(client);
-        client = clientBusiness.findClient(email, password);
+        clientService.createClient(client);
+        client = clientService.findClient(email, password);
         req.setAttribute("role", "client");
         req.setAttribute("client", client);
         req.getRequestDispatcher("/client.jsp").forward(req, resp);

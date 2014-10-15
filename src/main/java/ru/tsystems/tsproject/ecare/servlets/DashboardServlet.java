@@ -1,8 +1,8 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
-import ru.tsystems.tsproject.ecare.business.TariffBusiness;
+import ru.tsystems.tsproject.ecare.service.ClientService;
+import ru.tsystems.tsproject.ecare.service.TariffService;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 
@@ -18,8 +18,8 @@ import java.util.List;
  * on 14.10.2014.
  */
 public class DashboardServlet extends HttpServlet {
-    ClientBusiness clientBusiness = new ClientBusiness();
-    TariffBusiness tariffBusiness = new TariffBusiness();
+    ClientService clientService = new ClientService();
+    TariffService tariffService = new TariffService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,28 +28,28 @@ public class DashboardServlet extends HttpServlet {
         switch (action) {
             case "viewClient":
                 long id = Long.valueOf(req.getParameter("id"));
-                Client client = clientBusiness.loadClient(id);
+                Client client = clientService.loadClient(id);
                 req.setAttribute("role", "admin");
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "viewAllTariffs":
-                List<Tariff> tariffs = tariffBusiness.getAllTariffs();
+                List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("role", "admin");
                 req.setAttribute("tariffs", tariffs);
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
             case "deleteAllClients":
-                clientBusiness.deleteAllClients();
+                clientService.deleteAllClients();
                 req.setAttribute("role", "admin");
-                clientsList = clientBusiness.getAllClients();
+                clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;
             case "deleteClient":
                 long clientId = Long.valueOf(req.getParameter("id"));
-                clientBusiness.deleteClient(clientId);
-                clientsList = clientBusiness.getAllClients();
+                clientService.deleteClient(clientId);
+                clientsList = clientService.getAllClients();
                 req.setAttribute("role", "admin");
                 req.setAttribute("clientsList", clientsList);
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
@@ -62,7 +62,7 @@ public class DashboardServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long number = Long.valueOf(req.getParameter("number"));
         try {
-            Client client = clientBusiness.findClientByNumber(number);
+            Client client = clientService.findClientByNumber(number);
             req.setAttribute("role", "admin");
             req.setAttribute("client", client);
             req.getRequestDispatcher("/client.jsp").forward(req, resp);

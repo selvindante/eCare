@@ -1,4 +1,4 @@
-package ru.tsystems.tsproject.ecare.business;
+package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
@@ -14,10 +14,11 @@ import java.util.List;
  * Created by Selvin
  * on 10.10.2014.
  */
-public class TariffBusiness {
+public class TariffService implements ITariffService {
     private EntityManager em = SqlEntityManager.getEm();
     private AbstractTariffDAO trDAO = new SqlTariffDAO(em);
 
+    @Override
     public void createTariff(Tariff tr) {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -33,6 +34,7 @@ public class TariffBusiness {
         }
     }
 
+    @Override
     public Tariff loadTariff(long id) throws ECareException {
         EntityTransaction et = em.getTransaction();
         try {
@@ -65,6 +67,7 @@ public class TariffBusiness {
         }
     }
 
+    @Override
     public void deleteTariff(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -82,6 +85,7 @@ public class TariffBusiness {
         }
     }
 
+    @Override
     public List<Tariff> getAllTariffs() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -98,6 +102,7 @@ public class TariffBusiness {
         }
     }
 
+    @Override
     public void deleteAllTariffs() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -113,6 +118,7 @@ public class TariffBusiness {
         }
     }
 
+    @Override
     public long getNumberOfTariffs() {
         EntityTransaction tx = em.getTransaction();
         try {

@@ -1,4 +1,4 @@
-package ru.tsystems.tsproject.ecare.business;
+package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractClientDAO;
@@ -16,10 +16,11 @@ import java.util.List;
  * on 10.10.2014.
  */
 
-public class ClientBusiness {
+public class ClientService implements IClientService {
     private EntityManager em = SqlEntityManager.getEm();
     private AbstractClientDAO clDAO = new SqlClientDAO(em);
 
+    @Override
     public void createClient(Client cl) {
         EntityTransaction et = em.getTransaction();
         try {
@@ -35,6 +36,7 @@ public class ClientBusiness {
         }
     }
 
+    @Override
     public Client loadClient(long id) throws ECareException {
         EntityTransaction et = em.getTransaction();
         try {
@@ -52,6 +54,7 @@ public class ClientBusiness {
         }
     }
 
+    @Override
     public Client findClient(String login, String password) throws ECareException {
         Client cl = null;
         EntityTransaction et = em.getTransaction();
@@ -73,6 +76,7 @@ public class ClientBusiness {
         }
     }
 
+    @Override
     public Client findClientByNumber(long number) throws ECareException {
         EntityTransaction et = em.getTransaction();
         Client cl = null;
@@ -109,6 +113,7 @@ public class ClientBusiness {
         }
     }
 
+    @Override
     public void deleteClient(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -126,6 +131,7 @@ public class ClientBusiness {
         }
     }
 
+    @Override
     public List<Client> getAllClients() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -142,6 +148,7 @@ public class ClientBusiness {
         }
     }
 
+    @Override
     public void deleteAllClients() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -157,6 +164,7 @@ public class ClientBusiness {
         }
     }
 
+    @Override
     public long getNumberOfClients() {
         EntityTransaction tx = em.getTransaction();
         try {

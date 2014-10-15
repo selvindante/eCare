@@ -1,8 +1,8 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
-import ru.tsystems.tsproject.ecare.business.ContractBusiness;
-import ru.tsystems.tsproject.ecare.business.TariffBusiness;
+import ru.tsystems.tsproject.ecare.service.ClientService;
+import ru.tsystems.tsproject.ecare.service.ContractService;
+import ru.tsystems.tsproject.ecare.service.TariffService;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.entities.Contract;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
@@ -19,15 +19,15 @@ import java.util.List;
  * on 14.10.2014.
  */
 public class ContractServlet extends HttpServlet {
-    ContractBusiness contractBusiness = new ContractBusiness();
-    ClientBusiness clientBusiness = new ClientBusiness();
-    TariffBusiness tariffBusiness = new TariffBusiness();
+    ContractService contractService = new ContractService();
+    ClientService clientService = new ClientService();
+    TariffService tariffService = new TariffService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long contractId = Long.valueOf(req.getParameter("id"));
         String action = req.getParameter("action");
-        Contract contract = contractBusiness.loadContract(contractId);
+        Contract contract = contractService.loadContract(contractId);
         Client client = null;
         switch(action) {
             case "viewContract":
@@ -35,42 +35,42 @@ public class ContractServlet extends HttpServlet {
                 req.getRequestDispatcher("/contract.jsp").forward(req, resp);
                 break;
             case "deleteContract":
-                contractBusiness.deleteContract(contractId);
-                client = clientBusiness.findClientByNumber(contract.getNumber());
+                contractService.deleteContract(contractId);
+                client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("role", "admin");
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "blockByOperator":
-                contractBusiness.blockByOperator(contract);
-                client = clientBusiness.findClientByNumber(contract.getNumber());
+                contractService.blockByOperator(contract);
+                client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("role", "admin");
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "unblockByOperator":
-                contractBusiness.unblockByOperator(contract);
-                client = clientBusiness.findClientByNumber(contract.getNumber());
+                contractService.unblockByOperator(contract);
+                client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("role", "admin");
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "blockByClient":
-                contractBusiness.blockByClient(contract);
-                client = clientBusiness.findClientByNumber(contract.getNumber());
+                contractService.blockByClient(contract);
+                client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("role", "client");
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "unblockByClient":
-                contractBusiness.unblockByClient(contract);
-                client = clientBusiness.findClientByNumber(contract.getNumber());
+                contractService.unblockByClient(contract);
+                client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("role", "client");
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "changeTariff":
-                List<Tariff> tariffs = tariffBusiness.getAllTariffs();
+                List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("contract", contract);
                 req.setAttribute("tariffs", tariffs);
                 req.getRequestDispatcher("/chooseTariff.jsp").forward(req, resp);

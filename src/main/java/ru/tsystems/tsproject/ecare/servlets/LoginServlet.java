@@ -1,7 +1,7 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
+import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.entities.Client;
 
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import java.util.List;
  * on 12.10.2014.
  */
 public class LoginServlet extends HttpServlet {
-    ClientBusiness clientBusiness = new ClientBusiness();
+    ClientService clientService = new ClientService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,14 +28,14 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Client client = clientBusiness.findClient(login, password);
+            Client client = clientService.findClient(login, password);
             req.setAttribute("role", client.getRole());
             if(client.getRole().equals("client")) {
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
             }
             else if(client.getRole().equals("admin")){
-                List<Client> clientsList = clientBusiness.getAllClients();
+                List<Client> clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
             }

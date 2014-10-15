@@ -1,6 +1,6 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
+import ru.tsystems.tsproject.ecare.service.ClientService;
 
 /**
  * Created by Selvin
@@ -9,11 +9,11 @@ import ru.tsystems.tsproject.ecare.business.ClientBusiness;
 public class Main {
     public static void main(String[] args) {
 
-        /*OptionBusiness business = new OptionBusiness();
-        Option loaded = business.loadOption(1216l);*/
+        /*OptionBusiness service = new OptionBusiness();
+        Option loaded = service.loadOption(1216l);*/
 
-        ClientBusiness clientBusiness = new ClientBusiness();
-        clientBusiness.deleteAllClients();
+        ClientService clientService = new ClientService();
+        clientService.deleteAllClients();
 
         /*Contract contract = new Contract(client, 123456l, null, false, false);
         contractBusiness.createContract(contract);*/

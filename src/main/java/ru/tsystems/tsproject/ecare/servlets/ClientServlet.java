@@ -1,6 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
+import ru.tsystems.tsproject.ecare.service.ClientService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +13,7 @@ import java.io.IOException;
  * on 14.10.2014.
  */
 public class ClientServlet extends HttpServlet {
-    ClientBusiness clientBusiness = new ClientBusiness();
+    ClientService clientService = new ClientService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,7 +21,7 @@ public class ClientServlet extends HttpServlet {
         String action = req.getParameter("action");
         switch (action) {
             case "createContract":
-                req.setAttribute("client", clientBusiness.loadClient(id));
+                req.setAttribute("client", clientService.loadClient(id));
                 req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
                 break;
             default: break;

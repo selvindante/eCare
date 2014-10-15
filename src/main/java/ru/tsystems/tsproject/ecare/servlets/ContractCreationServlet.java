@@ -1,7 +1,7 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.business.ClientBusiness;
-import ru.tsystems.tsproject.ecare.business.ContractBusiness;
+import ru.tsystems.tsproject.ecare.service.ClientService;
+import ru.tsystems.tsproject.ecare.service.ContractService;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.entities.Contract;
 
@@ -16,8 +16,8 @@ import java.io.IOException;
  * on 14.10.2014.
  */
 public class ContractCreationServlet extends HttpServlet {
-    ClientBusiness clientBusiness = new ClientBusiness();
-    ContractBusiness contractBusiness = new ContractBusiness();
+    ClientService clientService = new ClientService();
+    ContractService contractService = new ContractService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,10 +28,10 @@ public class ContractCreationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long clientId = Long.valueOf(req.getParameter("id"));
         long number = Long.valueOf(req.getParameter("number"));
-        Client client = clientBusiness.loadClient(clientId);
+        Client client = clientService.loadClient(clientId);
         Contract contract = new Contract(client, number, null, false, false);
-        contractBusiness.createContract(contract);
-        client.addContract(contractBusiness.findContractByNumber(number));
+        contractService.createContract(contract);
+        client.addContract(contractService.findContractByNumber(number));
         req.setAttribute("role", "admin");
         req.setAttribute("client", client);
         req.getRequestDispatcher("/client.jsp").forward(req, resp);

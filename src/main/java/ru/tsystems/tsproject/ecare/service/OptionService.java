@@ -1,4 +1,4 @@
-package ru.tsystems.tsproject.ecare.business;
+package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractOptionDAO;
@@ -15,10 +15,11 @@ import java.util.List;
  * Created by Selvin
  * on 10.10.2014.
  */
-public class OptionBusiness {
+public class OptionService implements IOptionService {
     private EntityManager em = SqlEntityManager.getEm();
     private AbstractOptionDAO opDAO = new SqlOptionDAO(em);
 
+    @Override
     public void createOption(Option op) {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -34,6 +35,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public Option loadOption(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -51,6 +53,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public Option findOptionByTitleAndTariffId(String title, long id) throws ECareException {
         Option op = null;
         EntityTransaction et = em.getTransaction();
@@ -87,6 +90,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public void deleteOption(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -104,6 +108,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public List<Option> getAllOptions() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -120,6 +125,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public List<Option> getAllOptionsForTariff(long id) {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -136,6 +142,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public void deleteAllOptionsForTariff(long id) {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -151,6 +158,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public long getNumberOfOptions() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -167,6 +175,7 @@ public class OptionBusiness {
         }
     }
 
+    @Override
     public void setDependentOption(Option currentOption, Option dependentOption) throws ECareException {
         if(!currentOption.getIncompatibleOptions().contains(dependentOption)) {
             if(!currentOption.getDependentOptions().contains(dependentOption) && !currentOption.equals(dependentOption)) {
@@ -178,6 +187,7 @@ public class OptionBusiness {
         else throw new ECareException("These options are incompatible.");
     }
 
+    @Override
     public void deleteDependentOption(Option currentOption, Option dependentOption) throws ECareException {
         if(currentOption.getDependentOptions().contains(dependentOption)) {
             currentOption.deleteDependentOption(dependentOption);
@@ -186,6 +196,7 @@ public class OptionBusiness {
         else throw new ECareException("Option " + currentOption.getId() + " not contains such dependence.");
     }
 
+    @Override
     public void setIncompatibleOption(Option currentOption, Option incompatibleOption) throws ECareException {
         if(!currentOption.getDependentOptions().contains(incompatibleOption)) {
             if(!currentOption.getIncompatibleOptions().contains(incompatibleOption) && !currentOption.equals(incompatibleOption)) {
@@ -197,6 +208,7 @@ public class OptionBusiness {
         else throw new ECareException("These options are dependent.");
     }
 
+    @Override
     public void deleteIncompatibleOption(Option currentOption, Option incompatibleOption) throws ECareException {
         if(currentOption.getIncompatibleOptions().contains(incompatibleOption)) {
             currentOption.deleteIncompatibleOption(incompatibleOption);

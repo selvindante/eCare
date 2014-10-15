@@ -1,4 +1,4 @@
-package ru.tsystems.tsproject.ecare.business;
+package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractContractDAO;
@@ -16,10 +16,11 @@ import java.util.List;
  * Created by Selvin
  * on 10.10.2014.
  */
-public class ContractBusiness {
+public class ContractService implements IContractService {
     private EntityManager em = SqlEntityManager.getEm();
     private AbstractContractDAO cnDAO = new SqlContractDAO(em);
 
+    @Override
     public void createContract(Contract cn) {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -35,6 +36,7 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public Contract loadContract(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -52,6 +54,7 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public Contract findContractByNumber(long number) {
         Contract cn = null;
         EntityTransaction et = em.getTransaction();
@@ -88,6 +91,7 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public void deleteContract(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -105,6 +109,7 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public List<Contract> getAllContracts() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -121,6 +126,7 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public List<Contract> getAllContractsForClient(long id) {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -137,6 +143,7 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public void deleteAllContracts() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -152,6 +159,7 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public long getNumberOfContracts() {
         EntityTransaction tx = em.getTransaction();
         try {
@@ -168,14 +176,17 @@ public class ContractBusiness {
         }
     }
 
+    @Override
     public boolean isBlockedByClient(Contract cn) {
         return cn.isBlockedByClient();
     }
 
+    @Override
     public boolean isBlockedByOperator(Contract cn) {
         return cn.isBlockedByClient();
     }
 
+    @Override
     public void blockByClient(Contract cn) throws ECareException {
         if(!cn.isBlockedByOperator()) {
             if(!cn.isBlockedByClient()) {
@@ -186,6 +197,7 @@ public class ContractBusiness {
         else throw new ECareException("Contract " + cn.getId() + " is blocked by operator.");
     }
 
+    @Override
     public void unblockByClient(Contract cn) throws ECareException {
         if(!cn.isBlockedByOperator()) {
             if(cn.isBlockedByClient()) {
@@ -196,6 +208,7 @@ public class ContractBusiness {
         else throw new ECareException("Contract " + cn.getId() + " is blocked by operator.");
     }
 
+    @Override
     public void blockByOperator(Contract cn) throws ECareException {
         if(!cn.isBlockedByOperator()) {
             cn.setBlockByOperator(true);
@@ -203,6 +216,7 @@ public class ContractBusiness {
         else throw new ECareException("Contract " + cn.getId() + " is already blocked by operator.");
     }
 
+    @Override
     public void unblockByOperator(Contract cn) throws ECareException {
         if(cn.isBlockedByOperator()) {
             cn.setBlockByOperator(false);
@@ -210,6 +224,7 @@ public class ContractBusiness {
         else throw new ECareException("Contract " + cn.getId() + " is already unblocked by operator.");
     }
 
+    @Override
     public void enableOption(Contract cn, Option op) throws ECareException {
         if(!cn.getOptions().contains(op)) {
             cn.addOption(op);
@@ -220,6 +235,7 @@ public class ContractBusiness {
         else throw new ECareException("Option " + op.getId() + ":" + op.getTitle() + " is already enabled for contract " + cn.getId() + ".");
     }
 
+    @Override
     public void disableOption(Contract cn, Option op) throws ECareException {
         if(cn.getOptions().contains(op)) {
             cn.deleteOption(op);
