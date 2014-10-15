@@ -1,12 +1,14 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
 import ru.tsystems.tsproject.ecare.business.TariffBusiness;
+import ru.tsystems.tsproject.ecare.entities.Tariff;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Selvin
@@ -18,9 +20,17 @@ public class TariffsListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
+        List<Tariff> tariffs = null;
         switch (action) {
             case "createTariff":
                 req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
+                break;
+            case "deleteAllTariffs":
+                tariffBusiness.deleteAllTariffs();
+                tariffs = tariffBusiness.getAllTariffs();
+                req.setAttribute("role", "admin");
+                req.setAttribute("tariffs", tariffs);
+                req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
             default: break;
         }

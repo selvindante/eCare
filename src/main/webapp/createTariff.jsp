@@ -12,6 +12,9 @@
 </head>
 <body>
 <header>Creating of new tariff.</header>
+
+<hr>
+
 <form id="tariff" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
     <p>
         Title: <input type="text" name="title" size=25 value="">

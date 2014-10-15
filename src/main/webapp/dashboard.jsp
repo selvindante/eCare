@@ -16,9 +16,15 @@
 <body>
     <header>Operator's Dashboard:</header>
 </body>
+
+<hr>
+
 <p>
     Role(temporary): ${role}
 </p>
+
+<hr>
+
 <p>
     Search client by phone number:
 </p>
@@ -27,11 +33,17 @@
         Number: <input type="text" name="number" size=25 value=""> <button type="submit">Search</button>
     </p>
 </form>
+
+<hr>
+
 <p>
     <a href='<%=request.getContextPath()%>dashboard?&action=viewAllTariffs'>View all tariffs</a>
 </p>
+
+<hr>
+
 <p>
-    List of clients:
+    List of clients. <a href='<%=request.getContextPath()%>dashboard?action=deleteAllClients'>(clear list)</a>
 </p>
 <table>
     <tr>
@@ -61,6 +73,9 @@
         </td>
         <td>
             ${client.email}
+        </td>
+        <td>
+            <a href='<%=request.getContextPath()%>dashboard?id=${client.id}&action=deleteClient'>delete</a>
         </td>
     </tr>
     </c:forEach>

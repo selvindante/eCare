@@ -92,4 +92,13 @@
         <url-pattern>/option</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>chooseTariffServlet</servlet-name>
+        <servlet-class>ru.tsystems.tsproject.ecare.servlets.ChooseTariffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>chooseTariffServlet</servlet-name>
+        <url-pattern>/chooseTariff</url-pattern>
+    </servlet-mapping>
+
 </web-app>

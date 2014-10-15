@@ -44,7 +44,7 @@ public class SqlTariffDAO extends AbstractTariffDAO {
 
     @Override
     protected void doDeleteAllTariffs() {
-        em.createNamedQuery("Tariff.deleteAllTariffs", Tariff.class).executeUpdate();
+        em.createQuery("DELETE FROM Tariff t");
     }
 
     @Override

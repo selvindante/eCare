@@ -1,13 +1,14 @@
 package ru.tsystems.tsproject.ecare.business;
 
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.dao.AbstractOptionDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.dao.SqlOptionDAO;
+import ru.tsystems.tsproject.ecare.entities.Option;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -45,6 +46,27 @@ public class OptionBusiness {
         catch (RuntimeException re) {
             if(tx.isActive()) {
                 tx.rollback();
+            }
+            throw re;
+        }
+    }
+
+    public Option findOptionByTitleAndTariffId(String title, long id) throws ECareException {
+        Option op = null;
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            try {
+                op = opDAO.findOptionByTitleAndTariffId(title, id);
+            } catch(NoResultException nrex) {
+                throw new ECareException("Option " + title + " not found or tariff with id: " + id + " not exist.", nrex);
+            }
+            et.commit();
+            return op;
+        }
+        catch (RuntimeException re) {
+            if(et.isActive()) {
+                et.rollback();
             }
             throw re;
         }
@@ -114,11 +136,11 @@ public class OptionBusiness {
         }
     }
 
-    public void deleteAllOptions() {
+    public void deleteAllOptionsForTariff(long id) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            opDAO.deleteAllOptions();
+            opDAO.deleteAllOptionsForTariff(id);
             tx.commit();
         }
         catch (RuntimeException re) {

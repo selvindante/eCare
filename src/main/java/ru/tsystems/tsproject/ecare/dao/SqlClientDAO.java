@@ -59,7 +59,7 @@ public class SqlClientDAO extends AbstractClientDAO {
 
     @Override
     protected void doDeleteAllClients() {
-        em.createNamedQuery("Client.deleteAllClients", Client.class).executeUpdate();
+        em.createQuery("DELETE FROM Client c WHERE c.role = 'client'");
     }
 
     @Override

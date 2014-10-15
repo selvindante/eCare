@@ -11,10 +11,11 @@ import java.util.List;
 public abstract class AbstractOptionDAO {
     protected abstract void doCreateOption(Option op);
     protected abstract Option doLoadOption(long id);
+    protected abstract Option doFindOptionByTitleAndTariffId(String title, long id);
     protected abstract void doUpdateOption(Option op);
     protected abstract void doDeleteOption(Option op);
     protected abstract List<Option> doGetAllOptions();
-    protected abstract void doDeleteAllOptions();
+    protected abstract void doDeleteAllOptionsForTariff(long id);
     protected abstract long doSize();
     protected abstract List doGetAllOptionsForTariff(long id);
 
@@ -24,6 +25,10 @@ public abstract class AbstractOptionDAO {
 
     public Option loadOption(long id) {
         return doLoadOption(id);
+    }
+
+    public Option findOptionByTitleAndTariffId(String title, long id) {
+        return doFindOptionByTitleAndTariffId(title, id);
     }
 
     public void updateOption(Option op) {
@@ -42,8 +47,8 @@ public abstract class AbstractOptionDAO {
         return doGetAllOptionsForTariff(id);
     }
 
-    public void deleteAllOptions() {
-        doDeleteAllOptions();
+    public void deleteAllOptionsForTariff(long id) {
+        doDeleteAllOptionsForTariff(id);
     }
 
     public long size() {

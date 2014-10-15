@@ -13,7 +13,12 @@
     <title>Client page</title>
 </head>
 <body>
-<header>Client:</header>
+<header>Client:
+    <c:if test="${role} == 'admin'}">
+        <a href='<%=request.getContextPath()%>client?id=${client.id}&action=deleteClient'>(delete)</a>
+    </c:if>
+</header>
+<hr>
 <p>
     Role(temporary): ${role}
 </p>
@@ -38,12 +43,12 @@
 <p>
     Amount: ${client.amount}
 </p>
+<hr>
 <p>
     <c:if test="${role == 'admin'}">
         <a href='<%=request.getContextPath()%>client?id=${client.id}&action=createContract'>Create Contract</a>
     </c:if>
 </p>
-
 <p>
     List of contracts:
 </p>
@@ -70,7 +75,7 @@
                 <c:forEach var="contract" items="${client.getContracts()}">
                 <tr>
                     <td>
-                        ${contract.id}
+                        <a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=viewContract'>${contract.id}</a>
                     </td>
                     <td>
                         ${contract.number}
@@ -83,6 +88,31 @@
                     </td>
                     <td>
                         ${contract.isBlockedByOperator()}
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${role == 'admin'}">
+                                <a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=deleteContract'>(delete)</a>
+                                <c:choose>
+                                    <c:when test="${contract.isBlockedByOperator() == true}">
+                                        <a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=unblockByOperator'>(unblock)</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=blockByOperator'>(block)</a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:when>
+                            <c:when test="${role == 'client' && contract.isBlockedByOperator() == false}">
+                                <c:choose>
+                                    <c:when test="${contract.isBlockedByClient() == true}">
+                                        <a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=unblockByClient'>(unblock)</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=blockByClient'>(block)</a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:when>
+                        </c:choose>
                     </td>
                 </tr>
                 </c:forEach>

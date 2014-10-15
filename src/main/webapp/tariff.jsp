@@ -12,7 +12,10 @@
     <title>Tariff</title>
 </head>
 <body>
-    <header>Tariff:</header>
+    <header>Tariff: <a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=deleteTariff'>(delete)</a></header>
+
+    <hr>
+
     <p>
         Tariff ID: ${tariff.id}
     </p>
@@ -22,11 +25,14 @@
     <p>
         Price: ${tariff.price}
     </p>
+
+    <hr>
+
     <p>
-        <a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=createOption'>Create option</a>
+        <a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=createOption'>Create new option</a>
     </p>
     <p>
-        List of available options:
+        List of available options: <a href='<%=request.getContextPath()%>tariff?action=deleteAllOptions'>(clear list)</a>
     </p>
     <c:choose>
         <c:when test="${tariff.getOptions().size() != 0}">
@@ -48,7 +54,7 @@
                 <c:forEach var="option" items="${tariff.getOptions()}">
                     <tr>
                         <td>
-                            ${option.id}
+                            <a href='<%=request.getContextPath()%>option?id=${option.id}&action=viewOption'>${option.id}</a>
                         </td>
                         <td>
                             ${option.title}
@@ -58,6 +64,9 @@
                         </td>
                         <td>
                             ${option.costOfConnection}
+                        </td>
+                        <td>
+                            <a href='<%=request.getContextPath()%>option?id=${option.id}&action=deleteOption'>(delete)</a>
                         </td>
                     </tr>
                 </c:forEach>

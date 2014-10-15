@@ -12,6 +12,9 @@
 </head>
 <body>
 <header>Creating of new option:</header>
+
+<hr>
+
 <form id="option" method="post" action="option" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="id" value="${tariff.id}">
     <p>
@@ -23,6 +26,9 @@
     <p>
         Cost of connection: <input type="text" name="costOfConnection" size=25 value="">
     </p>
+
+    <hr>
+
     <p>
         incompatibility / dependency
     </p>

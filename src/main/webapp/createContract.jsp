@@ -12,6 +12,7 @@
 </head>
 <body>
 <header>Creating of new contract for client ${client.email}.</header>
+<hr>
 <form id="createContract" method="post" action="createContract" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="id" value="${client.id}">
     <p>

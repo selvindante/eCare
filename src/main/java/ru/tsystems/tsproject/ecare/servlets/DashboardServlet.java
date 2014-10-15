@@ -24,6 +24,7 @@ public class DashboardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
+        List<Client> clientsList = null;
         switch (action) {
             case "viewClient":
                 long id = Long.valueOf(req.getParameter("id"));
@@ -37,6 +38,21 @@ public class DashboardServlet extends HttpServlet {
                 req.setAttribute("role", "admin");
                 req.setAttribute("tariffs", tariffs);
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
+                break;
+            case "deleteAllClients":
+                clientBusiness.deleteAllClients();
+                req.setAttribute("role", "admin");
+                clientsList = clientBusiness.getAllClients();
+                req.setAttribute("clientsList", clientsList);
+                req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
+                break;
+            case "deleteClient":
+                long clientId = Long.valueOf(req.getParameter("id"));
+                clientBusiness.deleteClient(clientId);
+                clientsList = clientBusiness.getAllClients();
+                req.setAttribute("role", "admin");
+                req.setAttribute("clientsList", clientsList);
+                req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;
             default: break;
         }

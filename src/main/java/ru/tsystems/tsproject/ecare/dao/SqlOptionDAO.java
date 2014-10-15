@@ -29,6 +29,14 @@ public class SqlOptionDAO extends AbstractOptionDAO {
     }
 
     @Override
+    protected Option doFindOptionByTitleAndTariffId(String title, long id) {
+        Query query = em.createQuery("SELECT o FROM Option o WHERE o.title = :title AND o.tariff.id = :id");
+        query.setParameter("title", title);
+        query.setParameter("id", id);
+        return (Option) query.getSingleResult();
+    }
+
+    @Override
     protected void doUpdateOption(Option op) {
         em.merge(op);
     }
@@ -51,8 +59,9 @@ public class SqlOptionDAO extends AbstractOptionDAO {
     }
 
     @Override
-    protected void doDeleteAllOptions() {
-        em.createNamedQuery("Option.deleteAllOptions", Option.class).executeUpdate();
+    protected void doDeleteAllOptionsForTariff(long id) {
+        Query query = em.createQuery("DELETE FROM Option o WHERE o.tariff.id = :id");
+        query.setParameter("id", id);
     }
 
     @Override

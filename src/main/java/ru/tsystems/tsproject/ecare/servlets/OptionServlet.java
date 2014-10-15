@@ -21,7 +21,22 @@ public class OptionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        long optionId = Long.valueOf(req.getParameter("id"));
+        String action = req.getParameter("action");
+        Option option = optionBusiness.loadOption(optionId);
+        switch (action) {
+            case "viewOption":
+                req.setAttribute("option", option);
+                req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                break;
+            case "deleteOption":
+                optionBusiness.deleteOption(optionId);
+                Tariff tariff = tariffBusiness.loadTariff(option.getTariff().getId());
+                req.setAttribute("tariff", tariff);
+                req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
+                break;
+            default: break;
+        }
     }
 
     @Override
@@ -33,7 +48,7 @@ public class OptionServlet extends HttpServlet {
         Tariff tariff = tariffBusiness.loadTariff(tariffId);
         Option option = new Option(tariff, title, price, costOfConnection);
         optionBusiness.createOption(option);
-        tariff.addOption(option);
+        tariff.addOption(optionBusiness.findOptionByTitleAndTariffId(title, tariffId));
         req.setAttribute("tariff", tariff);
         req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
     }
