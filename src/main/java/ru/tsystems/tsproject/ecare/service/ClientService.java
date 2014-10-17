@@ -3,7 +3,6 @@ package ru.tsystems.tsproject.ecare.service;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlClientDAO;
-import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.entities.Client;
 
 import javax.persistence.EntityManager;
@@ -17,9 +16,22 @@ import java.util.List;
  */
 
 public class ClientService implements IClientService {
+    private static ClientService instance;
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractDAO<Client> DAO = new SqlClientDAO(em);
-    private SqlClientDAO clDAO = new SqlClientDAO(em);
+    private AbstractDAO<Client> DAO = SqlClientDAO.getInstance();
+    private SqlClientDAO clDAO = SqlClientDAO.getInstance();
+
+    private ClientService() {
+    }
+
+    public static ClientService getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ClientService();
+        }
+        return instance;
+    }
 
     @Override
     public Client saveOrUpdateClient(Client cl) {

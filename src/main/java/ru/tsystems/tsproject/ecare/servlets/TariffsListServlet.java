@@ -1,7 +1,8 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.service.TariffService;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
+import ru.tsystems.tsproject.ecare.service.ITariffService;
+import ru.tsystems.tsproject.ecare.service.TariffService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,7 @@ import java.util.List;
  * on 14.10.2014.
  */
 public class TariffsListServlet extends HttpServlet {
-    TariffService tariffService = new TariffService();
+    ITariffService tariffService = TariffService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

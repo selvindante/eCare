@@ -1,6 +1,7 @@
 package ru.tsystems.tsproject.ecare.dao;
 
 import ru.tsystems.tsproject.ecare.entities.Tariff;
+import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -11,10 +12,19 @@ import java.util.List;
  * on 06.10.2014.
  */
 public class SqlTariffDAO extends AbstractDAO<Tariff> {
-    private EntityManager em;
+    private static SqlTariffDAO instance;
+    private EntityManager em = SqlEntityManager.getEm();
 
-    public SqlTariffDAO(EntityManager em) {
-        this.em = em;
+    private SqlTariffDAO() {
+    }
+
+    public static SqlTariffDAO getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new SqlTariffDAO();
+        }
+        return instance;
     }
 
     @Override

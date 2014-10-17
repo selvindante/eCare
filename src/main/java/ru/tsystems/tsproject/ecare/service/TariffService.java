@@ -2,7 +2,6 @@ package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
-import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.dao.SqlTariffDAO;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 
@@ -15,8 +14,21 @@ import java.util.List;
  * on 10.10.2014.
  */
 public class TariffService implements ITariffService {
+    private static TariffService instance;
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractDAO<Tariff> trDAO = new SqlTariffDAO(em);
+    private AbstractDAO<Tariff> trDAO = SqlTariffDAO.getInstance();
+
+    private TariffService() {
+    }
+
+    public static TariffService getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new TariffService();
+        }
+        return instance;
+    }
 
     @Override
     public Tariff saveOrUpdateTariff(Tariff tr) {

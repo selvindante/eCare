@@ -1,6 +1,7 @@
 package ru.tsystems.tsproject.ecare.dao;
 
 import ru.tsystems.tsproject.ecare.entities.Client;
+import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -11,10 +12,19 @@ import java.util.List;
  * on 02.10.2014.
  */
 public class SqlClientDAO extends AbstractDAO<Client> {
-    private EntityManager em;
+    private static SqlClientDAO instance;
+    private EntityManager em = SqlEntityManager.getEm();
 
-    public SqlClientDAO(EntityManager em) {
-        this.em = em;
+    private SqlClientDAO() {
+    }
+
+    public static SqlClientDAO getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new SqlClientDAO();
+        }
+        return instance;
     }
 
     @Override

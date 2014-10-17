@@ -1,7 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.service.ClientService;
-import ru.tsystems.tsproject.ecare.service.ContractService;
+import ru.tsystems.tsproject.ecare.service.*;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.entities.Contract;
 
@@ -16,8 +15,8 @@ import java.io.IOException;
  * on 14.10.2014.
  */
 public class ContractCreationServlet extends HttpServlet {
-    ClientService clientService = new ClientService();
-    ContractService contractService = new ContractService();
+    IClientService clientService = ClientService.getInstance();
+    IContractService contractService = ContractService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

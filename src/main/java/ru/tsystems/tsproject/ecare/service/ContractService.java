@@ -3,7 +3,6 @@ package ru.tsystems.tsproject.ecare.service;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlContractDAO;
-import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.entities.Contract;
 import ru.tsystems.tsproject.ecare.entities.Option;
 
@@ -17,9 +16,22 @@ import java.util.List;
  * on 10.10.2014.
  */
 public class ContractService implements IContractService {
+    private static ContractService instance;
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractDAO<Contract> DAO = new SqlContractDAO(em);
-    private SqlContractDAO cnDAO = new SqlContractDAO(em);
+    private AbstractDAO<Contract> DAO = SqlContractDAO.getInstance();
+    private SqlContractDAO cnDAO = SqlContractDAO.getInstance();
+
+    private ContractService() {
+    }
+
+    public static ContractService getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ContractService();
+        }
+        return instance;
+    }
 
     @Override
     public Contract saveOrUpdateContract(Contract cn) {

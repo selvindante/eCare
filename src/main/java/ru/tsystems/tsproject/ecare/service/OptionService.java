@@ -2,7 +2,6 @@ package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
-import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.dao.SqlOptionDAO;
 import ru.tsystems.tsproject.ecare.entities.Option;
 
@@ -16,9 +15,22 @@ import java.util.List;
  * on 10.10.2014.
  */
 public class OptionService implements IOptionService {
+    private static OptionService instance;
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractDAO<Option> DAO = new SqlOptionDAO(em);
-    private SqlOptionDAO opDAO = new SqlOptionDAO(em);
+    private AbstractDAO<Option> DAO = SqlOptionDAO.getInstance();
+    private SqlOptionDAO opDAO = SqlOptionDAO.getInstance();
+
+    private OptionService() {
+    }
+
+    public static OptionService getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new OptionService();
+        }
+        return instance;
+    }
 
     @Override
     public Option saveOrUpdateOption(Option op) {

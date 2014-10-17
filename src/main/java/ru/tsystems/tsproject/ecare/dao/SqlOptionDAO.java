@@ -1,6 +1,7 @@
 package ru.tsystems.tsproject.ecare.dao;
 
 import ru.tsystems.tsproject.ecare.entities.Option;
+import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -11,10 +12,19 @@ import java.util.List;
  * on 06.10.2014.
  */
 public class SqlOptionDAO extends AbstractDAO<Option> {
-    private EntityManager em;
+    private static SqlOptionDAO instance;
+    private EntityManager em = SqlEntityManager.getEm();
 
-    public SqlOptionDAO(EntityManager em) {
-        this.em = em;
+    private SqlOptionDAO() {
+    }
+
+    public static SqlOptionDAO getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new SqlOptionDAO();
+        }
+        return instance;
     }
 
     @Override
