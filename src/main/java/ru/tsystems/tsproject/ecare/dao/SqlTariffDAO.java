@@ -10,40 +10,35 @@ import java.util.List;
  * Created by Selvin
  * on 06.10.2014.
  */
-public class SqlTariffDAO extends AbstractTariffDAO {
-    private EntityManager em = SqlEntityManager.getEm();
+public class SqlTariffDAO extends AbstractDAO<Tariff> {
+    private EntityManager em;
 
     public SqlTariffDAO(EntityManager em) {
         this.em = em;
     }
 
     @Override
-    protected void doCreateTariff(Tariff tr) {
-        em.merge(tr);
+    protected Tariff doSaveOrUpdate(Tariff tr) {
+        return em.merge(tr);
     }
 
     @Override
-    protected Tariff doLoadTariff(long id) {
+    protected Tariff doLoad(long id) {
         return em.find(Tariff.class, id);
     }
 
     @Override
-    protected void doUpdateTariff(Tariff tr) {
-        em.merge(tr);
-    }
-
-    @Override
-    protected void doDeleteTariff(Tariff tr) {
+    protected void doDelete(Tariff tr) {
         em.remove(tr);
     }
 
     @Override
-    protected List<Tariff> doGetAllTariffs() {
+    protected List<Tariff> doGetAll() {
         return em.createNamedQuery("Tariff.getAllTariffs", Tariff.class).getResultList();
     }
 
     @Override
-    protected void doDeleteAllTariffs() {
+    protected void doDeleteAll() {
         em.createQuery("DELETE FROM Tariff t");
     }
 

@@ -30,7 +30,7 @@ public class ContractCreationServlet extends HttpServlet {
         long number = Long.valueOf(req.getParameter("number"));
         Client client = clientService.loadClient(clientId);
         Contract contract = new Contract(client, number, null, false, false);
-        contractService.createContract(contract);
+        contractService.saveOrUpdateContract(contract);
         client.addContract(contractService.findContractByNumber(number));
         req.setAttribute("role", "admin");
         req.setAttribute("client", client);

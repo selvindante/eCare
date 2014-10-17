@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Selvin
  * on 02.10.2014.
  */
-public class SqlClientDAO extends AbstractClientDAO {
+public class SqlClientDAO extends AbstractDAO<Client> {
     private EntityManager em;
 
     public SqlClientDAO(EntityManager em) {
@@ -18,47 +18,40 @@ public class SqlClientDAO extends AbstractClientDAO {
     }
 
     @Override
-    protected void doCreateClient(Client cl) {
-        em.merge(cl);
+    protected Client doSaveOrUpdate(Client cl) {
+        return em.merge(cl);
     }
 
     @Override
-    protected Client doLoadClient(long id) {
+    protected Client doLoad(long id) {
         return em.find(Client.class, id);
     }
 
-    @Override
-    protected Client doFindClientByLoginAndPass(String login, String password) {
+    public Client findClientByLoginAndPassword(String login, String password) {
         Query query = em.createQuery("SELECT c FROM Client c WHERE c.email = :login AND c.password = :password");
         query.setParameter("login", login);
         query.setParameter("password", password);
         return (Client) query.getSingleResult();
     }
 
-    @Override
-    protected Client doFindClientByNumber(long number) {
+    public Client findClientByNumber(long number) {
         Query query = em.createQuery("SELECT cn.client FROM Contract cn WHERE cn.number = :number");
         query.setParameter("number", number);
         return (Client) query.getSingleResult();
     }
 
     @Override
-    protected void doUpdateClient(Client cl) {
-        em.merge(cl);
-    }
-
-    @Override
-    protected void doDeleteClient(Client cl) {
+    protected void doDelete(Client cl) {
         em.remove(cl);
     }
 
     @Override
-    protected List<Client> doGetAllClients() {
+    protected List<Client> doGetAll() {
         return em.createNamedQuery("Client.getAllClients", Client.class).getResultList();
     }
 
     @Override
-    protected void doDeleteAllClients() {
+    protected void doDeleteAll() {
         em.createQuery("DELETE FROM Client c WHERE c.role = 'client'");
     }
 

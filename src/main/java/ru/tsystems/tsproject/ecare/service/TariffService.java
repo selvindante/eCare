@@ -1,10 +1,10 @@
 package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.entities.Tariff;
-import ru.tsystems.tsproject.ecare.dao.AbstractTariffDAO;
+import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.dao.SqlTariffDAO;
+import ru.tsystems.tsproject.ecare.entities.Tariff;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -16,15 +16,16 @@ import java.util.List;
  */
 public class TariffService implements ITariffService {
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractTariffDAO trDAO = new SqlTariffDAO(em);
+    private AbstractDAO<Tariff> trDAO = new SqlTariffDAO(em);
 
     @Override
-    public void createTariff(Tariff tr) {
+    public Tariff saveOrUpdateTariff(Tariff tr) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            trDAO.createTariff(tr);
+            tr = trDAO.saveOrUpdate(tr);
             tx.commit();
+            return tr;
         }
         catch (RuntimeException re) {
             if(tx.isActive()) {
@@ -39,7 +40,7 @@ public class TariffService implements ITariffService {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
-            Tariff tr = trDAO.loadTariff(id);
+            Tariff tr = trDAO.load(id);
             et.commit();
             if(tr == null)  throw new ECareException("Tariff with id = " + id + " not found.");
             return tr;
@@ -52,29 +53,14 @@ public class TariffService implements ITariffService {
         }
     }
 
-    public void updateTariff(Tariff tr) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            trDAO.updateTariff(tr);
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
-    }
-
     @Override
     public void deleteTariff(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            Tariff tr = trDAO.loadTariff(id);
+            Tariff tr = trDAO.load(id);
             if(tr == null) throw new ECareException("Tariff with id = " + id + " not exist.");
-            trDAO.deleteTariff(tr);
+            trDAO.delete(tr);
             tx.commit();
         }
         catch (RuntimeException re) {
@@ -90,7 +76,7 @@ public class TariffService implements ITariffService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            List<Tariff> tariffs = trDAO.getAllTariffs();
+            List<Tariff> tariffs = trDAO.getAll();
             tx.commit();
             return tariffs;
         }
@@ -107,7 +93,7 @@ public class TariffService implements ITariffService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            trDAO.deleteAllTariffs();
+            trDAO.deleteAll();
             tx.commit();
         }
         catch (RuntimeException re) {

@@ -2,26 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be75c185-36c2-45f5-a4cc-18fbf0efc4fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IClientService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ChooseTariffServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ChooseTariffServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractDAO.java" />
+      <change type="DELETED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\dao\AbstractClientDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\dao\AbstractContractDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\dao\AbstractOptionDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\dao\AbstractTariffDAO.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ClientServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ClientServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractCreationServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractCreationServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/DashboardServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/DashboardServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/LoginServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IClientService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IClientService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/OptionServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/OptionServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/RegistrationServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/RegistrationServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ru/tsystems/tsproject/ecare/dao/SqlClientAndContractDAOTest.java" afterPath="$PROJECT_DIR$/src/main/test/ru/tsystems/tsproject/ecare/dao/SqlClientAndContractDAOTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlClientDAO.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlClientDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlContractDAO.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlContractDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlOptionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlOptionDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ru/tsystems/tsproject/ecare/dao/SqlTariffAndOptionDAOTest.java" afterPath="$PROJECT_DIR$/src/main/test/ru/tsystems/tsproject/ecare/dao/SqlTariffAndOptionDAOTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlTariffDAO.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlTariffDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffsListServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffsListServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\business\ClientBusiness.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java" />
-      <change type="MOVED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\business\ContractBusiness.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java" />
-      <change type="MOVED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\business\OptionBusiness.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java" />
-      <change type="MOVED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\java\ru\tsystems\tsproject\ecare\business\TariffBusiness.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java" />
     </list>
     <ignored path="eCare.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,49 +56,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IClientService.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IClientService.java">
+      <file leaf-file-name="AbstractDAO.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63414633" vertical-offset="0" max-vertical-offset="697">
-              <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.2682927" vertical-offset="0" max-vertical-offset="697">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IContractService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ITariffService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IOptionService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
-              <caret line="34" column="90" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+                <element signature="e#479#480#0" expanded="true" />
+                <element signature="e#509#510#0" expanded="true" />
+                <element signature="e#542#543#0" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,11 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ClientServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlContractDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractContractDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/business/ContractBusiness.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractCreationServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/allTariffs.jsp" />
         <option value="dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..option1" />
@@ -122,18 +93,13 @@
         <option value="dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..client" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/DashboardServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlClientDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlTariffDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffsListServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlOptionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractOptionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/business/OptionBusiness.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Tariff.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/OptionServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Option.java" />
-        <option value="dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..contract" />
         <option value="dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..tariff" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -153,14 +119,24 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/business/IClientService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/business/ClientService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractBusiness.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractBusiness.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffBusiness.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionBusiness.java" />
+        <option value="dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..contract" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlClientDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlContractDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlTariffDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlOptionDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IClientService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java" />
       </list>
     </option>
   </component>
@@ -252,6 +228,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -334,6 +311,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eCare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eCare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -545,7 +548,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -559,10 +561,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.23870221" />
-    <property name="options.lastSelected" value="reference.settings.project.maven.runner" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.11335677" />
+    <property name="project.structure.side.proportion" value="0.26347306" />
+    <property name="options.lastSelected" value="reference.settings.project.maven.repository.indices" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -899,12 +901,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -923,6 +919,12 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="LocalTomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.91" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
@@ -1064,7 +1066,12 @@
       <workItem from="1413280308263" duration="50000" />
       <workItem from="1413280382081" duration="29432000" />
       <workItem from="1413361966637" duration="3742000" />
-      <workItem from="1413365720429" duration="15730000" />
+      <workItem from="1413365720429" duration="16609000" />
+      <workItem from="1413388208734" duration="4299000" />
+      <workItem from="1413452000560" duration="2232000" />
+      <workItem from="1413460065606" duration="1069000" />
+      <workItem from="1413462982526" duration="2478000" />
+      <workItem from="1413538526606" duration="4599000" />
     </task>
     <task id="LOCAL-00001" summary="github installation">
       <created>1412017393413</created>
@@ -1126,11 +1133,15 @@
       <created>1413379639548</created>
       <updated>1413379639548</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Created interfaces for all services/business">
+      <created>1413384306547</created>
+      <updated>1413384306547</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221031000" />
+    <option name="totallyTimeSpent" value="236587000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1160,7 +1171,7 @@
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1948775" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17039403" sideWeight="0.49907234" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16993958" sideWeight="0.49907234" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1168,8 +1179,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17625134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17571884" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1177,15 +1188,15 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21352503" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14536741" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19062833" sideWeight="0.5009276" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1219,7 +1230,8 @@
     <MESSAGE value="In ContractBusiness/ContractDAO added method findContractByNumber(). Added Dashboard, ContractCreation, Registration, Client and Contract servlets with jsp pages. Minimum functionality of client registration and creation of contract for client now working." />
     <MESSAGE value="Added Tariff and Option Servlets and JSP for operator's functionality" />
     <MESSAGE value="Added servlets and JSP pages for changing of tariff for client (chooseTariff, chooseOptions). Fixed other servlets and pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added servlets and JSP pages for changing of tariff for client (chooseTariff, chooseOptions). Fixed other servlets and pages." />
+    <MESSAGE value="Created interfaces for all services/business" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created interfaces for all services/business" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1231,49 +1243,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79376084" vertical-offset="222" max-vertical-offset="884">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.058943" vertical-offset="2165" max-vertical-offset="11339">
-          <caret line="215" column="18" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractContractDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3057554" vertical-offset="0" max-vertical-offset="782">
-          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-          <folding>
-            <element signature="e#962#963#0" expanded="false" />
-            <element signature="e#1015#1016#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4490566" vertical-offset="0" max-vertical-offset="530">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/RegistrationServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5179856" vertical-offset="18" max-vertical-offset="646">
-          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..option1">
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
@@ -1284,38 +1253,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlContractDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55243725" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="34" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractCreationServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7071057" vertical-offset="0" max-vertical-offset="612">
           <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2193">
-          <caret line="15" column="110" selection-start-line="15" selection-start-column="110" selection-end-line="15" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractClientDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.008992806" vertical-offset="226" max-vertical-offset="833">
-          <caret line="15" column="86" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
-          <folding>
-            <element signature="e#1405#1406#0" expanded="false" />
-            <element signature="e#1441#1442#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1323,70 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44964027" vertical-offset="2130" max-vertical-offset="3094">
           <caret line="140" column="9" selection-start-line="140" selection-start-column="9" selection-end-line="140" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44194108" vertical-offset="0" max-vertical-offset="577">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="748">
-          <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlTariffDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57194245" vertical-offset="209" max-vertical-offset="765">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlClientDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="223" max-vertical-offset="952">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="43" />
-          <folding>
-            <element signature="method#doFindClientByNumber#0;class#SqlClientDAO#0" expanded="false" />
-            <element signature="method#doGetAllClients#0;class#SqlClientDAO#0" expanded="false" />
-            <element signature="e#1620#1621#0" expanded="true" />
-            <element signature="e#1698#1699#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractOptionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7660312" vertical-offset="153" max-vertical-offset="765">
-          <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlOptionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58925474" vertical-offset="408" max-vertical-offset="1003">
-          <caret line="63" column="37" selection-start-line="63" selection-start-column="37" selection-end-line="63" selection-end-column="37" />
-          <folding>
-            <element signature="method#doFindOptionByTitleAndTariffId#0;class#SqlOptionDAO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Tariff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7175043" vertical-offset="487" max-vertical-offset="1598">
-          <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1394,7 +1271,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="697">
           <caret line="32" column="80" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1402,23 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="1020">
           <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="44" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/OptionServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="884">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Option.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1226" max-vertical-offset="2295">
-          <caret line="117" column="48" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,18 +1288,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..contract">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="523">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1448,7 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26343155" vertical-offset="222" max-vertical-offset="1173">
           <caret line="33" column="75" selection-start-line="31" selection-start-column="16" selection-end-line="33" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1459,15 +1305,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Contract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.610052" vertical-offset="1100" max-vertical-offset="2227">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1483,9 +1320,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="884">
           <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1493,7 +1327,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1360">
           <caret line="41" column="75" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,7 +1334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.2307692" vertical-offset="248" max-vertical-offset="799">
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1509,7 +1341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.615245" vertical-offset="103" max-vertical-offset="1411">
           <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1517,7 +1348,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5862069" vertical-offset="561" max-vertical-offset="1139">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1525,7 +1355,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="11.769231" vertical-offset="969" max-vertical-offset="1547">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1533,7 +1362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43194193" vertical-offset="0" max-vertical-offset="551">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1541,7 +1369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43194193" vertical-offset="0" max-vertical-offset="595">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1549,7 +1376,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="6.269231" vertical-offset="503" max-vertical-offset="1054">
           <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1557,7 +1383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="16.076923" vertical-offset="911" max-vertical-offset="1462">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1565,7 +1390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="15.423077" vertical-offset="1761" max-vertical-offset="2312">
           <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1573,7 +1397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.961538" vertical-offset="290" max-vertical-offset="1530">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1581,33 +1404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.615385" vertical-offset="0" max-vertical-offset="748">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding>
-            <element signature="method#createClient#0;class#ClientService#0" expanded="false" />
-            <element signature="method#loadClient#0;class#ClientService#0" expanded="false" />
-            <element signature="method#findClient#0;class#ClientService#0" expanded="false" />
-            <element signature="method#findClientByNumber#0;class#ClientService#0" expanded="false" />
-            <element signature="method#updateClient#0;class#ClientService#0" expanded="false" />
-            <element signature="method#deleteClient#0;class#ClientService#0" expanded="false" />
-            <element signature="method#getAllClients#0;class#ClientService#0" expanded="false" />
-            <element signature="method#deleteAllClients#0;class#ClientService#0" expanded="false" />
-            <element signature="method#getNumberOfClients#0;class#ClientService#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ClientServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35091743" vertical-offset="0" max-vertical-offset="872">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1615,108 +1411,249 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24940899" vertical-offset="639" max-vertical-offset="2244">
           <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ClientServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/f3abc198/7f005cd6-b55c-40a4-8608-335e538e77d8/ecare..contract">
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/OptionServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84517306" vertical-offset="114" max-vertical-offset="884">
+          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5664845" vertical-offset="46" max-vertical-offset="748">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6812386" vertical-offset="612" max-vertical-offset="2839">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Tariff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="1156">
-          <caret line="237" column="13" selection-start-line="237" selection-start-column="13" selection-end-line="237" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="319" max-vertical-offset="1598">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="408">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="884">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3119266" vertical-offset="0" max-vertical-offset="872">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
           <folding>
-            <element signature="method#createContract#0;class#ContractService#0" expanded="false" />
-            <element signature="method#loadContract#0;class#ContractService#0" expanded="false" />
-            <element signature="method#findContractByNumber#0;class#ContractService#0" expanded="false" />
-            <element signature="method#updateContract#0;class#ContractService#0" expanded="false" />
-            <element signature="method#deleteContract#0;class#ContractService#0" expanded="false" />
-            <element signature="method#getAllContracts#0;class#ContractService#0" expanded="false" />
-            <element signature="method#getAllContractsForClient#0;class#ContractService#0" expanded="false" />
-            <element signature="method#deleteAllContracts#0;class#ContractService#0" expanded="false" />
-            <element signature="method#getNumberOfContracts#0;class#ContractService#0" expanded="false" />
-            <element signature="method#blockByClient#0;class#ContractService#0" expanded="false" />
-            <element signature="method#unblockByClient#0;class#ContractService#0" expanded="false" />
-            <element signature="method#blockByOperator#0;class#ContractService#0" expanded="false" />
-            <element signature="method#unblockByOperator#0;class#ContractService#0" expanded="false" />
-            <element signature="method#enableOption#0;class#ContractService#0" expanded="false" />
-            <element signature="method#disableOption#0;class#ContractService#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Contract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.6880734" vertical-offset="80" max-vertical-offset="2227">
+          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/entities/Option.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.559633" vertical-offset="73" max-vertical-offset="2295">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlEntityManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1559633" vertical-offset="0" max-vertical-offset="872">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlContractDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2924312" vertical-offset="0" max-vertical-offset="1122">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
           <folding>
-            <element signature="method#createTariff#0;class#TariffService#0" expanded="false" />
-            <element signature="method#loadTariff#0;class#TariffService#0" expanded="false" />
-            <element signature="method#updateTariff#0;class#TariffService#0" expanded="false" />
-            <element signature="method#deleteTariff#0;class#TariffService#0" expanded="false" />
-            <element signature="method#getAllTariffs#0;class#TariffService#0" expanded="false" />
-            <element signature="method#deleteAllTariffs#0;class#TariffService#0" expanded="false" />
-            <element signature="method#getNumberOfTariffs#0;class#TariffService#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#921#922#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlTariffDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.40940368" vertical-offset="0" max-vertical-offset="872">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlOptionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
-          <caret line="34" column="90" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.2924312" vertical-offset="0" max-vertical-offset="1156">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9168111" vertical-offset="270" max-vertical-offset="952">
-          <caret line="210" column="13" selection-start-line="210" selection-start-column="13" selection-end-line="210" selection-end-column="13" />
-          <folding>
-            <element signature="method#createOption#0;class#OptionService#0" expanded="false" />
-            <element signature="method#loadOption#0;class#OptionService#0" expanded="false" />
-            <element signature="method#findOptionByTitleAndTariffId#0;class#OptionService#0" expanded="false" />
-            <element signature="method#updateOption#0;class#OptionService#0" expanded="false" />
-            <element signature="method#deleteOption#0;class#OptionService#0" expanded="false" />
-            <element signature="method#getAllOptions#0;class#OptionService#0" expanded="false" />
-            <element signature="method#getAllOptionsForTariff#0;class#OptionService#0" expanded="false" />
-            <element signature="method#deleteAllOptionsForTariff#0;class#OptionService#0" expanded="false" />
-            <element signature="method#getNumberOfOptions#0;class#OptionService#0" expanded="false" />
-            <element signature="method#setDependentOption#0;class#OptionService#0" expanded="false" />
-            <element signature="method#deleteDependentOption#0;class#OptionService#0" expanded="false" />
-            <element signature="method#setIncompatibleOption#0;class#OptionService#0" expanded="false" />
-            <element signature="method#deleteIncompatibleOption#0;class#OptionService#0" expanded="false" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IClientService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63414633" vertical-offset="0" max-vertical-offset="697">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.19495413" vertical-offset="0" max-vertical-offset="872">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final-sources.jar!/javax/persistence/EntityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325688" vertical-offset="764" max-vertical-offset="12104">
+          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/SqlClientDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27293578" vertical-offset="0" max-vertical-offset="935">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IContractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19495413" vertical-offset="0" max-vertical-offset="872">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35091743" vertical-offset="0" max-vertical-offset="4131">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/IOptionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19495413" vertical-offset="0" max-vertical-offset="872">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35091743" vertical-offset="0" max-vertical-offset="3451">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6376147" vertical-offset="1785" max-vertical-offset="2839">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ITariffService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19495413" vertical-offset="0" max-vertical-offset="872">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5711009" vertical-offset="1185" max-vertical-offset="2057">
+          <caret line="107" column="25" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/dao/AbstractDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2682927" vertical-offset="0" max-vertical-offset="697">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1731,7 +1668,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.23870221" />
+                <option value="0.26347306" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1744,7 +1681,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.23870221" />
+                <option value="0.26347306" />
               </list>
             </option>
           </splitter-proportions>
@@ -1755,7 +1692,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.23870221" />
+                <option value="0.26347306" />
               </list>
             </option>
           </splitter-proportions>
@@ -1767,7 +1704,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.23870221" />
+                <option value="0.26347306" />
               </list>
             </option>
           </splitter-proportions>
@@ -1775,11 +1712,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>JPA|eCare</last-edited>
+          <last-edited>Web|eCare</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.23870221" />
+                <option value="0.26347306" />
               </list>
             </option>
           </splitter-proportions>
@@ -1799,11 +1736,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>mysql-connector-java-5.1.33</last-edited>
+          <last-edited>Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.23870221" />
+                <option value="0.26347306" />
               </list>
             </option>
           </splitter-proportions>

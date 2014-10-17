@@ -29,8 +29,8 @@ public class TariffServlet extends HttpServlet {
                 req.setAttribute("tariff", tariff);
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 break;
-            case "createOption":
-                req.getRequestDispatcher("/createOption.jsp").forward(req, resp);
+            case "saveOrUpdateOption":
+                req.getRequestDispatcher("/saveOrUpdateOption.jsp").forward(req, resp);
             case "deleteTariff":
                 tariffService.deleteTariff(tariffId);
                 List<Tariff> tariffs = tariffService.getAllTariffs();
@@ -54,7 +54,7 @@ public class TariffServlet extends HttpServlet {
         String title = req.getParameter("title");
         int price = Integer.valueOf(req.getParameter("price"));
         Tariff tariff = new Tariff(title, price);
-        tariffService.createTariff(tariff);
+        tariffService.saveOrUpdateTariff(tariff);
         List<Tariff> tariffs = tariffService.getAllTariffs();
         req.setAttribute("role", "admin");
         req.setAttribute("tariffs", tariffs);

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface IContractService {
 
-    public void createContract(Contract cn);
+    public Contract saveOrUpdateContract(Contract cn);
 
     public Contract loadContract(long id);
 
@@ -24,6 +24,8 @@ public interface IContractService {
     public List<Contract> getAllContractsForClient(long id);
 
     public void deleteAllContracts();
+
+    public void deleteAllContractsForClient(long id);
 
     public long getNumberOfContracts();
 

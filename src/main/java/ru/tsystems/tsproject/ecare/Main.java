@@ -1,6 +1,11 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.service.ClientService;
+import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlClientDAO;
+import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
+import ru.tsystems.tsproject.ecare.entities.Client;
+
+import javax.persistence.EntityManager;
 
 /**
  * Created by Selvin
@@ -8,17 +13,7 @@ import ru.tsystems.tsproject.ecare.service.ClientService;
  */
 public class Main {
     public static void main(String[] args) {
-
-        /*OptionBusiness service = new OptionBusiness();
-        Option loaded = service.loadOption(1216l);*/
-
-        ClientService clientService = new ClientService();
-        clientService.deleteAllClients();
-
-        /*Contract contract = new Contract(client, 123456l, null, false, false);
-        contractBusiness.createContract(contract);*/
-
-        /*TariffBusiness tb = new TariffBusiness();
-        Tariff tariff = tb.loadTariff(501l);*/
+        EntityManager em = SqlEntityManager.getEm();
+        AbstractDAO<Client> clDAO = new SqlClientDAO(em);
     }
 }

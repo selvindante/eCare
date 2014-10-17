@@ -10,8 +10,7 @@ import java.util.List;
  * Created by Selvin
  * on 06.10.2014.
  */
-public class SqlOptionDAO extends AbstractOptionDAO {
-
+public class SqlOptionDAO extends AbstractDAO<Option> {
     private EntityManager em;
 
     public SqlOptionDAO(EntityManager em) {
@@ -19,17 +18,16 @@ public class SqlOptionDAO extends AbstractOptionDAO {
     }
 
     @Override
-    protected void doCreateOption(Option op) {
-        em.merge(op);
+    protected Option doSaveOrUpdate(Option op) {
+        return em.merge(op);
     }
 
     @Override
-    protected Option doLoadOption(long id) {
+    protected Option doLoad(long id) {
         return em.find(Option.class, id);
     }
 
-    @Override
-    protected Option doFindOptionByTitleAndTariffId(String title, long id) {
+    public Option findOptionByTitleAndTariffId(String title, long id) {
         Query query = em.createQuery("SELECT o FROM Option o WHERE o.title = :title AND o.tariff.id = :id");
         query.setParameter("title", title);
         query.setParameter("id", id);
@@ -37,29 +35,27 @@ public class SqlOptionDAO extends AbstractOptionDAO {
     }
 
     @Override
-    protected void doUpdateOption(Option op) {
-        em.merge(op);
-    }
-
-    @Override
-    protected void doDeleteOption(Option op) {
+    protected void doDelete(Option op) {
         em.remove(op);
     }
 
     @Override
-    protected List<Option> doGetAllOptions() {
+    protected List<Option> doGetAll() {
         return em.createNamedQuery("Option.getAllOptions", Option.class).getResultList();
     }
 
     @Override
-    protected List<Option> doGetAllOptionsForTariff(long id) {
+    protected void doDeleteAll() {
+
+    }
+
+    public List<Option> getAllOptionsForTariff(long id) {
         Query query = em.createQuery("SELECT o FROM Option o WHERE o.tariff.id = :id");
         query.setParameter("id", id);
         return query.getResultList();
     }
 
-    @Override
-    protected void doDeleteAllOptionsForTariff(long id) {
+    public void deleteAllOptionsForTariff(long id) {
         Query query = em.createQuery("DELETE FROM Option o WHERE o.tariff.id = :id");
         query.setParameter("id", id);
     }

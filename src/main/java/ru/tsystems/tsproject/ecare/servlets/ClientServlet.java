@@ -20,9 +20,9 @@ public class ClientServlet extends HttpServlet {
         long id = Long.valueOf(req.getParameter("id"));
         String action = req.getParameter("action");
         switch (action) {
-            case "createContract":
+            case "saveOrUpdateContract":
                 req.setAttribute("client", clientService.loadClient(id));
-                req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
+                req.getRequestDispatcher("/saveOrUpdateContract.jsp").forward(req, resp);
                 break;
             default: break;
         }

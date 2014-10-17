@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface IClientService {
 
-    public void createClient(Client cl);
+    public Client saveOrUpdateClient(Client cl);
 
     public Client loadClient(long id);
 

@@ -22,8 +22,8 @@ public class TariffsListServlet extends HttpServlet {
         String action = req.getParameter("action");
         List<Tariff> tariffs = null;
         switch (action) {
-            case "createTariff":
-                req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
+            case "saveOrUpdateTariff":
+                req.getRequestDispatcher("/saveOrUpdateTariff.jsp").forward(req, resp);
                 break;
             case "deleteAllTariffs":
                 tariffService.deleteAllTariffs();

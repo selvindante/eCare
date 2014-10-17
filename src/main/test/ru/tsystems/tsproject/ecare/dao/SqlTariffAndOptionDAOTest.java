@@ -33,8 +33,8 @@ public class SqlTariffAndOptionDAOTest {
     public void before() {
         clst.deleteAllClients();
         trst.deleteAll();
-        trst.createTariff(TR1);
-        trst.createTariff(TR2);
+        trst.saveOrUpdateTariff(TR1);
+        trst.saveOrUpdateTariff(TR2);
     }
 
     @Test

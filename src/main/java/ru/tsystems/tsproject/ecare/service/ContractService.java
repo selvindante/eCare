@@ -1,7 +1,7 @@
 package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.dao.AbstractContractDAO;
+import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlContractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.entities.Contract;
@@ -18,15 +18,17 @@ import java.util.List;
  */
 public class ContractService implements IContractService {
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractContractDAO cnDAO = new SqlContractDAO(em);
+    private AbstractDAO<Contract> DAO = new SqlContractDAO(em);
+    private SqlContractDAO cnDAO = new SqlContractDAO(em);
 
     @Override
-    public void createContract(Contract cn) {
+    public Contract saveOrUpdateContract(Contract cn) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            cnDAO.createContract(cn);
+            cn = DAO.saveOrUpdate(cn);
             tx.commit();
+            return cn;
         }
         catch (RuntimeException re) {
             if(tx.isActive()) {
@@ -41,7 +43,7 @@ public class ContractService implements IContractService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            Contract cr = cnDAO.loadContract(id);
+            Contract cr = DAO.load(id);
             tx.commit();
             if(cr == null)  throw new ECareException("Contract with id = " + id + " not found.");
             return cr;
@@ -76,29 +78,14 @@ public class ContractService implements IContractService {
         }
     }
 
-    public void updateContract(Contract cn) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            cnDAO.updateContract(cn);
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
-    }
-
     @Override
     public void deleteContract(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            Contract cn = cnDAO.loadContract(id);
+            Contract cn = DAO.load(id);
             if(cn == null) throw new ECareException("Contract with id = " + id + " not exist.");
-            cnDAO.deleteContract(cn);
+            DAO.delete(cn);
             tx.commit();
         }
         catch (RuntimeException re) {
@@ -114,7 +101,7 @@ public class ContractService implements IContractService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            List<Contract> contracts = cnDAO.getAllContracts();
+            List<Contract> contracts = DAO.getAll();
             tx.commit();
             return contracts;
         }
@@ -148,7 +135,23 @@ public class ContractService implements IContractService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            cnDAO.deleteAllContracts();
+            DAO.deleteAll();
+            tx.commit();
+        }
+        catch (RuntimeException re) {
+            if(tx.isActive()) {
+                tx.rollback();
+            }
+            throw re;
+        }
+    }
+
+    @Override
+    public void deleteAllContractsForClient(long id) {
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            cnDAO.deleteAllContractsForClient(id);
             tx.commit();
         }
         catch (RuntimeException re) {
@@ -164,7 +167,7 @@ public class ContractService implements IContractService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            long number = cnDAO.size();
+            long number = DAO.size();
             tx.commit();
             return number;
         }

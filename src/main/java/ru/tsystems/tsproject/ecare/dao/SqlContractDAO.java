@@ -10,8 +10,7 @@ import java.util.List;
  * Created by Selvin
  * on 06.10.2014.
  */
-public class SqlContractDAO extends AbstractContractDAO {
-
+public class SqlContractDAO extends AbstractDAO<Contract> {
     private EntityManager em;
 
     public SqlContractDAO(EntityManager em) {
@@ -19,47 +18,44 @@ public class SqlContractDAO extends AbstractContractDAO {
     }
 
     @Override
-    protected void doCreateContract(Contract cn) {
-        em.merge(cn);
+    protected Contract doSaveOrUpdate(Contract cn) {
+        return em.merge(cn);
     }
 
     @Override
-    protected Contract doLoadContract(long id) {
+    protected Contract doLoad(long id) {
         return em.find(Contract.class, id);
     }
 
-    @Override
-    protected Contract doFindContractByNumber(long number) {
+    public Contract findContractByNumber(long number) {
         Query query = em.createQuery("SELECT c FROM Contract c WHERE c.number = :number");
         query.setParameter("number", number);
         return (Contract) query.getSingleResult();
     }
 
     @Override
-    protected void doUpdateContract(Contract cn) {
-        em.merge(cn);
-    }
-
-    @Override
-    protected void doDeleteContract(Contract cn) {
+    protected void doDelete(Contract cn) {
         em.remove(cn);
     }
 
     @Override
-    protected List<Contract> doGetAllContracts() {
+    protected List<Contract> doGetAll() {
         return em.createNamedQuery("Contract.getAllContracts", Contract.class).getResultList();
     }
 
-    @Override
-    protected List<Contract> doGetAllContractsForClient(long id) {
+    public List<Contract> getAllContractsForClient(long id) {
         Query query = em.createQuery("SELECT c FROM Contract c WHERE c.client.id = :id");
         query.setParameter("id", id);
         return query.getResultList();
     }
 
     @Override
-    protected void doDeleteAllContracts() {
+    protected void doDeleteAll() {
         em.createNamedQuery("Contract.deleteAllContracts", Contract.class).executeUpdate();
+    }
+
+    public void deleteAllContractsForClient(long id) {
+
     }
 
     @Override

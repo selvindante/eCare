@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface ITariffService {
 
-    public void createTariff(Tariff tr);
+    public Tariff saveOrUpdateTariff(Tariff tr);
 
     public Tariff loadTariff(long id);
 

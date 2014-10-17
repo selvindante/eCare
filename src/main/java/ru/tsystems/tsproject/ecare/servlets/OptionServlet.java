@@ -47,7 +47,7 @@ public class OptionServlet extends HttpServlet {
         int costOfConnection = Integer.valueOf(req.getParameter("costOfConnection"));
         Tariff tariff = tariffService.loadTariff(tariffId);
         Option option = new Option(tariff, title, price, costOfConnection);
-        optionService.createOption(option);
+        optionService.saveOrUpdateOption(option);
         tariff.addOption(optionService.findOptionByTitleAndTariffId(title, tariffId));
         req.setAttribute("tariff", tariff);
         req.getRequestDispatcher("/tariff.jsp").forward(req, resp);

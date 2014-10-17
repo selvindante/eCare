@@ -28,7 +28,7 @@ public class SqlClientAndContractDAOTest {
         OP2 = new Option(TR, "Option2", 4, 250);
         TR.addOption(OP1);
         TR.addOption(OP2);
-        trst.createTariff(TR);
+        trst.saveOrUpdateTariff(TR);
 
         CL3 = new Client("Petr", "Petrov", new Date(), 9582450345l, "Sankt-Peterburg", "petrov@mail.ru", "petrov51spb", "client");
         List<Tariff> tariffs = trst.getAll();
@@ -42,9 +42,9 @@ public class SqlClientAndContractDAOTest {
     @Before
     public void before() {
         clst.deleteAllClients();
-        clst.createClient(CL1);
-        clst.createClient(CL2);
-        clst.createClient(CL3);
+        clst.saveOrUpdateClient(CL1);
+        clst.saveOrUpdateClient(CL2);
+        clst.saveOrUpdateClient(CL3);
     }
 
     @Test

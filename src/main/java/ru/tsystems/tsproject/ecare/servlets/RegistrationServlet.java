@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         Client client = new Client(name, lastname, birthdate, passport, address, email, password, "client", 0);
-        clientService.createClient(client);
+        clientService.saveOrUpdateClient(client);
         client = clientService.findClient(email, password);
         req.setAttribute("role", "client");
         req.setAttribute("client", client);

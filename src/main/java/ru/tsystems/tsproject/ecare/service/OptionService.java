@@ -1,7 +1,7 @@
 package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.dao.AbstractOptionDAO;
+import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.dao.SqlOptionDAO;
 import ru.tsystems.tsproject.ecare.entities.Option;
@@ -17,15 +17,17 @@ import java.util.List;
  */
 public class OptionService implements IOptionService {
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractOptionDAO opDAO = new SqlOptionDAO(em);
+    private AbstractDAO<Option> DAO = new SqlOptionDAO(em);
+    private SqlOptionDAO opDAO = new SqlOptionDAO(em);
 
     @Override
-    public void createOption(Option op) {
+    public Option saveOrUpdateOption(Option op) {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            opDAO.createOption(op);
+            op = DAO.saveOrUpdate(op);
             tx.commit();
+            return op;
         }
         catch (RuntimeException re) {
             if(tx.isActive()) {
@@ -40,7 +42,7 @@ public class OptionService implements IOptionService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            Option op = opDAO.loadOption(id);
+            Option op = DAO.load(id);
             tx.commit();
             if(op == null)  throw new ECareException("Option with id = " + id + " not found.");
             return op;
@@ -75,29 +77,14 @@ public class OptionService implements IOptionService {
         }
     }
 
-    public void updateOption(Option op) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            opDAO.updateOption(op);
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
-    }
-
     @Override
     public void deleteOption(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            Option op = opDAO.loadOption(id);
+            Option op = DAO.load(id);
             if(op == null) throw new ECareException("Option with id = " + id + " not exist.");
-            opDAO.deleteOption(op);
+            DAO.delete(op);
             tx.commit();
         }
         catch (RuntimeException re) {
@@ -113,7 +100,7 @@ public class OptionService implements IOptionService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            List<Option> options = opDAO.getAllOptions();
+            List<Option> options = DAO.getAll();
             tx.commit();
             return options;
         }
@@ -163,7 +150,7 @@ public class OptionService implements IOptionService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            long number = opDAO.size();
+            long number = DAO.size();
             tx.commit();
             return number;
         }

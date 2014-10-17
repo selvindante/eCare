@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface IOptionService {
 
-    public void createOption(Option op);
+    public Option saveOrUpdateOption(Option op);
 
     public Option loadOption(long id);
 

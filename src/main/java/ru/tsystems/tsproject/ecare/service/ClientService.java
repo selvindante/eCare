@@ -1,7 +1,7 @@
 package ru.tsystems.tsproject.ecare.service;
 
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.dao.AbstractClientDAO;
+import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlClientDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlEntityManager;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -18,15 +18,17 @@ import java.util.List;
 
 public class ClientService implements IClientService {
     private EntityManager em = SqlEntityManager.getEm();
-    private AbstractClientDAO clDAO = new SqlClientDAO(em);
+    private AbstractDAO<Client> DAO = new SqlClientDAO(em);
+    private SqlClientDAO clDAO = new SqlClientDAO(em);
 
     @Override
-    public void createClient(Client cl) {
+    public Client saveOrUpdateClient(Client cl) {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
-            clDAO.createClient(cl);
+            cl = DAO.saveOrUpdate(cl);
             et.commit();
+            return cl;
         }
         catch (RuntimeException re) {
             if(et.isActive()) {
@@ -41,7 +43,7 @@ public class ClientService implements IClientService {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
-            Client cl = clDAO.loadClient(id);
+            Client cl = DAO.load(id);
             et.commit();
             if(cl == null)  throw new ECareException("Client with id = " + id + " not found.");
             return cl;
@@ -98,29 +100,14 @@ public class ClientService implements IClientService {
         }
     }
 
-    public void updateClient(Client cl) {
-        EntityTransaction tx = em.getTransaction();
-        try {
-            tx.begin();
-            clDAO.updateClient(cl);
-            tx.commit();
-        }
-        catch (RuntimeException re) {
-            if(tx.isActive()) {
-                tx.rollback();
-            }
-            throw re;
-        }
-    }
-
     @Override
     public void deleteClient(long id) throws ECareException {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            Client cl = clDAO.loadClient(id);
+            Client cl = DAO.load(id);
             if(cl == null) throw new ECareException("Client with id = " + id + " not exist.");
-            clDAO.deleteClient(cl);
+            DAO.delete(cl);
             tx.commit();
         }
         catch (RuntimeException re) {
@@ -136,7 +123,7 @@ public class ClientService implements IClientService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            List<Client> clients = clDAO.getAllClients();
+            List<Client> clients = DAO.getAll();
             tx.commit();
             return clients;
         }
@@ -153,7 +140,7 @@ public class ClientService implements IClientService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            clDAO.deleteAllClients();
+            DAO.deleteAll();
             tx.commit();
         }
         catch (RuntimeException re) {
@@ -169,7 +156,7 @@ public class ClientService implements IClientService {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            long number = clDAO.size();
+            long number = DAO.size();
             tx.commit();
             return number;
         }
