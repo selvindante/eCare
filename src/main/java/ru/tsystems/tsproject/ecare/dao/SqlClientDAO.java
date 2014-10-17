@@ -28,14 +28,14 @@ public class SqlClientDAO extends AbstractDAO<Client> {
     }
 
     public Client findClientByLoginAndPassword(String login, String password) {
-        Query query = em.createQuery("SELECT c FROM Client c WHERE c.email = :login AND c.password = :password");
+        Query query = em.createNamedQuery("Client.findClientByLoginAndPassword", Client.class);
         query.setParameter("login", login);
         query.setParameter("password", password);
         return (Client) query.getSingleResult();
     }
 
     public Client findClientByNumber(long number) {
-        Query query = em.createQuery("SELECT cn.client FROM Contract cn WHERE cn.number = :number");
+        Query query = em.createNamedQuery("Client.findClientByNumber", Client.class);
         query.setParameter("number", number);
         return (Client) query.getSingleResult();
     }
@@ -52,7 +52,7 @@ public class SqlClientDAO extends AbstractDAO<Client> {
 
     @Override
     protected void doDeleteAll() {
-        em.createQuery("DELETE FROM Client c WHERE c.role = 'client'");
+        em.createNamedQuery("Client.deleteAllClients").executeUpdate();
     }
 
     @Override

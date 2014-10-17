@@ -28,7 +28,7 @@ public class SqlContractDAO extends AbstractDAO<Contract> {
     }
 
     public Contract findContractByNumber(long number) {
-        Query query = em.createQuery("SELECT c FROM Contract c WHERE c.number = :number");
+        Query query = em.createNamedQuery("Contract.findContractByNumber", Contract.class);
         query.setParameter("number", number);
         return (Contract) query.getSingleResult();
     }
@@ -44,18 +44,20 @@ public class SqlContractDAO extends AbstractDAO<Contract> {
     }
 
     public List<Contract> getAllContractsForClient(long id) {
-        Query query = em.createQuery("SELECT c FROM Contract c WHERE c.client.id = :id");
+        Query query = em.createNamedQuery("Contract.getAllContractsForClient", Contract.class);
         query.setParameter("id", id);
         return query.getResultList();
     }
 
     @Override
     protected void doDeleteAll() {
-        em.createNamedQuery("Contract.deleteAllContracts", Contract.class).executeUpdate();
+        em.createNamedQuery("Contract.deleteAllContracts").executeUpdate();
     }
 
     public void deleteAllContractsForClient(long id) {
-
+        Query query = em.createNamedQuery("Contract.deleteAllContractsForClient");
+        query.setParameter(1, id);
+        query.executeUpdate();
     }
 
     @Override

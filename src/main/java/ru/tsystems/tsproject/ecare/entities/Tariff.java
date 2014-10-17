@@ -14,6 +14,7 @@ import java.util.List;
 @NamedQueries(
     {
         @NamedQuery (name = "Tariff.getAllTariffs", query = "SELECT t FROM Tariff t"),
+        @NamedQuery (name = "Tariff.deleteAllTariffs", query = "DELETE FROM Tariff"),
         @NamedQuery (name = "Tariff.size", query="SELECT count(t) FROM Tariff t")
     })
 public class Tariff implements Comparable<Tariff>{

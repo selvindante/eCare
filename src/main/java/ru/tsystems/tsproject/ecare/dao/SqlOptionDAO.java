@@ -28,7 +28,7 @@ public class SqlOptionDAO extends AbstractDAO<Option> {
     }
 
     public Option findOptionByTitleAndTariffId(String title, long id) {
-        Query query = em.createQuery("SELECT o FROM Option o WHERE o.title = :title AND o.tariff.id = :id");
+        Query query = em.createNamedQuery("Option.findOptionByTitleAndTariffId", Option.class);
         query.setParameter("title", title);
         query.setParameter("id", id);
         return (Option) query.getSingleResult();
@@ -50,14 +50,15 @@ public class SqlOptionDAO extends AbstractDAO<Option> {
     }
 
     public List<Option> getAllOptionsForTariff(long id) {
-        Query query = em.createQuery("SELECT o FROM Option o WHERE o.tariff.id = :id");
+        Query query = em.createNamedQuery("Option.getAllOptionsForTariff", Option.class);
         query.setParameter("id", id);
         return query.getResultList();
     }
 
     public void deleteAllOptionsForTariff(long id) {
-        Query query = em.createQuery("DELETE FROM Option o WHERE o.tariff.id = :id");
-        query.setParameter("id", id);
+        Query query = em.createNamedQuery("Option.deleteAllOptionsForTariff");
+        query.setParameter(1, id);
+        query.executeUpdate();
     }
 
     @Override

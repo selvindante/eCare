@@ -14,6 +14,9 @@ import java.util.List;
 @NamedQueries(
     {
         @NamedQuery (name = "Client.getAllClients", query = "SELECT c FROM Client c WHERE c.role = 'client'"),
+        @NamedQuery (name = "Client.findClientByLoginAndPassword", query = "SELECT c FROM Client c WHERE c.email = :login AND c.password = :password"),
+        @NamedQuery (name = "Client.findClientByNumber", query = "SELECT cn.client FROM Contract cn WHERE cn.number = :number"),
+        @NamedQuery (name = "Client.deleteAllClients", query = "DELETE FROM Client WHERE role = 'client'"),
         @NamedQuery (name = "Client.size", query="SELECT count(c) FROM Client c WHERE c.role = 'client'")
     })
 public class Client implements Comparable<Client>{

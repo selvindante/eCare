@@ -39,7 +39,7 @@ public class SqlTariffDAO extends AbstractDAO<Tariff> {
 
     @Override
     protected void doDeleteAll() {
-        em.createQuery("DELETE FROM Tariff t");
+        em.createNamedQuery("Tariff.deleteAllTariffs").executeUpdate();
     }
 
     @Override
