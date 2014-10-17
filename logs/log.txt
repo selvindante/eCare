@@ -1,0 +1,12 @@
+окт 17, 2014 8:43:14 PM ru.tsystems.tsproject.ecare.ECareLogger <init>
+INFO: eCare started.
+окт 17, 2014 8:43:14 PM ru.tsystems.tsproject.ecare.service.OptionService getAllOptionsForTariff
+INFO: Get all options from DB for tariff with id: 34234.
+окт 17, 2014 8:43:14 PM ru.tsystems.tsproject.ecare.service.OptionService getAllOptionsForTariff
+INFO: All options for tariff id: 34234 obtained from DB.
+окт 17, 2014 8:44:03 PM ru.tsystems.tsproject.ecare.ECareLogger <init>
+INFO: eCare started.
+окт 17, 2014 8:44:03 PM ru.tsystems.tsproject.ecare.service.OptionService getAllOptionsForTariff
+INFO: Get all options from DB for tariff with id: 34234.
+окт 17, 2014 8:44:03 PM ru.tsystems.tsproject.ecare.service.OptionService getAllOptionsForTariff
+INFO: All options for tariff id: 34234 obtained from DB.

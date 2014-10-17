@@ -1,11 +1,7 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.entities.Client;
-import ru.tsystems.tsproject.ecare.entities.Tariff;
-import ru.tsystems.tsproject.ecare.service.ClientService;
-import ru.tsystems.tsproject.ecare.service.IClientService;
-import ru.tsystems.tsproject.ecare.service.ITariffService;
-import ru.tsystems.tsproject.ecare.service.TariffService;
+import ru.tsystems.tsproject.ecare.service.IOptionService;
+import ru.tsystems.tsproject.ecare.service.OptionService;
 
 /**
  * Created by Selvin
@@ -13,10 +9,7 @@ import ru.tsystems.tsproject.ecare.service.TariffService;
  */
 public class Main {
     public static void main(String[] args) {
-        IClientService cls = ClientService.getInstance();
-        Client cl = cls.loadClient(1396l);
-
-        ITariffService trs = TariffService.getInstance();
-        Tariff tr = trs.loadTariff(502l);
+        IOptionService ops = OptionService.getInstance();
+        ops.deleteAllOptionsForTariff(24234324l);
     }
 }
