@@ -4,7 +4,6 @@ import ru.tsystems.tsproject.ecare.entities.Tariff;
 import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -20,8 +19,7 @@ public class SqlTariffDAO extends AbstractDAO<Tariff> {
 
     public static SqlTariffDAO getInstance()
     {
-        if (instance == null)
-        {
+        if (instance == null) {
             instance = new SqlTariffDAO();
         }
         return instance;
@@ -54,7 +52,6 @@ public class SqlTariffDAO extends AbstractDAO<Tariff> {
 
     @Override
     protected long doSize() {
-        Query q = em.createNamedQuery("Tariff.size", Tariff.class);
-        return (Long) q.getSingleResult();
+        return ((Number)em.createNamedQuery("Tariff.size").getSingleResult()).longValue();
     }
 }

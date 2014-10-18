@@ -155,7 +155,7 @@ public class TariffService implements ITariffService {
             tx.begin();
             long number = trDAO.size();
             tx.commit();
-            logger.info(number + "of tariffs obtained fromDB.");
+            logger.info(number + " of tariffs obtained fromDB.");
             return number;
         }
         catch (RuntimeException re) {

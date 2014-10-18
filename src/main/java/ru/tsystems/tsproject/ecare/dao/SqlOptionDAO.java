@@ -56,7 +56,7 @@ public class SqlOptionDAO extends AbstractDAO<Option> {
 
     @Override
     protected void doDeleteAll() {
-
+        em.createNamedQuery("Option.deleteAllOptions").executeUpdate();
     }
 
     public List<Option> getAllOptionsForTariff(long id) {
@@ -73,7 +73,6 @@ public class SqlOptionDAO extends AbstractDAO<Option> {
 
     @Override
     protected long doSize() {
-        Query q = em.createNamedQuery("Option.size", Option.class);
-        return (Long) q.getSingleResult();
+        return ((Number)em.createNamedQuery("Option.size").getSingleResult()).longValue();
     }
 }

@@ -315,8 +315,18 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public void enableOption(Contract cn, Option op) throws ECareException {
+    public Contract enableOption(Contract cn, Option op) throws ECareException {
         logger.info("Enable option id: " + op.getId() + " in contract id: " + cn.getId() + ".");
+        //Check for incompatibility
+        if(cn.getOptions().size() != 0) {
+            for(Option o: cn.getOptions()) {
+                if(o.getIncompatibleOptions().contains(op)) {
+                    ECareException ecx = new ECareException("Option id: " + op.getId() + " is with another option id: " + o.getId() + " in contract " + cn.getId() + ".");
+                    logger.info(ecx.getMessage());
+                    throw ecx;
+                }
+            }
+        }
         if(!cn.getOptions().contains(op)) {
             cn.addOption(op);
             logger.info("Option id: " + op.getId() + " enabled in contract id: " + cn.getId() + ".");
@@ -332,10 +342,11 @@ public class ContractService implements IContractService {
             logger.info(ecx.getMessage());
             throw ecx;
         }
+        return cn;
     }
 
     @Override
-    public void disableOption(Contract cn, Option op) throws ECareException {
+    public Contract disableOption(Contract cn, Option op) throws ECareException {
         logger.info("Disable option id: " + op.getId() + " in contract id: " + cn.getId() + ".");
         if(cn.getOptions().contains(op)) {
             cn.deleteOption(op);
@@ -352,5 +363,6 @@ public class ContractService implements IContractService {
             logger.info(ecx.getMessage());
             throw ecx;
         }
+        return cn;
     }
 }

@@ -41,7 +41,7 @@ public interface IContractService {
 
     public void unblockByOperator(Contract cn);
 
-    public void enableOption(Contract cn, Option op);
+    public Contract enableOption(Contract cn, Option op);
 
-    public void disableOption(Contract cn, Option op);
+    public Contract disableOption(Contract cn, Option op);
 }

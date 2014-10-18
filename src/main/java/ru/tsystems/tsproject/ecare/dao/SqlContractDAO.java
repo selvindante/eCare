@@ -72,7 +72,6 @@ public class SqlContractDAO extends AbstractDAO<Contract> {
 
     @Override
     protected long doSize() {
-        Query q = em.createNamedQuery("Contract.size", Contract.class);
-        return (Long) q.getSingleResult();
+        return ((Number)em.createNamedQuery("Contract.size").getSingleResult()).longValue();
     }
 }

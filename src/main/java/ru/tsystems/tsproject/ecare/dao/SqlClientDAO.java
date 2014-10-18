@@ -67,7 +67,6 @@ public class SqlClientDAO extends AbstractDAO<Client> {
 
     @Override
     protected long doSize() {
-        Query q = em.createNamedQuery("Client.size", Client.class);
-        return (Long) q.getSingleResult();
+        return ((Number)em.createNamedQuery("Client.size").getSingleResult()).longValue();
     }
 }
