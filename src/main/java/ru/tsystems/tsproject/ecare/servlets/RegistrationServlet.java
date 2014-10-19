@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
@@ -34,7 +35,10 @@ public class RegistrationServlet extends HttpServlet {
         Client client = new Client(name, lastname, birthdate, passport, address, email, password, "client", 0);
         clientService.saveOrUpdateClient(client);
         client = clientService.findClient(email, password);
-        req.setAttribute("role", "client");
+        Session session = Session.getInstance();
+        session.setRole("client");
+        session.setOn(true);
+        req.setAttribute("session", session);
         req.setAttribute("client", client);
         req.getRequestDispatcher("/client.jsp").forward(req, resp);
     }

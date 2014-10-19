@@ -104,6 +104,14 @@ public class Contract implements Comparable<Contract>{
         isBlockedByOperator = block;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     public List<Option> getOptions() {
         return options;
     }

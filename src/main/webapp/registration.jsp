@@ -1,41 +1,69 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Selvin
-  Date: 14.10.2014
-  Time: 14:51
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Registration</title>
 </head>
 <body>
-<header>Registration of client:</header>
-<form id="client" method="post" action="registration" enctype="application/x-www-form-urlencoded">
-    <p>
-        Name: <input type="text" name="name" size=25 value="">
-    </p>
-    <p>
-        Lastname: <input type="text" name="lastname" size=25 value="">
-    </p>
-    <p>
-        Birth date (yyyy-mm-dd): <input type="text" name="birthdate" size=25 value="">
-    </p>
-    <p>
-        Passport: <input type="text" name="passport" size=25 value="">
-    </p>
-    <p>
-        Address: <input type="text" name="address" size=25 value="">
-    </p>
-    <p>
-        E-mail (login): <input type="text" name="email" size=25 value="">
-    </p>
-    <p>
-        Password: <input type="text" name="password" size=25 value="">
-    </p>
-    <button type="submit">Save</button>
-</form>
+
+<div class="outer-wrapper clearfix">
+    <h3>
+        <%--<a href="login.jsp"><img src="images/logo.png" width="160" height="80" alt="eCare"></a>--%>
+        LOGO
+        Registration:
+    </h3>
+    <div class="inner-wrapper">
+        <form method="post" action="registration" enctype="application/x-www-form-urlencoded">
+            <div id="center">
+                <p>
+                    Name:
+                    <br>
+                    <input type="text" placeholder="name" class="simple-input" name="name" size=25 value="">
+                </p>
+                <br>
+                <p>
+                    Lastname:
+                    <br>
+                    <input type="text" placeholder="lastname" class="simple-input" name="lastname" size=25 value="">
+                </p>
+                <br>
+                <p>
+                    Birth date:
+                    <br>
+                    <input type="text" placeholder="yyyy-mm-dd" class="simple-input" name="birthdate" size=25 value="">
+                </p>
+                <br>
+                <p>
+                    Passport:
+                    <br>
+                    <input type="text" placeholder="passport series and number" class="simple-input"  name="passport" size=25 value="">
+                </p>
+                <br>
+                <p>
+                    Address:
+                    <br>
+                    <input type="text" placeholder="address" class="simple-input" name="address" size=25 value="">
+                </p>
+                <br>
+                <p>
+                    E-mail (login):
+                    <br>
+                    <input type="text" placeholder="e-mail" class="simple-input" name="email" size=25 value="">
+                </p>
+                <br>
+                <p>
+                    Password:
+                    <br>
+                    <input type="password" placeholder="password" class="simple-input" name="password" size=25 value="">
+                </p>
+                <br>
+                <button type="submit" class="modern">Save</button>
+                <a href="login.jsp" class="inline-link">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

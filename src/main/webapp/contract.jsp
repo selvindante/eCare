@@ -1,85 +1,121 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Selvin
-  Date: 15.10.2014
-  Time: 15:54
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Contract</title>
 </head>
 <body>
-<header>Contract</header>
-<hr>
-<p>
-    Contract ID: ${contract.id}
-</p>
-<p>
-    Number: ${contract.number}
-</p>
-<p>
-    Tariff title: ${contract.tariff.title}
-</p>
-<p>
-    Is blocked by operator: ${contract.isBlockedByOperator()}
-</p>
-<p>
-    Is blocked by client: ${contract.isBlockedByClient()}
-</p>
 
-<c:if test="${contract.isBlockedByOperator() == false && contract.isBlockedByClient() == false}">
-    <p>
-        <a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=changeTariff'>Change tariff</a>
-    </p>
-</c:if>
+<div class="outer-wrapper clearfix">
 
-<hr>
+    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="logout">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
 
-<p>
-    List of connected options:
-</p>
-<c:choose>
-    <c:when test="${contract.getOptions().size() != 0}">
-        <table>
-            <tr>
-                <td>
-                    Option ID
-                </td>
-                <td>
-                    Title
-                </td>
-                <td>
-                    Price
-                </td>
-                <td>
-                    Cost of connection
-                </td>
-            </tr>
-            <c:forEach var="option" items="${contract.getOptions()}">
-                <tr>
-                    <td>
-                        ${option.id}
-                    </td>
-                    <td>
-                        ${option.title}
-                    </td>
-                    <td>
-                        ${option.price}
-                    </td>
-                    <td>
-                        ${option.costOfConnection}
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-    </c:when>
-    <c:otherwise>
-        This contract has no connected options yet.
-    </c:otherwise>
-</c:choose>
+    <form id="formId2" method="post" action="client" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="id" value=${contract.getClient().id}>
+        <input type="hidden" name="action" value="viewClient">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
+    <h3>
+        LOGO
+        Contract:
+        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
+        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">Client page</a>
+    </h3>
+
+    <div class="inner-wrapper">
+        <p>
+            Role(temporary): ${session.role}
+        </p>
+        <p>
+            Session(temporary): ${session.isOn()}
+        </p>
+        <br>
+        <p>
+            Contract info:
+        </p>
+        <br>
+        <p>
+            Number: ${contract.number}
+        </p>
+        <p>
+            Contract ID: ${contract.id}
+        </p>
+        <p>
+            Tariff title: ${contract.tariff.title}
+        </p>
+        <p>
+            Is blocked by operator: ${contract.isBlockedByOperator()}
+        </p>
+        <p>
+            Is blocked by client: ${contract.isBlockedByClient()}
+        </p>
+        <c:if test="${contract.isBlockedByOperator() == false && contract.isBlockedByClient() == false}">
+            <br>
+            <p>
+
+            <form id="formId3" method="post" action="contract" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="id" value=${contract.id}>
+                <input type="hidden" name="action" value="changeTariff">
+                <input type="hidden" name="sessionRole" value=${session.role}>
+                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Change tariff</a>
+            </form>
+
+                <%--<a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=changeTariff' class="inline-link">Change tariff</a>--%>
+            </p>
+        </c:if>
+    </div>
+
+    <div class="inner-wrapper">
+        <p>
+            List of connected options:
+            <c:choose>
+                <c:when test="${contract.getOptions().size() != 0}">
+        </p>
+            <br>
+                <table>
+                    <tr>
+                        <td>
+                            Title
+                        </td>
+                        <td>
+                            Price
+                        </td>
+                        <td>
+                            Cost of connection
+                        </td>
+                    </tr>
+                    <c:forEach var="option" items="${contract.getOptions()}">
+                        <tr>
+                            <td>
+                                    ${option.title}
+                            </td>
+                            <td>
+                                    ${option.price}
+                            </td>
+                            <td>
+                                    ${option.costOfConnection}
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </c:when>
+        <c:otherwise>
+            empty.
+            </p>
+        </c:otherwise>
+        </c:choose>
+    </div>
+
+</div>
 
 </body>
 </html>

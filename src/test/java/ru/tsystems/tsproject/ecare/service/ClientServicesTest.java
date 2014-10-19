@@ -1,9 +1,6 @@
 package ru.tsystems.tsproject.ecare.service;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.entities.Contract;
@@ -14,9 +11,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Selvin
@@ -82,20 +76,20 @@ public class ClientServicesTest {
     @Test
     public void testLoginClient() throws Exception {
         Client client = clientService.findClient(CL2.getEmail(), CL2.getPassword());
-        assertEquals(CL2, client);
+        Assert.assertEquals(CL2, client);
     }
 
     @Test
     public void testFindClientByNumber() throws Exception {
         Client client = clientService.findClientByNumber(CN31.getNumber());
-        assertEquals(CL3, client);
+        Assert.assertEquals(CL3, client);
     }
 
     @Test
     public void testLoadClient()  throws Exception  {
-        assertEquals(CL1, clientService.loadClient(CL1.getId()));
-        assertEquals(CL2, clientService.loadClient(CL2.getId()));
-        assertEquals(CL3, clientService.loadClient(CL3.getId()));
+        Assert.assertEquals(CL1, clientService.loadClient(CL1.getId()));
+        Assert.assertEquals(CL2, clientService.loadClient(CL2.getId()));
+        Assert.assertEquals(CL3, clientService.loadClient(CL3.getId()));
     }
 
     @Test
@@ -104,17 +98,17 @@ public class ClientServicesTest {
         CL1.setLastname("Ivanov");
         CL1.setBirthDate(new Date());
         CL1 = clientService.saveOrUpdateClient(CL1);
-        assertEquals(CL1, clientService.loadClient(CL1.getId()));
+        Assert.assertEquals(CL1, clientService.loadClient(CL1.getId()));
     }
 
     @Test
     public void testDeleteClient() throws Exception {
         clientService.deleteClient(CL1.getId());
-        assertEquals(clientsNumber + 2l, clientService.getNumberOfClients());
+        Assert.assertEquals(clientsNumber + 2l, clientService.getNumberOfClients());
         clientService.deleteClient(CL2.getId());
-        assertEquals(clientsNumber + 1l, clientService.getNumberOfClients());
+        Assert.assertEquals(clientsNumber + 1l, clientService.getNumberOfClients());
         clientService.deleteClient(CL3.getId());
-        assertEquals(clientsNumber, clientService.getNumberOfClients());
+        Assert.assertEquals(clientsNumber, clientService.getNumberOfClients());
     }
 
     @Test
@@ -123,7 +117,7 @@ public class ClientServicesTest {
         Arrays.sort(clients);
         List<Client> loadedClients = clientService.getAllClients();
         Collections.sort(loadedClients);
-        assertArrayEquals(clients, loadedClients.toArray());
+        Assert.assertArrayEquals(clients, loadedClients.toArray());
     }
 
     @Test(expected = ECareException.class)
@@ -142,12 +136,12 @@ public class ClientServicesTest {
         CL2.addContract(CN21);
         CL2 = clientService.saveOrUpdateClient(CL2);
         CN21 = CL2.getContracts().get(0);
-        assertEquals(CL2, clientService.loadClient(CL2.getId()));
+        Assert.assertEquals(CL2, clientService.loadClient(CL2.getId()));
     }
 
     @Test
     public void testLoadContract() throws Exception {
-        assertEquals(CN31, contractService.loadContract(CN31.getId()));
+        Assert.assertEquals(CN31, contractService.loadContract(CN31.getId()));
     }
 
     @Test
@@ -157,10 +151,10 @@ public class ClientServicesTest {
         CN21 = contractService.enableOption(CN21, OP11);
         CN21 = contractService.enableOption(CN21, OP15);
         CN21 = contractService.saveOrUpdateContract(CN21);
-        assertEquals(CN21, contractService.loadContract(CN21.getId()));
+        Assert.assertEquals(CN21, contractService.loadContract(CN21.getId()));
         CN21 = contractService.disableOption(CN21, OP11);
         CN21 = contractService.saveOrUpdateContract(CN21);
-        assertEquals(CN21, contractService.loadContract(CN21.getId()));
+        Assert.assertEquals(CN21, contractService.loadContract(CN21.getId()));
         CN21.getOptions().clear();
         CN21.setTariff(null);
         CN21 = contractService.saveOrUpdateContract(CN21);
@@ -179,7 +173,7 @@ public class ClientServicesTest {
     @Test
     public void testDeleteContract() throws Exception {
         contractService.deleteContract(CN31.getId());
-        assertEquals(contractsNumber + 1l, contractService.getNumberOfContracts());
+        Assert.assertEquals(contractsNumber + 1l, contractService.getNumberOfContracts());
     }
 
     @Test
@@ -188,7 +182,7 @@ public class ClientServicesTest {
         Arrays.sort(contracts);
         List<Contract> loadedContracts = contractService.getAllContracts();
         Collections.sort(loadedContracts);
-        assertArrayEquals(contracts, loadedContracts.toArray());
+        Assert.assertArrayEquals(contracts, loadedContracts.toArray());
     }
 
     @Test
@@ -196,7 +190,7 @@ public class ClientServicesTest {
         Contract[] contracts = new Contract[]{CN31};
         List<Contract> loadedContracts = contractService.getAllContractsForClient(CL3.getId());
         Collections.sort(loadedContracts);
-        assertArrayEquals(contracts, loadedContracts.toArray());
+        Assert.assertArrayEquals(contracts, loadedContracts.toArray());
     }
 
     @Test(expected = ECareException.class)

@@ -1,9 +1,10 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.service.*;
+import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Contract;
 import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
+import ru.tsystems.tsproject.ecare.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,9 +24,18 @@ public class ChooseTariffServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long contractId = Long.valueOf(req.getParameter("contractId"));
         long tariffId = Long.valueOf(req.getParameter("tariffId"));
         String action = req.getParameter("action");
+        Session session = Session.getInstance();
+        session.setRole(req.getParameter("sessionRole"));
+        session.setOn(Boolean.valueOf(req.getParameter("sessionStatus")));
+        req.setAttribute("session", session);
         if(action.equals("chooseTariff")) {
             Contract contract = contractService.loadContract(contractId);
             Tariff tariff = tariffService.loadTariff(tariffId);
@@ -35,10 +45,5 @@ public class ChooseTariffServlet extends HttpServlet {
             req.setAttribute("options", options);
             req.getRequestDispatcher("/chooseOptions.jsp").forward(req, resp);
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
     }
 }
