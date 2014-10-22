@@ -1,9 +1,11 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
+import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +47,37 @@ public class ClientServlet extends HttpServlet {
             case "viewClient":
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
+            case "createContract":
+                req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
+                break;
+            case "editClient":
+                req.getRequestDispatcher("/editClient.jsp").forward(req, resp);
+                break;
+            case "updateClient":
+                try {
+                    client.setName(req.getParameter("name"));
+                    client.setLastname(req.getParameter("lastname"));
+                    client.setBirthDate(Util.checkDate(req.getParameter("birthdate")));
+                    client.setPassport(Util.checkLong(req.getParameter("passport")));
+                    client.setAddress(req.getParameter("address"));
+                    client = clientService.saveOrUpdateClient(client);
+                    req.setAttribute("client", client);
+                    req.getRequestDispatcher("/client.jsp").forward(req, resp);
+                } catch (ECareException ecx) {
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/editClient.jsp").forward(req, resp);
+                }
+                break;
+            case "addAmount":
+                try {
+                    client.addAmount(Util.checkInt(req.getParameter("amount")));
+                    client = clientService.saveOrUpdateClient(client);
+                    req.setAttribute("client", client);
+                    req.getRequestDispatcher("/client.jsp").forward(req, resp);
+                } catch (ECareException ecx) {
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/client.jsp").forward(req, resp);
+                }
             default:
                 break;
         }

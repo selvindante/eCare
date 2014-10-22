@@ -100,6 +100,10 @@ public class Client implements Comparable<Client>{
         return birthDate;
     }
 
+    public String getBirthDateToString() {
+        return (new java.sql.Date(birthDate.getTime())).toString();
+    }
+
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
@@ -150,6 +154,10 @@ public class Client implements Comparable<Client>{
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public void addAmount(int amount) {
+        this.amount += amount;
     }
 
     public List<Contract> getContracts() {

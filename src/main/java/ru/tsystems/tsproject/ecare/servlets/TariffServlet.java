@@ -1,7 +1,13 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
-import ru.tsystems.tsproject.ecare.service.*;
+import ru.tsystems.tsproject.ecare.ECareException;
+import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
+import ru.tsystems.tsproject.ecare.service.IOptionService;
+import ru.tsystems.tsproject.ecare.service.ITariffService;
+import ru.tsystems.tsproject.ecare.service.OptionService;
+import ru.tsystems.tsproject.ecare.service.TariffService;
+import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,43 +26,80 @@ public class TariffServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        long tariffId = Long.valueOf(req.getParameter("id"));
+        /*long tariffId = Long.valueOf(req.getParameter("id"));
         String action = req.getParameter("action");
         Tariff tariff = tariffService.loadTariff(tariffId);
         switch(action) {
-            case "viewTariff":
+            *//*case "viewTariff":
                 req.setAttribute("tariff", tariff);
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
-                break;
+                break;*//*
             case "saveOrUpdateOption":
                 req.getRequestDispatcher("/saveOrUpdateOption.jsp").forward(req, resp);
-            case "deleteTariff":
+            *//*case "deleteTariff":
                 tariffService.deleteTariff(tariffId);
                 List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("role", "admin");
                 req.setAttribute("tariffs", tariffs);
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
+                break;*//*
+
+            default: break;
+        }*/
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        long tariffId = 0;
+        String action = req.getParameter("action");
+        Session session = Session.getInstance();
+        session.setRole(req.getParameter("sessionRole"));
+        session.setOn(Boolean.valueOf(req.getParameter("sessionStatus")));
+        req.setAttribute("session", session);
+        Tariff tariff = null;
+        switch (action) {
+            case "createTariff":
+                try {
+                    String title = req.getParameter("title");
+                    int price = Util.checkInt(req.getParameter("price"));
+                    tariff = new Tariff(title, price);
+                    tariff = tariffService.saveOrUpdateTariff(tariff);
+                    req.setAttribute("tariff", tariff);
+                    req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
+                } catch (ECareException ecx) {
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
+                }
+                break;
+            case "viewTariff":
+                tariffId = Long.valueOf(req.getParameter("id"));
+                tariff = tariffService.loadTariff(tariffId);
+                req.setAttribute("tariff", tariff);
+                req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
+                break;
+            case "deleteTariff":
+                tariffId = Long.valueOf(req.getParameter("id"));
+                tariffService.deleteTariff(tariffId);
+                List<Tariff> tariffs = tariffService.getAllTariffs();
+                req.setAttribute("tariffs", tariffs);
+                req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
+                break;
+            case "createOption":
+                tariffId = Long.valueOf(req.getParameter("id"));
+                tariff = tariffService.loadTariff(tariffId);
+                req.setAttribute("tariff", tariff);
+                req.getRequestDispatcher("/createOption.jsp").forward(req, resp);
                 break;
             case "deleteAllOptions":
+                tariffId = Long.valueOf(req.getParameter("id"));
                 optionService.deleteAllOptionsForTariff(tariffId);
+                tariff = tariffService.loadTariff(tariffId);
                 tariff.setOptions(optionService.getAllOptionsForTariff(tariffId));
                 req.setAttribute("tariff", tariff);
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 break;
             default: break;
         }
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String title = req.getParameter("title");
-        int price = Integer.valueOf(req.getParameter("price"));
-        Tariff tariff = new Tariff(title, price);
-        tariffService.saveOrUpdateTariff(tariff);
-        List<Tariff> tariffs = tariffService.getAllTariffs();
-        req.setAttribute("role", "admin");
-        req.setAttribute("tariffs", tariffs);
-        req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
     }
 }

@@ -30,6 +30,14 @@
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">Back to tariffs</a>
     </h3>
 
+    <c:if test="${errormessage != null}">
+        <div class="inner-wrapper-error">
+            <p>
+                Error: ${errormessage}
+            </p>
+        </div>
+    </c:if>
+
     <div class="inner-wrapper">
         <p>
             Role(temporary): ${session.role}
@@ -88,19 +96,32 @@
                             Check
                         </td>
                     </tr>
-                    <c:forEach var="option" items="${options}">
+                    <c:forEach var="dependentOption" items="${options}">
+
+                        <%--<script language="javascript">
+                            function autocheck(boxId) {
+                                if (document.getElementById(boxId).checked) {
+                                    for(Option o: ${Option.getDependentOptions()}) {
+
+                                    }
+                                } else {
+
+                                }
+                            }
+                        </script>--%>
+
                         <tr>
                             <td>
-                                ${option.title}
+                                ${dependentOption.title}
                             </td>
                             <td>
-                                ${option.price}
+                                ${dependentOption.price}
                             </td>
                             <td>
-                                ${option.costOfConnection}
+                                ${dependentOption.costOfConnection}
                             </td>
                             <td>
-                                <input type="checkbox" name="options" value=${option.id}>
+                                <input type="checkbox" id="box${dependentOption.id}" name="options" value="${dependentOption.id}">
                             </td>
                         </tr>
                     </c:forEach>

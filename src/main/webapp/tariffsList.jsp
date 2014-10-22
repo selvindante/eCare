@@ -1,56 +1,135 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Selvin
-  Date: 14.10.2014
-  Time: 20:12
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>List of all tariffs</title>
 </head>
+
 <body>
-<header>List of all tariffs.</header>
 
-<hr>
+<div class="outer-wrapper clearfix">
 
-<p>
-    <a href='<%=request.getContextPath()%>tariffsList?&action=createTariff'>Create new tariff</a>
-</p>
-<p>
-    List of tariffs. <a href='<%=request.getContextPath()%>tariffsList?id=${tariff.id}&action=deleteAllTariffs'>(clear list)</a>
-</p>
-<table>
-    <tr>
-        <td>
-            Tariff ID
-        </td>
-        <td>
-            Title
-        </td>
-        <td>
-            Price
-        </td>
-    </tr>
-    <c:forEach var="tariff" items="${tariffs}">
-        <tr>
-            <td>
-                <a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=viewTariff'>${tariff.id}</a>
-            </td>
-            <td>
-                ${tariff.title}
-            </td>
-            <td>
-                ${tariff.price}
-            </td>
-            <td>
-                <a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=deleteTariff'>delete</a>
-            </td>
-        </tr>
-    </c:forEach>
-</table>
+    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="logout">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
+    <form id="formId2" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="viewDashboard">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
+    <h3>
+        LOGO
+        List of tariffs:
+        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
+        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
+    </h3>
+
+    <div class="inner-wrapper">
+
+        <p>
+            Role(temporary): ${session.role}
+        </p>
+        <p>
+            Session(temporary): ${session.isOn()}
+        </p>
+        <br>
+        <p>
+
+            <form id="formId3" method="post" action="tariffsList" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="action" value="createTariff">
+                <input type="hidden" name="sessionRole" value=${session.role}>
+                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Create new tariff</a>
+            </form>
+
+        </p>
+        <br>
+
+        <p>
+            List of tariffs:
+
+            <c:choose>
+                <c:when test="${tariffs.size() != 0}">
+                    <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">(clear list)</a>
+
+                    <form id="formId4" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+                        <input type="hidden" name="action" value="deleteAllClients">
+                        <input type="hidden" name="sessionRole" value=${session.role}>
+                        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                    </form>
+
+                    </p>
+                    <br>
+                    <table>
+                        <tr>
+                            <td>
+                                Tariff ID
+                            </td>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                Price
+                            </td>
+                            <td>
+                                Delete
+                            </td>
+                        </tr>
+                        <c:forEach var="tariff" items="${tariffs}">
+                            <tr>
+                                <td>
+
+                                    <form id="formId5${tariff.id}" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
+                                        <input type="hidden" name="id" value=${tariff.id}>
+                                        <input type="hidden" name="action" value="viewTariff">
+                                        <input type="hidden" name="sessionRole" value=${session.role}>
+                                        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                                        <a class="inline-link" href="#" onclick="document.getElementById('formId5${tariff.id}').submit()">${tariff.id}</a>
+                                    </form>
+
+                                    <%--<a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=viewTariff'>${tariff.id}</a>--%>
+                                </td>
+                                <td>
+                                        ${tariff.title}
+                                </td>
+                                <td>
+                                        ${tariff.price}
+                                </td>
+                                <td>
+
+                                    <form id="formId6${tariff.id}" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
+                                        <input type="hidden" name="id" value=${tariff.id}>
+                                        <input type="hidden" name="action" value="deleteTariff">
+                                        <input type="hidden" name="sessionRole" value=${session.role}>
+                                        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                                        <a class="inline-link" href="#" onclick="document.getElementById('formId6${tariff.id}').submit()">(delete)</a>
+                                    </form>
+
+                                    <%--<a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=deleteTariff'>delete</a>--%>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </c:when>
+                <c:otherwise>
+                    empty.
+                    </p>
+                </c:otherwise>
+                </c:choose>
+
+    </div>
+
+</div>
+
+
+
 
 </body>
 </html>

@@ -11,8 +11,14 @@
 
 <div class="outer-wrapper clearfix">
 
-    <form id="formId" method="post" action="login" enctype="application/x-www-form-urlencoded">
+    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="action" value="logout">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
+    <form id="formId2" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="viewDashboard">
         <input type="hidden" name="sessionRole" value=${session.role}>
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
     </form>
@@ -20,12 +26,20 @@
     <h3>
         LOGO
         Client page:
-        <a href="#" onclick="document.getElementById('formId').submit()" class="h3-link">Exit</a>
-        <c:if test="${session.role} == 'admin'}">
-            <a href='<%=request.getContextPath()%>client?id=${client.id}&action=deleteClient' class="h3-link">Delete client</a>
-            <a href='<%=request.getContextPath()%>client?id=${client.id}&action=createContract' class="h3-link">Create contract</a>
+        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
+        <c:if test="${session.role == 'admin'}">
+            <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
         </c:if>
     </h3>
+
+    <c:if test="${errormessage != null}">
+        <div class="inner-wrapper-error">
+            <p>
+                Error: ${errormessage}
+            </p>
+        </div>
+    </c:if>
+
     <div class="inner-wrapper">
         <p>
             Role(temporary): ${session.role}
@@ -35,8 +49,16 @@
         </p>
         <br>
         <p>
-            Personal info:
+            Personal info: <a href="#" onclick="document.getElementById('formId3').submit()" class="inline-link">(edit)</a>
         </p>
+
+        <form id="formId3" method="post" action="client" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="id" value=${client.id}>
+            <input type="hidden" name="action" value="editClient">
+            <input type="hidden" name="sessionRole" value=${session.role}>
+            <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+        </form>
+
         <br>
         <p>
             ID: ${client.id}
@@ -48,7 +70,7 @@
             Lastname: ${client.lastname}
         </p>
         <p>
-            Birthdate: ${client.birthDate}
+            Birthdate: ${client.getBirthDateToString()}
         </p>
         <p>
             E-mail: ${client.email}
@@ -62,8 +84,32 @@
         <p>
             Amount: ${client.amount}
         </p>
+        <br>
+        <form method="post" action="client" enctype="application/x-www-form-urlencoded">
+            <p>
+                <input type="hidden" name="id" value=${client.id}>
+                <input type="hidden" name="action" value="addAmount">
+                <input type="hidden" name="sessionRole" value=${session.role}>
+                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                <input type="text" placeholder="amount" class="simple-input" name="amount" size=10 value="">
+                <button type="submit" class="modern">Add amount</button>
+            </p>
+        </form>
     </div>
+
     <div class="inner-wrapper">
+        <c:if test="${session.role == 'admin'}">
+            <p>
+            <form id="formId4" method="post" action="client" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="id" value="${client.id}">
+                <input type="hidden" name="action" value="createContract">
+                <input type="hidden" name="sessionRole" value=${session.role}>
+                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Add new contract</a>
+            </form>
+            </p>
+            <br>
+        </c:if>
         <p>
             List of contracts:
         <c:choose>
@@ -127,7 +173,9 @@
                                             <a class="inline-link" href="#" onclick="document.getElementById('formId2${contract.id}').submit()">delete</a>
                                         </form>
 
-                                        <%--<a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=deleteContract' class="inline-link">(delete)</a>--%>
+                                        </td>
+
+                                        <td>
                                         <c:choose>
                                             <c:when test="${contract.isBlockedByOperator() == true}">
 
@@ -139,7 +187,6 @@
                                                     <a class="inline-link" href="#" onclick="document.getElementById('formId3${contract.id}').submit()">unblock</a>
                                                 </form>
 
-                                                <%--<a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=unblockByOperator' class="inline-link">(unblock)</a>--%>
                                             </c:when>
                                             <c:otherwise>
 
@@ -151,9 +198,9 @@
                                                     <a class="inline-link" href="#" onclick="document.getElementById('formId4${contract.id}').submit()">block</a>
                                                 </form>
 
-                                                <%--<a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=blockByOperator' class="inline-link">(block)</a>--%>
                                             </c:otherwise>
                                         </c:choose>
+
                                     </c:when>
                                     <c:when test="${session.role == 'client' && contract.isBlockedByOperator() == false}">
                                         <c:choose>
@@ -195,6 +242,8 @@
             </c:otherwise>
         </c:choose>
     </div>
+
+</div>
 
 </body>
 </html>

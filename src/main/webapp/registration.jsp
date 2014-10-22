@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/style.css">
@@ -8,11 +10,20 @@
 <body>
 
 <div class="outer-wrapper clearfix">
+
     <h3>
-        <%--<a href="login.jsp"><img src="images/logo.png" width="160" height="80" alt="eCare"></a>--%>
         LOGO
         Registration:
     </h3>
+
+    <c:if test="${errormessage != null}">
+        <div class="inner-wrapper-error">
+            <p>
+                Error: ${errormessage}
+            </p>
+        </div>
+    </c:if>
+
     <div class="inner-wrapper">
         <form method="post" action="registration" enctype="application/x-www-form-urlencoded">
             <div id="center">
@@ -55,7 +66,13 @@
                 <p>
                     Password:
                     <br>
-                    <input type="password" placeholder="password" class="simple-input" name="password" size=25 value="">
+                    <input type="password" placeholder="password" class="simple-input" name="password1" size=25 value="">
+                </p>
+                <br>
+                <p>
+                    Repeat password:
+                    <br>
+                    <input type="password" placeholder="password" class="simple-input" name="password2" size=25 value="">
                 </p>
                 <br>
                 <button type="submit" class="modern">Save</button>

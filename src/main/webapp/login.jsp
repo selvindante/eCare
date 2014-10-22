@@ -1,17 +1,29 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
 </head>
+
 <body>
 
     <div class="outer-wrapper clearfix">
+
         <h3>
-            <%--<a href="login.jsp"><img src="images/logo.png" width="160" height="80" alt="eCare"></a>--%>
             LOGO
             Authorization
         </h3>
+
+        <c:if test="${errormessage != null}">
+            <div class="inner-wrapper-error">
+                <p>
+                    Error: ${errormessage}
+                </p>
+            </div>
+        </c:if>
+
         <div class="inner-wrapper">
                 <form method="post" action="login" enctype="application/x-www-form-urlencoded">
                     <div id="center">

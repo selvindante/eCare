@@ -85,9 +85,6 @@
                                     <td>
                                         ${tariff.price}
                                     </td>
-                                    <%--<td>
-                                        <a href='<%=request.getContextPath()%>chooseTariff?contractId=${contract.id}&tariffId=${tariff.id}&action=chooseTariff'>select</a>
-                                    </td>--%>
                                 </tr>
                             </c:forEach>
                         </table>

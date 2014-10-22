@@ -52,8 +52,8 @@ public class LoginServlet extends HttpServlet {
                         req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                     }
                 } catch (ECareException ecx) {
-                    req.setAttribute("message", ecx.getMessage());
-                    req.getRequestDispatcher("/error.jsp").forward(req, resp);
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/login.jsp").forward(req, resp);
                 }
                 break;
             case "logout":

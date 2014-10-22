@@ -1,7 +1,7 @@
 package ru.tsystems.tsproject.ecare.service;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
-import ru.tsystems.tsproject.ecare.ECareLogger;
 import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlClientDAO;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Created by Selvin
@@ -22,7 +21,7 @@ public class ClientService implements IClientService {
     private EntityManager em = SqlEntityManager.getEm();
     private AbstractDAO<Client> DAO = SqlClientDAO.getInstance();
     private SqlClientDAO clDAO = SqlClientDAO.getInstance();
-    private Logger logger = ECareLogger.getInstance().getLogger();
+    private static Logger logger = Logger.getLogger("ClientService");
 
     private ClientService() {
     }
@@ -46,7 +45,7 @@ public class ClientService implements IClientService {
             et.commit();
             if(client == null) {
                 ECareException ecx = new ECareException("Failed to save/update client " + cl + " in DB.");
-                logger.info(ecx.getMessage());
+                logger.error(ecx.getMessage(), ecx);
                 throw ecx;
             }
             logger.info("Client " + client + " saved/updated in DB.");
@@ -70,7 +69,7 @@ public class ClientService implements IClientService {
             et.commit();
             if(cl == null) {
                 ECareException ecx = new ECareException("Client with id = " + id + " not found in DB.");
-                logger.info(ecx.getMessage());
+                logger.warn(ecx.getMessage(), ecx);
                 throw ecx;
             }
             logger.info("Client " + cl + " loaded from DB.");
@@ -95,7 +94,7 @@ public class ClientService implements IClientService {
                 cl = clDAO.findClientByLoginAndPassword(login, password);
             } catch(NoResultException nrx) {
                 ECareException ecx = new ECareException("Incorrect login/password or client does not exist.", nrx);
-                logger.info(ecx.getMessage() + "\n" + nrx.getMessage());
+                logger.warn(ecx.getMessage(), nrx);
                 throw ecx;
             }
             et.commit();
@@ -121,7 +120,7 @@ public class ClientService implements IClientService {
                 cl = clDAO.findClientByNumber(number);
             } catch(NoResultException nrx) {
                 ECareException ecx = new ECareException("Client with number: " + number + " not found.", nrx);
-                logger.info(ecx.getMessage() + "\n" + nrx.getMessage());
+                logger.warn(ecx.getMessage(), nrx);
                 throw ecx;
             }
             et.commit();
@@ -145,7 +144,7 @@ public class ClientService implements IClientService {
             Client cl = DAO.load(id);
             if(cl == null) {
                 ECareException ecx = new ECareException("Client with id = " + id + " not exist.");
-                logger.info(ecx.getMessage());
+                logger.warn(ecx.getMessage(), ecx);
                 throw ecx;
             }
             DAO.delete(cl);
@@ -170,7 +169,7 @@ public class ClientService implements IClientService {
             tx.commit();
             if(clients == null) {
                 ECareException ecx = new ECareException("Failed to get all clients from DB.");
-                logger.info(ecx.getMessage());
+                logger.error(ecx.getMessage(), ecx);
                 throw ecx;
             }
             logger.info("All clients obtained from DB.");

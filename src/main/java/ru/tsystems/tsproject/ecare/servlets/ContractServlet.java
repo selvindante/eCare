@@ -1,10 +1,12 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
-import ru.tsystems.tsproject.ecare.service.*;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.entities.Contract;
+import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
+import ru.tsystems.tsproject.ecare.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,8 +46,10 @@ public class ContractServlet extends HttpServlet {
                 req.getRequestDispatcher("/contract.jsp").forward(req, resp);
                 break;
             case "deleteContract":
-                contractService.deleteContract(contractId);
                 client = clientService.findClientByNumber(contract.getNumber());
+                client.getContracts().remove(contract);
+                client = clientService.saveOrUpdateClient(client);
+                contractService.deleteContract(contractId);
                 req.setAttribute("client", client);
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
@@ -80,18 +84,46 @@ public class ContractServlet extends HttpServlet {
                 req.getRequestDispatcher("/chooseTariff.jsp").forward(req, resp);
                 break;
             case "setNewTariff":
-                long tariffId = Long.valueOf(req.getParameter("tariffId"));
-                contract.setTariff(tariffService.loadTariff(tariffId));
-                contract.getOptions().clear();
-                List<String> optionsId = Arrays.asList(req.getParameterValues("options"));
-                long optionId;
-                for(String stringId: optionsId) {
-                    optionId = Long.valueOf(stringId);
-                    contract = contractService.enableOption(contract, optionService.loadOption(optionId));
+                try {
+                    client = contract.getClient();
+
+                    //Tariff currentTariff = contract.getTariff();
+
+                    long tariffId = Long.valueOf(req.getParameter("tariffId"));
+                    Tariff tariff = tariffService.loadTariff(tariffId);
+                    contractService.setTariff(contract, tariff);
+                    /*contract.setTariff(tariff);
+                    if(!tariff.equals(currentTariff)) {
+                        client.setAmount(client.getAmount() - tariff.getPrice());
+                    }*/
+
+                    contract.getOptions().clear();
+                    String chosenOptionsArray[] = req.getParameterValues("options");
+                    if(chosenOptionsArray != null) {
+                        List<String> optionsId = Arrays.asList(chosenOptionsArray);
+                        long optionId;
+                        Option option = null;
+                        for(String stringId: optionsId) {
+                            optionId = Long.valueOf(stringId);
+                            option = optionService.loadOption(optionId);
+                            contract = contractService.enableOption(contract, option);
+                        }
+                    }
+
+                    //client = clientService.saveOrUpdateClient(client);
+                    contract = contractService.saveOrUpdateContract(contract);
+                    req.setAttribute("contract", contract);
+                    req.getRequestDispatcher("/contract.jsp").forward(req, resp);
+                } catch (ECareException ecx) {
+                    long tariffId = Long.valueOf(req.getParameter("tariffId"));
+                    Tariff tariff = tariffService.loadTariff(tariffId);
+                    List<Option> options = optionService.getAllOptionsForTariff(tariffId);
+                    req.setAttribute("contract", contract);
+                    req.setAttribute("tariff", tariff);
+                    req.setAttribute("options", options);
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/chooseOptions.jsp").forward(req, resp);
                 }
-                contract = contractService.saveOrUpdateContract(contract);
-                req.setAttribute("contract", contract);
-                req.getRequestDispatcher("/contract.jsp").forward(req, resp);
                 break;
             default: break;
         }

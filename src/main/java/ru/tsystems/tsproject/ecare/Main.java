@@ -1,7 +1,8 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.service.IOptionService;
-import ru.tsystems.tsproject.ecare.service.OptionService;
+import ru.tsystems.tsproject.ecare.entities.Tariff;
+import ru.tsystems.tsproject.ecare.service.ITariffService;
+import ru.tsystems.tsproject.ecare.service.TariffService;
 
 /**
  * Created by Selvin
@@ -9,7 +10,7 @@ import ru.tsystems.tsproject.ecare.service.OptionService;
  */
 public class Main {
     public static void main(String[] args) {
-        IOptionService ops = OptionService.getInstance();
-        ops.deleteAllOptionsForTariff(24234324l);
+        ITariffService ts = TariffService.getInstance();
+        Tariff tr = ts.loadTariff(1782l);
     }
 }

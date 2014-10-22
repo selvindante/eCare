@@ -26,11 +26,15 @@ public interface IOptionService {
 
     public long getNumberOfOptions();
 
-    public void setDependentOption(Option currentOption, Option dependentOption);
+    public Option setDependentOption(Option currentOption, Option dependentOption);
 
-    public void deleteDependentOption(Option currentOption, Option dependentOption);
+    public Option deleteDependentOption(Option currentOption, Option dependentOption);
 
-    public void setIncompatibleOption(Option currentOption, Option incompatibleOption);
+    public void clearDependentOptions(Option currentOption);
 
-    public void deleteIncompatibleOption(Option currentOption, Option incompatibleOption);
+    public Option setIncompatibleOption(Option currentOption, Option incompatibleOption);
+
+    public Option deleteIncompatibleOption(Option currentOption, Option incompatibleOption);
+
+    public void clearIncompatibleOptions(Option currentOption);
 }

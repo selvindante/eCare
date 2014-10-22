@@ -1,42 +1,178 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Selvin
-  Date: 14.10.2014
-  Time: 21:59
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Option</title>
 </head>
+
 <body>
-<header>Option: <a href='<%=request.getContextPath()%>option?id=${option.id}&action=deleteOption'>(delete)</a></header>
 
-<hr>
+<div class="outer-wrapper clearfix">
 
-<p>
-    Option ID: ${option.id}
-</p>
-<p>
-    Title: ${option.title}
-</p>
-<p>
-    Price: ${option.price}
-</p>
-<p>
-    Cost of connection: ${option.costOfConnection}
-</p>
+    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="logout">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
 
-<hr>
+    <form id="formId2" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="viewDashboard">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
 
-<p>
-    List of dependent options: <a href='<%=request.getContextPath()%>option?action=removeAllDependentOptions'>(clear list)</a>
-</p>
+    <form id="formId3" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="id" value=${tariff.id}>
+        <input type="hidden" name="action" value="viewTariff">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
 
-<c:choose>
-    <c:when test="${option.getDependentOptions().size() != 0}">
+    <h3>
+        LOGO
+        Option:
+        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
+        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
+        <a href="#" onclick="document.getElementById('formId3').submit()" class="h3-link">To tariff</a>
+
+    </h3>
+
+    <div class="inner-wrapper">
+
+        <p>
+            Role(temporary): ${session.role}
+        </p>
+        <p>
+            Session(temporary): ${session.isOn()}
+        </p>
+        <br>
+
+        <p>
+            Tariff ID: ${tariff.id}
+        </p>
+        <p>
+            Tariff title: ${tariff.title}
+        </p>
+        <br>
+        <p>
+            Option ID: ${option.id}
+        </p>
+        <p>
+            Option title: ${option.title}
+        </p>
+        <p>
+            Option  price: ${option.price}
+        </p>
+        <p>
+            Cost of connection: ${option.costOfConnection}
+        </p>
+        <br>
+        <p>
+        <form id="formId4" method="post" action="option" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="id" value="${option.id}">
+            <input type="hidden" name="tariffId" value="${tariff.id}">
+            <input type="hidden" name="action" value="editOption">
+            <input type="hidden" name="sessionRole" value=${session.role}>
+            <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+            <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Edit option</a>
+        </form>
+        </p>
+
+    </div>
+
+    <div class="inner-wrapper">
+
+        <p>
+            List of dependent options:
+            <c:choose>
+            <c:when test="${option.getDependentOptions().size() != 0}">
+            <a class="inline-link" href="#" onclick="document.getElementById('formId5').submit()">(clear list)</a>
+
+            <form id="formId5" method="post" action="option" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="id" value="${option.id}">
+                <input type="hidden" name="tariffId" value="${tariff.id}">
+                <input type="hidden" name="action" value="removeAllDependentOptions">
+                <input type="hidden" name="sessionRole" value=${session.role}>
+                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+            </form>
+
+        </p>
+        <br>
+                <table>
+                    <tr>
+                        <td>
+                            Option ID
+                        </td>
+                        <td>
+                            Title
+                        </td>
+                        <td>
+                            Price
+                        </td>
+                        <td>
+                            Cost of connection
+                        </td>
+                        <td>
+                            Remove
+                        </td>
+                    </tr>
+                    <c:forEach var="dependentOption" items="${option.getDependentOptions()}">
+                        <tr>
+                            <td>
+                                ${dependentOption.id}
+                            </td>
+                            <td>
+                                ${dependentOption.title}
+                            </td>
+                            <td>
+                                ${dependentOption.price}
+                            </td>
+                            <td>
+                                ${dependentOption.costOfConnection}
+                            </td>
+                            <td>
+                                <form id="formId5${dependentOption.id}" method="post" action="option" enctype="application/x-www-form-urlencoded">
+                                    <input type="hidden" name="id" value="${option.id}">
+                                    <input type="hidden" name="dependentOptionId" value="${dependentOption.id}">
+                                    <input type="hidden" name="tariffId" value="${tariff.id}">
+                                    <input type="hidden" name="action" value="removeDependentOption">
+                                    <input type="hidden" name="sessionRole" value=${session.role}>
+                                    <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                                    <a class="inline-link" href="#" onclick="document.getElementById('formId5${dependentOption.id}').submit()">(remove)</a>
+                                </form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+                </c:when>
+                <c:otherwise>
+                    empty.
+                </c:otherwise>
+        </c:choose>
+
+    </div>
+
+    <div class="inner-wrapper">
+
+        <p>
+            List of incompatible options:
+            <c:choose>
+            <c:when test="${option.getIncompatibleOptions().size() != 0}">
+            <a class="inline-link" href="#" onclick="document.getElementById('formId6').submit()">(clear list)</a>
+
+        <form id="formId6" method="post" action="option" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="id" value="${option.id}">
+            <input type="hidden" name="tariffId" value="${tariff.id}">
+            <input type="hidden" name="action" value="removeAllIncompatibleOptions">
+            <input type="hidden" name="sessionRole" value=${session.role}>
+            <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+        </form>
+
+        </p>
+        <br>
         <table>
             <tr>
                 <td>
@@ -51,80 +187,47 @@
                 <td>
                     Cost of connection
                 </td>
+                <td>
+                    Remove
+                </td>
             </tr>
-            <c:forEach var="option" items="${option.getDependentOptions()}">
+            <c:forEach var="incompatibleOption" items="${option.getIncompatibleOptions()}">
                 <tr>
                     <td>
-                        <a href='<%=request.getContextPath()%>option?id=${option.id}&action=viewOption'>${option.id}</a>
+                            ${incompatibleOption.id}
                     </td>
                     <td>
-                        ${option.title}
+                            ${incompatibleOption.title}
                     </td>
                     <td>
-                        ${option.price}
+                            ${incompatibleOption.price}
                     </td>
                     <td>
-                        ${option.costOfConnection}
+                            ${incompatibleOption.costOfConnection}
                     </td>
                     <td>
-                        <a href='<%=request.getContextPath()%>option?id=${option.id}&action=removeDependentOption'>(remove)</a>
+                        <form id="formId6${incompatibleOption.id}" method="post" action="option" enctype="application/x-www-form-urlencoded">
+                            <input type="hidden" name="id" value="${option.id}">
+                            <input type="hidden" name="incompatibleOptionId" value="${incompatibleOption.id}">
+                            <input type="hidden" name="tariffId" value="${tariff.id}">
+                            <input type="hidden" name="action" value="removeIncompatibleOption">
+                            <input type="hidden" name="sessionRole" value=${session.role}>
+                            <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                            <a class="inline-link" href="#" onclick="document.getElementById('formId6${incompatibleOption.id}').submit()">(remove)</a>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-    </c:when>
-    <c:otherwise>
-        This option has no dependent options yet.
-    </c:otherwise>
-</c:choose>
+        </c:when>
+        <c:otherwise>
+            empty.
+        </c:otherwise>
+        </c:choose>
 
-<hr>
+    </div>
 
-<p>
-    List of incompatible options: <a href='<%=request.getContextPath()%>option?action=removeAllIncompatibleOptions'>(clear list)</a>
-</p>
-<c:choose>
-    <c:when test="${option.getIncompatibleOptions().size() != 0}">
-        <table>
-            <tr>
-                <td>
-                    Option ID
-                </td>
-                <td>
-                    Title
-                </td>
-                <td>
-                    Price
-                </td>
-                <td>
-                    Cost of connection
-                </td>
-            </tr>
-            <c:forEach var="option" items="${option.getDependentOptions()}">
-                <tr>
-                    <td>
-                        <a href='<%=request.getContextPath()%>option?id=${option.id}&action=viewOption'>${option.id}</a>
-                    </td>
-                    <td>
-                        ${option.title}
-                    </td>
-                    <td>
-                        ${option.price}
-                    </td>
-                    <td>
-                        ${option.costOfConnection}
-                    </td>
-                    <td>
-                        <a href='<%=request.getContextPath()%>option?id=${option.id}&action=removeIncompatibleOption'>(remove)</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-    </c:when>
-    <c:otherwise>
-        This option has no incompatible options yet.
-    </c:otherwise>
-</c:choose>
+</div>
 
 </body>
 </html>

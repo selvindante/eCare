@@ -31,6 +31,22 @@
     clear: both;
 }
 
+.inner-wrapper-error {
+    padding: 35px 20px;
+    background: #FFE8E8;
+    background: rgba(255,232,232,0.3);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-top-color: rgba(255,255,255,0.4);
+    border-bottom-color: rgba(0,0,0,0.4);
+    color: #C90000;
+}
+
+.inner-wrapper-error:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .block-level {
     width: 120px;
     height: 120px;
@@ -58,7 +74,7 @@
 }
 
 .inline-link:before {
-    content: "\25BA";
+    content: "\27A8";
     font-size: 80%;
     display: inline-block;
     padding-right: 3px;
@@ -87,7 +103,7 @@
 }
 
 .h3-link:before {
-    content: "\25BA";
+    content: "\27A8";
     font-size: 80%;
     display: inline-block;
     padding-right: 3px;

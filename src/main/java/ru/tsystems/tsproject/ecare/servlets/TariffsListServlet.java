@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 import ru.tsystems.tsproject.ecare.service.ITariffService;
 import ru.tsystems.tsproject.ecare.service.TariffService;
@@ -39,6 +40,23 @@ public class TariffsListServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        String action = req.getParameter("action");
+        Session session = Session.getInstance();
+        session.setRole(req.getParameter("sessionRole"));
+        session.setOn(Boolean.valueOf(req.getParameter("sessionStatus")));
+        req.setAttribute("session", session);
+        List<Tariff> tariffs = null;
+        switch(action) {
+            case "createTariff":
+                req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
+                break;
+            case "deleteAllTariffs":
+                tariffService.deleteAllTariffs();
+                tariffs = tariffService.getAllTariffs();
+                req.setAttribute("tariffs", tariffs);
+                req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
+                break;
+            default: break;
+        }
     }
 }

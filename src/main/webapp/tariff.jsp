@@ -1,80 +1,160 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Selvin
-  Date: 14.10.2014
-  Time: 21:13
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Tariff</title>
 </head>
+
 <body>
-    <header>Tariff: <a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=deleteTariff'>(delete)</a></header>
 
-    <hr>
+<div class="outer-wrapper clearfix">
 
-    <p>
-        Tariff ID: ${tariff.id}
-    </p>
-    <p>
-        Title: ${tariff.title}
-    </p>
-    <p>
-        Price: ${tariff.price}
-    </p>
+    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="logout">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
 
-    <hr>
+    <form id="formId2" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="viewDashboard">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
 
-    <p>
-        <a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=createOption'>Create new option</a>
-    </p>
-    <p>
-        List of available options: <a href='<%=request.getContextPath()%>tariff?action=deleteAllOptions'>(clear list)</a>
-    </p>
-    <c:choose>
-        <c:when test="${tariff.getOptions().size() != 0}">
-            <table>
-                <tr>
-                    <td>
-                        Option ID
-                    </td>
-                    <td>
-                        Title
-                    </td>
-                    <td>
-                        Price
-                    </td>
-                    <td>
-                        Cost of connection
-                    </td>
-                </tr>
-                <c:forEach var="option" items="${tariff.getOptions()}">
-                    <tr>
-                        <td>
-                            <a href='<%=request.getContextPath()%>option?id=${option.id}&action=viewOption'>${option.id}</a>
-                        </td>
-                        <td>
-                            ${option.title}
-                        </td>
-                        <td>
-                            ${option.price}
-                        </td>
-                        <td>
-                            ${option.costOfConnection}
-                        </td>
-                        <td>
-                            <a href='<%=request.getContextPath()%>option?id=${option.id}&action=deleteOption'>(delete)</a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </c:when>
-        <c:otherwise>
-            This tariff has no available options yet.
-        </c:otherwise>
-    </c:choose>
+    <form id="formId3" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="viewAllTariffs">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
+    <h3>
+        LOGO
+        Tariff:
+        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
+        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
+        <a href="#" onclick="document.getElementById('formId3').submit()" class="h3-link">To tariffs list</a>
+    </h3>
+
+    <div class="inner-wrapper">
+
+        <p>
+            Role(temporary): ${session.role}
+        </p>
+        <p>
+            Session(temporary): ${session.isOn()}
+        </p>
+        <br>
+
+        <p>
+            Tariff ID: ${tariff.id}
+        </p>
+        <p>
+            Title: ${tariff.title}
+        </p>
+        <p>
+            Price: ${tariff.price}
+        </p>
+
+    </div>
+
+    <div class="inner-wrapper">
+
+        <p>
+
+            <form id="formId4" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="id" value="${tariff.id}">
+                <input type="hidden" name="action" value="createOption">
+                <input type="hidden" name="sessionRole" value=${session.role}>
+                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Create new option</a>
+            </form>
+
+            <%--<a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=createOption'>Create new option</a>--%>
+        </p>
+        <br>
+        <p>
+            List of available options:
+            <c:choose>
+                <c:when test="${tariff.getOptions().size() != 0}">
+                    <a class="inline-link" href="#" onclick="document.getElementById('formId5').submit()">(clear list)</a>
+                    <form id="formId5" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
+                        <input type="hidden" name="id" value="${tariff.id}">
+                        <input type="hidden" name="action" value="deleteAllOptions">
+                        <input type="hidden" name="sessionRole" value=${session.role}>
+                        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                    </form>
+                    </p>
+                    <br>
+                    <table>
+                        <tr>
+                            <td>
+                                Option ID
+                            </td>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                Price
+                            </td>
+                            <td>
+                                Cost of connection
+                            </td>
+                            <td>
+                                Delete
+                            </td>
+                        </tr>
+                        <c:forEach var="option" items="${tariff.getOptions()}">
+                            <tr>
+                                <td>
+
+                                    <form id="formId6${option.id}" method="post" action="option" enctype="application/x-www-form-urlencoded">
+                                        <input type="hidden" name="id" value=${option.id}>
+                                        <input type="hidden" name="tariffId" value=${tariff.id}>
+                                        <input type="hidden" name="action" value="viewOption">
+                                        <input type="hidden" name="sessionRole" value=${session.role}>
+                                        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                                        <a class="inline-link" href="#" onclick="document.getElementById('formId6${option.id}').submit()">${option.id}</a>
+                                    </form>
+
+                                    <%--<a href='<%=request.getContextPath()%>option?id=${option.id}&action=viewOption'>${option.id}</a>--%>
+                                </td>
+                                <td>
+                                        ${option.title}
+                                </td>
+                                <td>
+                                        ${option.price}
+                                </td>
+                                <td>
+                                        ${option.costOfConnection}
+                                </td>
+                                <td>
+
+                                    <form id="formId7${option.id}" method="post" action="option" enctype="application/x-www-form-urlencoded">
+                                        <input type="hidden" name="id" value=${option.id}>
+                                        <input type="hidden" name="action" value="deleteOption">
+                                        <input type="hidden" name="tariffId" value=${tariff.id}>
+                                        <input type="hidden" name="sessionRole" value=${session.role}>
+                                        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                                        <a class="inline-link" href="#" onclick="document.getElementById('formId7${option.id}').submit()">(delete)</a>
+                                    </form>
+
+                                    <%--<a href='<%=request.getContextPath()%>option?id=${option.id}&action=deleteOption'>(delete)</a>--%>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </c:when>
+                <c:otherwise>
+                    empty.
+                </c:otherwise>
+            </c:choose>
+
+    </div>
+
+</div>
+
 </body>
 </html>

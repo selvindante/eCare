@@ -43,6 +43,12 @@
         </p>
         <br>
         <p>
+            Client: ${contract.getClient().email}
+        </p>
+        <p>
+            Amount: ${contract.getClient().amount}
+        </p>
+        <p>
             Number: ${contract.number}
         </p>
         <p>
@@ -57,7 +63,7 @@
         <p>
             Is blocked by client: ${contract.isBlockedByClient()}
         </p>
-        <c:if test="${contract.isBlockedByOperator() == false && contract.isBlockedByClient() == false}">
+        <c:if test="${contract.isBlockedByOperator() == false && contract.isBlockedByClient() == false && contract.getClient().amount > 0}">
             <br>
             <p>
 
@@ -66,10 +72,9 @@
                 <input type="hidden" name="action" value="changeTariff">
                 <input type="hidden" name="sessionRole" value=${session.role}>
                 <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Change tariff</a>
+                <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Change tariff or options</a>
             </form>
 
-                <%--<a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=changeTariff' class="inline-link">Change tariff</a>--%>
             </p>
         </c:if>
     </div>
@@ -81,38 +86,38 @@
                 <c:when test="${contract.getOptions().size() != 0}">
         </p>
             <br>
-                <table>
-                    <tr>
-                        <td>
-                            Title
-                        </td>
-                        <td>
-                            Price
-                        </td>
-                        <td>
-                            Cost of connection
-                        </td>
-                    </tr>
-                    <c:forEach var="option" items="${contract.getOptions()}">
+                    <table>
                         <tr>
                             <td>
-                                    ${option.title}
+                                Title
                             </td>
                             <td>
-                                    ${option.price}
+                                Price
                             </td>
                             <td>
-                                    ${option.costOfConnection}
+                                Cost of connection
                             </td>
                         </tr>
-                    </c:forEach>
-                </table>
-            </c:when>
-        <c:otherwise>
-            empty.
-            </p>
-        </c:otherwise>
-        </c:choose>
+                        <c:forEach var="dependentOption" items="${contract.getOptions()}">
+                            <tr>
+                                <td>
+                                        ${dependentOption.title}
+                                </td>
+                                <td>
+                                        ${dependentOption.price}
+                                </td>
+                                <td>
+                                        ${dependentOption.costOfConnection}
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </c:when>
+                <c:otherwise>
+                    empty.
+                    </p>
+                </c:otherwise>
+            </c:choose>
     </div>
 
 </div>

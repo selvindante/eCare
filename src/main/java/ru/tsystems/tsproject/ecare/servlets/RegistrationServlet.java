@@ -1,9 +1,11 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
+import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,21 +27,28 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String lastname = req.getParameter("lastname");
-        Date birthdate = java.sql.Date.valueOf(req.getParameter("birthdate"));
-        long passport = Long.parseLong(req.getParameter("passport"));
-        String address = req.getParameter("address");
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
-        Client client = new Client(name, lastname, birthdate, passport, address, email, password, "client", 0);
-        clientService.saveOrUpdateClient(client);
-        client = clientService.findClient(email, password);
-        Session session = Session.getInstance();
-        session.setRole("client");
-        session.setOn(true);
-        req.setAttribute("session", session);
-        req.setAttribute("client", client);
-        req.getRequestDispatcher("/client.jsp").forward(req, resp);
+        try {
+            String name = req.getParameter("name");
+            String lastname = req.getParameter("lastname");
+            Date birthDate = Util.checkDate(req.getParameter("birthdate"));
+            long passport = Util.checkLong(req.getParameter("passport"));
+            String address = req.getParameter("address");
+            String email = req.getParameter("email");
+            String password = Util.checkPassword(req.getParameter("password1"), req.getParameter("password2"));
+
+            Client client = new Client(name, lastname, birthDate, passport, address, email, password, "client", 0);
+            client = clientService.saveOrUpdateClient(client);
+            req.setAttribute("client", client);
+
+            Session session = Session.getInstance();
+            session.setRole("client");
+            session.setOn(true);
+            req.setAttribute("session", session);
+
+            req.getRequestDispatcher("/client.jsp").forward(req, resp);
+        } catch (ECareException ecx) {
+            req.setAttribute("errormessage", ecx.getMessage());
+            req.getRequestDispatcher("/registration.jsp").forward(req, resp);
+        }
     }
 }
