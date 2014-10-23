@@ -49,7 +49,7 @@ public class OptionServlet extends HttpServlet {
             case "createOption":
                 try {
                     tariffId = Long.valueOf(req.getParameter("tariffId"));
-                    String title = req.getParameter("title");
+                    String title = Util.checkStringLength(req.getParameter("title"));
                     int price = Util.checkInt(req.getParameter("price"));
                     int costOfConnection = Util.checkInt(req.getParameter("costOfConnection"));
 

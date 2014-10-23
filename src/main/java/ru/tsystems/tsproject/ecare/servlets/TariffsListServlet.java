@@ -21,7 +21,7 @@ public class TariffsListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getParameter("action");
+        /*String action = req.getParameter("action");
         List<Tariff> tariffs = null;
         switch (action) {
             case "saveOrUpdateTariff":
@@ -35,7 +35,7 @@ public class TariffsListServlet extends HttpServlet {
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
             default: break;
-        }
+        }*/
     }
 
     @Override

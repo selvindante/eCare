@@ -1,8 +1,6 @@
 package ru.tsystems.tsproject.ecare;
 
-import ru.tsystems.tsproject.ecare.entities.Tariff;
-import ru.tsystems.tsproject.ecare.service.ITariffService;
-import ru.tsystems.tsproject.ecare.service.TariffService;
+import org.apache.log4j.Logger;
 
 /**
  * Created by Selvin
@@ -10,7 +8,7 @@ import ru.tsystems.tsproject.ecare.service.TariffService;
  */
 public class Main {
     public static void main(String[] args) {
-        ITariffService ts = TariffService.getInstance();
-        Tariff tr = ts.loadTariff(1782l);
+        Logger logger = Logger.getLogger("ClientService");
+        logger.info("trololo");
     }
 }

@@ -12,8 +12,8 @@ import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
- * This class is the implementation of IClientService for working with client DAO.
- * Class ClientService is a singleton.
+ * This class is the implementation of IClientService for working with client DAO
+ * and client entities. Class ClientService is a singleton.
  *
  * @author Starostin Konstantin
  * @see ru.tsystems.tsproject.ecare.service.IClientService
@@ -300,6 +300,41 @@ public class ClientService implements IClientService {
         catch (RuntimeException re) {
             if(tx.isActive()) {
                 tx.rollback();
+            }
+            throw re;
+        }
+    }
+
+    /**
+     * This method implements searching of client in database by client login.
+     *
+     * @param login client login
+     * @return true if client with input login exist, or false if client not exist.
+     */
+    @Override
+    public boolean existLogin(String login) {
+        logger.info("Find client with login: " + login + " in DB.");
+        Client cl = null;
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            try {
+                // Search of client in the database by DAO method.
+                cl = clDAO.findClientByLogin(login);
+                // If client does not exist in database, block try catches the NoResultException and
+                // throws an ECareException.
+            } catch(NoResultException nrx) {
+                et.commit();
+                logger.warn("Client with login: " + login + " does not exist.");
+                return false;
+            }
+            et.commit();
+            logger.info("Client " + cl + " found in DB.");
+            return true;
+        }
+        catch (RuntimeException re) {
+            if(et.isActive()) {
+                et.rollback();
             }
             throw re;
         }

@@ -38,6 +38,14 @@
         <a href="#" onclick="document.getElementById('formId3').submit()" class="h3-link">To tariffs list</a>
     </h3>
 
+    <c:if test="${errormessage != null}">
+        <div class="inner-wrapper-error">
+            <p>
+                Error: ${errormessage}
+            </p>
+        </div>
+    </c:if>
+
     <div class="inner-wrapper">
 
         <p>

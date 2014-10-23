@@ -42,9 +42,15 @@
                         </p>
                         <br>
                         <button type="submit" class="modern">Enter</button>
-                        <a href="registration.jsp" class="inline-link">Registration</a>
+                        <a href="#" onclick="document.getElementById('formId1').submit()" class="inline-link">Registration</a>
+                        <%--<a href="registration.jsp" class="inline-link">Registration</a>--%>
                     </div>
                 </form>
+
+            <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="action" value="registration">
+            </form>
+
         </div>
     </div>
 

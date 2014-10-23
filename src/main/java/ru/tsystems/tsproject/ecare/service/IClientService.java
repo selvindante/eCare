@@ -72,4 +72,12 @@ public interface IClientService {
      * @return number of clients in the storage.
      */
     public long getNumberOfClients();
+
+    /**
+     * This method provides searching of client in storage by client login.
+     *
+     * @param login client login
+     * @return true if client with input login exist, or false if client not exist.
+     */
+    public boolean existLogin(String login);
 }

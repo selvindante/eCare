@@ -31,6 +31,14 @@
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
     </h3>
 
+    <c:if test="${errormessage != null}">
+        <div class="inner-wrapper-error">
+            <p>
+                Error: ${errormessage}
+            </p>
+        </div>
+    </c:if>
+
     <div class="inner-wrapper">
 
         <p>

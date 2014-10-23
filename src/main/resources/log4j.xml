@@ -3,7 +3,7 @@
 <log4j:configuration>
 
     <appender name="LOG-WARN-FILE-APPENDER" class="org.apache.log4j.FileAppender">
-        <param name="file" value="logs/error.log"/>
+        <param name="file" value="/logs/error.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
         </layout>
@@ -13,7 +13,7 @@
     </appender>
 
     <appender name="LOG-INFO-FILE-APPENDER" class="org.apache.log4j.FileAppender">
-        <param name="file" value="logs/info.log"/>
+        <param name="file" value="/logs/info.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
         </layout>
@@ -23,19 +23,8 @@
         </filter>
     </appender>
 
-  <appender name="LOG-TRACE-DEBUG-FILE-APPENDER" class="org.apache.log4j.FileAppender">
-    <param name="file" value="logs/debug.log"/>
-    <layout class="org.apache.log4j.PatternLayout">
-      <param name="ConversionPattern" value="%d{ISO8601} [%5p] %m at %l%n"/>
-    </layout>
-    <filter class="org.apache.log4j.varia.LevelRangeFilter">
-      <param name="LevelMin" value="TRACE"/>
-      <param name="LevelMax" value="DEBUG"/>
-    </filter>
-  </appender>
-
     <appender name="LOG-FILE-APPENDER" class="org.apache.log4j.FileAppender">
-        <param name="file" value="all.log"/>
+        <param name="file" value="/logs/all.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{ISO8601} [%5p] %c %m at %l%n"/>
         </layout>
@@ -51,18 +40,16 @@
     <category name="ru.tsystems.tsproject.ecare">
         <appender-ref ref="LOG-WARN-FILE-APPENDER"/>
         <appender-ref ref="LOG-INFO-FILE-APPENDER"/>
-        <appender-ref ref="LOG-TRACE-DEBUG-FILE-APPENDER"/>
         <appender-ref ref="LOG-FILE-APPENDER"/>
         <appender-ref ref="CONSOLE-ALL"/>
     </category>
 
-  <root>
-    <priority value="DEBUG"/>
-    <appender-ref ref="LOG-WARN-FILE-APPENDER"/>
-    <appender-ref ref="LOG-INFO-FILE-APPENDER"/>
-    <appender-ref ref="LOG-TRACE-DEBUG-FILE-APPENDER"/>
-    <appender-ref ref="LOG-FILE-APPENDER"/>
-    <appender-ref ref="CONSOLE-ALL"/>
-  </root>
+    <root>
+    <priority value="INFO"/>
+        <appender-ref ref="LOG-WARN-FILE-APPENDER"/>
+        <appender-ref ref="LOG-INFO-FILE-APPENDER"/>
+        <appender-ref ref="LOG-FILE-APPENDER"/>
+        <appender-ref ref="CONSOLE-ALL"/>
+    </root>
 
 </log4j:configuration>

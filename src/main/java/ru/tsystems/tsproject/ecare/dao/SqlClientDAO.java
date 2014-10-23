@@ -69,4 +69,10 @@ public class SqlClientDAO extends AbstractDAO<Client> {
     protected long doSize() {
         return ((Number)em.createNamedQuery("Client.size").getSingleResult()).longValue();
     }
+
+    public Client findClientByLogin(String login) {
+        Query query = em.createNamedQuery("Client.findClientByLogin", Client.class);
+        query.setParameter("login", login);
+        return (Client) query.getSingleResult();
+    }
 }

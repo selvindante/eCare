@@ -5,6 +5,7 @@ import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
+import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,9 +32,9 @@ public class LoginServlet extends HttpServlet {
         Session session = Session.getInstance();
         switch (action) {
             case "login":
-                String login = req.getParameter("login");
-                String password = req.getParameter("password");
                 try {
+                    String login = Util.checkStringLength(req.getParameter("login"));
+                    String password = Util.checkStringLength(req.getParameter("password"));
                     Client client = clientService.findClient(login, password);
                     req.setAttribute("role", client.getRole());
                     if(client.getRole().equals("client")) {
@@ -55,6 +56,16 @@ public class LoginServlet extends HttpServlet {
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/login.jsp").forward(req, resp);
                 }
+                break;
+            case "registration":
+                //Client client = new Client("", "", new Date(0l), null, "", "", "", "client", 0);
+                req.setAttribute("name", "");
+                req.setAttribute("lastname", "");
+                req.setAttribute("birthdate", "");
+                req.setAttribute("passport", "");
+                req.setAttribute("address", "");
+                req.setAttribute("email", "");
+                req.getRequestDispatcher("/registration.jsp").forward(req, resp);
                 break;
             case "logout":
                 session.setOn(false);

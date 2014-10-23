@@ -30,37 +30,37 @@
                 <p>
                     Name:
                     <br>
-                    <input type="text" placeholder="name" class="simple-input" name="name" size=25 value="">
+                    <input type="text" placeholder="name" class="simple-input" name="name" size=25 value="${name}">
                 </p>
                 <br>
                 <p>
                     Lastname:
                     <br>
-                    <input type="text" placeholder="lastname" class="simple-input" name="lastname" size=25 value="">
+                    <input type="text" placeholder="lastname" class="simple-input" name="lastname" size=25 value="${lastname}">
                 </p>
                 <br>
                 <p>
                     Birth date:
                     <br>
-                    <input type="text" placeholder="yyyy-mm-dd" class="simple-input" name="birthdate" size=25 value="">
+                    <input type="text" placeholder="yyyy-mm-dd" class="simple-input" name="birthdate" size=25 value="${birthdate}">
                 </p>
                 <br>
                 <p>
                     Passport:
                     <br>
-                    <input type="text" placeholder="passport series and number" class="simple-input"  name="passport" size=25 value="">
+                    <input type="text" placeholder="passport series and number" class="simple-input"  name="passport" size=25 value="${passport}">
                 </p>
                 <br>
                 <p>
                     Address:
                     <br>
-                    <input type="text" placeholder="address" class="simple-input" name="address" size=25 value="">
+                    <input type="text" placeholder="address" class="simple-input" name="address" size=25 value="${address}">
                 </p>
                 <br>
                 <p>
                     E-mail (login):
                     <br>
-                    <input type="text" placeholder="e-mail" class="simple-input" name="email" size=25 value="">
+                    <input type="text" placeholder="e-mail" class="simple-input" name="email" size=25 value="${email}">
                 </p>
                 <br>
                 <p>

@@ -7,12 +7,39 @@ import ru.tsystems.tsproject.ecare.service.IClientService;
 import java.util.Date;
 
 /**
- * Created by Selvin
- * on 21.10.2014.
+ * This class contains static util methods for checking format of input parameters.
+ *
+ * @author Starostin Konstantin
  */
 public class Util {
+
+    /*Client service instance for method of checking telephone number on existing*/
     private static IClientService clientService = ClientService.getInstance();
 
+    /**
+     * Method checks string on length. Must be less than 60 symbols (in this app).
+     *
+     * @param s input string.
+     * @return string if it satisfies the requirements.
+     * @throws ECareException if string not satisfies the requirements.
+     */
+    public static String checkStringLength(String s) throws ECareException {
+        if (s.length() <= 60) {
+            return s;
+        }
+        else {
+            ECareException ecx = new ECareException("Too big length of the input string.");
+            throw ecx;
+        }
+    }
+
+    /**
+     * Method checks string on right format of integer variable.
+     *
+     * @param s input string.
+     * @return converted integer variable.
+     * @throws ECareException if string not satisfies the requirements.
+     */
     public static Integer checkInt(String s) throws ECareException {
         try {
             int intDigit = Integer.valueOf(s);
@@ -27,6 +54,13 @@ public class Util {
         }
     }
 
+    /**
+     * Method checks string on right format of long variable.
+     *
+     * @param s input string.
+     * @return converted long variable.
+     * @throws ECareException if string not satisfies the requirements.
+     */
     public static Long checkLong(String s) throws ECareException {
         try {
             long longDigit = Long.valueOf(s);
@@ -41,6 +75,13 @@ public class Util {
         }
     }
 
+    /**
+     * Method checks string on right format of java.sql.Date variable.
+     *
+     * @param s input string.
+     * @return converted java.sql.Date variable.
+     * @throws ECareException if string not satisfies the requirements.
+     */
     public static Date checkDate(String s) throws ECareException {
         try {
             return java.sql.Date.valueOf(s);
@@ -50,6 +91,14 @@ public class Util {
         }
     }
 
+    /**
+     * Method checks two input passwords on equals.
+     *
+     * @param password1 first password.
+     * @param password2 second password.
+     * @return first password if they are equal.
+     * @throws ECareException if passwords are not equal.
+     */
     public static String checkPassword(String password1, String password2) throws ECareException {
         if(password1.equals(password2)) return password1;
         else {
@@ -58,6 +107,13 @@ public class Util {
         }
     }
 
+    /**
+     * Method checks telephone number on existing in database.
+     *
+     * @param s input string with telephone number.
+     * @return telephone number in format of long variable if it does not exist in database.
+     * @throws ECareException if number already exist in database.
+     */
     public static Long checkNumberOnExisting(String s) throws ECareException {
         try {
             long number = checkLong(s);
@@ -72,5 +128,20 @@ public class Util {
             ECareException ecx = new ECareException("Wrong format of entered telephone number.", nfx);
             throw ecx;
         }
+    }
+
+    /**
+     * Method checks client login(e-mail) on existing in database.
+     *
+     * @param s input string with login.
+     * @return client login if it does not exist in database.
+     * @throws ECareException if login already exist in database.
+     */
+    public static String checkLoginOnExisting(String s) throws ECareException {
+        if(clientService.existLogin(s)) {
+            ECareException ecx = new ECareException("Entered e-mail (login) already exist.");
+            throw ecx;
+        }
+        else return s;
     }
 }

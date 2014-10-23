@@ -26,27 +26,6 @@ public class TariffServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*long tariffId = Long.valueOf(req.getParameter("id"));
-        String action = req.getParameter("action");
-        Tariff tariff = tariffService.loadTariff(tariffId);
-        switch(action) {
-            *//*case "viewTariff":
-                req.setAttribute("tariff", tariff);
-                req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
-                break;*//*
-            case "saveOrUpdateOption":
-                req.getRequestDispatcher("/saveOrUpdateOption.jsp").forward(req, resp);
-            *//*case "deleteTariff":
-                tariffService.deleteTariff(tariffId);
-                List<Tariff> tariffs = tariffService.getAllTariffs();
-                req.setAttribute("role", "admin");
-                req.setAttribute("tariffs", tariffs);
-                req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
-                break;*//*
-
-            default: break;
-        }*/
-
     }
 
     @Override
@@ -61,7 +40,7 @@ public class TariffServlet extends HttpServlet {
         switch (action) {
             case "createTariff":
                 try {
-                    String title = req.getParameter("title");
+                    String title = Util.checkStringLength(req.getParameter("title"));
                     int price = Util.checkInt(req.getParameter("price"));
                     tariff = new Tariff(title, price);
                     tariff = tariffService.saveOrUpdateTariff(tariff);

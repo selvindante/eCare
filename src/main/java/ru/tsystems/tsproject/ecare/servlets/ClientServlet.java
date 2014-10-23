@@ -22,7 +22,7 @@ public class ClientServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        long id = Long.valueOf(req.getParameter("id"));
+        /*long id = Long.valueOf(req.getParameter("id"));
         String action = req.getParameter("action");
         switch (action) {
             case "saveOrUpdateContract":
@@ -30,7 +30,7 @@ public class ClientServlet extends HttpServlet {
                 req.getRequestDispatcher("/saveOrUpdateContract.jsp").forward(req, resp);
                 break;
             default: break;
-        }
+        }*/
     }
 
     @Override
@@ -55,11 +55,11 @@ public class ClientServlet extends HttpServlet {
                 break;
             case "updateClient":
                 try {
-                    client.setName(req.getParameter("name"));
-                    client.setLastname(req.getParameter("lastname"));
+                    client.setName(Util.checkStringLength(req.getParameter("name")));
+                    client.setLastname(Util.checkStringLength(req.getParameter("lastname")));
                     client.setBirthDate(Util.checkDate(req.getParameter("birthdate")));
                     client.setPassport(Util.checkLong(req.getParameter("passport")));
-                    client.setAddress(req.getParameter("address"));
+                    client.setAddress(Util.checkStringLength(req.getParameter("address")));
                     client = clientService.saveOrUpdateClient(client);
                     req.setAttribute("client", client);
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
