@@ -58,7 +58,6 @@ public class LoginServlet extends HttpServlet {
                 }
                 break;
             case "registration":
-                //Client client = new Client("", "", new Date(0l), null, "", "", "", "client", 0);
                 req.setAttribute("name", "");
                 req.setAttribute("lastname", "");
                 req.setAttribute("birthdate", "");

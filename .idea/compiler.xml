@@ -25,6 +25,9 @@
         <module name="eCare" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eCare" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

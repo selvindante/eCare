@@ -31,7 +31,7 @@ public class ClientService implements IClientService {
     private SqlClientDAO clDAO = SqlClientDAO.getInstance();
 
     /*Logger for client service operations*/
-    private static Logger logger = Logger.getLogger("ClientService");
+    private Logger logger = Logger.getLogger(this.getClass());
 
     /*Private constructor of singleton class*/
     private ClientService() {
@@ -322,7 +322,7 @@ public class ClientService implements IClientService {
                 // Search of client in the database by DAO method.
                 cl = clDAO.findClientByLogin(login);
                 // If client does not exist in database, block try catches the NoResultException and
-                // throws an ECareException.
+                // return false.
             } catch(NoResultException nrx) {
                 et.commit();
                 logger.warn("Client with login: " + login + " does not exist.");
@@ -330,6 +330,7 @@ public class ClientService implements IClientService {
             }
             et.commit();
             logger.info("Client " + cl + " found in DB.");
+            // Else, if client exist and loaded, method return true.
             return true;
         }
         catch (RuntimeException re) {
