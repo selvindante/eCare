@@ -670,7 +670,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.11335677" />
     <property name="project.structure.side.proportion" value="0.26347306" />
-    <property name="options.lastSelected" value="reference.settings.project.maven.runner" />
+    <property name="options.lastSelected" value="settings.github" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -1248,7 +1248,7 @@
       <workItem from="1414151299788" duration="13212000" />
       <workItem from="1414225238729" duration="4358000" />
       <workItem from="1414230140351" duration="8784000" />
-      <workItem from="1414240078570" duration="5789000" />
+      <workItem from="1414240078570" duration="5913000" />
     </task>
     <task id="LOCAL-00001" summary="github installation">
       <created>1412017393413</created>
@@ -1358,11 +1358,15 @@
       <created>1414245827765</created>
       <updated>1414245827765</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added logger (console and file) in service level and servlets. Fixed chooseOptions.jsp on showing of dependent/incompatible options. Added authorizationFilter servlet for checking of session status.">
+      <created>1414245879351</created>
+      <updated>1414245879351</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="476116000" />
+    <option name="totallyTimeSpent" value="476240000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
