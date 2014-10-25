@@ -29,7 +29,7 @@ public class TariffService implements ITariffService {
     private AbstractDAO<Tariff> trDAO = SqlTariffDAO.getInstance();
 
     /*Logger for tariff service operations*/
-    private static Logger logger = Logger.getLogger("TariffService");
+    private static Logger logger = Logger.getLogger(TariffService.getInstance().getClass());
 
     /*Private constructor of singleton class*/
     private TariffService() {

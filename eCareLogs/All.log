@@ -1,0 +1,80 @@
+2014-10-25 17:50:07 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:50:07 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-25 17:50:08 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:50:08 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-25 17:50:21 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-25 17:50:21 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-25 17:50:21 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-25 17:50:21 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-25 17:50:22 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-25 17:50:22 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-25 17:50:22 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-25 17:50:23 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:50:23 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-25 17:50:24 INFO  ClientService:149 - Client Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-25 17:50:24 INFO  ClientService:239 - Get all clients from DB.
+2014-10-25 17:50:24 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-25 17:50:24 INFO  LoginServlet:55 - User(admin): Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-25 17:50:24 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-25 17:50:24 INFO  ClientService:149 - Client Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-25 17:50:24 INFO  ClientService:239 - Get all clients from DB.
+2014-10-25 17:50:24 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-25 17:50:24 INFO  LoginServlet:55 - User(admin): Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-25 17:50:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:51:42 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:51:42 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-25 17:51:42 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-25 17:51:42 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-25 17:52:07 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:52:07 INFO  ClientService:239 - Get all clients from DB.
+2014-10-25 17:52:07 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-25 17:52:07 INFO  DashboardServlet:46 - User admin went to view dashboard page.
+2014-10-25 17:53:19 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:53:19 INFO  LoginServlet:76 - User has logout from application.
+2014-10-25 17:53:19 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-25 17:53:57 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:53:57 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-25 17:55:28 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:55:28 INFO  ClientService:133 - Find client with login: admin and password:123456 in DB.
+2014-10-25 17:55:28 WARN  ClientService:145 - Incorrect login/password or client does not exist.
+javax.persistence.NoResultException: No entity found for query
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
+	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByLoginAndPassword(SqlClientDAO.java:44)
+	at ru.tsystems.tsproject.ecare.service.ClientService.findClient(ClientService.java:140)
+	at ru.tsystems.tsproject.ecare.servlets.LoginServlet.doPost(LoginServlet.java:39)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:31)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-25 17:55:28 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-25 17:55:57 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-25 17:55:57 INFO  LoginServlet:70 - New user has enter to the registration page.
+2014-10-25 17:55:58 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.

@@ -31,7 +31,7 @@ public class ClientService implements IClientService {
     private SqlClientDAO clDAO = SqlClientDAO.getInstance();
 
     /*Logger for client service operations*/
-    private Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = Logger.getLogger(ClientService.getInstance().getClass());
 
     /*Private constructor of singleton class*/
     private ClientService() {

@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
@@ -23,6 +24,7 @@ import java.util.List;
 public class TariffServlet extends HttpServlet {
     ITariffService tariffService = TariffService.getInstance();
     IOptionService optionService = OptionService.getInstance();
+    private static Logger logger = Logger.getLogger(TariffServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,11 +42,12 @@ public class TariffServlet extends HttpServlet {
         switch (action) {
             case "createTariff":
                 try {
-                    String title = Util.checkStringLength(req.getParameter("title"));
+                    String title = Util.checkStringLength(Util.checkStringOnEmpty(req.getParameter("title")));
                     int price = Util.checkInt(req.getParameter("price"));
                     tariff = new Tariff(title, price);
                     tariff = tariffService.saveOrUpdateTariff(tariff);
                     req.setAttribute("tariff", tariff);
+                    logger.info("New tariff " + tariff + " created.");
                     req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
                     req.setAttribute("errormessage", ecx.getMessage());
@@ -55,27 +58,33 @@ public class TariffServlet extends HttpServlet {
                 tariffId = Long.valueOf(req.getParameter("id"));
                 tariff = tariffService.loadTariff(tariffId);
                 req.setAttribute("tariff", tariff);
+                logger.info("User " + session.getRole() + " went to view tariff page.");
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 break;
             case "deleteTariff":
                 tariffId = Long.valueOf(req.getParameter("id"));
                 tariffService.deleteTariff(tariffId);
+                logger.info("Tariff with id: " + tariffId + " deleted from database.");
                 List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("tariffs", tariffs);
+                logger.info("User " + session.getRole() + " went to all tariffs page.");
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
             case "createOption":
                 tariffId = Long.valueOf(req.getParameter("id"));
                 tariff = tariffService.loadTariff(tariffId);
                 req.setAttribute("tariff", tariff);
+                logger.info("User " + session.getRole() + " went to create new option page.");
                 req.getRequestDispatcher("/createOption.jsp").forward(req, resp);
                 break;
             case "deleteAllOptions":
                 tariffId = Long.valueOf(req.getParameter("id"));
                 optionService.deleteAllOptionsForTariff(tariffId);
+                logger.info("All options for tariff id: " + tariffId + " deleted from database.");
                 tariff = tariffService.loadTariff(tariffId);
                 tariff.setOptions(optionService.getAllOptionsForTariff(tariffId));
                 req.setAttribute("tariff", tariff);
+                logger.info("User " + session.getRole() + " went to view tariff page.");
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 break;
             default: break;

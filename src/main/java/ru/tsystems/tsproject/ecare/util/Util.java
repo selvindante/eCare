@@ -34,6 +34,23 @@ public class Util {
     }
 
     /**
+     * Method checks string on empty. Must be more than 0 symbols.
+     *
+     * @param s input string.
+     * @return string if it satisfies the requirements.
+     * @throws ECareException ECareException if string not satisfies the requirements.
+     */
+    public static String checkStringOnEmpty(String s) throws ECareException {
+        if(s.length() != 0) {
+            return s;
+        }
+        else {
+            ECareException ecx = new ECareException("Required string is empty.");
+            throw ecx;
+        }
+    }
+
+    /**
      * Method checks string on right format of integer variable.
      *
      * @param s input string.

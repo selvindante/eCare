@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Client page</title>
 </head>
 <body>
@@ -82,7 +82,7 @@
             Passport: ${client.passport}
         </p>
         <p>
-            Amount: ${client.amount}
+            Balance: ${client.amount}
         </p>
         <br>
         <form method="post" action="client" enctype="application/x-www-form-urlencoded">

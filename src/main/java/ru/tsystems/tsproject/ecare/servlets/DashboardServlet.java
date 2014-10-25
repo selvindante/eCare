@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -24,6 +25,7 @@ import java.util.List;
 public class DashboardServlet extends HttpServlet {
     IClientService clientService = ClientService.getInstance();
     ITariffService tariffService = TariffService.getInstance();
+    private static Logger logger = Logger.getLogger(DashboardServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -41,13 +43,16 @@ public class DashboardServlet extends HttpServlet {
             case "viewDashboard":
                 clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
+                logger.info("User " + session.getRole() + " went to view dashboard page.");
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;
             case "searchClientByNumber":
                 try {
                     long number = Util.checkLong(req.getParameter("number"));
+                    logger.info("User " + session.getRole() + " searching of client by number " + number + ".");
                     Client client = clientService.findClientByNumber(number);
                     req.setAttribute("client", client);
+                    logger.info("User " + session.getRole() + " went to client page.");
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
                     clientsList = clientService.getAllClients();
@@ -59,19 +64,24 @@ public class DashboardServlet extends HttpServlet {
             case "viewAllTariffs":
                 List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("tariffs", tariffs);
+                logger.info("User " + session.getRole() + " went to view all tariffs page.");
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
             case "deleteClient":
                 long clientId = Long.valueOf(req.getParameter("id"));
                 clientService.deleteClient(clientId);
+                logger.info("User " + session.getRole() + " deleted are client with id:" + clientId + " from database.");
                 clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
+                logger.info("User " + session.getRole() + " went to view dashboard page.");
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;
             case "deleteAllClients":
                 clientService.deleteAllClients();
+                logger.info("User " + session.getRole() + " deleted all clients from database.");
                 clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
+                logger.info("User " + session.getRole() + " went to view dashboard page.");
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;
             default: break;

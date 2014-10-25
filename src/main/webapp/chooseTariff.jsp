@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Step 1. Choose tariff</title>
 </head>
 <body>
@@ -51,10 +51,10 @@
         </p>
         <br>
         <p>
-            Contract ID: ${contract.id}
+            Contract number: ${contract.number}
         </p>
         <p>
-            Contract number: ${contract.number}
+            Client balance: ${contract.getClient().amount}
         </p>
     </div>
 

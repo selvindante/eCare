@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Edit client info</title>
 </head>
 <body>
@@ -66,7 +66,7 @@
                 <p>
                     Name:
                     <br>
-                    <input type="text" class="simple-input" name="name" size=25 value="${client.name}">
+                    <input type="text" class="simple-input" name="name" size=25 value="${client.name}"> *
                 </p>
                 <br>
                 <p>
@@ -78,19 +78,23 @@
                 <p>
                     Birth date:
                     <br>
-                    <input type="text" class="simple-input" name="birthdate" size=25 value="${client.getBirthDateToString()}">
+                    <input type="text" class="simple-input" name="birthdate" size=25 value="${client.getBirthDateToString()}"> *
                 </p>
                 <br>
                 <p>
                     Passport:
                     <br>
-                    <input type="text" class="simple-input"  name="passport" size=25 value="${client.passport}">
+                    <input type="text" class="simple-input"  name="passport" size=25 value="${client.passport}"> *
                 </p>
                 <br>
                 <p>
                     Address:
                     <br>
                     <input type="text" class="simple-input" name="address" size=25 value="${client.address}">
+                </p>
+                <br>
+                <p>
+                    (*) - required fields.
                 </p>
                 <br>
                 <button type="submit" class="modern">Save</button>

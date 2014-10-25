@@ -1,9 +1,10 @@
+<%@ page import="ru.tsystems.tsproject.ecare.Session" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Login</title>
 </head>
 
@@ -43,7 +44,6 @@
                         <br>
                         <button type="submit" class="modern">Enter</button>
                         <a href="#" onclick="document.getElementById('formId1').submit()" class="inline-link">Registration</a>
-                        <%--<a href="registration.jsp" class="inline-link">Registration</a>--%>
                     </div>
                 </form>
 
@@ -52,6 +52,7 @@
             </form>
 
         </div>
+
     </div>
 
 </body>

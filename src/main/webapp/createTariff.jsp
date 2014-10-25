@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Creating of tariff</title>
 </head>
 
@@ -48,14 +48,19 @@
             <p>
                 Title:
                 <br>
-                <input type="text" placeholder="title"  class="simple-input" name="title" size=20 value="">
+                <input type="text" placeholder="title"  class="simple-input" name="title" size=20 value=""> *
             </p>
             <br>
             <p>
                 Price:
                 <br>
-                <input type="text" placeholder="price"  class="simple-input" name="price" size=20 value="">
+                <input type="text" placeholder="price"  class="simple-input" name="price" size=20 value=""> *
             </p>
+            <br>
+            <p>
+                (*) - required fields.
+            </p>
+            <br>
             <button type="submit" class="modern">Create</button>
             <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Back</a>
         </form>

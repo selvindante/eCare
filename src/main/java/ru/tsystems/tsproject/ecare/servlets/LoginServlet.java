@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -20,10 +21,10 @@ import java.util.List;
  */
 public class LoginServlet extends HttpServlet {
     IClientService clientService = ClientService.getInstance();
+    private static Logger logger = Logger.getLogger(LoginServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
     }
 
     @Override
@@ -42,6 +43,7 @@ public class LoginServlet extends HttpServlet {
                         session.setOn(true);
                         req.setAttribute("session", session);
                         req.setAttribute("client", client);
+                        logger.info("User(client): " + client + " login in application.");
                         req.getRequestDispatcher("/client.jsp").forward(req, resp);
                     }
                     else if(client.getRole().equals("admin")){
@@ -50,6 +52,7 @@ public class LoginServlet extends HttpServlet {
                         session.setOn(true);
                         req.setAttribute("session", session);
                         req.setAttribute("clientsList", clientsList);
+                        logger.info("User(admin): " + client + " login in application.");
                         req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                     }
                 } catch (ECareException ecx) {
@@ -64,10 +67,13 @@ public class LoginServlet extends HttpServlet {
                 req.setAttribute("passport", "");
                 req.setAttribute("address", "");
                 req.setAttribute("email", "");
+                logger.info("New user has enter to the registration page.");
                 req.getRequestDispatcher("/registration.jsp").forward(req, resp);
                 break;
             case "logout":
                 session.setOn(false);
+                req.setAttribute("session", session);
+                logger.info("User has logout from application.");
                 req.getRequestDispatcher("/login.jsp").forward(req, resp);
                 break;
             default: break;

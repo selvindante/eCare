@@ -30,7 +30,7 @@ public class OptionService implements IOptionService {
     private SqlOptionDAO opDAO = SqlOptionDAO.getInstance();
 
     /*Logger for option service operations*/
-    private static Logger logger = Logger.getLogger("OptionService");
+    private static Logger logger = Logger.getLogger(OptionService.getInstance().getClass());
 
     /*Private constructor of singleton class*/
     private OptionService() {

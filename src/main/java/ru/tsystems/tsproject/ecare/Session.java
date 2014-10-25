@@ -18,7 +18,7 @@ public class Session {
     private static String role;
 
     /*Field contains boolean status of user session*/
-    private static boolean isOn = true;
+    private static boolean isOn = false;
 
     /*Private constructor of singleton class*/
     private Session() {

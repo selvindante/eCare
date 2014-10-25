@@ -31,6 +31,21 @@
     clear: both;
 }
 
+.inner-wrapper-info {
+    padding: 35px 20px;
+    background: #ffffc8;
+    background: rgba(255,255,200,0.3);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-top-color: rgba(255,255,255,0.4);
+    border-bottom-color: rgba(0,0,0,0.4);
+}
+
+.inner-wrapper-info:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .inner-wrapper-error {
     padding: 35px 20px;
     background: #FFE8E8;

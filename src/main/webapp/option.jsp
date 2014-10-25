@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Option</title>
 </head>
 
@@ -85,7 +85,7 @@
             <input type="hidden" name="action" value="editOption">
             <input type="hidden" name="sessionRole" value=${session.role}>
             <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-            <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Edit option</a>
+            <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Edit option dependencies</a>
         </form>
         </p>
 

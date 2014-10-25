@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -25,6 +26,7 @@ public class ContractServlet extends HttpServlet {
     IClientService clientService = ClientService.getInstance();
     ITariffService tariffService = TariffService.getInstance();
     IOptionService optionService = OptionService.getInstance();
+    private static Logger logger = Logger.getLogger(Contract.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,6 +45,7 @@ public class ContractServlet extends HttpServlet {
         switch(action) {
             case "viewContract":
                 req.setAttribute("contract", contract);
+                logger.info("User " + session.getRole() + " went to view contract page.");
                 req.getRequestDispatcher("/contract.jsp").forward(req, resp);
                 break;
             case "deleteContract":
@@ -51,51 +54,51 @@ public class ContractServlet extends HttpServlet {
                 client = clientService.saveOrUpdateClient(client);
                 contractService.deleteContract(contractId);
                 req.setAttribute("client", client);
+                logger.info("User " + session.getRole() + " deleted contract with id: " + contractId + " from database.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "blockByOperator":
                 contractService.blockByOperator(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                logger.info("Contract " + contract + " is blocked by operator.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "unblockByOperator":
                 contractService.unblockByOperator(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                logger.info("Contract " + contract + " is unblocked by operator.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "blockByClient":
                 contractService.blockByClient(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                logger.info("Contract " + contract + " is blocked by client.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "unblockByClient":
                 contractService.unblockByClient(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                logger.info("Contract " + contract + " is unblocked by client.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "changeTariff":
                 List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("contract", contract);
                 req.setAttribute("tariffs", tariffs);
+                logger.info("User " + session.getRole() + " went to change tariff page for contract " + contract + ".");
                 req.getRequestDispatcher("/chooseTariff.jsp").forward(req, resp);
                 break;
             case "setNewTariff":
                 try {
                     client = contract.getClient();
 
-                    //Tariff currentTariff = contract.getTariff();
-
                     long tariffId = Long.valueOf(req.getParameter("tariffId"));
                     Tariff tariff = tariffService.loadTariff(tariffId);
                     contractService.setTariff(contract, tariff);
-                    /*contract.setTariff(tariff);
-                    if(!tariff.equals(currentTariff)) {
-                        client.setAmount(client.getAmount() - tariff.getPrice());
-                    }*/
 
                     contract.getOptions().clear();
                     String chosenOptionsArray[] = req.getParameterValues("options");
@@ -110,9 +113,9 @@ public class ContractServlet extends HttpServlet {
                         }
                     }
 
-                    //client = clientService.saveOrUpdateClient(client);
                     contract = contractService.saveOrUpdateContract(contract);
                     req.setAttribute("contract", contract);
+                    logger.info("In contract " + contract + "set new tariff " + tariff + ".");
                     req.getRequestDispatcher("/contract.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
                     long tariffId = Long.valueOf(req.getParameter("tariffId"));

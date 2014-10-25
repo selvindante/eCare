@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Option;
@@ -25,6 +26,7 @@ import java.util.List;
 public class OptionServlet extends HttpServlet {
     IOptionService optionService = OptionService.getInstance();
     ITariffService tariffService = TariffService.getInstance();
+    private static Logger logger = Logger.getLogger(OptionServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,7 +51,7 @@ public class OptionServlet extends HttpServlet {
             case "createOption":
                 try {
                     tariffId = Long.valueOf(req.getParameter("tariffId"));
-                    String title = Util.checkStringLength(req.getParameter("title"));
+                    String title = Util.checkStringLength(Util.checkStringOnEmpty(req.getParameter("title")));
                     int price = Util.checkInt(req.getParameter("price"));
                     int costOfConnection = Util.checkInt(req.getParameter("costOfConnection"));
 
@@ -83,6 +85,7 @@ public class OptionServlet extends HttpServlet {
                     tariff.addOption(option);
                     tariff = tariffService.saveOrUpdateTariff(tariff);
                     req.setAttribute("tariff", tariff);
+                    logger.info("New option " + option + " has created.");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                     break;
                 } catch (ECareException ecx) {
@@ -96,6 +99,7 @@ public class OptionServlet extends HttpServlet {
                 req.setAttribute("option", option);
                 tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                 req.setAttribute("tariff", tariff);
+                logger.info("User " + session.getRole() + " went to view option page.");
                 req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 break;
             case "editOption":
@@ -103,6 +107,7 @@ public class OptionServlet extends HttpServlet {
                 req.setAttribute("option", option);
                 tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                 req.setAttribute("tariff", tariff);
+                logger.info("User " + session.getRole() + " went to edit option page.");
                 req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 break;
             case "updateOption":
@@ -140,6 +145,7 @@ public class OptionServlet extends HttpServlet {
                     tariffId = Long.valueOf(req.getParameter("tariffId"));
                     tariff = tariffService.loadTariff(tariffId);
                     req.setAttribute("tariff", tariff);
+                    logger.info("Option " + option + " has been updated.");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
                     option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
@@ -156,7 +162,9 @@ public class OptionServlet extends HttpServlet {
                 tariff = tariffService.saveOrUpdateTariff(tariff);
                 optionId = Long.valueOf(req.getParameter("id"));
                 optionService.deleteOption(optionId);
+                logger.info("Option with id: " + optionId + " has been deleted from database.");
                 req.setAttribute("tariff", tariff);
+                logger.info("User " + session.getRole() + " went to view tariff page.");
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 break;
             case "removeDependentOption":
@@ -164,7 +172,6 @@ public class OptionServlet extends HttpServlet {
                 dependentOption = optionService.loadOption(Long.valueOf(req.getParameter("dependentOptionId")));
                 option = optionService.deleteDependentOption(option, dependentOption);
                 optionService.deleteDependentOption(dependentOption, option);
-                //option = optionService.saveOrUpdateOption(option);
                 req.setAttribute("option", option);
                 tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                 req.setAttribute("tariff", tariff);
@@ -184,7 +191,6 @@ public class OptionServlet extends HttpServlet {
                 incompatibleOption = optionService.loadOption(Long.valueOf(req.getParameter("incompatibleOptionId")));
                 option = optionService.deleteIncompatibleOption(option, incompatibleOption);
                 optionService.deleteIncompatibleOption(incompatibleOption, option);
-                //option = optionService.saveOrUpdateOption(option);
                 req.setAttribute("option", option);
                 tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                 req.setAttribute("tariff", tariff);

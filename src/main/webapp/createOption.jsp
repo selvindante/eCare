@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Creating of option</title>
 </head>
 
@@ -58,19 +58,23 @@
             <p>
                 Title:
                 <br>
-                <input type="text" placeholder="title" class="simple-input" name="title" size=20 value="">
+                <input type="text" placeholder="title" class="simple-input" name="title" size=20 value=""> *
             </p>
             <br>
             <p>
                 Price:
                 <br>
-                <input type="text" placeholder="price" class="simple-input" name="price" size=10 value="">
+                <input type="text" placeholder="price" class="simple-input" name="price" size=10 value=""> *
             </p>
             <br>
             <p>
                 Cost of connection:
                 <br>
-                <input type="text" placeholder="cost of connection" class="simple-input" name="costOfConnection" size=10 value="">
+                <input type="text" placeholder="cost of connection" class="simple-input" name="costOfConnection" size=10 value=""> *
+            </p>
+            <br>
+            <p>
+                (*) - required fields.
             </p>
             <br>
 

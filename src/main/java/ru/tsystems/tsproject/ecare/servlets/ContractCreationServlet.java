@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -23,6 +24,7 @@ import java.io.IOException;
 public class ContractCreationServlet extends HttpServlet {
     IClientService clientService = ClientService.getInstance();
     IContractService contractService = ContractService.getInstance();
+    private static Logger logger = Logger.getLogger(ContractCreationServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,6 +46,7 @@ public class ContractCreationServlet extends HttpServlet {
             client.addContract(contract);
             client = clientService.saveOrUpdateClient(client);
             req.setAttribute("client", client);
+            logger.info("New contract: " + contract + " has created.");
             req.getRequestDispatcher("/client.jsp").forward(req, resp);
         } catch (ECareException ecx) {
             req.setAttribute("errormessage", ecx.getMessage());

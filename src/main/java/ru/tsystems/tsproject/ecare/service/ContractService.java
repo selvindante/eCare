@@ -38,7 +38,7 @@ public class ContractService implements IContractService {
     private IClientService clientService = ClientService.getInstance();
 
     /*Logger for contract service operations*/
-    private static Logger logger = Logger.getLogger("ContractService");
+    private static Logger logger = Logger.getLogger(ContractService.getInstance().getClass());
 
     /*Private constructor of singleton class*/
     private ContractService() {

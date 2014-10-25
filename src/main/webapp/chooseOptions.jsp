@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Step 2. Choose options</title>
 </head>
 <body>
@@ -51,17 +51,18 @@
         </p>
         <br>
         <p>
-            Contract ID: ${contract.id}
-        </p>
-        <p>
             Contract number: ${contract.number}
         </p>
         <p>
-            Chosen tariff id: ${tariff.id}
+            Client balance: ${contract.getClient().amount}
         </p>
         <p>
             Chosen tariff title: ${tariff.title}
         </p>
+        <p>
+            Chosen tariff price: ${tariff.price}
+        </p>
+
     </div>
 
     <div class="inner-wrapper">
@@ -135,6 +136,68 @@
         </c:otherwise>
         </c:choose>
     </div>
+
+    <c:if test="${options.size() != 0}">
+
+        <div class="inner-wrapper-info">
+
+            <p>
+                Dependencies of options:
+            </p>
+            <br>
+
+            <c:forEach var="currentOption1" items="${options}">
+
+                <c:if test="${currentOption1.getDependentOptions().size() != 0}">
+
+                    <p>
+                        Option ${currentOption1.title} will be enabled with options:
+
+                        <c:forEach var="depOption" items="${currentOption1.getDependentOptions()}">
+
+                            ${depOption.title};
+                            &nbsp;
+
+                        </c:forEach>
+
+                    </p>
+
+                </c:if>
+
+            </c:forEach>
+
+        </div>
+
+        <div class="inner-wrapper-info">
+
+            <p>
+                Incompatibilities of options:
+            </p>
+            <br>
+
+            <c:forEach var="currentOption2" items="${options}">
+
+                <c:if test="${currentOption2.getIncompatibleOptions().size() != 0}">
+
+                    <p>
+                        Option ${currentOption2.title} is incompatible with options:
+
+                        <c:forEach var="incOption" items="${currentOption2.getIncompatibleOptions()}">
+
+                            ${incOption.title};&nbsp
+
+                        </c:forEach>
+
+                    </p>
+                    <br>
+
+                </c:if>
+
+            </c:forEach>
+
+        </div>
+
+    </c:if>
 
 </div>
 

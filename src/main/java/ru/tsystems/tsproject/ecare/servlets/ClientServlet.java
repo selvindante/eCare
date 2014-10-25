@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -19,18 +20,10 @@ import java.io.IOException;
  */
 public class ClientServlet extends HttpServlet {
     IClientService clientService = ClientService.getInstance();
+    private static Logger logger = Logger.getLogger(ClientServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*long id = Long.valueOf(req.getParameter("id"));
-        String action = req.getParameter("action");
-        switch (action) {
-            case "saveOrUpdateContract":
-                req.setAttribute("client", clientService.loadClient(id));
-                req.getRequestDispatcher("/saveOrUpdateContract.jsp").forward(req, resp);
-                break;
-            default: break;
-        }*/
     }
 
     @Override
@@ -45,23 +38,27 @@ public class ClientServlet extends HttpServlet {
         req.setAttribute("client", client);
         switch(action) {
             case "viewClient":
+                logger.info("User " + session.getRole() + " went to client page.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "createContract":
+                logger.info("User " + session.getRole() + " went to create contract page.");
                 req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
                 break;
             case "editClient":
+                logger.info("User " + session.getRole() + " went to edit client page.");
                 req.getRequestDispatcher("/editClient.jsp").forward(req, resp);
                 break;
             case "updateClient":
                 try {
-                    client.setName(Util.checkStringLength(req.getParameter("name")));
+                    client.setName(Util.checkStringLength(Util.checkStringOnEmpty(req.getParameter("name"))));
                     client.setLastname(Util.checkStringLength(req.getParameter("lastname")));
                     client.setBirthDate(Util.checkDate(req.getParameter("birthdate")));
-                    client.setPassport(Util.checkLong(req.getParameter("passport")));
+                    client.setPassport(Util.checkLong(Util.checkStringOnEmpty(req.getParameter("passport"))));
                     client.setAddress(Util.checkStringLength(req.getParameter("address")));
                     client = clientService.saveOrUpdateClient(client);
                     req.setAttribute("client", client);
+                    logger.info("Personal info of client " + client + " updated.");
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
                     req.setAttribute("errormessage", ecx.getMessage());
@@ -73,6 +70,7 @@ public class ClientServlet extends HttpServlet {
                     client.addAmount(Util.checkInt(req.getParameter("amount")));
                     client = clientService.saveOrUpdateClient(client);
                     req.setAttribute("client", client);
+                    logger.info("User " + session.getRole() + " added amount to balance of client " + client + ".");
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
                     req.setAttribute("errormessage", ecx.getMessage());

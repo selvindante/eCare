@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 import ru.tsystems.tsproject.ecare.service.ITariffService;
@@ -18,24 +19,10 @@ import java.util.List;
  */
 public class TariffsListServlet extends HttpServlet {
     ITariffService tariffService = TariffService.getInstance();
+    private static Logger logger = Logger.getLogger(TariffsListServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*String action = req.getParameter("action");
-        List<Tariff> tariffs = null;
-        switch (action) {
-            case "saveOrUpdateTariff":
-                req.getRequestDispatcher("/saveOrUpdateTariff.jsp").forward(req, resp);
-                break;
-            case "deleteAllTariffs":
-                tariffService.deleteAllTariffs();
-                tariffs = tariffService.getAllTariffs();
-                req.setAttribute("role", "admin");
-                req.setAttribute("tariffs", tariffs);
-                req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
-                break;
-            default: break;
-        }*/
     }
 
     @Override
@@ -48,12 +35,15 @@ public class TariffsListServlet extends HttpServlet {
         List<Tariff> tariffs = null;
         switch(action) {
             case "createTariff":
+                logger.info("User " + session.getRole() + " went to create new tariff page.");
                 req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
                 break;
             case "deleteAllTariffs":
                 tariffService.deleteAllTariffs();
+                logger.info("All tariffs deleted from database.");
                 tariffs = tariffService.getAllTariffs();
                 req.setAttribute("tariffs", tariffs);
+                logger.info("User " + session.getRole() + " went to view all tariffs page.");
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
             default: break;

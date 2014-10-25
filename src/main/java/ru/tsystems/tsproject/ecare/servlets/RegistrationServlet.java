@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.servlets;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
@@ -20,6 +21,7 @@ import java.util.Date;
  */
 public class RegistrationServlet extends HttpServlet {
     IClientService clientService = ClientService.getInstance();
+    private static Logger logger = Logger.getLogger(RegistrationServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,13 +30,13 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            String name = Util.checkStringLength(req.getParameter("name"));
+            String name = Util.checkStringLength(Util.checkStringOnEmpty(req.getParameter("name")));
             String lastname = Util.checkStringLength(req.getParameter("lastname"));
             Date birthDate = Util.checkDate(req.getParameter("birthdate"));
-            long passport = Util.checkLong(req.getParameter("passport"));
+            long passport = Util.checkLong(Util.checkStringOnEmpty(req.getParameter("passport")));
             String address = Util.checkStringLength(req.getParameter("address"));
-            String email = Util.checkLoginOnExisting(Util.checkStringLength(req.getParameter("email")));
-            String password = Util.checkPassword(req.getParameter("password1"), req.getParameter("password2"));
+            String email = Util.checkLoginOnExisting(Util.checkStringLength(Util.checkStringOnEmpty(req.getParameter("email"))));
+            String password = Util.checkPassword(Util.checkStringOnEmpty(req.getParameter("password1")), Util.checkStringOnEmpty(req.getParameter("password2")));
 
             Client client = new Client(name, lastname, birthDate, passport, address, email, password, "client", 0);
             client = clientService.saveOrUpdateClient(client);
@@ -44,6 +46,8 @@ public class RegistrationServlet extends HttpServlet {
             session.setRole("client");
             session.setOn(true);
             req.setAttribute("session", session);
+
+            logger.info("New user(client): " + client + " has registered in application.");
 
             req.getRequestDispatcher("/client.jsp").forward(req, resp);
         } catch (ECareException ecx) {
