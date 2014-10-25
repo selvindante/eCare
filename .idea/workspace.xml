@@ -7,49 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be75c185-36c2-45f5-a4cc-18fbf0efc4fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eCareLogs/All.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="DELETED" beforePath="D:\Dropbox\Projects\Java\eCare\logs\all.log" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Projects\Java\eCare\logs\error.log" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Projects\Java\eCare\logs\info.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/AuthorizationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/AuthorizationFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ClientService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ClientServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ClientServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractCreationServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractCreationServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/ContractService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/ContractServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/DashboardServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/DashboardServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/LoginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/OptionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/OptionServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/OptionServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/RegistrationServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/RegistrationServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Session.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/Session.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/service/TariffService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffsListServlet.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/servlets/TariffsListServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/util/Util.java" afterPath="$PROJECT_DIR$/src/main/java/ru/tsystems/tsproject/ecare/util/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/chooseOptions.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/chooseOptions.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/chooseTariff.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/chooseTariff.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/client.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/client.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/contract.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/contract.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/createContract.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/createContract.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/createOption.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/createOption.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/createTariff.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/createTariff.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/editClient.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/editClient.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/editOption.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/editOption.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/option.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/option.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/registration.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/registration.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/tariff.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/tariff.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/tariffsList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/tariffsList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Dropbox\Projects\Java\eCare\src\main\resources\log4j.xml" afterPath="$PROJECT_DIR$/log4j.xml" />
     </list>
     <ignored path="eCare.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,8 +48,8 @@
       <file leaf-file-name="registration.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5869242" vertical-offset="871" max-vertical-offset="1717">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state vertical-scroll-proportion="1.1054977" vertical-offset="871" max-vertical-offset="1717">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1290,7 +1248,7 @@
       <workItem from="1414151299788" duration="13212000" />
       <workItem from="1414225238729" duration="4358000" />
       <workItem from="1414230140351" duration="8784000" />
-      <workItem from="1414240078570" duration="5574000" />
+      <workItem from="1414240078570" duration="5789000" />
     </task>
     <task id="LOCAL-00001" summary="github installation">
       <created>1412017393413</created>
@@ -1396,11 +1354,15 @@
       <created>1414135401371</created>
       <updated>1414135401371</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added logger (console and file) in service level and servlets. Fixed chooseOptions.jsp on showing of dependent/incompatible options. Added authorizationFilter servlet for checking of session status.">
+      <created>1414245827765</created>
+      <updated>1414245827765</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475901000" />
+    <option name="totallyTimeSpent" value="476116000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1474,7 +1436,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Created draft version of entities model. Created draft classes Client, Contract, Option, Tariff." />
     <MESSAGE value="Added scheme of application web pages." />
     <MESSAGE value="In project added JPA. Class Client converted in entity and linked with ecare.client table using DAO classes AbstractClientDAO and SqlClientDao with JPA methods. All CRUD and getAll() methods now working." />
     <MESSAGE value="All entity classes linked with their DB tables. Workability now checked only at class Client." />
@@ -1499,7 +1460,8 @@
     <MESSAGE value="Added javadoc comments for IClientService and ClientService implementation." />
     <MESSAGE value="Added checking of client login on uniqueness and saving of entered strings  on error in registration. Added method checkLoginOnExist() in ClientService." />
     <MESSAGE value="some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+    <MESSAGE value="Added logger (console and file) in service level and servlets. Fixed chooseOptions.jsp on showing of dependent/incompatible options. Added authorizationFilter servlet for checking of session status." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added logger (console and file) in service level and servlets. Fixed chooseOptions.jsp on showing of dependent/incompatible options. Added authorizationFilter servlet for checking of session status." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1626,6 +1588,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33162394" vertical-offset="418" max-vertical-offset="3298">
           <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1665,6 +1628,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6974359" vertical-offset="51" max-vertical-offset="9775">
           <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1672,6 +1636,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51452994" vertical-offset="107" max-vertical-offset="6987">
           <caret line="32" column="90" selection-start-line="32" selection-start-column="90" selection-end-line="32" selection-end-column="90" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1901,8 +1866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5869242" vertical-offset="871" max-vertical-offset="1717">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        <state vertical-scroll-proportion="1.1054977" vertical-offset="871" max-vertical-offset="1717">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding />
         </state>
       </provider>
