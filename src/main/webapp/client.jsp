@@ -24,7 +24,7 @@
     </form>
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         Client page:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
         <c:if test="${session.role == 'admin'}">
@@ -49,7 +49,7 @@
         </p>
         <br>
         <p>
-            Personal info: <a href="#" onclick="document.getElementById('formId3').submit()" class="inline-link">(edit)</a>
+            Personal info: <a href="#" onclick="document.getElementById('formId3').submit()" class="inline-link-edit" title="Edit client personal info"></a>
         </p>
 
         <form id="formId3" method="post" action="client" enctype="application/x-www-form-urlencoded">
@@ -132,11 +132,11 @@
                         </td>
                         <c:if test="${session.role == 'admin'}">
                             <td>
-                                Delete
+                                ${HtmlUtil.EMPTY_TD}
                             </td>
                         </c:if>
                         <td>
-                            Block/ublock
+                                ${HtmlUtil.EMPTY_TD}
                         </td>
                     </tr>
                     <c:forEach var="contract" items="${client.getContracts()}">
@@ -165,17 +165,6 @@
                                 <c:choose>
                                     <c:when test="${session.role == 'admin'}">
 
-                                        <form id="formId2${contract.id}" method="post" action="contract" enctype="application/x-www-form-urlencoded">
-                                            <input type="hidden" name="id" value=${contract.id}>
-                                            <input type="hidden" name="action" value="deleteContract">
-                                            <input type="hidden" name="sessionRole" value=${session.role}>
-                                            <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                            <a class="inline-link" href="#" onclick="document.getElementById('formId2${contract.id}').submit()">delete</a>
-                                        </form>
-
-                                        </td>
-
-                                        <td>
                                         <c:choose>
                                             <c:when test="${contract.isBlockedByOperator() == true}">
 
@@ -184,7 +173,7 @@
                                                     <input type="hidden" name="action" value="unblockByOperator">
                                                     <input type="hidden" name="sessionRole" value=${session.role}>
                                                     <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                                    <a class="inline-link" href="#" onclick="document.getElementById('formId3${contract.id}').submit()">unblock</a>
+                                                    <a class="inline-link-unlock" title="Unblock contract" href="#" onclick="document.getElementById('formId3${contract.id}').submit()"></a>
                                                 </form>
 
                                             </c:when>
@@ -195,11 +184,23 @@
                                                     <input type="hidden" name="action" value="blockByOperator">
                                                     <input type="hidden" name="sessionRole" value=${session.role}>
                                                     <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                                    <a class="inline-link" href="#" onclick="document.getElementById('formId4${contract.id}').submit()">block</a>
+                                                    <a class="inline-link-lock" title="Block contract" href="#" onclick="document.getElementById('formId4${contract.id}').submit()"></a>
                                                 </form>
 
                                             </c:otherwise>
                                         </c:choose>
+
+                                        </td>
+
+                                        <td>
+
+                                            <form id="formId2${contract.id}" method="post" action="contract" enctype="application/x-www-form-urlencoded">
+                                                <input type="hidden" name="id" value=${contract.id}>
+                                                <input type="hidden" name="action" value="deleteContract">
+                                                <input type="hidden" name="sessionRole" value=${session.role}>
+                                                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                                                <a class="inline-link-delete" title="Delete contract" href="#" onclick="document.getElementById('formId2${contract.id}').submit()"></a>
+                                            </form>
 
                                     </c:when>
                                     <c:when test="${session.role == 'client' && contract.isBlockedByOperator() == false}">
@@ -211,10 +212,9 @@
                                                     <input type="hidden" name="action" value="unblockByClient">
                                                     <input type="hidden" name="sessionRole" value=${session.role}>
                                                     <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                                    <a class="inline-link" href="#" onclick="document.getElementById('formId5${contract.id}').submit()">unblock</a>
+                                                    <a class="inline-link-unlock" title="Unblock contract" href="#" onclick="document.getElementById('formId5${contract.id}').submit()"></a>
                                                 </form>
 
-                                                <%--<a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=unblockByClient' class="inline-link">(unblock)</a>--%>
                                             </c:when>
                                             <c:otherwise>
 
@@ -223,10 +223,9 @@
                                                     <input type="hidden" name="action" value="blockByClient">
                                                     <input type="hidden" name="sessionRole" value=${session.role}>
                                                     <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                                    <a class="inline-link" href="#" onclick="document.getElementById('formId6${contract.id}').submit()">block</a>
+                                                    <a class="inline-link-lock" title="Block contract" href="#" onclick="document.getElementById('formId6${contract.id}').submit()"></a>
                                                 </form>
 
-                                                <%--<a href='<%=request.getContextPath()%>contract?id=${contract.id}&action=blockByClient' class="inline-link">(block)</a>--%>
                                             </c:otherwise>
                                         </c:choose>
                                     </c:when>

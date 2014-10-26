@@ -1,60 +1,895 @@
-2014-10-25 17:50:07 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:50:07 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
-2014-10-25 17:50:08 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:50:08 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
-2014-10-25 17:50:21 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
-2014-10-25 17:50:21 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
-2014-10-25 17:50:21 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2014-10-25 17:50:21 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
-2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
-2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
-2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
-2014-10-25 17:50:21 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
-2014-10-25 17:50:22 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2014-10-25 17:50:22 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
-2014-10-25 17:50:22 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
-2014-10-25 17:50:23 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:50:23 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
-2014-10-25 17:50:24 INFO  ClientService:149 - Client Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
-2014-10-25 17:50:24 INFO  ClientService:239 - Get all clients from DB.
-2014-10-25 17:50:24 INFO  ClientService:251 - All clients obtained from DB.
-2014-10-25 17:50:24 INFO  LoginServlet:55 - User(admin): Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
-2014-10-25 17:50:24 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
-2014-10-25 17:50:24 INFO  ClientService:149 - Client Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
-2014-10-25 17:50:24 INFO  ClientService:239 - Get all clients from DB.
-2014-10-25 17:50:24 INFO  ClientService:251 - All clients obtained from DB.
-2014-10-25 17:50:24 INFO  LoginServlet:55 - User(admin): Client{name='Test Operator', lastname='', birthDate=null, passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
-2014-10-25 17:50:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:51:42 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:51:42 INFO  TariffService:160 - Get all tariffs from DB.
-2014-10-25 17:51:42 INFO  TariffService:172 - All tariffs obtained from DB.
-2014-10-25 17:51:42 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
-2014-10-25 17:52:07 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:52:07 INFO  ClientService:239 - Get all clients from DB.
-2014-10-25 17:52:07 INFO  ClientService:251 - All clients obtained from DB.
-2014-10-25 17:52:07 INFO  DashboardServlet:46 - User admin went to view dashboard page.
-2014-10-25 17:53:19 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:53:19 INFO  LoginServlet:76 - User has logout from application.
-2014-10-25 17:53:19 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
-2014-10-25 17:53:57 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:53:57 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
-2014-10-25 17:55:28 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:55:28 INFO  ClientService:133 - Find client with login: admin and password:123456 in DB.
-2014-10-25 17:55:28 WARN  ClientService:145 - Incorrect login/password or client does not exist.
-javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
-	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByLoginAndPassword(SqlClientDAO.java:44)
-	at ru.tsystems.tsproject.ecare.service.ClientService.findClient(ClientService.java:140)
-	at ru.tsystems.tsproject.ecare.servlets.LoginServlet.doPost(LoginServlet.java:39)
+2014-10-26 17:35:42 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:35:42 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 17:35:42 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 17:35:42 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 17:35:42 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 17:35:42 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 17:35:42 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 17:35:42 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 17:35:42 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 17:35:42 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 17:35:42 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 17:35:45 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:35:45 INFO  ClientService:206 - Delete client with id: 3316 from DB.
+2014-10-26 17:35:45 INFO  ClientService:220 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=640} deleted from DB.
+2014-10-26 17:35:45 INFO  DashboardServlet:73 - User admin deleted are client with id:3316 from database.
+2014-10-26 17:35:45 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 17:35:45 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 17:35:45 INFO  DashboardServlet:76 - User admin went to view dashboard page.
+2014-10-26 17:35:49 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:35:49 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 17:35:49 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 17:35:49 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 17:35:51 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:35:51 INFO  TariffService:129 - Delete tariff with id: 2045 from DB.
+2014-10-26 17:35:51 INFO  TariffService:143 - Tariff Tariff{title='Spring', price=230} deleted from DB.
+2014-10-26 17:35:51 INFO  TariffServlet:67 - Tariff with id: 2045 deleted from database.
+2014-10-26 17:35:51 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 17:35:51 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 17:35:51 INFO  TariffServlet:70 - User admin went to all tariffs page.
+2014-10-26 17:35:54 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:35:54 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 17:35:54 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 17:35:54 INFO  DashboardServlet:46 - User admin went to view dashboard page.
+2014-10-26 17:35:55 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:35:55 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 17:35:55 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 17:35:55 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 17:35:58 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:35:58 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 17:35:58 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 17:35:58 INFO  DashboardServlet:46 - User admin went to view dashboard page.
+2014-10-26 17:36:03 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:36:03 INFO  LoginServlet:76 - User has logout from application.
+2014-10-26 17:36:03 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 17:48:04 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:04 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 17:48:05 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:05 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 17:48:11 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-26 17:48:11 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-26 17:48:11 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-26 17:48:11 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-26 17:48:12 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-26 17:48:12 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-26 17:48:12 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-26 17:48:12 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-26 17:48:12 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-26 17:48:13 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-26 17:48:13 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-26 17:48:13 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-26 17:48:14 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:14 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 17:48:14 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 17:48:14 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 17:48:14 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 17:48:14 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 17:48:15 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 17:48:15 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 17:48:15 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 17:48:15 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 17:48:15 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 17:48:15 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:15 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:15 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:19 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:19 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 17:48:19 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 17:48:19 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 17:48:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:25 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:48:25 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:48:25 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:48:37 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:48:37 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 17:48:37 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 17:48:37 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 17:52:39 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:52:39 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:52:39 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:52:39 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:52:42 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:52:42 INFO  OptionService:100 - Load option with id: 7100 from DB.
+2014-10-26 17:52:42 INFO  OptionService:112 - Options Option{title='Answerphone', price=4, costOfConnection=40} loaded from DB.
+2014-10-26 17:52:42 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:52:42 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:52:42 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:52:44 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:52:44 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:52:44 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:52:44 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:52:46 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:52:46 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:52:46 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:52:46 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:53:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:53:25 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:53:25 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:53:25 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:53:25 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:53:25 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:53:25 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:53:25 INFO  OptionServlet:88 - New option Option{title='Summer calls', price=2, costOfConnection=50} has created.
+2014-10-26 17:53:26 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:53:26 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:53:26 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:53:26 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:53:28 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:53:28 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:53:28 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:53:28 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:53:42 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:53:42 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:53:42 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:53:42 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:53:42 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:53:42 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:53:42 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:53:42 INFO  OptionServlet:88 - New option Option{title='Spring sms', price=1, costOfConnection=30} has created.
+2014-10-26 17:53:45 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:53:45 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:53:45 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:53:45 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:53:48 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:53:48 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:53:48 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:53:48 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:54:02 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:02 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:02 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:02 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:54:02 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:54:02 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:54:02 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:54:02 INFO  OptionServlet:88 - New option Option{title='Summer mms', price=3, costOfConnection=60} has created.
+2014-10-26 17:54:04 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:04 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:04 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:04 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:54:05 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:05 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:05 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:05 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:54:16 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:16 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:16 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:16 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:54:16 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:54:16 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:54:16 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:54:16 INFO  OptionServlet:88 - New option Option{title='Hot calls', price=1, costOfConnection=60} has created.
+2014-10-26 17:54:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:25 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:25 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:25 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:54:26 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:26 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:26 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:26 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:54:47 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:47 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:47 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:47 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:54:47 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:54:47 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:54:47 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:54:47 INFO  OptionServlet:88 - New option Option{title='Hot sms', price=1, costOfConnection=40} has created.
+2014-10-26 17:54:48 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:48 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:48 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:48 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:54:50 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:54:50 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:54:50 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:54:50 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:55:02 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:02 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:02 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:02 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:55:02 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:55:02 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:55:02 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:55:02 INFO  OptionServlet:88 - New option Option{title='Hot mms', price=3, costOfConnection=50} has created.
+2014-10-26 17:55:03 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:03 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:03 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:03 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:55:05 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:05 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:05 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:05 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:55:18 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:18 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:18 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:18 INFO  OptionService:66 - Save/update option Option{title='Internet', price=200, costOfConnection=100} in DB.
+2014-10-26 17:55:18 INFO  OptionService:78 - Option Option{title='Internet', price=200, costOfConnection=100} saved in DB.
+2014-10-26 17:55:18 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:55:18 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:55:18 INFO  OptionServlet:88 - New option Option{title='Internet', price=200, costOfConnection=100} has created.
+2014-10-26 17:55:20 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:20 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:20 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:20 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:55:22 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:22 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:55:22 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:22 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:22 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:22 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:55:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:24 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:55:24 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:24 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:24 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:24 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:55:32 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:32 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:55:32 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:32 INFO  OptionService:100 - Load option with id: 7119 from DB.
+2014-10-26 17:55:32 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:55:32 INFO  OptionService:282 - Set dependency of option id: 7118 with option id: 7119.
+2014-10-26 17:55:32 INFO  OptionService:288 - Option id: 7119 is now dependent for option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:282 - Set dependency of option id: 7119 with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:288 - Option id: 7118 is now dependent for option id: 7119.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:55:32 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:55:32 INFO  OptionService:282 - Set dependency of option id: 7118 with option id: 7120.
+2014-10-26 17:55:32 INFO  OptionService:288 - Option id: 7120 is now dependent for option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:282 - Set dependency of option id: 7120 with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:288 - Option id: 7118 is now dependent for option id: 7120.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:55:32 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:55:32 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7121.
+2014-10-26 17:55:32 INFO  OptionService:370 - Option id: 7118 is now incompatible with option id: 7121.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:364 - Set incompatibility of option id: 7121 with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:370 - Option id: 7121 is now incompatible with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:55:32 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:55:32 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7122.
+2014-10-26 17:55:32 INFO  OptionService:370 - Option id: 7118 is now incompatible with option id: 7122.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:364 - Set incompatibility of option id: 7122 with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:370 - Option id: 7122 is now incompatible with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:55:32 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:32 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7123.
+2014-10-26 17:55:32 INFO  OptionService:370 - Option id: 7118 is now incompatible with option id: 7123.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:364 - Set incompatibility of option id: 7123 with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:370 - Option id: 7123 is now incompatible with option id: 7118.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:55:32 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:32 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:32 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:32 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:32 INFO  OptionServlet:148 - Option Option{title='Summer calls', price=2, costOfConnection=50} has been updated.
+2014-10-26 17:55:35 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:35 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:35 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:35 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:55:47 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:47 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:55:47 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:47 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:47 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:47 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:55:50 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:58 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:58 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:55:58 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:58 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:55:58 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:58 INFO  OptionService:393 - Remove incompatibility of option id: 7118 with option id: 7123.
+2014-10-26 17:55:58 INFO  OptionService:397 - Option id: 7118 is not incompatible now with option id: 7123.
+2014-10-26 17:55:58 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:58 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:58 INFO  OptionService:393 - Remove incompatibility of option id: 7123 with option id: 7118.
+2014-10-26 17:55:58 INFO  OptionService:397 - Option id: 7123 is not incompatible now with option id: 7118.
+2014-10-26 17:55:58 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:55:58 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:55:58 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:58 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:55:59 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:55:59 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:55:59 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:55:59 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:55:59 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:55:59 INFO  OptionService:393 - Remove incompatibility of option id: 7118 with option id: 7122.
+2014-10-26 17:55:59 INFO  OptionService:397 - Option id: 7118 is not incompatible now with option id: 7122.
+2014-10-26 17:55:59 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:55:59 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:55:59 INFO  OptionService:393 - Remove incompatibility of option id: 7122 with option id: 7118.
+2014-10-26 17:55:59 INFO  OptionService:397 - Option id: 7122 is not incompatible now with option id: 7118.
+2014-10-26 17:55:59 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:55:59 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:55:59 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:55:59 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:00 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:00 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:56:00 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:00 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:56:00 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:56:00 INFO  OptionService:393 - Remove incompatibility of option id: 7118 with option id: 7121.
+2014-10-26 17:56:00 INFO  OptionService:397 - Option id: 7118 is not incompatible now with option id: 7121.
+2014-10-26 17:56:00 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:00 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:00 INFO  OptionService:393 - Remove incompatibility of option id: 7121 with option id: 7118.
+2014-10-26 17:56:00 INFO  OptionService:397 - Option id: 7121 is not incompatible now with option id: 7118.
+2014-10-26 17:56:00 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:56:00 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:56:00 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:00 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:00 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:00 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:56:00 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:00 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:56:00 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:56:00 INFO  OptionService:311 - Remove dependency of option id: 7118 with option id: 7120.
+2014-10-26 17:56:00 INFO  OptionService:315 - Option id: 7120 is now independent from option id: 7118.
+2014-10-26 17:56:00 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:00 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:00 INFO  OptionService:311 - Remove dependency of option id: 7120 with option id: 7118.
+2014-10-26 17:56:00 INFO  OptionService:315 - Option id: 7118 is now independent from option id: 7120.
+2014-10-26 17:56:00 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:56:00 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:56:00 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:00 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:01 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:01 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:56:01 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:01 INFO  OptionService:100 - Load option with id: 7119 from DB.
+2014-10-26 17:56:01 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:56:01 INFO  OptionService:311 - Remove dependency of option id: 7118 with option id: 7119.
+2014-10-26 17:56:01 INFO  OptionService:315 - Option id: 7119 is now independent from option id: 7118.
+2014-10-26 17:56:01 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:01 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:01 INFO  OptionService:311 - Remove dependency of option id: 7119 with option id: 7118.
+2014-10-26 17:56:01 INFO  OptionService:315 - Option id: 7118 is now independent from option id: 7119.
+2014-10-26 17:56:01 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:01 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:01 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:01 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:02 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:02 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:02 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:02 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:56:08 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:08 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:08 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:08 INFO  OptionService:100 - Load option with id: 7119 from DB.
+2014-10-26 17:56:08 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:56:08 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:56:08 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:56:08 INFO  OptionService:133 - Delete option with id: 7119 from DB.
+2014-10-26 17:56:08 INFO  OptionService:147 - Option Option{title='Spring sms', price=1, costOfConnection=30} deleted from DB.
+2014-10-26 17:56:08 INFO  OptionServlet:165 - Option with id: 7119 has been deleted from database.
+2014-10-26 17:56:08 INFO  OptionServlet:167 - User admin went to view tariff page.
+2014-10-26 17:56:09 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:09 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:09 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:09 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:56:29 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:29 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:29 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:29 INFO  OptionService:66 - Save/update option Option{title='Summer sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:29 INFO  OptionService:78 - Option Option{title='Summer sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:29 INFO  TariffService:62 - Save/update tariff Tariff{title='Summer', price=200} in DB.
+2014-10-26 17:56:29 INFO  TariffService:74 - Tariff Tariff{title='Summer', price=200} saved in DB.
+2014-10-26 17:56:29 INFO  OptionServlet:88 - New option Option{title='Summer sms', price=1, costOfConnection=30} has created.
+2014-10-26 17:56:30 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:30 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:30 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:30 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:56:34 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:34 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:56:34 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:34 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:34 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:34 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:56:36 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:36 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:56:36 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:36 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:36 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:36 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:56:44 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:44 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:56:44 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:44 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:56:44 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:56:44 INFO  OptionService:282 - Set dependency of option id: 7118 with option id: 7120.
+2014-10-26 17:56:44 INFO  OptionService:288 - Option id: 7120 is now dependent for option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:282 - Set dependency of option id: 7120 with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:288 - Option id: 7118 is now dependent for option id: 7120.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:100 - Load option with id: 7125 from DB.
+2014-10-26 17:56:44 INFO  OptionService:112 - Options Option{title='Summer sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:56:44 INFO  OptionService:282 - Set dependency of option id: 7118 with option id: 7125.
+2014-10-26 17:56:44 INFO  OptionService:288 - Option id: 7125 is now dependent for option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:282 - Set dependency of option id: 7125 with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:288 - Option id: 7118 is now dependent for option id: 7125.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:56:44 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:56:44 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7121.
+2014-10-26 17:56:44 INFO  OptionService:370 - Option id: 7118 is now incompatible with option id: 7121.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:364 - Set incompatibility of option id: 7121 with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:370 - Option id: 7121 is now incompatible with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:56:44 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:56:44 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7122.
+2014-10-26 17:56:44 INFO  OptionService:370 - Option id: 7118 is now incompatible with option id: 7122.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:364 - Set incompatibility of option id: 7122 with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:370 - Option id: 7122 is now incompatible with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:56:44 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:44 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7123.
+2014-10-26 17:56:44 INFO  OptionService:370 - Option id: 7118 is now incompatible with option id: 7123.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:364 - Set incompatibility of option id: 7123 with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:370 - Option id: 7123 is now incompatible with option id: 7118.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:56:44 INFO  OptionService:66 - Save/update option Option{title='Summer calls', price=2, costOfConnection=50} in DB.
+2014-10-26 17:56:44 INFO  OptionService:78 - Option Option{title='Summer calls', price=2, costOfConnection=50} saved in DB.
+2014-10-26 17:56:44 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:44 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:44 INFO  OptionServlet:148 - Option Option{title='Summer calls', price=2, costOfConnection=50} has been updated.
+2014-10-26 17:56:45 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:45 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:45 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:45 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:56:48 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:48 INFO  OptionService:100 - Load option with id: 7125 from DB.
+2014-10-26 17:56:48 INFO  OptionService:112 - Options Option{title='Summer sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:56:48 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:48 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:48 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:56:49 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:49 INFO  OptionService:100 - Load option with id: 7125 from DB.
+2014-10-26 17:56:49 INFO  OptionService:112 - Options Option{title='Summer sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:56:49 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:49 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:49 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:56:56 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:56 INFO  OptionService:100 - Load option with id: 7125 from DB.
+2014-10-26 17:56:56 INFO  OptionService:112 - Options Option{title='Summer sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:56:56 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:56:56 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:56 INFO  OptionService:282 - Set dependency of option id: 7125 with option id: 7118.
+2014-10-26 17:56:56 INFO  OptionService:282 - Set dependency of option id: 7118 with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:56:56 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:56:56 INFO  OptionService:282 - Set dependency of option id: 7125 with option id: 7120.
+2014-10-26 17:56:56 INFO  OptionService:288 - Option id: 7120 is now dependent for option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Summer sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Summer sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:282 - Set dependency of option id: 7120 with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:288 - Option id: 7125 is now dependent for option id: 7120.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:56:56 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:56:56 INFO  OptionService:364 - Set incompatibility of option id: 7125 with option id: 7121.
+2014-10-26 17:56:56 INFO  OptionService:370 - Option id: 7125 is now incompatible with option id: 7121.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Summer sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Summer sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:364 - Set incompatibility of option id: 7121 with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:370 - Option id: 7121 is now incompatible with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:56:56 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:56:56 INFO  OptionService:364 - Set incompatibility of option id: 7125 with option id: 7122.
+2014-10-26 17:56:56 INFO  OptionService:370 - Option id: 7125 is now incompatible with option id: 7122.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Summer sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Summer sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:364 - Set incompatibility of option id: 7122 with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:370 - Option id: 7122 is now incompatible with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:56:56 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:56:56 INFO  OptionService:364 - Set incompatibility of option id: 7125 with option id: 7123.
+2014-10-26 17:56:56 INFO  OptionService:370 - Option id: 7125 is now incompatible with option id: 7123.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Summer sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Summer sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:364 - Set incompatibility of option id: 7123 with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:370 - Option id: 7123 is now incompatible with option id: 7125.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:56:56 INFO  OptionService:66 - Save/update option Option{title='Summer sms', price=1, costOfConnection=30} in DB.
+2014-10-26 17:56:56 INFO  OptionService:78 - Option Option{title='Summer sms', price=1, costOfConnection=30} saved in DB.
+2014-10-26 17:56:56 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:56 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:56 INFO  OptionServlet:148 - Option Option{title='Summer sms', price=1, costOfConnection=30} has been updated.
+2014-10-26 17:56:58 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:56:58 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:56:58 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:56:58 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:57:00 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:00 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:57:00 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:00 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:00 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:00 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:57:04 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:04 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:57:04 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:04 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:04 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:04 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:57:10 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:10 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:57:10 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:10 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:57:10 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:57:10 INFO  OptionService:282 - Set dependency of option id: 7120 with option id: 7118.
+2014-10-26 17:57:10 INFO  OptionService:282 - Set dependency of option id: 7118 with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:100 - Load option with id: 7125 from DB.
+2014-10-26 17:57:10 INFO  OptionService:112 - Options Option{title='Summer sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:57:10 INFO  OptionService:282 - Set dependency of option id: 7120 with option id: 7125.
+2014-10-26 17:57:10 INFO  OptionService:282 - Set dependency of option id: 7125 with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:57:10 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:10 INFO  OptionService:364 - Set incompatibility of option id: 7120 with option id: 7121.
+2014-10-26 17:57:10 INFO  OptionService:370 - Option id: 7120 is now incompatible with option id: 7121.
+2014-10-26 17:57:10 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:57:10 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:57:10 INFO  OptionService:364 - Set incompatibility of option id: 7121 with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:370 - Option id: 7121 is now incompatible with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:57:10 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:57:10 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:57:10 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:57:10 INFO  OptionService:364 - Set incompatibility of option id: 7120 with option id: 7122.
+2014-10-26 17:57:10 INFO  OptionService:370 - Option id: 7120 is now incompatible with option id: 7122.
+2014-10-26 17:57:10 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:57:10 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:57:10 INFO  OptionService:364 - Set incompatibility of option id: 7122 with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:370 - Option id: 7122 is now incompatible with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:57:10 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:57:10 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:57:10 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:57:10 INFO  OptionService:364 - Set incompatibility of option id: 7120 with option id: 7123.
+2014-10-26 17:57:10 INFO  OptionService:370 - Option id: 7120 is now incompatible with option id: 7123.
+2014-10-26 17:57:10 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:57:10 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:57:10 INFO  OptionService:364 - Set incompatibility of option id: 7123 with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:370 - Option id: 7123 is now incompatible with option id: 7120.
+2014-10-26 17:57:10 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:57:10 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:57:10 INFO  OptionService:66 - Save/update option Option{title='Summer mms', price=3, costOfConnection=60} in DB.
+2014-10-26 17:57:10 INFO  OptionService:78 - Option Option{title='Summer mms', price=3, costOfConnection=60} saved in DB.
+2014-10-26 17:57:10 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:10 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:10 INFO  OptionServlet:148 - Option Option{title='Summer mms', price=3, costOfConnection=60} has been updated.
+2014-10-26 17:57:12 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:12 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:12 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:12 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:57:15 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:15 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:57:15 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:15 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:15 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:15 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:57:17 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:17 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:57:17 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:17 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:17 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:17 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:57:21 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:21 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:57:21 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:21 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:57:21 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:57:21 INFO  OptionService:282 - Set dependency of option id: 7121 with option id: 7122.
+2014-10-26 17:57:21 INFO  OptionService:288 - Option id: 7122 is now dependent for option id: 7121.
+2014-10-26 17:57:21 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:57:21 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:57:21 INFO  OptionService:282 - Set dependency of option id: 7122 with option id: 7121.
+2014-10-26 17:57:21 INFO  OptionService:288 - Option id: 7121 is now dependent for option id: 7122.
+2014-10-26 17:57:21 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:57:22 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:57:22 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:57:22 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:57:22 INFO  OptionService:282 - Set dependency of option id: 7121 with option id: 7123.
+2014-10-26 17:57:22 INFO  OptionService:288 - Option id: 7123 is now dependent for option id: 7121.
+2014-10-26 17:57:22 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:57:22 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:57:22 INFO  OptionService:282 - Set dependency of option id: 7123 with option id: 7121.
+2014-10-26 17:57:22 INFO  OptionService:288 - Option id: 7121 is now dependent for option id: 7123.
+2014-10-26 17:57:22 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:57:22 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:57:22 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:57:22 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:57:22 INFO  OptionService:364 - Set incompatibility of option id: 7121 with option id: 7118.
+2014-10-26 17:57:22 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7121.
+2014-10-26 17:57:22 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:57:22 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:22 INFO  OptionService:364 - Set incompatibility of option id: 7121 with option id: 7120.
+2014-10-26 17:57:22 INFO  OptionService:364 - Set incompatibility of option id: 7120 with option id: 7121.
+2014-10-26 17:57:22 INFO  OptionService:100 - Load option with id: 7125 from DB.
+2014-10-26 17:57:22 INFO  OptionService:112 - Options Option{title='Summer sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:57:22 INFO  OptionService:364 - Set incompatibility of option id: 7121 with option id: 7125.
+2014-10-26 17:57:22 INFO  OptionService:364 - Set incompatibility of option id: 7125 with option id: 7121.
+2014-10-26 17:57:22 INFO  OptionService:66 - Save/update option Option{title='Hot calls', price=1, costOfConnection=60} in DB.
+2014-10-26 17:57:22 INFO  OptionService:78 - Option Option{title='Hot calls', price=1, costOfConnection=60} saved in DB.
+2014-10-26 17:57:22 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:22 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:22 INFO  OptionServlet:148 - Option Option{title='Hot calls', price=1, costOfConnection=60} has been updated.
+2014-10-26 17:57:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:24 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:24 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:24 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:57:27 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:27 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:57:27 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:57:27 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:27 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:27 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:57:28 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:28 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:57:28 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:57:28 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:28 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:28 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:57:34 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:34 INFO  OptionService:100 - Load option with id: 7122 from DB.
+2014-10-26 17:57:34 INFO  OptionService:112 - Options Option{title='Hot sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:57:34 INFO  OptionService:100 - Load option with id: 7121 from DB.
+2014-10-26 17:57:34 INFO  OptionService:112 - Options Option{title='Hot calls', price=1, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:34 INFO  OptionService:282 - Set dependency of option id: 7122 with option id: 7121.
+2014-10-26 17:57:34 INFO  OptionService:282 - Set dependency of option id: 7121 with option id: 7122.
+2014-10-26 17:57:34 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:57:34 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:57:34 INFO  OptionService:282 - Set dependency of option id: 7122 with option id: 7123.
+2014-10-26 17:57:34 INFO  OptionService:288 - Option id: 7123 is now dependent for option id: 7122.
+2014-10-26 17:57:34 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:57:34 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:57:34 INFO  OptionService:282 - Set dependency of option id: 7123 with option id: 7122.
+2014-10-26 17:57:34 INFO  OptionService:288 - Option id: 7122 is now dependent for option id: 7123.
+2014-10-26 17:57:34 INFO  OptionService:66 - Save/update option Option{title='Hot mms', price=3, costOfConnection=50} in DB.
+2014-10-26 17:57:34 INFO  OptionService:78 - Option Option{title='Hot mms', price=3, costOfConnection=50} saved in DB.
+2014-10-26 17:57:34 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-26 17:57:34 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-26 17:57:34 INFO  OptionService:364 - Set incompatibility of option id: 7122 with option id: 7118.
+2014-10-26 17:57:34 INFO  OptionService:364 - Set incompatibility of option id: 7118 with option id: 7122.
+2014-10-26 17:57:34 INFO  OptionService:100 - Load option with id: 7120 from DB.
+2014-10-26 17:57:34 INFO  OptionService:112 - Options Option{title='Summer mms', price=3, costOfConnection=60} loaded from DB.
+2014-10-26 17:57:34 INFO  OptionService:364 - Set incompatibility of option id: 7122 with option id: 7120.
+2014-10-26 17:57:34 INFO  OptionService:364 - Set incompatibility of option id: 7120 with option id: 7122.
+2014-10-26 17:57:34 INFO  OptionService:100 - Load option with id: 7125 from DB.
+2014-10-26 17:57:34 INFO  OptionService:112 - Options Option{title='Summer sms', price=1, costOfConnection=30} loaded from DB.
+2014-10-26 17:57:34 INFO  OptionService:364 - Set incompatibility of option id: 7122 with option id: 7125.
+2014-10-26 17:57:34 INFO  OptionService:364 - Set incompatibility of option id: 7125 with option id: 7122.
+2014-10-26 17:57:34 INFO  OptionService:66 - Save/update option Option{title='Hot sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:57:34 INFO  OptionService:78 - Option Option{title='Hot sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:57:34 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:34 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:34 INFO  OptionServlet:148 - Option Option{title='Hot sms', price=1, costOfConnection=40} has been updated.
+2014-10-26 17:57:39 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:39 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:39 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:39 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:57:40 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:40 INFO  OptionService:100 - Load option with id: 7123 from DB.
+2014-10-26 17:57:40 INFO  OptionService:112 - Options Option{title='Hot mms', price=3, costOfConnection=50} loaded from DB.
+2014-10-26 17:57:40 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:40 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:40 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:57:42 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:42 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-26 17:57:42 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-26 17:57:42 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:57:49 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:49 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 17:57:49 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 17:57:49 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 17:57:51 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:57:51 INFO  TariffsListServlet:38 - User admin went to create new tariff page.
+2014-10-26 17:58:04 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:04 INFO  TariffService:62 - Save/update tariff Tariff{title='Spring', price=100} in DB.
+2014-10-26 17:58:04 INFO  TariffService:74 - Tariff Tariff{title='Spring', price=100} saved in DB.
+2014-10-26 17:58:04 INFO  TariffServlet:50 - New tariff Tariff{title='Spring', price=100} created.
+2014-10-26 17:58:06 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:06 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:58:06 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:58:06 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:58:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:24 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:58:24 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:58:24 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=2, costOfConnection=100} in DB.
+2014-10-26 17:58:24 INFO  OptionService:78 - Option Option{title='Spring calls', price=2, costOfConnection=100} saved in DB.
+2014-10-26 17:58:24 INFO  TariffService:62 - Save/update tariff Tariff{title='Spring', price=100} in DB.
+2014-10-26 17:58:24 INFO  TariffService:74 - Tariff Tariff{title='Spring', price=100} saved in DB.
+2014-10-26 17:58:24 INFO  OptionServlet:88 - New option Option{title='Spring calls', price=2, costOfConnection=100} has created.
+2014-10-26 17:58:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:25 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:58:25 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:58:25 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:58:27 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:27 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:58:27 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:58:27 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:58:35 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:35 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:58:35 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:58:35 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:58:35 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:58:35 INFO  TariffService:62 - Save/update tariff Tariff{title='Spring', price=100} in DB.
+2014-10-26 17:58:35 INFO  TariffService:74 - Tariff Tariff{title='Spring', price=100} saved in DB.
+2014-10-26 17:58:35 INFO  OptionServlet:88 - New option Option{title='Spring sms', price=1, costOfConnection=40} has created.
+2014-10-26 17:58:36 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:36 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:58:36 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:58:36 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:58:38 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:58:38 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:58:38 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:58:38 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 17:59:00 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:00 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:00 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:00 INFO  OptionService:66 - Save/update option Option{title='Spring mms', price=4, costOfConnection=39} in DB.
+2014-10-26 17:59:00 INFO  OptionService:78 - Option Option{title='Spring mms', price=4, costOfConnection=39} saved in DB.
+2014-10-26 17:59:00 INFO  TariffService:62 - Save/update tariff Tariff{title='Spring', price=100} in DB.
+2014-10-26 17:59:00 INFO  TariffService:74 - Tariff Tariff{title='Spring', price=100} saved in DB.
+2014-10-26 17:59:00 INFO  OptionServlet:88 - New option Option{title='Spring mms', price=4, costOfConnection=39} has created.
+2014-10-26 17:59:05 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:05 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:05 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:05 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:59:09 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:09 INFO  OptionService:100 - Load option with id: 7126 from DB.
+2014-10-26 17:59:09 INFO  OptionService:112 - Options Option{title='Spring calls', price=2, costOfConnection=100} loaded from DB.
+2014-10-26 17:59:09 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:09 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:09 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:59:10 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:10 INFO  OptionService:100 - Load option with id: 7126 from DB.
+2014-10-26 17:59:10 INFO  OptionService:112 - Options Option{title='Spring calls', price=2, costOfConnection=100} loaded from DB.
+2014-10-26 17:59:10 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:10 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:10 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:59:13 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:13 INFO  OptionService:100 - Load option with id: 7126 from DB.
+2014-10-26 17:59:13 INFO  OptionService:112 - Options Option{title='Spring calls', price=2, costOfConnection=100} loaded from DB.
+2014-10-26 17:59:13 INFO  OptionService:100 - Load option with id: 7127 from DB.
+2014-10-26 17:59:13 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:59:13 INFO  OptionService:282 - Set dependency of option id: 7126 with option id: 7127.
+2014-10-26 17:59:13 INFO  OptionService:288 - Option id: 7127 is now dependent for option id: 7126.
+2014-10-26 17:59:13 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=2, costOfConnection=100} in DB.
+2014-10-26 17:59:13 INFO  OptionService:78 - Option Option{title='Spring calls', price=2, costOfConnection=100} saved in DB.
+2014-10-26 17:59:13 INFO  OptionService:282 - Set dependency of option id: 7127 with option id: 7126.
+2014-10-26 17:59:13 INFO  OptionService:288 - Option id: 7126 is now dependent for option id: 7127.
+2014-10-26 17:59:13 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:59:13 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:59:13 INFO  OptionService:100 - Load option with id: 7128 from DB.
+2014-10-26 17:59:13 INFO  OptionService:112 - Options Option{title='Spring mms', price=4, costOfConnection=39} loaded from DB.
+2014-10-26 17:59:13 INFO  OptionService:282 - Set dependency of option id: 7126 with option id: 7128.
+2014-10-26 17:59:13 INFO  OptionService:288 - Option id: 7128 is now dependent for option id: 7126.
+2014-10-26 17:59:13 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=2, costOfConnection=100} in DB.
+2014-10-26 17:59:13 INFO  OptionService:78 - Option Option{title='Spring calls', price=2, costOfConnection=100} saved in DB.
+2014-10-26 17:59:13 INFO  OptionService:282 - Set dependency of option id: 7128 with option id: 7126.
+2014-10-26 17:59:13 INFO  OptionService:288 - Option id: 7126 is now dependent for option id: 7128.
+2014-10-26 17:59:13 INFO  OptionService:66 - Save/update option Option{title='Spring mms', price=4, costOfConnection=39} in DB.
+2014-10-26 17:59:13 INFO  OptionService:78 - Option Option{title='Spring mms', price=4, costOfConnection=39} saved in DB.
+2014-10-26 17:59:13 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=2, costOfConnection=100} in DB.
+2014-10-26 17:59:13 INFO  OptionService:78 - Option Option{title='Spring calls', price=2, costOfConnection=100} saved in DB.
+2014-10-26 17:59:13 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:13 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:13 INFO  OptionServlet:148 - Option Option{title='Spring calls', price=2, costOfConnection=100} has been updated.
+2014-10-26 17:59:15 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:15 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:15 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:15 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:59:17 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:17 INFO  OptionService:100 - Load option with id: 7127 from DB.
+2014-10-26 17:59:17 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:59:17 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:17 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:17 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:59:18 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:18 INFO  OptionService:100 - Load option with id: 7127 from DB.
+2014-10-26 17:59:18 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:59:18 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:18 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:18 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 17:59:21 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:21 INFO  OptionService:100 - Load option with id: 7127 from DB.
+2014-10-26 17:59:21 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=40} loaded from DB.
+2014-10-26 17:59:21 INFO  OptionService:100 - Load option with id: 7126 from DB.
+2014-10-26 17:59:21 INFO  OptionService:112 - Options Option{title='Spring calls', price=2, costOfConnection=100} loaded from DB.
+2014-10-26 17:59:21 INFO  OptionService:282 - Set dependency of option id: 7127 with option id: 7126.
+2014-10-26 17:59:21 INFO  OptionService:282 - Set dependency of option id: 7126 with option id: 7127.
+2014-10-26 17:59:21 INFO  OptionService:100 - Load option with id: 7128 from DB.
+2014-10-26 17:59:21 INFO  OptionService:112 - Options Option{title='Spring mms', price=4, costOfConnection=39} loaded from DB.
+2014-10-26 17:59:21 INFO  OptionService:282 - Set dependency of option id: 7127 with option id: 7128.
+2014-10-26 17:59:21 INFO  OptionService:288 - Option id: 7128 is now dependent for option id: 7127.
+2014-10-26 17:59:21 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:59:21 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:59:21 INFO  OptionService:282 - Set dependency of option id: 7128 with option id: 7127.
+2014-10-26 17:59:21 INFO  OptionService:288 - Option id: 7127 is now dependent for option id: 7128.
+2014-10-26 17:59:21 INFO  OptionService:66 - Save/update option Option{title='Spring mms', price=4, costOfConnection=39} in DB.
+2014-10-26 17:59:21 INFO  OptionService:78 - Option Option{title='Spring mms', price=4, costOfConnection=39} saved in DB.
+2014-10-26 17:59:21 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=40} in DB.
+2014-10-26 17:59:21 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=40} saved in DB.
+2014-10-26 17:59:21 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:21 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:21 INFO  OptionServlet:148 - Option Option{title='Spring sms', price=1, costOfConnection=40} has been updated.
+2014-10-26 17:59:22 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:22 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:22 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:22 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:59:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:24 INFO  OptionService:100 - Load option with id: 7128 from DB.
+2014-10-26 17:59:24 INFO  OptionService:112 - Options Option{title='Spring mms', price=4, costOfConnection=39} loaded from DB.
+2014-10-26 17:59:24 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:24 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:24 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 17:59:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:25 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 17:59:25 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 17:59:25 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 17:59:29 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:29 INFO  LoginServlet:76 - User has logout from application.
+2014-10-26 17:59:29 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 17:59:31 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:31 INFO  LoginServlet:70 - New user has enter to the registration page.
+2014-10-26 17:59:31 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 17:59:56 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 17:59:56 INFO  ClientService:316 - Find client with login: client@mail.com in DB.
+2014-10-26 17:59:56 WARN  ClientService:328 - Client with login: client@mail.com does not exist.
+2014-10-26 17:59:56 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} in DB.
+2014-10-26 17:59:56 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} saved/updated in DB.
+2014-10-26 17:59:56 INFO  RegistrationServlet:50 - New user(client): Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} has registered in application.
+2014-10-26 17:59:56 INFO  ClientService:316 - Find client with login: client@mail.com in DB.
+2014-10-26 17:59:56 INFO  ClientService:332 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} found in DB.
+2014-10-26 17:59:56 WARN  Util:174 - Entered e-mail (login) already exist.
+ru.tsystems.tsproject.ecare.ECareException: Entered e-mail (login) already exist.
+	at ru.tsystems.tsproject.ecare.util.Util.checkLoginOnExisting(Util.java:173)
+	at ru.tsystems.tsproject.ecare.servlets.RegistrationServlet.doPost(RegistrationServlet.java:38)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:31)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:39)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
@@ -74,7 +909,520 @@ javax.persistence.NoResultException: No entity found for query
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:745)
-2014-10-25 17:55:28 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
-2014-10-25 17:55:57 INFO  AuthorizationFilter:25 - Checking of session by filter.
-2014-10-25 17:55:57 INFO  LoginServlet:70 - New user has enter to the registration page.
-2014-10-25 17:55:58 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 18:00:01 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:01 INFO  ClientService:97 - Load client with id: 3317 from DB.
+2014-10-26 18:00:01 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-26 18:00:01 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} in DB.
+2014-10-26 18:00:01 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} saved/updated in DB.
+2014-10-26 18:00:01 INFO  ClientServlet:73 - User client added amount to balance of client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}.
+2014-10-26 18:00:04 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:04 INFO  LoginServlet:76 - User has logout from application.
+2014-10-26 18:00:04 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 18:00:10 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:10 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 18:00:10 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 18:00:10 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:00:10 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:00:10 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 18:00:10 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 18:00:10 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 18:00:10 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:00:10 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:00:10 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 18:00:13 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:13 INFO  ClientService:97 - Load client with id: 3317 from DB.
+2014-10-26 18:00:13 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} loaded from DB.
+2014-10-26 18:00:13 INFO  ClientServlet:41 - User admin went to client page.
+2014-10-26 18:00:14 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:14 INFO  ClientService:97 - Load client with id: 3317 from DB.
+2014-10-26 18:00:14 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} loaded from DB.
+2014-10-26 18:00:14 INFO  ClientServlet:45 - User admin went to create contract page.
+2014-10-26 18:00:19 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:19 INFO  ClientService:97 - Load client with id: 3317 from DB.
+2014-10-26 18:00:19 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} loaded from DB.
+2014-10-26 18:00:19 INFO  ContractCreationServlet:44 - Creating of new contract with number: 9110007865.
+2014-10-26 18:00:19 INFO  ClientService:170 - Find client with telephone number: 9110007865 in DB.
+2014-10-26 18:00:19 WARN  ClientService:182 - Client with number: 9110007865 not found.
+javax.persistence.NoResultException: No entity found for query
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
+	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByNumber(SqlClientDAO.java:50)
+	at ru.tsystems.tsproject.ecare.service.ClientService.findClientByNumber(ClientService.java:177)
+	at ru.tsystems.tsproject.ecare.util.Util.checkNumberOnExisting(Util.java:150)
+	at ru.tsystems.tsproject.ecare.servlets.ContractCreationServlet.doPost(ContractCreationServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:39)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-26 18:00:19 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} in DB.
+2014-10-26 18:00:19 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} saved/updated in DB.
+2014-10-26 18:00:19 INFO  ContractCreationServlet:50 - New contract: Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} has created.
+2014-10-26 18:00:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:24 INFO  ContractService:105 - Load contract with id: 1766 from DB.
+2014-10-26 18:00:24 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:00:24 INFO  Contract:48 - User admin went to view contract page.
+2014-10-26 18:00:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:25 INFO  ContractService:105 - Load contract with id: 1766 from DB.
+2014-10-26 18:00:25 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:00:25 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:00:25 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:00:25 INFO  Contract:92 - User admin went to change tariff page for contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}}.
+2014-10-26 18:00:27 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:27 INFO  ContractService:105 - Load contract with id: 1766 from DB.
+2014-10-26 18:00:27 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:00:27 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:00:27 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:00:27 INFO  OptionService:200 - Get all options from DB for tariff with id: 2046.
+2014-10-26 18:00:27 INFO  OptionService:212 - All options for tariff id: 2046 obtained from DB.
+2014-10-26 18:00:30 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:30 INFO  ContractService:105 - Load contract with id: 1766 from DB.
+2014-10-26 18:00:30 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:00:30 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:00:30 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:00:30 INFO  ContractService:566 - Set tariff: 2046 in contract id: 1766.
+2014-10-26 18:00:30 INFO  ContractService:574 - Withdrawing of tariff id: 2046 price 100 from amount of client id: 3317.
+2014-10-26 18:00:30 INFO  ContractService:576 - Withdrawing completed. Client amount: 1900.
+2014-10-26 18:00:30 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1900} in DB.
+2014-10-26 18:00:30 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1900} saved/updated in DB.
+2014-10-26 18:00:30 INFO  ContractService:580 - Tariff: 2046 is set in contract id: 1766.
+2014-10-26 18:00:30 INFO  OptionService:100 - Load option with id: 7126 from DB.
+2014-10-26 18:00:30 INFO  OptionService:112 - Options Option{title='Spring calls', price=2, costOfConnection=100} loaded from DB.
+2014-10-26 18:00:30 INFO  ContractService:473 - Enable option id: 7126 in contract id: 1766.
+2014-10-26 18:00:30 INFO  ContractService:495 - Withdrawing of option id: 7126 cost of connection: 2 from amount of client id: 3317.
+2014-10-26 18:00:30 INFO  ContractService:498 - Withdrawing completed. Client amount: 1800.
+2014-10-26 18:00:30 INFO  ContractService:500 - Option id: 7126 enabled in contract id: 1766.
+2014-10-26 18:00:30 INFO  ContractService:508 - Withdrawing of dependent option id: 7128 cost of connection 4 from amount of client id: 3317.
+2014-10-26 18:00:30 INFO  ContractService:511 - Withdrawing completed. Client amount: 1761.
+2014-10-26 18:00:30 INFO  ContractService:513 - Dependent option id: 7128 enabled in contract id: 1766.
+2014-10-26 18:00:30 INFO  ContractService:508 - Withdrawing of dependent option id: 7127 cost of connection 1 from amount of client id: 3317.
+2014-10-26 18:00:30 INFO  ContractService:511 - Withdrawing completed. Client amount: 1721.
+2014-10-26 18:00:30 INFO  ContractService:513 - Dependent option id: 7127 enabled in contract id: 1766.
+2014-10-26 18:00:30 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1721} in DB.
+2014-10-26 18:00:30 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1721} saved/updated in DB.
+2014-10-26 18:00:30 INFO  ContractService:71 - Save/update contract Contract{number=9110007865, tariff=Tariff{title='Spring', price=100}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1721}} in DB.
+2014-10-26 18:00:30 INFO  ContractService:83 - Contract Contract{number=9110007865, tariff=Tariff{title='Spring', price=100}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1721}} saved/updated in DB.
+2014-10-26 18:00:30 INFO  Contract:118 - In contract Contract{number=9110007865, tariff=Tariff{title='Spring', price=100}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1721}}set new tariff Tariff{title='Spring', price=100}.
+2014-10-26 18:00:44 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:44 INFO  ClientService:97 - Load client with id: 3317 from DB.
+2014-10-26 18:00:44 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1721} loaded from DB.
+2014-10-26 18:00:44 INFO  ClientServlet:41 - User admin went to client page.
+2014-10-26 18:00:46 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:00:46 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:00:46 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:00:46 INFO  DashboardServlet:46 - User admin went to view dashboard page.
+2014-10-26 18:01:32 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:01:32 INFO  ClientService:206 - Delete client with id: 3317 from DB.
+2014-10-26 18:01:32 INFO  ClientService:220 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1721} deleted from DB.
+2014-10-26 18:01:32 INFO  DashboardServlet:73 - User admin deleted are client with id:3317 from database.
+2014-10-26 18:01:32 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:01:32 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:01:32 INFO  DashboardServlet:76 - User admin went to view dashboard page.
+2014-10-26 18:01:35 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:01:35 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:01:35 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:01:35 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 18:01:37 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:01:37 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:01:37 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:01:37 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:01:41 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:01:41 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:01:41 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:01:41 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 18:06:36 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:06:36 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 18:06:38 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:06:38 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 18:06:43 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-26 18:06:43 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-26 18:06:43 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-26 18:06:43 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-26 18:06:44 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-26 18:06:44 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-26 18:06:44 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-26 18:06:44 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-26 18:06:44 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-26 18:06:44 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-26 18:06:45 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-26 18:06:45 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-26 18:06:46 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:06:46 INFO  LoginServlet:70 - New user has enter to the registration page.
+2014-10-26 18:06:46 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 18:07:08 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:08 INFO  ClientService:316 - Find client with login: client@mail.com in DB.
+2014-10-26 18:07:08 WARN  ClientService:328 - Client with login: client@mail.com does not exist.
+2014-10-26 18:07:08 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} in DB.
+2014-10-26 18:07:08 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} saved/updated in DB.
+2014-10-26 18:07:08 INFO  RegistrationServlet:50 - New user(client): Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} has registered in application.
+2014-10-26 18:07:08 INFO  ClientService:316 - Find client with login: client@mail.com in DB.
+2014-10-26 18:07:09 INFO  ClientService:332 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} found in DB.
+2014-10-26 18:07:09 WARN  Util:174 - Entered e-mail (login) already exist.
+ru.tsystems.tsproject.ecare.ECareException: Entered e-mail (login) already exist.
+	at ru.tsystems.tsproject.ecare.util.Util.checkLoginOnExisting(Util.java:173)
+	at ru.tsystems.tsproject.ecare.servlets.RegistrationServlet.doPost(RegistrationServlet.java:38)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:39)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-26 18:07:12 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:12 INFO  ClientService:97 - Load client with id: 3318 from DB.
+2014-10-26 18:07:12 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-26 18:07:12 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} in DB.
+2014-10-26 18:07:12 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} saved/updated in DB.
+2014-10-26 18:07:12 INFO  ClientServlet:73 - User client added amount to balance of client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}.
+2014-10-26 18:07:15 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:15 INFO  LoginServlet:76 - User has logout from application.
+2014-10-26 18:07:15 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.
+2014-10-26 18:07:20 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:20 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 18:07:20 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 18:07:20 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:07:20 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:07:20 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 18:07:21 INFO  ClientService:133 - Find client with login: admin and password:admin in DB.
+2014-10-26 18:07:21 INFO  ClientService:149 - Client Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-26 18:07:21 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:07:21 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:07:21 INFO  LoginServlet:55 - User(admin): Client{name='Operator', lastname='', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-26 18:07:24 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:24 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:07:24 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:07:24 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 18:07:26 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:26 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:07:26 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:07:26 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:07:28 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:28 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:07:28 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:07:28 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 18:07:47 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:47 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:07:47 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:07:47 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=3, costOfConnection=100} in DB.
+2014-10-26 18:07:47 INFO  OptionService:78 - Option Option{title='Spring calls', price=3, costOfConnection=100} saved in DB.
+2014-10-26 18:07:47 INFO  TariffService:62 - Save/update tariff Tariff{title='Spring', price=100} in DB.
+2014-10-26 18:07:47 INFO  TariffService:74 - Tariff Tariff{title='Spring', price=100} saved in DB.
+2014-10-26 18:07:47 INFO  OptionServlet:88 - New option Option{title='Spring calls', price=3, costOfConnection=100} has created.
+2014-10-26 18:07:48 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:48 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:07:48 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:07:48 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:07:49 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:49 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:07:49 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:07:49 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 18:07:59 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:07:59 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:07:59 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:07:59 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=100} in DB.
+2014-10-26 18:07:59 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=100} saved in DB.
+2014-10-26 18:07:59 INFO  TariffService:62 - Save/update tariff Tariff{title='Spring', price=100} in DB.
+2014-10-26 18:07:59 INFO  TariffService:74 - Tariff Tariff{title='Spring', price=100} saved in DB.
+2014-10-26 18:07:59 INFO  OptionServlet:88 - New option Option{title='Spring sms', price=1, costOfConnection=100} has created.
+2014-10-26 18:08:01 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:01 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:01 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:01 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:08:02 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:02 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:02 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:02 INFO  TariffServlet:77 - User admin went to create new option page.
+2014-10-26 18:08:12 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:12 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:12 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:12 INFO  OptionService:66 - Save/update option Option{title='Spring mms', price=3, costOfConnection=40} in DB.
+2014-10-26 18:08:12 INFO  OptionService:78 - Option Option{title='Spring mms', price=3, costOfConnection=40} saved in DB.
+2014-10-26 18:08:12 INFO  TariffService:62 - Save/update tariff Tariff{title='Spring', price=100} in DB.
+2014-10-26 18:08:12 INFO  TariffService:74 - Tariff Tariff{title='Spring', price=100} saved in DB.
+2014-10-26 18:08:12 INFO  OptionServlet:88 - New option Option{title='Spring mms', price=3, costOfConnection=40} has created.
+2014-10-26 18:08:13 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:13 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:13 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:13 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:08:14 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:14 INFO  OptionService:100 - Load option with id: 7129 from DB.
+2014-10-26 18:08:14 INFO  OptionService:112 - Options Option{title='Spring calls', price=3, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:14 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:14 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:14 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 18:08:16 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:16 INFO  OptionService:100 - Load option with id: 7129 from DB.
+2014-10-26 18:08:16 INFO  OptionService:112 - Options Option{title='Spring calls', price=3, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:16 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:16 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:16 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 18:08:19 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:19 INFO  OptionService:100 - Load option with id: 7129 from DB.
+2014-10-26 18:08:19 INFO  OptionService:112 - Options Option{title='Spring calls', price=3, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:19 INFO  OptionService:100 - Load option with id: 7130 from DB.
+2014-10-26 18:08:19 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:19 INFO  OptionService:282 - Set dependency of option id: 7129 with option id: 7130.
+2014-10-26 18:08:19 INFO  OptionService:288 - Option id: 7130 is now dependent for option id: 7129.
+2014-10-26 18:08:19 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=3, costOfConnection=100} in DB.
+2014-10-26 18:08:19 INFO  OptionService:78 - Option Option{title='Spring calls', price=3, costOfConnection=100} saved in DB.
+2014-10-26 18:08:19 INFO  OptionService:282 - Set dependency of option id: 7130 with option id: 7129.
+2014-10-26 18:08:19 INFO  OptionService:288 - Option id: 7129 is now dependent for option id: 7130.
+2014-10-26 18:08:19 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=100} in DB.
+2014-10-26 18:08:19 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=100} saved in DB.
+2014-10-26 18:08:19 INFO  OptionService:100 - Load option with id: 7131 from DB.
+2014-10-26 18:08:19 INFO  OptionService:112 - Options Option{title='Spring mms', price=3, costOfConnection=40} loaded from DB.
+2014-10-26 18:08:19 INFO  OptionService:282 - Set dependency of option id: 7129 with option id: 7131.
+2014-10-26 18:08:19 INFO  OptionService:288 - Option id: 7131 is now dependent for option id: 7129.
+2014-10-26 18:08:19 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=3, costOfConnection=100} in DB.
+2014-10-26 18:08:19 INFO  OptionService:78 - Option Option{title='Spring calls', price=3, costOfConnection=100} saved in DB.
+2014-10-26 18:08:19 INFO  OptionService:282 - Set dependency of option id: 7131 with option id: 7129.
+2014-10-26 18:08:19 INFO  OptionService:288 - Option id: 7129 is now dependent for option id: 7131.
+2014-10-26 18:08:19 INFO  OptionService:66 - Save/update option Option{title='Spring mms', price=3, costOfConnection=40} in DB.
+2014-10-26 18:08:19 INFO  OptionService:78 - Option Option{title='Spring mms', price=3, costOfConnection=40} saved in DB.
+2014-10-26 18:08:19 INFO  OptionService:66 - Save/update option Option{title='Spring calls', price=3, costOfConnection=100} in DB.
+2014-10-26 18:08:19 INFO  OptionService:78 - Option Option{title='Spring calls', price=3, costOfConnection=100} saved in DB.
+2014-10-26 18:08:19 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:19 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:19 INFO  OptionServlet:148 - Option Option{title='Spring calls', price=3, costOfConnection=100} has been updated.
+2014-10-26 18:08:21 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:21 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:21 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:21 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:08:22 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:22 INFO  OptionService:100 - Load option with id: 7130 from DB.
+2014-10-26 18:08:22 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:22 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:22 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:22 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 18:08:23 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:23 INFO  OptionService:100 - Load option with id: 7130 from DB.
+2014-10-26 18:08:23 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:23 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:23 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:23 INFO  OptionServlet:110 - User admin went to edit option page.
+2014-10-26 18:08:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:25 INFO  OptionService:100 - Load option with id: 7130 from DB.
+2014-10-26 18:08:25 INFO  OptionService:112 - Options Option{title='Spring sms', price=1, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:25 INFO  OptionService:100 - Load option with id: 7129 from DB.
+2014-10-26 18:08:25 INFO  OptionService:112 - Options Option{title='Spring calls', price=3, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:25 INFO  OptionService:282 - Set dependency of option id: 7130 with option id: 7129.
+2014-10-26 18:08:25 INFO  OptionService:282 - Set dependency of option id: 7129 with option id: 7130.
+2014-10-26 18:08:25 INFO  OptionService:100 - Load option with id: 7131 from DB.
+2014-10-26 18:08:25 INFO  OptionService:112 - Options Option{title='Spring mms', price=3, costOfConnection=40} loaded from DB.
+2014-10-26 18:08:25 INFO  OptionService:282 - Set dependency of option id: 7130 with option id: 7131.
+2014-10-26 18:08:25 INFO  OptionService:288 - Option id: 7131 is now dependent for option id: 7130.
+2014-10-26 18:08:25 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=100} in DB.
+2014-10-26 18:08:25 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=100} saved in DB.
+2014-10-26 18:08:25 INFO  OptionService:282 - Set dependency of option id: 7131 with option id: 7130.
+2014-10-26 18:08:25 INFO  OptionService:288 - Option id: 7130 is now dependent for option id: 7131.
+2014-10-26 18:08:25 INFO  OptionService:66 - Save/update option Option{title='Spring mms', price=3, costOfConnection=40} in DB.
+2014-10-26 18:08:25 INFO  OptionService:78 - Option Option{title='Spring mms', price=3, costOfConnection=40} saved in DB.
+2014-10-26 18:08:25 INFO  OptionService:66 - Save/update option Option{title='Spring sms', price=1, costOfConnection=100} in DB.
+2014-10-26 18:08:25 INFO  OptionService:78 - Option Option{title='Spring sms', price=1, costOfConnection=100} saved in DB.
+2014-10-26 18:08:25 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:25 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:25 INFO  OptionServlet:148 - Option Option{title='Spring sms', price=1, costOfConnection=100} has been updated.
+2014-10-26 18:08:27 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:27 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:27 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:27 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:08:28 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:28 INFO  OptionService:100 - Load option with id: 7131 from DB.
+2014-10-26 18:08:28 INFO  OptionService:112 - Options Option{title='Spring mms', price=3, costOfConnection=40} loaded from DB.
+2014-10-26 18:08:28 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:28 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:28 INFO  OptionServlet:102 - User admin went to view option page.
+2014-10-26 18:08:30 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:30 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:30 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:30 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:08:31 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:31 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:08:31 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:08:31 INFO  DashboardServlet:46 - User admin went to view dashboard page.
+2014-10-26 18:08:33 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:33 INFO  ClientService:97 - Load client with id: 3318 from DB.
+2014-10-26 18:08:33 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} loaded from DB.
+2014-10-26 18:08:33 INFO  ClientServlet:41 - User admin went to client page.
+2014-10-26 18:08:34 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:34 INFO  ClientService:97 - Load client with id: 3318 from DB.
+2014-10-26 18:08:34 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} loaded from DB.
+2014-10-26 18:08:34 INFO  ClientServlet:45 - User admin went to create contract page.
+2014-10-26 18:08:38 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:38 INFO  ClientService:97 - Load client with id: 3318 from DB.
+2014-10-26 18:08:38 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} loaded from DB.
+2014-10-26 18:08:38 INFO  ContractCreationServlet:44 - Creating of new contract with number: 9110007865.
+2014-10-26 18:08:38 INFO  ClientService:170 - Find client with telephone number: 9110007865 in DB.
+2014-10-26 18:08:38 WARN  ClientService:182 - Client with number: 9110007865 not found.
+javax.persistence.NoResultException: No entity found for query
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
+	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByNumber(SqlClientDAO.java:50)
+	at ru.tsystems.tsproject.ecare.service.ClientService.findClientByNumber(ClientService.java:177)
+	at ru.tsystems.tsproject.ecare.util.Util.checkNumberOnExisting(Util.java:150)
+	at ru.tsystems.tsproject.ecare.servlets.ContractCreationServlet.doPost(ContractCreationServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:39)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-26 18:08:38 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} in DB.
+2014-10-26 18:08:38 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000} saved/updated in DB.
+2014-10-26 18:08:38 INFO  ContractCreationServlet:50 - New contract: Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} has created.
+2014-10-26 18:08:42 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:42 INFO  ContractService:105 - Load contract with id: 1767 from DB.
+2014-10-26 18:08:42 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:08:42 INFO  Contract:48 - User admin went to view contract page.
+2014-10-26 18:08:43 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:43 INFO  ContractService:105 - Load contract with id: 1767 from DB.
+2014-10-26 18:08:43 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:08:43 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:08:43 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:08:43 INFO  Contract:92 - User admin went to change tariff page for contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}}.
+2014-10-26 18:08:45 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:45 INFO  ContractService:105 - Load contract with id: 1767 from DB.
+2014-10-26 18:08:45 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:08:45 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:45 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:45 INFO  OptionService:200 - Get all options from DB for tariff with id: 2046.
+2014-10-26 18:08:45 INFO  OptionService:212 - All options for tariff id: 2046 obtained from DB.
+2014-10-26 18:08:47 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:47 INFO  ContractService:105 - Load contract with id: 1767 from DB.
+2014-10-26 18:08:47 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=null, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=2000}} loaded from DB.
+2014-10-26 18:08:47 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:08:47 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:08:47 INFO  ContractService:566 - Set tariff: 2046 in contract id: 1767.
+2014-10-26 18:08:47 INFO  ContractService:574 - Withdrawing of tariff id: 2046 price 100 from amount of client id: 3318.
+2014-10-26 18:08:47 INFO  ContractService:576 - Withdrawing completed. Client amount: 1900.
+2014-10-26 18:08:47 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1900} in DB.
+2014-10-26 18:08:47 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1900} saved/updated in DB.
+2014-10-26 18:08:47 INFO  ContractService:580 - Tariff: 2046 is set in contract id: 1767.
+2014-10-26 18:08:47 INFO  OptionService:100 - Load option with id: 7129 from DB.
+2014-10-26 18:08:47 INFO  OptionService:112 - Options Option{title='Spring calls', price=3, costOfConnection=100} loaded from DB.
+2014-10-26 18:08:47 INFO  ContractService:473 - Enable option id: 7129 in contract id: 1767.
+2014-10-26 18:08:47 INFO  ContractService:495 - Withdrawing of option id: 7129 cost of connection: 3 from amount of client id: 3318.
+2014-10-26 18:08:47 INFO  ContractService:498 - Withdrawing completed. Client amount: 1800.
+2014-10-26 18:08:47 INFO  ContractService:500 - Option id: 7129 enabled in contract id: 1767.
+2014-10-26 18:08:47 INFO  ContractService:508 - Withdrawing of dependent option id: 7130 cost of connection 1 from amount of client id: 3318.
+2014-10-26 18:08:47 INFO  ContractService:511 - Withdrawing completed. Client amount: 1700.
+2014-10-26 18:08:47 INFO  ContractService:513 - Dependent option id: 7130 enabled in contract id: 1767.
+2014-10-26 18:08:47 INFO  ContractService:508 - Withdrawing of dependent option id: 7131 cost of connection 3 from amount of client id: 3318.
+2014-10-26 18:08:47 INFO  ContractService:511 - Withdrawing completed. Client amount: 1660.
+2014-10-26 18:08:47 INFO  ContractService:513 - Dependent option id: 7131 enabled in contract id: 1767.
+2014-10-26 18:08:47 INFO  ClientService:63 - Save/update client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660} in DB.
+2014-10-26 18:08:47 INFO  ClientService:75 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660} saved/updated in DB.
+2014-10-26 18:08:47 INFO  ContractService:71 - Save/update contract Contract{number=9110007865, tariff=Tariff{title='Spring', price=100}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660}} in DB.
+2014-10-26 18:08:47 INFO  ContractService:83 - Contract Contract{number=9110007865, tariff=Tariff{title='Spring', price=100}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660}} saved/updated in DB.
+2014-10-26 18:08:47 INFO  Contract:118 - In contract Contract{number=9110007865, tariff=Tariff{title='Spring', price=100}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660}}set new tariff Tariff{title='Spring', price=100}.
+2014-10-26 18:08:54 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:08:54 INFO  ClientService:97 - Load client with id: 3318 from DB.
+2014-10-26 18:08:54 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660} loaded from DB.
+2014-10-26 18:08:54 INFO  ClientServlet:41 - User admin went to client page.
+2014-10-26 18:09:17 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:09:17 INFO  ContractService:105 - Load contract with id: 1767 from DB.
+2014-10-26 18:09:17 INFO  ContractService:117 - Contract Contract{number=9110007865, tariff=Tariff{title='Spring', price=100}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660}} loaded from DB.
+2014-10-26 18:09:17 INFO  Contract:48 - User admin went to view contract page.
+2014-10-26 18:09:19 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:09:19 INFO  ClientService:97 - Load client with id: 3318 from DB.
+2014-10-26 18:09:19 INFO  ClientService:109 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660} loaded from DB.
+2014-10-26 18:09:19 INFO  ClientServlet:41 - User admin went to client page.
+2014-10-26 18:09:20 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:09:20 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:09:20 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:09:20 INFO  DashboardServlet:46 - User admin went to view dashboard page.
+2014-10-26 18:09:22 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:09:22 INFO  ClientService:206 - Delete client with id: 3318 from DB.
+2014-10-26 18:09:22 INFO  ClientService:220 - Client Client{name='Client', lastname='Temporary', passport=1111111, address='SPB, street, house', email='client@mail.com', password='123456', role='client', amount=1660} deleted from DB.
+2014-10-26 18:09:22 INFO  DashboardServlet:73 - User admin deleted are client with id:3318 from database.
+2014-10-26 18:09:22 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:09:22 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:09:22 INFO  DashboardServlet:76 - User admin went to view dashboard page.
+2014-10-26 18:09:25 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:09:25 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:09:25 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:09:25 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 18:09:26 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:09:26 INFO  TariffService:96 - Load tariff with id: 2046 from DB.
+2014-10-26 18:09:26 INFO  TariffService:108 - Tariff Tariff{title='Spring', price=100} loaded from DB.
+2014-10-26 18:09:26 INFO  TariffServlet:61 - User admin went to view tariff page.
+2014-10-26 18:10:32 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:10:32 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:10:32 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:10:32 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 18:10:34 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:10:34 INFO  TariffService:129 - Delete tariff with id: 2046 from DB.
+2014-10-26 18:10:34 INFO  TariffService:143 - Tariff Tariff{title='Spring', price=100} deleted from DB.
+2014-10-26 18:10:34 INFO  TariffServlet:67 - Tariff with id: 2046 deleted from database.
+2014-10-26 18:10:34 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:10:34 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:10:34 INFO  TariffServlet:70 - User admin went to all tariffs page.
+2014-10-26 18:10:36 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:10:36 INFO  ClientService:239 - Get all clients from DB.
+2014-10-26 18:10:36 INFO  ClientService:251 - All clients obtained from DB.
+2014-10-26 18:10:36 INFO  DashboardServlet:46 - User admin went to view dashboard page.
+2014-10-26 18:10:40 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:10:40 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-26 18:10:40 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-26 18:10:40 INFO  DashboardServlet:67 - User admin went to view all tariffs page.
+2014-10-26 18:13:19 INFO  AuthorizationFilter:25 - Checking of session by filter.
+2014-10-26 18:13:19 INFO  LoginServlet:76 - User has logout from application.
+2014-10-26 18:13:19 WARN  AuthorizationFilter:35 - Session of this user has status: off. Redirect on login page.

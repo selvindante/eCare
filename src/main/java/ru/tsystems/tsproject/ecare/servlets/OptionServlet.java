@@ -113,8 +113,8 @@ public class OptionServlet extends HttpServlet {
             case "updateOption":
                 try {
                     option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
-                    optionService.clearDependentOptions(option);
-                    optionService.clearIncompatibleOptions(option);
+                    //optionService.clearDependentOptions(option);
+                    //optionService.clearIncompatibleOptions(option);
 
                     String dependentOptionsArray1[] = req.getParameterValues("dependentOptions");
                     if(dependentOptionsArray1 != null) {
@@ -168,42 +168,78 @@ public class OptionServlet extends HttpServlet {
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 break;
             case "removeDependentOption":
-                option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
-                dependentOption = optionService.loadOption(Long.valueOf(req.getParameter("dependentOptionId")));
-                option = optionService.deleteDependentOption(option, dependentOption);
-                optionService.deleteDependentOption(dependentOption, option);
-                req.setAttribute("option", option);
-                tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
-                req.setAttribute("tariff", tariff);
-                req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                try {
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    dependentOption = optionService.loadOption(Long.valueOf(req.getParameter("dependentOptionId")));
+                    option = optionService.deleteDependentOption(option, dependentOption);
+                    optionService.deleteDependentOption(dependentOption, option);
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                } catch(ECareException ecx) {
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
+                }
                 break;
             case "removeAllDependentOptions":
-                option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
-                optionService.clearDependentOptions(option);
-                option = optionService.saveOrUpdateOption(option);
-                req.setAttribute("option", option);
-                tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
-                req.setAttribute("tariff", tariff);
-                req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                try{
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    optionService.clearDependentOptions(option);
+                    option = optionService.saveOrUpdateOption(option);
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                } catch(ECareException ecx) {
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
+                }
                 break;
             case "removeIncompatibleOption":
-                option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
-                incompatibleOption = optionService.loadOption(Long.valueOf(req.getParameter("incompatibleOptionId")));
-                option = optionService.deleteIncompatibleOption(option, incompatibleOption);
-                optionService.deleteIncompatibleOption(incompatibleOption, option);
-                req.setAttribute("option", option);
-                tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
-                req.setAttribute("tariff", tariff);
-                req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                try{
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    incompatibleOption = optionService.loadOption(Long.valueOf(req.getParameter("incompatibleOptionId")));
+                    option = optionService.deleteIncompatibleOption(option, incompatibleOption);
+                    optionService.deleteIncompatibleOption(incompatibleOption, option);
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                } catch(ECareException ecx) {
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
+                }
                 break;
             case "removeAllIncompatibleOptions":
-                option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
-                optionService.clearIncompatibleOptions(option);
-                option = optionService.saveOrUpdateOption(option);
-                req.setAttribute("option", option);
-                tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
-                req.setAttribute("tariff", tariff);
-                req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                try{
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    optionService.clearIncompatibleOptions(option);
+                    option = optionService.saveOrUpdateOption(option);
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.getRequestDispatcher("/option.jsp").forward(req, resp);
+                } catch(ECareException ecx) {
+                    option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
+                    req.setAttribute("option", option);
+                    tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
+                    req.setAttribute("tariff", tariff);
+                    req.setAttribute("errormessage", ecx.getMessage());
+                    req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
+                }
                 break;
             default: break;
         }

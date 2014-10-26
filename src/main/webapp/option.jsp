@@ -32,7 +32,7 @@
     </form>
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         Option:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
@@ -97,7 +97,7 @@
             List of dependent options:
             <c:choose>
             <c:when test="${option.getDependentOptions().size() != 0}">
-            <a class="inline-link" href="#" onclick="document.getElementById('formId5').submit()">(clear list)</a>
+            <a class="inline-link-delete" title="Clear all dependencies" href="#" onclick="document.getElementById('formId5').submit()"></a>
 
             <form id="formId5" method="post" action="option" enctype="application/x-www-form-urlencoded">
                 <input type="hidden" name="id" value="${option.id}">
@@ -124,7 +124,7 @@
                             Cost of connection
                         </td>
                         <td>
-                            Remove
+                                ${HtmlUtil.EMPTY_TD}
                         </td>
                     </tr>
                     <c:forEach var="dependentOption" items="${option.getDependentOptions()}">
@@ -149,7 +149,7 @@
                                     <input type="hidden" name="action" value="removeDependentOption">
                                     <input type="hidden" name="sessionRole" value=${session.role}>
                                     <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                    <a class="inline-link" href="#" onclick="document.getElementById('formId5${dependentOption.id}').submit()">(remove)</a>
+                                    <a class="inline-link-delete" title="Remove dependency" href="#" onclick="document.getElementById('formId5${dependentOption.id}').submit()"></a>
                                 </form>
                             </td>
                         </tr>
@@ -169,7 +169,7 @@
             List of incompatible options:
             <c:choose>
             <c:when test="${option.getIncompatibleOptions().size() != 0}">
-            <a class="inline-link" href="#" onclick="document.getElementById('formId6').submit()">(clear list)</a>
+            <a class="inline-link-delete" title="Clear all incompatibilities" href="#" onclick="document.getElementById('formId6').submit()"></a>
 
         <form id="formId6" method="post" action="option" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="id" value="${option.id}">
@@ -196,7 +196,7 @@
                     Cost of connection
                 </td>
                 <td>
-                    Remove
+                        ${HtmlUtil.EMPTY_TD}
                 </td>
             </tr>
             <c:forEach var="incompatibleOption" items="${option.getIncompatibleOptions()}">
@@ -221,7 +221,7 @@
                             <input type="hidden" name="action" value="removeIncompatibleOption">
                             <input type="hidden" name="sessionRole" value=${session.role}>
                             <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                            <a class="inline-link" href="#" onclick="document.getElementById('formId6${incompatibleOption.id}').submit()">(remove)</a>
+                            <a class="inline-link-delete" title="Remove incompatibility" href="#" onclick="document.getElementById('formId6${incompatibleOption.id}').submit()"></a>
                         </form>
                     </td>
                 </tr>

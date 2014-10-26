@@ -8,7 +8,10 @@ import ru.tsystems.tsproject.ecare.entities.Option;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * This class is the implementation of IOptionService for working with option DAO
@@ -328,11 +331,20 @@ public class OptionService implements IOptionService {
     @Override
     public void clearDependentOptions(Option currentOption) {
         logger.info("Remove all dependent options from option id: " + currentOption.getId() + ".");
-        for (Option o: currentOption.getDependentOptions()) {
+        Set<Option> options = currentOption.getDependentOptions();
+        Collections.synchronizedSet(options);
+        Iterator<Option> it = options.iterator();
+        while(it.hasNext()) {
+            // For every dependent option for current option: remove dependency.
+            Option o = it.next();
+            deleteDependentOption(o, currentOption);
+            saveOrUpdateOption(o);
+        }
+        /*for (Option o: currentOption.getDependentOptions()) {
             // For every dependent option for current option: remove dependency.
                 deleteDependentOption(o, currentOption);
                 saveOrUpdateOption(o);
-            }
+            }*/
         // Remove all dependent options for current option.
         currentOption.getDependentOptions().clear();
         logger.info("All dependent options removed from option id: " + currentOption.getId() + ".");
@@ -401,11 +413,20 @@ public class OptionService implements IOptionService {
     @Override
     public void clearIncompatibleOptions(Option currentOption) {
         logger.info("Remove all incompatible options from option id: " + currentOption.getId() + ".");
-        for (Option o: currentOption.getIncompatibleOptions()) {
+        Set<Option> options = currentOption.getIncompatibleOptions();
+        Collections.synchronizedSet(options);
+        Iterator<Option> it = options.iterator();
+        while(it.hasNext()) {
             // For every incompatible option for current option: remove incompatibility.
+            Option o = it.next();
             deleteIncompatibleOption(o, currentOption);
             saveOrUpdateOption(o);
         }
+        /*for (Option o: currentOption.getIncompatibleOptions()) {
+            // For every incompatible option for current option: remove incompatibility.
+            deleteIncompatibleOption(o, currentOption);
+            saveOrUpdateOption(o);
+        }*/
         // Remove all incompatible options for current option.
         currentOption.getIncompatibleOptions().clear();
         logger.info("All incompatible options removed from option id: " + currentOption.getId() + ".");

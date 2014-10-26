@@ -24,7 +24,7 @@
     </form>
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         New contract:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
     </h3>

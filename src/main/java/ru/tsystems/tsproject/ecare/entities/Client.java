@@ -174,7 +174,6 @@ public class Client implements Comparable<Client>{
         return "Client{" +
                 "name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", birthDate=" + birthDate +
                 ", passport=" + passport +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
@@ -193,7 +192,6 @@ public class Client implements Comparable<Client>{
 
         if (passport != client.passport) return false;
         if (address != null ? !address.equals(client.address) : client.address != null) return false;
-        if (birthDate != null ? !birthDate.equals(client.birthDate) : client.birthDate != null) return false;
         if (!email.equals(client.email)) return false;
         if (lastname != null ? !lastname.equals(client.lastname) : client.lastname != null) return false;
         if (name != null ? !name.equals(client.name) : client.name != null) return false;
@@ -206,7 +204,6 @@ public class Client implements Comparable<Client>{
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
-        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + (int) (passport ^ (passport >>> 32));
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + email.hashCode();

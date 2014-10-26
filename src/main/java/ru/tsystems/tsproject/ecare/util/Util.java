@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.util;
 
+import org.apache.log4j.Logger;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
@@ -16,6 +17,9 @@ public class Util {
     /*Client service instance for method of checking telephone number on existing*/
     private static IClientService clientService = ClientService.getInstance();
 
+    /*Logger for util operations*/
+    private static Logger logger = Logger.getLogger(Util.class);
+
     /**
      * Method checks string on length. Must be less than 60 symbols (in this app).
      *
@@ -29,6 +33,7 @@ public class Util {
         }
         else {
             ECareException ecx = new ECareException("Too big length of the input string.");
+            logger.warn(ecx.getMessage(), ecx);
             throw ecx;
         }
     }
@@ -46,6 +51,7 @@ public class Util {
         }
         else {
             ECareException ecx = new ECareException("Required string is empty.");
+            logger.warn(ecx.getMessage(), ecx);
             throw ecx;
         }
     }
@@ -63,10 +69,12 @@ public class Util {
             if (intDigit > 0) return intDigit;
             else {
                 ECareException ecx = new ECareException("Entered the wrong data format.");
+                logger.warn(ecx.getMessage(), ecx);
                 throw ecx;
             }
         }catch (NumberFormatException nfx) {
             ECareException ecx = new ECareException("Entered the wrong data format.", nfx);
+            logger.warn(ecx.getMessage(), nfx);
             throw ecx;
         }
     }
@@ -84,10 +92,12 @@ public class Util {
             if (longDigit > 0) return longDigit;
             else {
                 ECareException ecx = new ECareException("Entered the wrong data format.");
+                logger.warn(ecx.getMessage(), ecx);
                 throw ecx;
             }
         }catch (NumberFormatException nfx) {
             ECareException ecx = new ECareException("Entered the wrong data format.", nfx);
+            logger.warn(ecx.getMessage(), nfx);
             throw ecx;
         }
     }
@@ -104,6 +114,7 @@ public class Util {
             return java.sql.Date.valueOf(s);
         } catch (IllegalArgumentException iax) {
             ECareException ecx = new ECareException("Entered the wrong format of Date.", iax);
+            logger.warn(ecx.getMessage(), ecx);
             throw ecx;
         }
     }
@@ -120,6 +131,7 @@ public class Util {
         if(password1.equals(password2)) return password1;
         else {
             ECareException ecx = new ECareException("Entered passwords do not match.");
+            logger.warn(ecx.getMessage(), ecx);
             throw ecx;
         }
     }
@@ -140,9 +152,11 @@ public class Util {
                 return number;
             }
             ECareException ecx = new ECareException("Entered telephone number already exist.");
+            logger.warn(ecx.getMessage(), ecx);
             throw ecx;
         } catch (NumberFormatException nfx) {
             ECareException ecx = new ECareException("Wrong format of entered telephone number.", nfx);
+            logger.warn(ecx.getMessage(), ecx);
             throw ecx;
         }
     }
@@ -157,6 +171,7 @@ public class Util {
     public static String checkLoginOnExisting(String s) throws ECareException {
         if(clientService.existLogin(s)) {
             ECareException ecx = new ECareException("Entered e-mail (login) already exist.");
+            logger.warn(ecx.getMessage(), ecx);
             throw ecx;
         }
         else return s;

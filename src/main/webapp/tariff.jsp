@@ -31,7 +31,7 @@
     </form>
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         Tariff:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
@@ -80,20 +80,22 @@
                 <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Create new option</a>
             </form>
 
-            <%--<a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=createOption'>Create new option</a>--%>
         </p>
         <br>
         <p>
             List of available options:
             <c:choose>
                 <c:when test="${tariff.getOptions().size() != 0}">
-                    <a class="inline-link" href="#" onclick="document.getElementById('formId5').submit()">(clear list)</a>
+
+                    <%--<a class="inline-link" href="#" onclick="document.getElementById('formId5').submit()">(clear list)</a>
+
                     <form id="formId5" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
                         <input type="hidden" name="id" value="${tariff.id}">
                         <input type="hidden" name="action" value="deleteAllOptions">
                         <input type="hidden" name="sessionRole" value=${session.role}>
                         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                    </form>
+                    </form>--%>
+
                     </p>
                     <br>
                     <table>
@@ -111,7 +113,7 @@
                                 Cost of connection
                             </td>
                             <td>
-                                Delete
+                                    ${HtmlUtil.EMPTY_TD}
                             </td>
                         </tr>
                         <c:forEach var="option" items="${tariff.getOptions()}">
@@ -127,7 +129,6 @@
                                         <a class="inline-link" href="#" onclick="document.getElementById('formId6${option.id}').submit()">${option.id}</a>
                                     </form>
 
-                                    <%--<a href='<%=request.getContextPath()%>option?id=${option.id}&action=viewOption'>${option.id}</a>--%>
                                 </td>
                                 <td>
                                         ${option.title}
@@ -146,10 +147,9 @@
                                         <input type="hidden" name="tariffId" value=${tariff.id}>
                                         <input type="hidden" name="sessionRole" value=${session.role}>
                                         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                        <a class="inline-link" href="#" onclick="document.getElementById('formId7${option.id}').submit()">(delete)</a>
+                                        <a class="inline-link-delete" title="Delete option" href="#" onclick="document.getElementById('formId7${option.id}').submit()"></a>
                                     </form>
 
-                                    <%--<a href='<%=request.getContextPath()%>option?id=${option.id}&action=deleteOption'>(delete)</a>--%>
                                 </td>
                             </tr>
                         </c:forEach>

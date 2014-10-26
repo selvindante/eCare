@@ -25,7 +25,7 @@
     </form>
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         List of tariffs:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
@@ -65,13 +65,13 @@
 
             <c:choose>
                 <c:when test="${tariffs.size() != 0}">
-                    <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">(clear list)</a>
+                    <%--<a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">(clear list)</a>
 
                     <form id="formId4" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
                         <input type="hidden" name="action" value="deleteAllClients">
                         <input type="hidden" name="sessionRole" value=${session.role}>
                         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                    </form>
+                    </form>--%>
 
                     </p>
                     <br>
@@ -87,7 +87,7 @@
                                 Price
                             </td>
                             <td>
-                                Delete
+                                    ${HtmlUtil.EMPTY_TD}
                             </td>
                         </tr>
                         <c:forEach var="tariff" items="${tariffs}">
@@ -102,7 +102,6 @@
                                         <a class="inline-link" href="#" onclick="document.getElementById('formId5${tariff.id}').submit()">${tariff.id}</a>
                                     </form>
 
-                                    <%--<a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=viewTariff'>${tariff.id}</a>--%>
                                 </td>
                                 <td>
                                         ${tariff.title}
@@ -117,10 +116,9 @@
                                         <input type="hidden" name="action" value="deleteTariff">
                                         <input type="hidden" name="sessionRole" value=${session.role}>
                                         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                        <a class="inline-link" href="#" onclick="document.getElementById('formId6${tariff.id}').submit()">(delete)</a>
+                                        <a class="inline-link-delete" title="Delete tariff" href="#" onclick="document.getElementById('formId6${tariff.id}').submit()"></a>
                                     </form>
 
-                                    <%--<a href='<%=request.getContextPath()%>tariff?id=${tariff.id}&action=deleteTariff'>delete</a>--%>
                                 </td>
                             </tr>
                         </c:forEach>

@@ -41,6 +41,7 @@ public class ContractCreationServlet extends HttpServlet {
         Client client = clientService.loadClient(clientId);
         req.setAttribute("client", client);
         try {
+            logger.info("Creating of new contract with number: " + req.getParameter("number") + ".");
             long number = Util.checkNumberOnExisting(req.getParameter("number"));
             Contract contract = new Contract(client, number, null, false, false);
             client.addContract(contract);

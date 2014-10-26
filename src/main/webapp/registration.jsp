@@ -12,7 +12,7 @@
 <div class="outer-wrapper clearfix">
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         Registration:
     </h3>
 

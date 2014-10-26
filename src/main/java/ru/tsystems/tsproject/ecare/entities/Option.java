@@ -1,8 +1,8 @@
 package ru.tsystems.tsproject.ecare.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Selvin
@@ -46,7 +46,7 @@ public class Option implements Comparable<Option>{
                     joinColumns={ @JoinColumn(name="option_id", referencedColumnName="option_id") },
                     inverseJoinColumns={ @JoinColumn(name="dependent_option_id", referencedColumnName="option_id") }
             )
-    private List<Option> dependentOptions = new ArrayList<>();
+    private Set<Option> dependentOptions = new HashSet<>();
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable
@@ -55,7 +55,7 @@ public class Option implements Comparable<Option>{
                     joinColumns={ @JoinColumn(name="option_id", referencedColumnName="option_id") },
                     inverseJoinColumns={ @JoinColumn(name="incompatible_option_id", referencedColumnName="option_id") }
             )
-    private List<Option> incompatibleOptions = new ArrayList<>();
+    private Set<Option> incompatibleOptions = new HashSet<>();
 
     public Option() {
     }
@@ -103,11 +103,11 @@ public class Option implements Comparable<Option>{
         return tariff;
     }
 
-    public List<Option> getDependentOptions() {
+    public Set<Option> getDependentOptions() {
         return dependentOptions;
     }
 
-    public void setDependentOptions(List<Option> dependentOptions) {
+    public void setDependentOptions(Set<Option> dependentOptions) {
         this.dependentOptions = dependentOptions;
     }
 
@@ -119,7 +119,7 @@ public class Option implements Comparable<Option>{
         this.dependentOptions.remove(op);
     }
 
-    public List<Option> getIncompatibleOptions() {
+    public Set<Option> getIncompatibleOptions() {
         return incompatibleOptions;
     }
 

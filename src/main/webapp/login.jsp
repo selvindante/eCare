@@ -13,8 +13,8 @@
     <div class="outer-wrapper clearfix">
 
         <h3>
-            LOGO
-            Authorization
+            <div class="h3-logo"></div>
+            Authorization:
         </h3>
 
         <c:if test="${errormessage != null}">

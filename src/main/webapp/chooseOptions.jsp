@@ -24,7 +24,7 @@
     </form>
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         Available options:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">Back to tariffs</a>
@@ -189,7 +189,6 @@
                         </c:forEach>
 
                     </p>
-                    <br>
 
                 </c:if>
 

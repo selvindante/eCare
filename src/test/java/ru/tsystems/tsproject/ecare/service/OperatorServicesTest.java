@@ -5,8 +5,6 @@ import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -52,11 +50,6 @@ public class OperatorServicesTest {
         OP21 = TR2.getOptions().get(0);
         OP22 = TR2.getOptions().get(1);
         OP23 = TR2.getOptions().get(2);
-        /*OP11 = optionService.findOptionByTitleAndTariffId(OP11.getTitle(), TR1.getId());
-        OP12 = optionService.findOptionByTitleAndTariffId(OP12.getTitle(), TR1.getId());
-        OP21 = optionService.findOptionByTitleAndTariffId(OP21.getTitle(), TR2.getId());
-        OP22 = optionService.findOptionByTitleAndTariffId(OP22.getTitle(), TR2.getId());
-        OP23 = optionService.findOptionByTitleAndTariffId(OP23.getTitle(), TR2.getId());*/
     }
 
     @Test
@@ -70,21 +63,6 @@ public class OperatorServicesTest {
         tariffService.deleteTariff(TR1.getId());
         Assert.assertEquals(tariffsNumber + 1l, tariffService.getNumberOfTariffs());
         tariffService.deleteTariff(TR2.getId());
-        Assert.assertEquals(tariffsNumber, tariffService.getNumberOfTariffs());
-    }
-
-    @Test
-    public void testGetAllTariffs() throws Exception {
-        Tariff[] tariffs = new Tariff[]{TR1, TR2};
-        Arrays.sort(tariffs);
-        List<Tariff> loadedTariffs = tariffService.getAllTariffs();
-        Collections.sort(loadedTariffs);
-        Assert.assertArrayEquals(tariffs, loadedTariffs.toArray());
-    }
-
-    @Test
-    public void testDeleteAllTariffs() throws Exception {
-        tariffService.deleteAllTariffs();
         Assert.assertEquals(tariffsNumber, tariffService.getNumberOfTariffs());
     }
 
@@ -130,7 +108,7 @@ public class OperatorServicesTest {
         TR1.getOptions().remove(OP11);
         tariffService.saveOrUpdateTariff(TR1);
         optionService.deleteOption(OP11.getId());
-        Assert.assertEquals(optionsNumber + 5l, optionService.getNumberOfOptions());
+        Assert.assertEquals(optionsNumber + 6l, optionService.getNumberOfOptions());
         TR1.addOption(OP11);
         TR1 = tariffService.saveOrUpdateTariff(TR1);
     }
@@ -142,30 +120,23 @@ public class OperatorServicesTest {
         Assert.assertArrayEquals(options2, loadedOptions2.toArray());
     }
 
-    @Test
-    public void testDeleteAllOptions() throws Exception {
-        optionService.deleteAllOptionsForTariff(TR1.getId());
-        optionService.deleteAllOptionsForTariff(TR2.getId());
-        Assert.assertEquals(optionsNumber, optionService.getNumberOfOptions());
-    }
-
-    @Test
+    /*@Test
     public void testSetDependentOption() throws Exception {
         Option dependentOP11 = new Option(TR1, "Dependent Option 11", 2, 300);
         TR1.addOption(dependentOP11);
         optionService.setDependentOption(OP11, dependentOP11);
         TR1 = tariffService.saveOrUpdateTariff(TR1);
         Assert.assertEquals(dependentOP11, OP11.getDependentOptions().get(0));
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void testSetIncompatibleOption() throws Exception {
         Option incompatibleOP11 = new Option(TR1, "Incompatible Option 11", 3, 220);
         TR1.addOption(incompatibleOP11);
         optionService.setIncompatibleOption(OP11, incompatibleOP11);
         TR1 = tariffService.saveOrUpdateTariff(TR1);
         Assert.assertEquals(incompatibleOP11, OP11.getIncompatibleOptions().get(1));
-    }
+    }*/
 
     @Test(expected = ECareException.class)
     public void testSetDependentOptionWhichIsIncompatible() throws Exception {

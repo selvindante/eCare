@@ -43,7 +43,7 @@ public class Contract implements Comparable<Contract>{
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable
             (
                     name="connected_option",

@@ -7,10 +7,7 @@ import ru.tsystems.tsproject.ecare.entities.Contract;
 import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Selvin
@@ -30,47 +27,57 @@ public class ClientServicesTest {
     private static long clientsNumber;
     private static long contractsNumber;
 
-    @BeforeClass
-    public static void beforeClass() {
-        TR1 = new Tariff("Tariff1", 300);
-        OP11 = new Option(TR1, "Option11", 5, 120);
-        OP12 = new Option(TR1, "Option12", 4, 100);
-        OP13 = new Option(TR1, "Option13", 5, 50);
-        OP14 = new Option(TR1, "Option14", 10, 100);
-        OP15 = new Option(TR1, "Option15", 2, 110);
+    @Before
+    public void before() {
+        clientsNumber = clientService.getNumberOfClients();
+        contractsNumber = contractService.getNumberOfContracts();
+
+        TR1 = new Tariff("tTariff1", 300);
+        TR1 = tariffService.saveOrUpdateTariff(TR1);
+
+        OP11 = new Option(TR1, "tOption11", 5, 120);
+        OP11 = optionService.saveOrUpdateOption(OP11);
+
+        OP12 = new Option(TR1, "tOption12", 4, 100);
+        OP12 = optionService.saveOrUpdateOption(OP12);
+
+        OP13 = new Option(TR1, "tOption13", 5, 50);
+        OP13 = optionService.saveOrUpdateOption(OP13);
+
+        OP14 = new Option(TR1, "tOption14", 10, 100);
+        OP14 = optionService.saveOrUpdateOption(OP14);
+
+        OP15 = new Option(TR1, "tOption15", 2, 110);
+        OP15 = optionService.saveOrUpdateOption(OP15);
+
         TR1.addOption(OP11);
         TR1.addOption(OP12);
         TR1.addOption(OP13);
         TR1.addOption(OP14);
         TR1.addOption(OP15);
+
         OP11.addDependentOption(OP12);
         OP11.addIncompatibleOption(OP14);
+
         TR1 = tariffService.saveOrUpdateTariff(TR1);
-        OP11 = TR1.getOptions().get(0);
-        OP12 = TR1.getOptions().get(1);
-        OP13 = TR1.getOptions().get(2);
-        OP14 = TR1.getOptions().get(3);
-        OP15 = TR1.getOptions().get(4);
 
         CL1 = new Client("Ivan", null, null, 9234132135l, "SPB", "ivanov@mail.ru", "password", "client", 1000);
+        CL1 = clientService.saveOrUpdateClient(CL1);
 
         CL2 = new Client("Semen", "Semenov", new Date(), 98274560923l, "Moscow", "semenov@mail.ru", "Qwerty123", "client", 1000);
+        CL2 = clientService.saveOrUpdateClient(CL2);
+
+        CN21 = new Contract(CL2, 12345643l, null, false, false);
 
         CL3 = new Client("Petr", "Petrov", new Date(), 9582450345l, "Sankt-Peterburg", "petrov@mail.ru", "petrov51spb", "client", 2000);
+        CL3 = clientService.saveOrUpdateClient(CL3);
+
         CN31 = new Contract(CL3, 89652345090l, TR1, false, false);
+        CN31 = contractService.saveOrUpdateContract(CN31);
         CN31 = contractService.enableOption(CN31, OP11);
         CN31 = contractService.enableOption(CN31, OP13);
         CL3.addContract(CN31);
-    }
-
-    @Before
-    public void before() {
-        clientsNumber = clientService.getNumberOfClients();
-        contractsNumber = contractService.getNumberOfContracts();
-        CL1 = clientService.saveOrUpdateClient(CL1);
-        CL2 = clientService.saveOrUpdateClient(CL2);
         CL3 = clientService.saveOrUpdateClient(CL3);
-        CN31 = CL3.getContracts().get(0);
     }
 
     @Test
@@ -109,15 +116,7 @@ public class ClientServicesTest {
         Assert.assertEquals(clientsNumber + 1l, clientService.getNumberOfClients());
         clientService.deleteClient(CL3.getId());
         Assert.assertEquals(clientsNumber, clientService.getNumberOfClients());
-    }
-
-    @Test
-    public void testGetAllClients() throws Exception {
-        Client[] clients = new Client[]{CL1, CL2, CL3};
-        Arrays.sort(clients);
-        List<Client> loadedClients = clientService.getAllClients();
-        Collections.sort(loadedClients);
-        Assert.assertArrayEquals(clients, loadedClients.toArray());
+        tariffService.deleteTariff(TR1.getId());
     }
 
     @Test(expected = ECareException.class)
@@ -145,52 +144,9 @@ public class ClientServicesTest {
     }
 
     @Test
-    public void testChooseTariffAndOptionsForContract() throws Exception {
-        CN21 = contractService.findContractByNumber(CN21.getNumber());
-        CN21.setTariff(tariffService.loadTariff(TR1.getId()));
-        CN21 = contractService.enableOption(CN21, OP11);
-        CN21 = contractService.enableOption(CN21, OP15);
-        CN21 = contractService.saveOrUpdateContract(CN21);
-        Assert.assertEquals(CN21, contractService.loadContract(CN21.getId()));
-        CN21 = contractService.disableOption(CN21, OP11);
-        CN21 = contractService.saveOrUpdateContract(CN21);
-        Assert.assertEquals(CN21, contractService.loadContract(CN21.getId()));
-        CN21.getOptions().clear();
-        CN21.setTariff(null);
-        CN21 = contractService.saveOrUpdateContract(CN21);
-    }
-
-    /*@Test(expected = ECareException.class)
-    public void testChooseTariffAndIncompatibleOptionsForContract() throws Exception {
-        CN21 = contractService.findContractByNumber(CN21.getNumber());
-        CN21.setTariff(tariffService.loadTariff(TR1.getId()));
-        CN21 = contractService.enableOption(CN21, OP11);
-        CN21 = contractService.enableOption(CN21, OP14);
-        CN21 = contractService.saveOrUpdateContract(CN21);
-        assertEquals(CN21, contractService.loadContract(CN21.getId()));
-    }*/
-
-    @Test
     public void testDeleteContract() throws Exception {
         contractService.deleteContract(CN31.getId());
         Assert.assertEquals(contractsNumber + 1l, contractService.getNumberOfContracts());
-    }
-
-    @Test
-    public void testGetAllContracts() throws Exception {
-        Contract[] contracts = new Contract[]{CN31};
-        Arrays.sort(contracts);
-        List<Contract> loadedContracts = contractService.getAllContracts();
-        Collections.sort(loadedContracts);
-        Assert.assertArrayEquals(contracts, loadedContracts.toArray());
-    }
-
-    @Test
-    public void testGetAllContractsForClient() throws Exception {
-        Contract[] contracts = new Contract[]{CN31};
-        List<Contract> loadedContracts = contractService.getAllContractsForClient(CL3.getId());
-        Collections.sort(loadedContracts);
-        Assert.assertArrayEquals(contracts, loadedContracts.toArray());
     }
 
     @Test(expected = ECareException.class)
@@ -206,9 +162,10 @@ public class ClientServicesTest {
     @After
     public void after() {
         if(clientService.getNumberOfClients() > clientsNumber) {
-            clientService.deleteClient(CL1.getId());
-            clientService.deleteClient(CL2.getId());
-            clientService.deleteClient(CL3.getId());
+            if(clientService.existLogin(CL1.getEmail())) clientService.deleteClient(CL1.getId());
+            if(clientService.existLogin(CL2.getEmail())) clientService.deleteClient(CL2.getId());
+            if(clientService.existLogin(CL3.getEmail())) clientService.deleteClient(CL3.getId());
+            tariffService.deleteTariff(TR1.getId());
         }
     }
 }

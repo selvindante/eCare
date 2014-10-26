@@ -17,10 +17,17 @@
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
     </form>
 
+    <form id="formId2" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="viewAllTariffs">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         Dashboard:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
+        <a class="h3-link" href="#" onclick="document.getElementById('formId2').submit()">To tariffs list</a>
     </h3>
 
     <c:if test="${errormessage != null}">
@@ -52,31 +59,22 @@
                 <button type="submit" class="modern">Search</button>
             </p>
         </form>
-        <br>
-        <p>
-            <form id="formId2" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
-                <input type="hidden" name="action" value="viewAllTariffs">
-                <input type="hidden" name="sessionRole" value=${session.role}>
-                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                <a class="inline-link" href="#" onclick="document.getElementById('formId2').submit()">View all tariffs</a>
-            </form>
-        </p>
 
     </div>
 
     <div class="inner-wrapper">
 
         <p>
-            List of clients: <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">(clear list)</a>
+            List of clients: <%--<a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">(clear list)</a>
 
             <form id="formId3" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
                 <input type="hidden" name="action" value="deleteAllClients">
                 <input type="hidden" name="sessionRole" value=${session.role}>
                 <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-            </form>
+            </form>--%>
 
             <c:choose>
-                <c:when test="${contract.getOptions().size() != 0}">
+                <c:when test="${clientsList.size() != 0}">
                 </p>
                 <br>
                     <table>
@@ -92,6 +90,9 @@
                             </td>
                             <td>
                                 E-mail
+                            </td>
+                            <td>
+                                    ${HtmlUtil.EMPTY_TD}
                             </td>
                         </tr>
                         <c:forEach var="client" items="${clientsList}">
@@ -117,14 +118,13 @@
                                         ${client.email}
                                 </td>
                                 <td>
-                                    <%--<a href='<%=request.getContextPath()%>dashboard?id=${client.id}&action=deleteClient' class="inline-link">delete</a>--%>
 
                                     <form id="formId3${client.id}" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
                                         <input type="hidden" name="id" value=${client.id}>
                                         <input type="hidden" name="action" value="deleteClient">
                                         <input type="hidden" name="sessionRole" value=${session.role}>
                                         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                                        <a class="inline-link" href="#" onclick="document.getElementById('formId3${client.id}').submit()">delete</a>
+                                        <a class="inline-link-delete" title="Delete client" href="#" onclick="document.getElementById('formId3${client.id}').submit()"></a>
                                     </form>
 
                                 </td>

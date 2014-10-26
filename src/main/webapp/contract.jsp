@@ -24,7 +24,7 @@
     </form>
 
     <h3>
-        LOGO
+        <div class="h3-logo"></div>
         Contract:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">Client page</a>
