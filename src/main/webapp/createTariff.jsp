@@ -12,7 +12,7 @@
 
 <div class="outer-wrapper clearfix">
 
-    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="action" value="logout">
         <input type="hidden" name="sessionRole" value=${session.role}>
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
@@ -29,7 +29,9 @@
         Creating of tariff:
         <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
         <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
-    </h3>
+    </h3>--%>
+
+    <jsp:include page="header.jsp"></jsp:include>
 
     <c:if test="${errormessage != null}">
         <div class="inner-wrapper-error">

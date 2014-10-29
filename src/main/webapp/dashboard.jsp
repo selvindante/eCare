@@ -8,59 +8,50 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Operator's dashboard</title>
 </head>
+<body>
 
 <div class="outer-wrapper clearfix">
 
-    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+    <%--<form id="h3ExitForm" method="post" action="login" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="action" value="logout">
         <input type="hidden" name="sessionRole" value=${session.role}>
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
     </form>
 
-    <form id="formId2" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+    <form id="h3TariffsForm" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="action" value="viewAllTariffs">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
+    <form id="h3DashboardForm" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="action" value="viewDashboard">
+        <input type="hidden" name="sessionRole" value=${session.role}>
+        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+    </form>
+
+    <form id="h3ClientForm" method="post" action="client" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="id" value=${client.id}>
+        <input type="hidden" name="action" value="viewClient">
         <input type="hidden" name="sessionRole" value=${session.role}>
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
     </form>
 
     <h3>
         <div class="h3-logo"></div>
-        Dashboard:
-        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
-        <a class="h3-link" href="#" onclick="document.getElementById('formId2').submit()">To tariffs list</a>
-    </h3>
+        <a href="#" onclick="document.getElementById('h3ExitForm').submit()" class="h3-link">EXIT</a>
+        <c:choose>
+            <c:when test="${session.role == 'admin'}">
+                <a class="h3-link" href="#" onclick="document.getElementById('h3TariffsForm').submit()">TARIFFS</a>
+                <a class="h3-link" href="#" onclick="document.getElementById('h3DashboardForm').submit()">DASHBOARD</a>
+            </c:when>
+            <c:otherwise>
+                <a class="h3-link" href="#" onclick="document.getElementById('h3ClientForm').submit()">CLIENT</a>
+            </c:otherwise>
+        </c:choose>
+    </h3>--%>
 
-    <c:if test="${errormessage != null}">
-        <div class="inner-wrapper-error">
-            <p>
-                Error: ${errormessage}
-            </p>
-        </div>
-    </c:if>
-
-    <div class="inner-wrapper">
-
-        <p>
-            Role(temporary): ${session.role}
-        </p>
-        <p>
-            Session(temporary): ${session.isOn()}
-        </p>
-        <br>
-        <p>
-            Search client by phone number:
-        </p>
-        <form method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
-            <p>
-                <input type="hidden" name="action" value="searchClientByNumber">
-                <input type="hidden" name="sessionRole" value=${session.role}>
-                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                Number: <input type="text" placeholder="telephone number" class="simple-input" name="number" size=20 value="">
-                <button type="submit" class="modern">Search</button>
-            </p>
-        </form>
-
-    </div>
+    <jsp:include page="header.jsp"></jsp:include>
 
     <div class="inner-wrapper">
 
@@ -141,5 +132,7 @@
     </div>
 
 </div>
+
+</body>
 
 </html>

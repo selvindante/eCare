@@ -9,6 +9,7 @@ import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
 import ru.tsystems.tsproject.ecare.service.ITariffService;
 import ru.tsystems.tsproject.ecare.service.TariffService;
+import ru.tsystems.tsproject.ecare.util.PageName;
 import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
@@ -43,6 +44,7 @@ public class DashboardServlet extends HttpServlet {
             case "viewDashboard":
                 clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
+                req.setAttribute("pagename", PageName.DASHBOARD.toString());
                 logger.info("User " + session.getRole() + " went to view dashboard page.");
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;
@@ -52,11 +54,14 @@ public class DashboardServlet extends HttpServlet {
                     logger.info("User " + session.getRole() + " searching of client by number " + number + ".");
                     Client client = clientService.findClientByNumber(number);
                     req.setAttribute("client", client);
+                    req.setAttribute("pagename", PageName.CLIENT.toString());
+                    req.setAttribute("successmessage", "Client " + client.getName() + " found and loaded from database.");
                     logger.info("User " + session.getRole() + " went to client page.");
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
                     clientsList = clientService.getAllClients();
                     req.setAttribute("clientsList", clientsList);
+                    req.setAttribute("pagename", PageName.DASHBOARD.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 }
@@ -64,6 +69,7 @@ public class DashboardServlet extends HttpServlet {
             case "viewAllTariffs":
                 List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("tariffs", tariffs);
+                req.setAttribute("pagename", PageName.TARIFFS.toString());
                 logger.info("User " + session.getRole() + " went to view all tariffs page.");
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;
@@ -73,6 +79,7 @@ public class DashboardServlet extends HttpServlet {
                 logger.info("User " + session.getRole() + " deleted are client with id:" + clientId + " from database.");
                 clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
+                req.setAttribute("pagename", PageName.DASHBOARD.toString());
                 logger.info("User " + session.getRole() + " went to view dashboard page.");
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;
@@ -81,6 +88,7 @@ public class DashboardServlet extends HttpServlet {
                 logger.info("User " + session.getRole() + " deleted all clients from database.");
                 clientsList = clientService.getAllClients();
                 req.setAttribute("clientsList", clientsList);
+                req.setAttribute("pagename", PageName.DASHBOARD.toString());
                 logger.info("User " + session.getRole() + " went to view dashboard page.");
                 req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                 break;

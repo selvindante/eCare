@@ -5,6 +5,7 @@ import ru.tsystems.tsproject.ecare.entities.Contract;
 import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 import ru.tsystems.tsproject.ecare.service.*;
+import ru.tsystems.tsproject.ecare.util.PageName;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,7 @@ public class ChooseTariffServlet extends HttpServlet {
             req.setAttribute("contract", contract);
             req.setAttribute("tariff", tariff);
             req.setAttribute("options", options);
+            req.setAttribute("pagename", PageName.CHOOSEOPTIONS.toString());
             req.getRequestDispatcher("/chooseOptions.jsp").forward(req, resp);
         }
     }

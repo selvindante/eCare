@@ -8,6 +8,7 @@ import ru.tsystems.tsproject.ecare.entities.Contract;
 import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 import ru.tsystems.tsproject.ecare.service.*;
+import ru.tsystems.tsproject.ecare.util.PageName;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +46,8 @@ public class ContractServlet extends HttpServlet {
         switch(action) {
             case "viewContract":
                 req.setAttribute("contract", contract);
+                req.setAttribute("client", contract.getClient());
+                req.setAttribute("pagename", PageName.CONTRACT.toString());
                 logger.info("User " + session.getRole() + " went to view contract page.");
                 req.getRequestDispatcher("/contract.jsp").forward(req, resp);
                 break;
@@ -54,6 +57,7 @@ public class ContractServlet extends HttpServlet {
                 client = clientService.saveOrUpdateClient(client);
                 contractService.deleteContract(contractId);
                 req.setAttribute("client", client);
+                req.setAttribute("pagename", PageName.CLIENT.toString());
                 logger.info("User " + session.getRole() + " deleted contract with id: " + contractId + " from database.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
@@ -61,6 +65,7 @@ public class ContractServlet extends HttpServlet {
                 contractService.blockByOperator(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                req.setAttribute("pagename", PageName.CLIENT.toString());
                 logger.info("Contract " + contract + " is blocked by operator.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
@@ -68,6 +73,7 @@ public class ContractServlet extends HttpServlet {
                 contractService.unblockByOperator(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                req.setAttribute("pagename", PageName.CLIENT.toString());
                 logger.info("Contract " + contract + " is unblocked by operator.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
@@ -75,6 +81,7 @@ public class ContractServlet extends HttpServlet {
                 contractService.blockByClient(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                req.setAttribute("pagename", PageName.CLIENT.toString());
                 logger.info("Contract " + contract + " is blocked by client.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
@@ -82,6 +89,7 @@ public class ContractServlet extends HttpServlet {
                 contractService.unblockByClient(contract);
                 client = clientService.findClientByNumber(contract.getNumber());
                 req.setAttribute("client", client);
+                req.setAttribute("pagename", PageName.CLIENT.toString());
                 logger.info("Contract " + contract + " is unblocked by client.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
@@ -89,6 +97,7 @@ public class ContractServlet extends HttpServlet {
                 List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("contract", contract);
                 req.setAttribute("tariffs", tariffs);
+                req.setAttribute("pagename", PageName.CHOOSETARIFF.toString());
                 logger.info("User " + session.getRole() + " went to change tariff page for contract " + contract + ".");
                 req.getRequestDispatcher("/chooseTariff.jsp").forward(req, resp);
                 break;
@@ -115,6 +124,8 @@ public class ContractServlet extends HttpServlet {
 
                     contract = contractService.saveOrUpdateContract(contract);
                     req.setAttribute("contract", contract);
+                    req.setAttribute("pagename", PageName.CONTRACT.toString());
+                    req.setAttribute("successmessage", "Tariff " + tariff.getTitle() + " is set to contract " + contract.getNumber() + ".");
                     logger.info("In contract " + contract + "set new tariff " + tariff + ".");
                     req.getRequestDispatcher("/contract.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
@@ -124,6 +135,7 @@ public class ContractServlet extends HttpServlet {
                     req.setAttribute("contract", contract);
                     req.setAttribute("tariff", tariff);
                     req.setAttribute("options", options);
+                    req.setAttribute("pagename", PageName.CHOOSEOPTIONS);
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/chooseOptions.jsp").forward(req, resp);
                 }

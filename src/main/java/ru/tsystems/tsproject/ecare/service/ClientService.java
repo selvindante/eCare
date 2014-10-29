@@ -41,10 +41,8 @@ public class ClientService implements IClientService {
      * This method return instance of singleton class ClientService.
      * @return instance of class.
      */
-    public static ClientService getInstance()
-    {
-        if (instance == null)
-        {
+    public static ClientService getInstance() {
+        if (instance == null) {
             instance = new ClientService();
         }
         return instance;
@@ -136,7 +134,7 @@ public class ClientService implements IClientService {
         try {
             et.begin();
             try {
-                // Search of client in the database by DAO method.
+                // Searching of client in the database by DAO method.
                 cl = clDAO.findClientByLoginAndPassword(login, password);
                 // If client does not exist in database, block try catches the NoResultException and
                 // throws an ECareException.

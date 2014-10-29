@@ -14,7 +14,6 @@
 
         <h3>
             <div class="h3-logo"></div>
-            Authorization:
         </h3>
 
         <c:if test="${errormessage != null}">

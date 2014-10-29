@@ -6,6 +6,7 @@ import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
+import ru.tsystems.tsproject.ecare.util.PageName;
 import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
@@ -46,6 +47,8 @@ public class RegistrationServlet extends HttpServlet {
             session.setRole("client");
             session.setOn(true);
             req.setAttribute("session", session);
+            req.setAttribute("pagename", PageName.CLIENT.toString());
+            req.setAttribute("successmessage", "Client " + client.getName() + " created and saved in database.");
 
             logger.info("New user(client): " + client + " has registered in application.");
 
@@ -57,6 +60,7 @@ public class RegistrationServlet extends HttpServlet {
             req.setAttribute("passport", req.getParameter("passport"));
             req.setAttribute("address", req.getParameter("address"));
             req.setAttribute("email", req.getParameter("email"));
+            req.setAttribute("pagename", PageName.REGISTRATION.toString());
             req.setAttribute("errormessage", ecx.getMessage());
             req.getRequestDispatcher("/registration.jsp").forward(req, resp);
         }

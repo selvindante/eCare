@@ -93,6 +93,11 @@ public class Client implements Comparable<Client>{
         return lastname;
     }
 
+    public String getFullName() {
+        if(lastname != null) return name + " " + lastname;
+        else return name;
+    }
+
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }

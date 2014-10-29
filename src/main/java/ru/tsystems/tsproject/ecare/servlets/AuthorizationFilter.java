@@ -13,16 +13,20 @@ import java.io.IOException;
 public class AuthorizationFilter implements Filter {
     Session session = null;
     private static Logger logger = Logger.getLogger(AuthorizationFilter.class);
+    long count = 0;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         session = Session.getInstance();
+        //count = 0;
     }
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain filterChain) throws IOException, ServletException {
 
-        logger.info("Checking of session by filter.");
+        count++;
+
+        logger.info("Checking of session by filter. Filter call count: " + count + ".");
         String action = req.getParameter("action");
         if(action != null) {
             if(action.equals("login") ||
@@ -31,7 +35,7 @@ public class AuthorizationFilter implements Filter {
                 filterChain.doFilter(req, resp);
             }
         }
-        if (!session.isOn()) {
+        if (count > 4 && !session.isOn()) {
             logger.warn("Session of this user has status: off. Redirect on login page.");
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }

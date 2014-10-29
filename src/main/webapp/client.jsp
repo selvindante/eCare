@@ -11,7 +11,7 @@
 
 <div class="outer-wrapper clearfix">
 
-    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="action" value="logout">
         <input type="hidden" name="sessionRole" value=${session.role}>
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
@@ -30,7 +30,9 @@
         <c:if test="${session.role == 'admin'}">
             <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To dashboard</a>
         </c:if>
-    </h3>
+    </h3>--%>
+
+    <jsp:include page="header.jsp"></jsp:include>
 
     <c:if test="${errormessage != null}">
         <div class="inner-wrapper-error">
@@ -41,13 +43,7 @@
     </c:if>
 
     <div class="inner-wrapper">
-        <p>
-            Role(temporary): ${session.role}
-        </p>
-        <p>
-            Session(temporary): ${session.isOn()}
-        </p>
-        <br>
+
         <p>
             Personal info: <a href="#" onclick="document.getElementById('formId3').submit()" class="inline-link-edit" title="Edit client personal info"></a>
         </p>

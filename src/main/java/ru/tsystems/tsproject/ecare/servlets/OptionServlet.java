@@ -9,6 +9,7 @@ import ru.tsystems.tsproject.ecare.service.IOptionService;
 import ru.tsystems.tsproject.ecare.service.ITariffService;
 import ru.tsystems.tsproject.ecare.service.OptionService;
 import ru.tsystems.tsproject.ecare.service.TariffService;
+import ru.tsystems.tsproject.ecare.util.PageName;
 import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
@@ -85,7 +86,9 @@ public class OptionServlet extends HttpServlet {
                     tariff.addOption(option);
                     tariff = tariffService.saveOrUpdateTariff(tariff);
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTION.toString());
                     logger.info("New option " + option + " has created.");
+                    req.setAttribute("successmessage", "Option " + option.getTitle() + " created and saved in database.");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                     break;
                 } catch (ECareException ecx) {
@@ -99,6 +102,7 @@ public class OptionServlet extends HttpServlet {
                 req.setAttribute("option", option);
                 tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                 req.setAttribute("tariff", tariff);
+                req.setAttribute("pagename", PageName.OPTION.toString());
                 logger.info("User " + session.getRole() + " went to view option page.");
                 req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 break;
@@ -107,6 +111,7 @@ public class OptionServlet extends HttpServlet {
                 req.setAttribute("option", option);
                 tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                 req.setAttribute("tariff", tariff);
+                req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
                 logger.info("User " + session.getRole() + " went to edit option page.");
                 req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 break;
@@ -145,6 +150,8 @@ public class OptionServlet extends HttpServlet {
                     tariffId = Long.valueOf(req.getParameter("tariffId"));
                     tariff = tariffService.loadTariff(tariffId);
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTION.toString());
+                    req.setAttribute("successmessage", "Settings for option " + option.getTitle() + " updated.");
                     logger.info("Option " + option + " has been updated.");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
@@ -152,6 +159,7 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -164,6 +172,7 @@ public class OptionServlet extends HttpServlet {
                 optionService.deleteOption(optionId);
                 logger.info("Option with id: " + optionId + " has been deleted from database.");
                 req.setAttribute("tariff", tariff);
+                req.setAttribute("pagename", PageName.TARIFF.toString());
                 logger.info("User " + session.getRole() + " went to view tariff page.");
                 req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 break;
@@ -176,12 +185,15 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTION.toString());
+                    req.setAttribute("successmessage", "Option " + dependentOption.getTitle() + " is no longer dependent to option " + option.getTitle() + ".");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 } catch(ECareException ecx) {
                     option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -194,12 +206,15 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTION.toString());
+                    req.setAttribute("successmessage", "All dependent options removed from option " + option.getTitle() + ".");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 } catch(ECareException ecx) {
                     option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -213,12 +228,15 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTION.toString());
+                    req.setAttribute("successmessage", "Option " + incompatibleOption.getTitle() + " is no longer incompatible with option " + option.getTitle() + ".");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 } catch(ECareException ecx) {
                     option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -231,12 +249,15 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTION.toString());
+                    req.setAttribute("successmessage", "All incompatible options removed from option " + option.getTitle() + ".");
                     req.getRequestDispatcher("/option.jsp").forward(req, resp);
                 } catch(ECareException ecx) {
                     option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
+                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }

@@ -6,6 +6,7 @@ import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
+import ru.tsystems.tsproject.ecare.util.PageName;
 import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
@@ -38,14 +39,17 @@ public class ClientServlet extends HttpServlet {
         req.setAttribute("client", client);
         switch(action) {
             case "viewClient":
+                req.setAttribute("pagename", PageName.CLIENT.toString());
                 logger.info("User " + session.getRole() + " went to client page.");
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "createContract":
+                req.setAttribute("pagename", PageName.NEWCONTRACT.toString());
                 logger.info("User " + session.getRole() + " went to create contract page.");
                 req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
                 break;
             case "editClient":
+                req.setAttribute("pagename", PageName.EDITCLIENT.toString());
                 logger.info("User " + session.getRole() + " went to edit client page.");
                 req.getRequestDispatcher("/editClient.jsp").forward(req, resp);
                 break;
@@ -58,21 +62,28 @@ public class ClientServlet extends HttpServlet {
                     client.setAddress(Util.checkStringLength(req.getParameter("address")));
                     client = clientService.saveOrUpdateClient(client);
                     req.setAttribute("client", client);
+                    req.setAttribute("pagename", PageName.CLIENT.toString());
+                    req.setAttribute("successmessage", "Personal info of client " + client.getFullName() + " updated.");
                     logger.info("Personal info of client " + client + " updated.");
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
+                    req.setAttribute("pagename", PageName.EDITCLIENT.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editClient.jsp").forward(req, resp);
                 }
                 break;
             case "addAmount":
                 try {
-                    client.addAmount(Util.checkInt(req.getParameter("amount")));
+                    int amount = Util.checkInt(req.getParameter("amount"));
+                    client.addAmount(amount);
                     client = clientService.saveOrUpdateClient(client);
                     req.setAttribute("client", client);
+                    req.setAttribute("pagename", PageName.CLIENT.toString());
+                    req.setAttribute("successmessage", "Amount " + amount + " added to balance of client " + client.getFullName() + ".");
                     logger.info("User " + session.getRole() + " added amount to balance of client " + client + ".");
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
+                    req.setAttribute("pagename", PageName.CLIENT.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 }

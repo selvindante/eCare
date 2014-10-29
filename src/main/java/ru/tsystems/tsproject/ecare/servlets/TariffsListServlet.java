@@ -5,6 +5,7 @@ import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 import ru.tsystems.tsproject.ecare.service.ITariffService;
 import ru.tsystems.tsproject.ecare.service.TariffService;
+import ru.tsystems.tsproject.ecare.util.PageName;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +36,7 @@ public class TariffsListServlet extends HttpServlet {
         List<Tariff> tariffs = null;
         switch(action) {
             case "createTariff":
+                req.setAttribute("pagename", PageName.NEWTARIFF.toString());
                 logger.info("User " + session.getRole() + " went to create new tariff page.");
                 req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
                 break;
@@ -43,6 +45,7 @@ public class TariffsListServlet extends HttpServlet {
                 logger.info("All tariffs deleted from database.");
                 tariffs = tariffService.getAllTariffs();
                 req.setAttribute("tariffs", tariffs);
+                req.setAttribute("pagename", PageName.TARIFFS.toString());
                 logger.info("User " + session.getRole() + " went to view all tariffs page.");
                 req.getRequestDispatcher("/tariffsList.jsp").forward(req, resp);
                 break;

@@ -9,6 +9,7 @@ import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.ContractService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
 import ru.tsystems.tsproject.ecare.service.IContractService;
+import ru.tsystems.tsproject.ecare.util.PageName;
 import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
@@ -47,9 +48,12 @@ public class ContractCreationServlet extends HttpServlet {
             client.addContract(contract);
             client = clientService.saveOrUpdateClient(client);
             req.setAttribute("client", client);
+            req.setAttribute("pagename", PageName.CLIENT.toString());
+            req.setAttribute("successmessage", "Contract " + contract.getNumber() + " created for client " + client.getFullName() + ".");
             logger.info("New contract: " + contract + " has created.");
             req.getRequestDispatcher("/client.jsp").forward(req, resp);
         } catch (ECareException ecx) {
+            req.setAttribute("pagename", PageName.NEWCONTRACT.toString());
             req.setAttribute("errormessage", ecx.getMessage());
             req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
         }

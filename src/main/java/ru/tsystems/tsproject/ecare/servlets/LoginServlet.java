@@ -6,6 +6,7 @@ import ru.tsystems.tsproject.ecare.Session;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.ClientService;
 import ru.tsystems.tsproject.ecare.service.IClientService;
+import ru.tsystems.tsproject.ecare.util.PageName;
 import ru.tsystems.tsproject.ecare.util.Util;
 
 import javax.servlet.ServletException;
@@ -43,6 +44,8 @@ public class LoginServlet extends HttpServlet {
                         session.setOn(true);
                         req.setAttribute("session", session);
                         req.setAttribute("client", client);
+                        req.setAttribute("pagename", PageName.CLIENT.toString());
+                        req.setAttribute("successmessage", "Client " + client.getName() + " loaded from database.");
                         logger.info("User(client): " + client + " login in application.");
                         req.getRequestDispatcher("/client.jsp").forward(req, resp);
                     }
@@ -52,6 +55,8 @@ public class LoginServlet extends HttpServlet {
                         session.setOn(true);
                         req.setAttribute("session", session);
                         req.setAttribute("clientsList", clientsList);
+                        req.setAttribute("pagename", PageName.DASHBOARD.toString());
+                        req.setAttribute("successmessage", "Administrator session started.");
                         logger.info("User(admin): " + client + " login in application.");
                         req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
                     }
@@ -67,6 +72,7 @@ public class LoginServlet extends HttpServlet {
                 req.setAttribute("passport", "");
                 req.setAttribute("address", "");
                 req.setAttribute("email", "");
+                req.setAttribute("pagename", PageName.REGISTRATION);
                 logger.info("New user has enter to the registration page.");
                 req.getRequestDispatcher("/registration.jsp").forward(req, resp);
                 break;

@@ -10,14 +10,14 @@
 
 <div class="outer-wrapper clearfix">
 
-    <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
+    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
         <input type="hidden" name="action" value="logout">
         <input type="hidden" name="sessionRole" value=${session.role}>
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
     </form>
 
     <form id="formId2" method="post" action="client" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="id" value=${contract.getClient().id}>
+        <input type="hidden" name="id" value=${client.id}>
         <input type="hidden" name="action" value="viewClient">
         <input type="hidden" name="sessionRole" value=${session.role}>
         <input type="hidden" name="sessionStatus" value=${session.isOn()}>
@@ -36,25 +36,21 @@
                 Error: ${errormessage}
             </p>
         </div>
-    </c:if>
+    </c:if>--%>
+
+    <jsp:include page="header.jsp"></jsp:include>
 
     <div class="inner-wrapper">
-        <p>
-            Role(temporary): ${session.role}
-        </p>
-        <p>
-            Session(temporary): ${session.isOn()}
-        </p>
-        <br>
+
         <p>
             Contract info:
         </p>
         <br>
         <p>
-            Client: ${contract.getClient().email}
+            Client: ${client.email}
         </p>
         <p>
-            Balance: ${contract.getClient().amount}
+            Balance: ${client.amount}
         </p>
         <p>
             Number: ${contract.number}
