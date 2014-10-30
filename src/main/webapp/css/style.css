@@ -16,6 +16,15 @@
     font-size: 22px;
 }
 
+.outer-wrapper footer {
+    background: #3A3351;
+    color: #EAEAEA;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.7);
+    border-radius: 0 0 20px 20px;
+    padding: 6px 20px 20px;
+    font-size: 12px;
+}
+
 .inner-wrapper {
     padding: 35px 20px;
     background: #f8f8f8;
@@ -33,7 +42,7 @@
 
 .inner-wrapper-header {
     padding: 2px 20px;
-    background: #E5DEE9;
+    background: rgba(229, 222, 233, 0.50);
     box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
     border: 1px solid rgba(0,0,0,0.1);
     border-top-color: rgba(255,255,255,0.4);

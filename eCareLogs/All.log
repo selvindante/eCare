@@ -2038,3 +2038,283 @@ javax.persistence.NoResultException: No entity found for query
 2014-10-29 19:22:47 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
 2014-10-29 19:22:48 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 38.
 2014-10-29 19:22:48 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-30 12:47:20 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 12:47:22 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 12:47:22 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 12:47:22 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-30 12:47:22 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-30 12:47:22 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-30 12:47:28 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-30 12:47:28 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-30 12:47:28 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-30 12:47:28 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-30 12:47:29 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-30 12:47:29 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-30 12:47:29 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-30 12:47:29 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-30 12:47:29 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-30 12:47:29 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-30 12:47:29 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-30 12:47:29 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-30 12:47:31 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-30 12:47:31 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-30 12:47:31 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-30 12:47:31 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 12:47:31 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 12:47:31 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-30 12:47:32 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-30 12:47:32 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-30 12:47:32 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 12:47:32 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 12:47:32 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-30 12:47:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-30 12:47:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.
+2014-10-30 12:47:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 9.
+2014-10-30 12:47:58 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 10.
+2014-10-30 12:47:58 INFO  ClientService:95 - Load client with id: 3315 from DB.
+2014-10-30 12:47:58 INFO  ClientService:107 - Client Client{name='Brian', lastname='Carroll', passport=7348261743, address='USA', email='bucket@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-30 12:47:58 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-30 12:47:59 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 11.
+2014-10-30 12:47:59 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 12.
+2014-10-30 12:48:38 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 13.
+2014-10-30 12:48:38 INFO  ClientService:95 - Load client with id: 3315 from DB.
+2014-10-30 12:48:38 INFO  ClientService:107 - Client Client{name='Brian', lastname='Carroll', passport=7348261743, address='USA', email='bucket@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-30 12:48:38 INFO  ClientServlet:48 - User admin went to create contract page.
+2014-10-30 12:48:39 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 14.
+2014-10-30 12:48:51 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 15.
+2014-10-30 12:48:51 INFO  ClientService:95 - Load client with id: 3315 from DB.
+2014-10-30 12:48:51 INFO  ClientService:107 - Client Client{name='Brian', lastname='Carroll', passport=7348261743, address='USA', email='bucket@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-30 12:48:51 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-30 12:48:51 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 16.
+2014-10-30 12:48:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 17.
+2014-10-30 12:48:56 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 18.
+2014-10-30 12:48:56 INFO  ClientService:95 - Load client with id: 3315 from DB.
+2014-10-30 12:48:56 INFO  ClientService:107 - Client Client{name='Brian', lastname='Carroll', passport=7348261743, address='USA', email='bucket@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-30 12:48:56 INFO  ClientServlet:53 - User admin went to edit client page.
+2014-10-30 12:49:00 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 19.
+2014-10-30 12:49:00 INFO  ClientService:95 - Load client with id: 3315 from DB.
+2014-10-30 12:49:00 INFO  ClientService:107 - Client Client{name='Brian', lastname='Carroll', passport=7348261743, address='USA', email='bucket@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-30 12:49:00 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-30 12:49:09 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 20.
+2014-10-30 12:49:09 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 12:49:09 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 12:49:09 INFO  DashboardServlet:48 - User admin went to view dashboard page.
+2014-10-30 12:49:09 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 21.
+2014-10-30 12:49:11 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 22.
+2014-10-30 12:49:11 INFO  ClientService:95 - Load client with id: 3314 from DB.
+2014-10-30 12:49:11 INFO  ClientService:107 - Client Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150} loaded from DB.
+2014-10-30 12:49:11 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-30 12:49:12 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 23.
+2014-10-30 12:49:17 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 24.
+2014-10-30 12:49:17 INFO  ContractService:105 - Load contract with id: 1761 from DB.
+2014-10-30 12:49:17 INFO  ContractService:117 - Contract Contract{number=9040002132, tariff=Tariff{title='Winter', price=250}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150}} loaded from DB.
+2014-10-30 12:49:17 INFO  Contract:51 - User admin went to view contract page.
+2014-10-30 12:49:23 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 25.
+2014-10-30 12:49:23 INFO  ContractService:105 - Load contract with id: 1761 from DB.
+2014-10-30 12:49:23 INFO  ContractService:117 - Contract Contract{number=9040002132, tariff=Tariff{title='Winter', price=250}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150}} loaded from DB.
+2014-10-30 12:49:23 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-30 12:49:23 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-30 12:49:23 INFO  Contract:101 - User admin went to change tariff page for contract Contract{number=9040002132, tariff=Tariff{title='Winter', price=250}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150}}.
+2014-10-30 12:49:24 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 26.
+2014-10-30 12:49:50 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 27.
+2014-10-30 12:51:16 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 28.
+2014-10-30 12:51:16 INFO  ContractService:105 - Load contract with id: 1761 from DB.
+2014-10-30 12:51:16 INFO  ContractService:117 - Contract Contract{number=9040002132, tariff=Tariff{title='Winter', price=250}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150}} loaded from DB.
+2014-10-30 12:51:16 INFO  TariffService:96 - Load tariff with id: 2044 from DB.
+2014-10-30 12:51:16 INFO  TariffService:108 - Tariff Tariff{title='Winter', price=250} loaded from DB.
+2014-10-30 12:51:16 INFO  OptionService:200 - Get all options from DB for tariff with id: 2044.
+2014-10-30 12:51:16 INFO  OptionService:212 - All options for tariff id: 2044 obtained from DB.
+2014-10-30 12:51:16 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 29.
+2014-10-30 12:51:45 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 30.
+2014-10-30 12:51:45 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 12:51:45 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 12:51:45 INFO  DashboardServlet:48 - User admin went to view dashboard page.
+2014-10-30 12:51:45 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 31.
+2014-10-30 12:51:47 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 32.
+2014-10-30 12:51:47 INFO  ClientService:95 - Load client with id: 3314 from DB.
+2014-10-30 12:51:47 INFO  ClientService:107 - Client Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150} loaded from DB.
+2014-10-30 12:51:47 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-30 12:51:49 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 33.
+2014-10-30 12:51:49 INFO  ContractService:105 - Load contract with id: 1761 from DB.
+2014-10-30 12:51:49 INFO  ContractService:117 - Contract Contract{number=9040002132, tariff=Tariff{title='Winter', price=250}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150}} loaded from DB.
+2014-10-30 12:51:49 INFO  Contract:51 - User admin went to view contract page.
+2014-10-30 12:51:51 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 34.
+2014-10-30 12:51:51 INFO  ContractService:105 - Load contract with id: 1761 from DB.
+2014-10-30 12:51:51 INFO  ContractService:117 - Contract Contract{number=9040002132, tariff=Tariff{title='Winter', price=250}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150}} loaded from DB.
+2014-10-30 12:51:51 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-30 12:51:51 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-30 12:51:51 INFO  Contract:101 - User admin went to change tariff page for contract Contract{number=9040002132, tariff=Tariff{title='Winter', price=250}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Saul', lastname='Hudson', passport=3290127835, address='Great Britain, London', email='hudson@mail.com', password='123456', role='client', amount=1150}}.
+2014-10-30 12:55:03 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 12:55:05 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 12:55:05 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 12:55:20 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-30 12:55:20 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-30 12:55:20 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-30 12:55:20 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-30 12:55:21 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-30 12:55:21 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-30 12:55:21 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-30 12:55:21 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-30 12:55:21 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-30 12:55:22 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-30 12:55:22 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-30 12:55:22 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-30 12:55:23 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-30 12:55:23 INFO  ClientService:131 - Find client with login: young@mail.com and password:123456 in DB.
+2014-10-30 12:55:23 INFO  ClientService:147 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} found and loaded from DB.
+2014-10-30 12:55:23 INFO  LoginServlet:49 - User(client): Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} login in application.
+2014-10-30 12:55:24 INFO  ClientService:131 - Find client with login: young@mail.com and password:123456 in DB.
+2014-10-30 12:55:24 INFO  ClientService:147 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} found and loaded from DB.
+2014-10-30 12:55:24 INFO  LoginServlet:49 - User(client): Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} login in application.
+2014-10-30 12:55:25 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-30 12:55:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-30 12:55:41 INFO  ClientService:95 - Load client with id: 3312 from DB.
+2014-10-30 12:55:41 INFO  ClientService:107 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} loaded from DB.
+2014-10-30 12:55:41 INFO  ClientServlet:53 - User client went to edit client page.
+2014-10-30 12:55:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-30 12:55:43 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.
+2014-10-30 12:55:43 INFO  ClientService:95 - Load client with id: 3312 from DB.
+2014-10-30 12:55:43 INFO  ClientService:107 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} loaded from DB.
+2014-10-30 12:55:43 INFO  ClientServlet:43 - User client went to client page.
+2014-10-30 12:55:47 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 9.
+2014-10-30 12:55:47 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-30 12:55:47 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-30 12:55:47 INFO  Contract:51 - User client went to view contract page.
+2014-10-30 12:55:48 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 10.
+2014-10-30 12:55:52 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 11.
+2014-10-30 12:55:52 INFO  ClientService:95 - Load client with id: 3312 from DB.
+2014-10-30 12:55:52 INFO  ClientService:107 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} loaded from DB.
+2014-10-30 12:55:52 INFO  ClientServlet:43 - User client went to client page.
+2014-10-30 12:55:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 12.
+2014-10-30 12:55:54 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-30 12:55:54 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-30 12:55:54 INFO  Contract:51 - User client went to view contract page.
+2014-10-30 12:55:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 13.
+2014-10-30 12:55:55 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 14.
+2014-10-30 12:55:55 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-30 12:55:55 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-30 12:55:55 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-30 12:55:55 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-30 12:55:55 INFO  Contract:101 - User client went to change tariff page for contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}}.
+2014-10-30 12:55:57 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 15.
+2014-10-30 12:55:57 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-30 12:55:57 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-30 12:55:57 INFO  Contract:51 - User client went to view contract page.
+2014-10-30 12:55:59 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 16.
+2014-10-30 12:55:59 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-30 12:55:59 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-30 12:55:59 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-30 12:55:59 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-30 12:55:59 INFO  Contract:101 - User client went to change tariff page for contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}}.
+2014-10-30 12:56:00 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 17.
+2014-10-30 12:56:00 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-30 12:56:00 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-30 12:56:00 INFO  TariffService:96 - Load tariff with id: 2044 from DB.
+2014-10-30 12:56:00 INFO  TariffService:108 - Tariff Tariff{title='Winter', price=250} loaded from DB.
+2014-10-30 12:56:00 INFO  OptionService:200 - Get all options from DB for tariff with id: 2044.
+2014-10-30 12:56:00 INFO  OptionService:212 - All options for tariff id: 2044 obtained from DB.
+2014-10-30 12:56:01 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 18.
+2014-10-30 12:56:03 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 19.
+2014-10-30 12:56:03 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-30 12:56:03 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-30 12:56:03 INFO  Contract:51 - User client went to view contract page.
+2014-10-30 12:56:07 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 20.
+2014-10-30 12:56:07 INFO  LoginServlet:82 - User has logout from application.
+2014-10-30 12:56:07 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-30 12:56:07 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 21.
+2014-10-30 12:56:07 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-30 12:56:12 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 22.
+2014-10-30 12:56:12 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-30 12:56:13 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-30 12:56:13 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 12:56:13 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 12:56:13 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-30 12:56:13 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-30 12:56:13 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-30 12:56:13 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 12:56:13 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 12:56:13 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-30 12:56:13 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 23.
+2014-10-30 12:56:18 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 24.
+2014-10-30 12:56:18 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-30 12:56:18 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-30 12:56:18 INFO  DashboardServlet:73 - User admin went to view all tariffs page.
+2014-10-30 12:56:22 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 25.
+2014-10-30 12:56:22 INFO  TariffService:96 - Load tariff with id: 2044 from DB.
+2014-10-30 12:56:22 INFO  TariffService:108 - Tariff Tariff{title='Winter', price=250} loaded from DB.
+2014-10-30 12:56:22 INFO  TariffServlet:66 - User admin went to view tariff page.
+2014-10-30 12:56:22 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 26.
+2014-10-30 12:56:30 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 27.
+2014-10-30 12:56:30 INFO  OptionService:100 - Load option with id: 7108 from DB.
+2014-10-30 12:56:30 INFO  OptionService:112 - Options Option{title='Winter calls', price=2, costOfConnection=120} loaded from DB.
+2014-10-30 12:56:30 INFO  TariffService:96 - Load tariff with id: 2044 from DB.
+2014-10-30 12:56:30 INFO  TariffService:108 - Tariff Tariff{title='Winter', price=250} loaded from DB.
+2014-10-30 12:56:30 INFO  OptionServlet:106 - User admin went to view option page.
+2014-10-30 12:56:31 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 28.
+2014-10-30 12:56:31 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 29.
+2014-10-30 12:56:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 30.
+2014-10-30 12:56:35 INFO  TariffService:96 - Load tariff with id: 2044 from DB.
+2014-10-30 12:56:35 INFO  TariffService:108 - Tariff Tariff{title='Winter', price=250} loaded from DB.
+2014-10-30 12:56:35 INFO  TariffServlet:66 - User admin went to view tariff page.
+2014-10-30 12:56:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 31.
+2014-10-30 12:56:37 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-30 12:56:37 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-30 12:56:37 INFO  DashboardServlet:73 - User admin went to view all tariffs page.
+2014-10-30 12:56:39 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 32.
+2014-10-30 12:56:39 INFO  TariffsListServlet:40 - User admin went to create new tariff page.
+2014-10-30 12:56:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 33.
+2014-10-30 12:56:41 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-30 12:56:41 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-30 12:56:41 INFO  DashboardServlet:73 - User admin went to view all tariffs page.
+2014-10-30 12:56:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 34.
+2014-10-30 13:05:14 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 13:05:16 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 13:05:16 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 13:05:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-30 13:12:05 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 13:12:07 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 13:12:07 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 13:12:17 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-30 13:14:57 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 13:14:59 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 13:14:59 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 13:15:33 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 13:15:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 13:15:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 13:20:14 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 13:20:16 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 13:20:16 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 13:24:52 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-30 13:24:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-30 13:24:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-30 13:25:10 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-30 13:25:10 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-30 13:25:10 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-30 13:25:10 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-30 13:25:11 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-30 13:25:11 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-30 13:25:11 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-30 13:25:11 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-30 13:25:11 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-30 13:25:12 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-30 13:25:12 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-30 13:25:12 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-30 13:25:13 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-30 13:25:14 INFO  LoginServlet:76 - New user has enter to the registration page.
+2014-10-30 13:25:14 INFO  LoginServlet:76 - New user has enter to the registration page.
+2014-10-30 13:25:26 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-30 13:25:26 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-30 13:25:26 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-30 13:25:26 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-30 13:25:36 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-30 13:25:36 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-30 13:25:36 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-30 13:25:36 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 13:25:36 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 13:25:36 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-30 13:25:36 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-30 13:25:36 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-30 13:25:36 INFO  ClientService:237 - Get all clients from DB.
+2014-10-30 13:25:36 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-30 13:25:36 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-30 13:25:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.

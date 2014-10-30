@@ -1,11 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
+
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Step 2. Choose options</title>
 </head>
+
 <body>
 
 <div class="outer-wrapper clearfix">
@@ -193,6 +197,8 @@
         </div>
 
     </c:if>
+
+    <jsp:include page="footer.jsp"></jsp:include>
 
 </div>
 
