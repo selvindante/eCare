@@ -2,45 +2,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
-
-
 <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Step 2. Choose options</title>
+
 </head>
 
 <body>
 
 <div class="outer-wrapper clearfix">
-
-    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="action" value="logout">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <form id="formId2" method="post" action="contract" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="id" value=${contract.id}>
-        <input type="hidden" name="action" value="changeTariff">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <h3>
-        <div class="h3-logo"></div>
-        Available options:
-        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
-        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">Back to tariffs</a>
-    </h3>
-
-    <c:if test="${errormessage != null}">
-        <div class="inner-wrapper-error">
-            <p>
-                Error: ${errormessage}
-            </p>
-        </div>
-    </c:if>--%>
 
     <jsp:include page="header.jsp"></jsp:include>
 
@@ -94,37 +66,81 @@
                             Cost of connection
                         </td>
                         <td>
-                            Check
+                                ${HtmlUtil.EMPTY_TD}
                         </td>
                     </tr>
-                    <c:forEach var="dependentOption" items="${options}">
-
-                        <%--<script language="javascript">
-                            function autocheck(boxId) {
-                                if (document.getElementById(boxId).checked) {
-                                    for(Option o: ${Option.getDependentOptions()}) {
-
-                                    }
-                                } else {
-
-                                }
-                            }
-                        </script>--%>
+                    <c:forEach var="option" items="${options}">
 
                         <tr>
                             <td>
-                                ${dependentOption.title}
+                                ${option.title}
                             </td>
                             <td>
-                                ${dependentOption.price}
+                                ${option.price}
                             </td>
                             <td>
-                                ${dependentOption.costOfConnection}
+                                ${option.costOfConnection}
                             </td>
                             <td>
-                                <input type="checkbox" id="box${dependentOption.id}" name="options" value="${dependentOption.id}">
+                                <input type="checkbox" class="case" id="box${option.id}" name="options" value="${option.id}">
+                                <span id="dep${option.id}" style="display: none;">
+                                    (will be enabled automatically)
+                                </span>
+                                <span id="inc${option.id}" style="display: none;">
+                                    (incompatible with chosen option)
+                                </span>
                             </td>
                         </tr>
+
+                        <SCRIPT language="javascript">
+                            $(function(){
+                                $("#box${option.id}").click(function(){
+
+                                    if($("#box${option.id}").is(":checked")) {
+
+                                        <c:if test="${option.getDependentOptions().size() != 0}">
+
+                                            <c:forEach items="${option.getDependentOptions()}" var="dependentOption">
+                                                $("#box${dependentOption.id}").attr("disabled", true);
+                                                $("#dep${dependentOption.id}").attr("style", "font-size: 12px; color: lightgray");
+                                            </c:forEach>
+
+                                        </c:if>
+
+                                        <c:if test="${option.getIncompatibleOptions().size() != 0}">
+
+                                            <c:forEach items="${option.getIncompatibleOptions()}" var="incompatibleOption">
+                                                $("#box${incompatibleOption.id}").attr("disabled", true);
+                                                $("#inc${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
+                                            </c:forEach>
+
+                                        </c:if>
+
+                                    } else {
+
+                                        <c:if test="${option.getDependentOptions().size() != 0}">
+
+                                            <c:forEach items="${option.getDependentOptions()}" var="dependentOption">
+                                                $("#box${dependentOption.id}").removeAttr("disabled");
+                                                $("#dep${dependentOption.id}").attr("style", "display: none;");
+                                            </c:forEach>
+
+                                        </c:if>
+
+                                        <c:if test="${option.getIncompatibleOptions().size() != 0}">
+
+                                            <c:forEach items="${option.getIncompatibleOptions()}" var="incompatibleOption">
+                                                $("#box${incompatibleOption.id}").removeAttr("disabled");
+                                                $("#inc${incompatibleOption.id}").attr("style", "display: none;");
+                                            </c:forEach>
+
+                                        </c:if>
+                                    }
+
+                                });
+                            });
+                        </SCRIPT>
+
                     </c:forEach>
                 </table>
                 <button type="submit" class="modern">Save</button>

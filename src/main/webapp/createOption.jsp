@@ -12,45 +12,10 @@
 
 <div class="outer-wrapper clearfix">
 
-    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="action" value="logout">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <form id="formId2" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="id" value=${tariff.id}>
-        <input type="hidden" name="action" value="viewTariff">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <h3>
-        <div class="h3-logo"></div>
-        Creating of option:
-        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
-        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To tariff</a>
-    </h3>--%>
-
     <jsp:include page="header.jsp"></jsp:include>
 
-    <c:if test="${errormessage != null}">
-        <div class="inner-wrapper-error">
-            <p>
-                Error: ${errormessage}
-            </p>
-        </div>
-    </c:if>
 
     <div class="inner-wrapper">
-
-        <%--<p>
-            Role(temporary): ${session.role}
-        </p>
-        <p>
-            Session(temporary): ${session.isOn()}
-        </p>
-        <br>--%>
 
         <form id="formId3" method="post" action="option" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="tariffId" value="${tariff.id}">

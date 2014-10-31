@@ -103,8 +103,6 @@ public class ContractServlet extends HttpServlet {
                 break;
             case "setNewTariff":
                 try {
-                    client = contract.getClient();
-
                     long tariffId = Long.valueOf(req.getParameter("tariffId"));
                     Tariff tariff = tariffService.loadTariff(tariffId);
                     contractService.setTariff(contract, tariff);
@@ -124,6 +122,7 @@ public class ContractServlet extends HttpServlet {
 
                     contract = contractService.saveOrUpdateContract(contract);
                     req.setAttribute("contract", contract);
+                    req.setAttribute("client", contract.getClient());
                     req.setAttribute("pagename", PageName.CONTRACT.toString());
                     req.setAttribute("successmessage", "Tariff " + tariff.getTitle() + " is set to contract " + contract.getNumber() + ".");
                     logger.info("In contract " + contract + "set new tariff " + tariff + ".");

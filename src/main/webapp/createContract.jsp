@@ -10,43 +10,10 @@
 
 <div class="outer-wrapper clearfix">
 
-    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="action" value="logout">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <form id="formId3" method="post" action="client" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="id" value=${client.id}>
-        <input type="hidden" name="action" value="viewClient">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <h3>
-        <div class="h3-logo"></div>
-        New contract:
-        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
-    </h3>--%>
-
     <jsp:include page="header.jsp"></jsp:include>
 
-    <c:if test="${errormessage != null}">
-        <div class="inner-wrapper-error">
-            <p>
-                Error: ${errormessage}
-            </p>
-        </div>
-    </c:if>
-
     <div class="inner-wrapper">
-        <%--<p>
-            Role(temporary): ${session.role}
-        </p>
-        <p>
-            Session(temporary): ${session.isOn()}
-        </p>
-        <br>--%>
+
         <p>
             Creating of new contract for client: ${client.email}
         </p>

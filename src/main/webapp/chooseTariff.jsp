@@ -12,34 +12,6 @@
 
 <div class="outer-wrapper clearfix">
 
-    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="action" value="logout">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <form id="formId2" method="post" action="contract" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="id" value=${contract.id}>
-        <input type="hidden" name="action" value="viewContract">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <h3>
-        <div class="h3-logo"></div>
-        Available tariffs:
-        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
-        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">Contract page</a>
-    </h3>
-
-    <c:if test="${errormessage != null}">
-        <div class="inner-wrapper-error">
-            <p>
-                Error: ${errormessage}
-            </p>
-        </div>
-    </c:if>--%>
-
     <jsp:include page="header.jsp"></jsp:include>
 
     <div class="inner-wrapper">

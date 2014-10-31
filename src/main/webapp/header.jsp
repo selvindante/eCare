@@ -71,8 +71,8 @@
             </c:if>
 
             <c:if test="${pagename == 'Option settings'}">
-                <a class="h3-link href="#" onclick="document.getElementById('h3TariffForm').submit()"">TARIFF</a>
-                <a class="h3-link" href="#" onclick="document.getElementById('formId2').submit()">OPTION</a>
+                <a class="h3-link" href="#" onclick="document.getElementById('h3TariffForm').submit()">TARIFF</a>
+                <a class="h3-link" href="#" onclick="document.getElementById('h3OptionForm').submit()">OPTION</a>
             </c:if>
 
         </c:if>
@@ -87,21 +87,34 @@
 
     </h3>
 
-    <div class="inner-wrapper-header">
+    <c:choose>
+        <c:when test="${session.role == 'admin'}">
 
-        ${pagename}
+            <div class="inner-wrapper-header">
 
-        <c:if test="${session.role == 'admin'}">
-            <form style="float: right" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
-                <input type="hidden" name="action" value="searchClientByNumber">
-                <input type="hidden" name="sessionRole" value=${session.role}>
-                <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                <input type="text" placeholder="client number" class="simple-input" name="number" size=20 value="">
-                <button type="submit" class="modern">Search</button>
-            </form>
-        </c:if>
+                ${pagename}
 
-    </div>
+                <form style="float: right; margin-top: -15px;" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
+                    <input type="hidden" name="action" value="searchClientByNumber">
+                    <input type="hidden" name="sessionRole" value=${session.role}>
+                    <input type="hidden" name="sessionStatus" value=${session.isOn()}>
+                    <input type="text" placeholder="client number" class="simple-input" name="number" size=20 value="">
+                    <button type="submit" class="modern">Search</button>
+                </form>
+
+            </div>
+
+        </c:when>
+        <c:otherwise>
+
+            <div class="inner-wrapper-header" style="padding: 15px 30px 15px;">
+
+                ${pagename}
+
+            </div>
+
+        </c:otherwise>
+    </c:choose>
 
     <c:if test="${errormessage != null}">
         <div class="inner-wrapper-error">

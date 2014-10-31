@@ -35,35 +35,35 @@
                     Name*:
                     <br>
                     <input type="text" placeholder="name" class="simple-input" name="name" size=25 value="${name}">
-                    <span style="font-family: Calibri, Arial, sans-serif; font-size: 12px; color: lightgray">Example: John</span>
+                    <span style="font-size: 12px; color: lightgray">Example: John</span>
                 </p>
                 <br>
                 <p>
                     Lastname:
                     <br>
                     <input type="text" placeholder="lastname" class="simple-input" name="lastname" size=25 value="${lastname}">
-                    <span style="font-family: Calibri, Arial, sans-serif; font-size: 12px; color: lightgray">Example: Johnson</span>
+                    <span style="font-size: 12px; color: lightgray">Example: Johnson</span>
                 </p>
                 <br>
                 <p>
                     Birth date*:
                     <br>
                     <input type="text" placeholder="yyyy-mm-dd" class="simple-input" name="birthdate" size=25 value="${birthdate}">
-                    <span style="font-family: Calibri, Arial, sans-serif; font-size: 12px; color: lightgray">Example: 1900-01-01</span>
+                    <span style="font-size: 12px; color: lightgray">Example: 1900-01-01</span>
                 </p>
                 <br>
                 <p>
                     Passport*:
                     <br>
                     <input type="text" placeholder="passport series and number" class="simple-input"  name="passport" size=25 value="${passport}">
-                    <span style="font-family: Calibri, Arial, sans-serif; font-size: 12px; color: lightgray">Example: 1234567890</span>
+                    <span style="font-size: 12px; color: lightgray">Example: 1234567890</span>
                 </p>
                 <br>
                 <p>
                     Address:
                     <br>
                     <input type="text" placeholder="address" class="simple-input" name="address" size=25 value="${address}">
-                    <span style="font-family: Calibri, Arial, sans-serif; font-size: 12px; color: lightgray">Example: London, Baker Street, 221B</span>
+                    <span style="font-size: 12px; color: lightgray">Example: London, Baker Street, 221B</span>
                 </p>
                 <br>
                 <p>

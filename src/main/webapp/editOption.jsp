@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Edit option</title>
@@ -12,46 +13,10 @@
 
 <div class="outer-wrapper clearfix">
 
-    <%--<form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="action" value="logout">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <form id="formId2" method="post" action="option" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="id" value=${option.id}>
-        <input type="hidden" name="tariffId" value=${tariff.id}>
-        <input type="hidden" name="action" value="viewOption">
-        <input type="hidden" name="sessionRole" value=${session.role}>
-        <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-    </form>
-
-    <h3>
-        <div class="h3-logo"></div>
-        Edit option:
-        <a href="#" onclick="document.getElementById('formId1').submit()" class="h3-link">Exit</a>
-        <a href="#" onclick="document.getElementById('formId2').submit()" class="h3-link">To option</a>
-    </h3>--%>
-
     <jsp:include page="header.jsp"></jsp:include>
-
-    <c:if test="${errormessage != null}">
-        <div class="inner-wrapper-error">
-            <p>
-                Error: ${errormessage}
-            </p>
-        </div>
-    </c:if>
 
     <div class="inner-wrapper">
 
-        <%--<p>
-            Role(temporary): ${session.role}
-        </p>
-        <p>
-            Session(temporary): ${session.isOn()}
-        </p>
-        <br>--%>
         <p>
             Tariff ID: ${tariff.id}
         </p>
@@ -104,7 +69,7 @@
                                     Cost of connection
                                 </td>
                                 <td>
-                                    Check
+                                    ${HtmlUtil.EMPTY_TD}
                                 </td>
                             </tr>
                             <c:forEach var="dependentOption" items="${tariff.getOptions()}">
@@ -122,19 +87,52 @@
                                         <td>
                                                 ${dependentOption.costOfConnection}
                                         </td>
-                                        <c:choose>
-                                            <c:when test="${option.getDependentOptions().contains(dependentOption)}">
-                                                <td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${option.getDependentOptions().contains(dependentOption)}">
                                                     <input type="checkbox" id="box1${dependentOption.id}" name="dependentOptions" value="${dependentOption.id}" checked="checked">
-                                                </td>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <td>
+
+                                                    <%--<SCRIPT language="javascript">
+
+                                                        if($("#box1${dependentOption.id}").is(":checked")) {
+
+                                                            $("#box2${dependentOption.id}").attr("disabled", true);
+                                                            $("#inc2${dependentOption.id}").attr("style", "font-size: 12px; color: lightgray");
+
+                                                        }
+
+                                                    </SCRIPT>--%>
+
+                                                </c:when>
+                                                <c:otherwise>
                                                     <input type="checkbox" id="box1${dependentOption.id}" name="dependentOptions" value="${dependentOption.id}">
-                                                </td>
-                                            </c:otherwise>
-                                        </c:choose>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <span id="inc1${dependentOption.id}" style="display: none;">
+                                                (already incompatible)
+                                            </span>
+                                        </td>
                                     </tr>
+
+                                    <SCRIPT language="javascript">
+                                        $(function(){
+                                            $("#box1${dependentOption.id}").click(function(){
+
+                                                if($("#box1${dependentOption.id}").is(":checked")) {
+
+                                                    $("#box2${dependentOption.id}").attr("disabled", true);
+                                                    $("#inc2${dependentOption.id}").attr("style", "font-size: 12px; color: lightgray");
+
+                                                } else {
+
+                                                    $("#box2${dependentOption.id}").removeAttr("disabled");
+                                                    $("#inc2${dependentOption.id}").attr("style", "display: none;");
+                                                }
+
+                                            });
+                                        });
+                                    </SCRIPT>
+
                                 </c:if>
                             </c:forEach>
                         </table>
@@ -171,7 +169,7 @@
                         Cost of connection
                     </td>
                     <td>
-                        Check
+                        ${HtmlUtil.EMPTY_TD}
                     </td>
                 </tr>
                 <c:forEach var="incompatibleOption" items="${tariff.getOptions()}">
@@ -189,19 +187,61 @@
                             <td>
                                     ${incompatibleOption.costOfConnection}
                             </td>
-                            <c:choose>
-                                <c:when test="${option.getIncompatibleOptions().contains(incompatibleOption)}">
-                                    <td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${option.getIncompatibleOptions().contains(incompatibleOption)}">
                                         <input type="checkbox" id="box2${incompatibleOption.id}" name="incompatibleOptions" value="${incompatibleOption.id}" checked="checked">
-                                    </td>
-                                </c:when>
-                                <c:otherwise>
-                                    <td>
+                                    </c:when>
+                                    <c:otherwise>
                                         <input type="checkbox" id="box2${incompatibleOption.id}" name="incompatibleOptions" value="${incompatibleOption.id}">
-                                    </td>
-                                </c:otherwise>
-                            </c:choose>
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <span id="inc2${incompatibleOption.id}" style="display: none;">
+                                    (already dependent)
+                                </span>
+
+                                <SCRIPT language="javascript">
+
+                                    if($("#box1${incompatibleOption.id}").is(":checked")) {
+
+                                        $("#box2${incompatibleOption.id}").attr("disabled", true);
+                                        $("#inc2${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
+
+                                    }
+
+                                    if($("#box2${incompatibleOption.id}").is(":checked")) {
+
+                                        $("#box1${incompatibleOption.id}").attr("disabled", true);
+                                        $("#inc1${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
+
+                                    }
+
+                                </SCRIPT>
+
+                            </td>
+
                         </tr>
+
+                        <SCRIPT language="javascript">
+                            $(function(){
+                                $("#box2${incompatibleOption.id}").click(function(){
+
+                                    if($("#box2${incompatibleOption.id}").is(":checked")) {
+
+                                        $("#box1${incompatibleOption.id}").attr("disabled", true);
+                                        $("#inc1${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
+
+                                    } else {
+
+                                        $("#box1${incompatibleOption.id}").removeAttr("disabled");
+                                        $("#inc1${incompatibleOption.id}").attr("style", "display: none;");
+                                    }
+
+                                });
+                            });
+                        </SCRIPT>
+
                     </c:if>
                 </c:forEach>
             </table>
