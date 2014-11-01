@@ -41,12 +41,12 @@
                         <br>
                         <table>
                             <tr>
-                                <td>
+                                <th>
                                     Title
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Price
-                                </td>
+                                </th>
                             </tr>
                             <c:forEach var="tariff" items="${tariffs}">
                                 <tr>

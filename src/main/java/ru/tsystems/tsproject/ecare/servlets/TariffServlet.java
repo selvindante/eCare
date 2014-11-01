@@ -53,7 +53,7 @@ public class TariffServlet extends HttpServlet {
                     logger.info("New tariff " + tariff + " created.");
                     req.getRequestDispatcher("/tariff.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
-                    req.setAttribute("pagename", PageName.NEWTARIFF.toString());
+                    req.setAttribute("pagename", PageName.NEW_TARIFF.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
                 }
@@ -80,7 +80,7 @@ public class TariffServlet extends HttpServlet {
                 tariffId = Long.valueOf(req.getParameter("id"));
                 tariff = tariffService.loadTariff(tariffId);
                 req.setAttribute("tariff", tariff);
-                req.setAttribute("pagename", PageName.NEWOPTION.toString());
+                req.setAttribute("pagename", PageName.NEW_OPTION.toString());
                 logger.info("User " + session.getRole() + " went to create new option page.");
                 req.getRequestDispatcher("/createOption.jsp").forward(req, resp);
                 break;

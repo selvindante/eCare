@@ -97,7 +97,7 @@ public class ContractServlet extends HttpServlet {
                 List<Tariff> tariffs = tariffService.getAllTariffs();
                 req.setAttribute("contract", contract);
                 req.setAttribute("tariffs", tariffs);
-                req.setAttribute("pagename", PageName.CHOOSETARIFF.toString());
+                req.setAttribute("pagename", PageName.CHOOSE_TARIFF.toString());
                 logger.info("User " + session.getRole() + " went to change tariff page for contract " + contract + ".");
                 req.getRequestDispatcher("/chooseTariff.jsp").forward(req, resp);
                 break;
@@ -134,7 +134,7 @@ public class ContractServlet extends HttpServlet {
                     req.setAttribute("contract", contract);
                     req.setAttribute("tariff", tariff);
                     req.setAttribute("options", options);
-                    req.setAttribute("pagename", PageName.CHOOSEOPTIONS);
+                    req.setAttribute("pagename", PageName.CHOOSE_OPTIONS);
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/chooseOptions.jsp").forward(req, resp);
                 }

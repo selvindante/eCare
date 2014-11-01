@@ -157,42 +157,36 @@
     background: url("../images/delete_red.png") no-repeat scroll left center rgba(0, 0, 0, 0);
     background-size: 20px;
     padding-left: 20px;
-    margin-left: 10px;
 }
 
 .inline-link-delete:hover {
     background: url("../images/delete_red_hover.png") no-repeat scroll left center rgba(0, 0, 0, 0);
     background-size: 20px;
     padding-left: 20px;
-    margin-left: 10px;
 }
 
 .inline-link-lock {
     background: url("../images/lock.png") no-repeat scroll left center rgba(0, 0, 0, 0);
     background-size: 20px;
     padding-left: 20px;
-    margin-left: 10px;
 }
 
 .inline-link-lock:hover {
     background: url("../images/lock_hover.png") no-repeat scroll left center rgba(0, 0, 0, 0);
     background-size: 20px;
     padding-left: 20px;
-    margin-left: 10px;
 }
 
 .inline-link-unlock {
     background: url("../images/unlock.png") no-repeat scroll left center rgba(0, 0, 0, 0);
     background-size: 20px;
     padding-left: 20px;
-    margin-left: 10px;
 }
 
 .inline-link-unlock:hover {
     background: url("../images/unlock_hover.png") no-repeat scroll left center rgba(0, 0, 0, 0);
     background-size: 20px;
     padding-left: 20px;
-    margin-left: 10px;
 }
 
 .h3-logo {

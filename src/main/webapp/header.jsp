@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 </head>
 <body>
 
@@ -98,7 +98,7 @@
                     <input type="hidden" name="action" value="searchClientByNumber">
                     <input type="hidden" name="sessionRole" value=${session.role}>
                     <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                    <input type="text" placeholder="client number" class="simple-input" name="number" size=20 value="">
+                    <input type="text" placeholder="search client by number" class="simple-input" name="number" size=20 value="">
                     <button type="submit" class="modern">Search</button>
                 </form>
 
@@ -117,19 +117,33 @@
     </c:choose>
 
     <c:if test="${errormessage != null}">
-        <div class="inner-wrapper-error">
+        <div class="inner-wrapper-error" id="error">
             <p>
                 Error: ${errormessage}
             </p>
         </div>
+
+        <SCRIPT language="javascript">
+            setInterval(function() {
+                $("#error").attr("hidden", true);
+            }, 5000);
+        </SCRIPT>
+
     </c:if>
 
     <c:if test="${successmessage != null}">
-        <div class="inner-wrapper-success">
+        <div class="inner-wrapper-success" id="success">
             <p>
                 Success: ${successmessage}
             </p>
         </div>
+
+        <SCRIPT language="javascript">
+            setInterval(function() {
+                $("#success").attr("hidden", true);
+            }, 5000);
+        </SCRIPT>
+
     </c:if>
 
 </body>

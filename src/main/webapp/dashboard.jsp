@@ -25,21 +25,21 @@
                 <br>
                     <table>
                         <tr>
-                            <td>
+                            <th>
                                 Client ID
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Name
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Passport
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 E-mail
-                            </td>
-                            <td>
+                            </th>
+                            <th style="width: 0">
                                     ${HtmlUtil.EMPTY_TD}
-                            </td>
+                            </th>
                         </tr>
                         <c:forEach var="client" items="${clientsList}">
                             <tr>
@@ -63,7 +63,7 @@
                                 <td>
                                         ${client.email}
                                 </td>
-                                <td>
+                                <td style="width: 0">
 
                                     <form id="formId3${client.id}" method="post" action="dashboard" enctype="application/x-www-form-urlencoded">
                                         <input type="hidden" name="id" value=${client.id}>

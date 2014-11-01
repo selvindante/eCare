@@ -51,21 +51,21 @@
                     <br>
                     <table>
                         <tr>
-                            <td>
+                            <th>
                                 Option ID
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Title
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Price
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Cost of connection
-                            </td>
-                            <td>
+                            </th>
+                            <th style="width: 0">
                                     ${HtmlUtil.EMPTY_TD}
-                            </td>
+                            </th>
                         </tr>
                         <c:forEach var="option" items="${tariff.getOptions()}">
                             <tr>

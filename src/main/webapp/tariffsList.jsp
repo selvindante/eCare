@@ -38,18 +38,18 @@
                     <br>
                     <table>
                         <tr>
-                            <td>
+                            <th>
                                 Tariff ID
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Title
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Price
-                            </td>
-                            <td>
+                            </th>
+                            <th style="width: 0">
                                     ${HtmlUtil.EMPTY_TD}
-                            </td>
+                            </th>
                         </tr>
                         <c:forEach var="tariff" items="${tariffs}">
                             <tr>

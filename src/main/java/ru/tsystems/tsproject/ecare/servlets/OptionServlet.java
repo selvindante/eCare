@@ -111,15 +111,13 @@ public class OptionServlet extends HttpServlet {
                 req.setAttribute("option", option);
                 tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                 req.setAttribute("tariff", tariff);
-                req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
+                req.setAttribute("pagename", PageName.OPTION_SETTINGS.toString());
                 logger.info("User " + session.getRole() + " went to edit option page.");
                 req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 break;
             case "updateOption":
                 try {
                     option = optionService.loadOption(Long.valueOf(req.getParameter("id")));
-                    //optionService.clearDependentOptions(option);
-                    //optionService.clearIncompatibleOptions(option);
 
                     String dependentOptionsArray1[] = req.getParameterValues("dependentOptions");
                     if(dependentOptionsArray1 != null) {
@@ -159,7 +157,7 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
-                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
+                    req.setAttribute("pagename", PageName.OPTION_SETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -193,7 +191,7 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
-                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
+                    req.setAttribute("pagename", PageName.OPTION_SETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -214,7 +212,7 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
-                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
+                    req.setAttribute("pagename", PageName.OPTION_SETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -236,7 +234,7 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
-                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
+                    req.setAttribute("pagename", PageName.OPTION_SETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }
@@ -257,7 +255,7 @@ public class OptionServlet extends HttpServlet {
                     req.setAttribute("option", option);
                     tariff = tariffService.loadTariff(Long.valueOf(req.getParameter("tariffId")));
                     req.setAttribute("tariff", tariff);
-                    req.setAttribute("pagename", PageName.OPTIONSETTINGS.toString());
+                    req.setAttribute("pagename", PageName.OPTION_SETTINGS.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editOption.jsp").forward(req, resp);
                 }

@@ -7,7 +7,11 @@
 <body>
     <footer>
 
-        <div style="float: right">Created by Starostin Konstantin.  App source: <a style="color: #8A849E" href="https://github.com/selvindante/eCare">GitHub</a></div>
+        <div style="float: right">
+            Created by Starostin Konstantin, 2014.
+            &nbsp;
+            App source on <a style="color: #8A849E" href="https://github.com/selvindante/eCare">GitHub</a>
+        </div>
 
     </footer>
 </body>

@@ -56,18 +56,18 @@
                 <input type="hidden" name="sessionStatus" value=${session.isOn()}>
                 <table>
                     <tr>
-                        <td>
+                        <th>
                             Option title
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Price
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Cost of connection
-                        </td>
-                        <td>
+                        </th>
+                        <th style="width: 0">
                                 ${HtmlUtil.EMPTY_TD}
-                        </td>
+                        </th>
                     </tr>
                     <c:forEach var="option" items="${options}">
 
@@ -143,6 +143,7 @@
 
                     </c:forEach>
                 </table>
+                <br>
                 <button type="submit" class="modern">Save</button>
             </form>
         </c:when>

@@ -36,7 +36,7 @@ public class TariffsListServlet extends HttpServlet {
         List<Tariff> tariffs = null;
         switch(action) {
             case "createTariff":
-                req.setAttribute("pagename", PageName.NEWTARIFF.toString());
+                req.setAttribute("pagename", PageName.NEW_TARIFF.toString());
                 logger.info("User " + session.getRole() + " went to create new tariff page.");
                 req.getRequestDispatcher("/createTariff.jsp").forward(req, resp);
                 break;

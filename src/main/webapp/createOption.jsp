@@ -57,21 +57,21 @@
             <br>
                         <table>
                             <tr>
-                                <td>
+                                <th>
                                     Option ID
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Title
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Price
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Cost of connection
-                                </td>
-                                <td>
-                                    Check
-                                </td>
+                                </th>
+                                <th style="width: 0">
+                                        ${HtmlUtil.EMPTY_TD}
+                                </th>
                             </tr>
                             <c:forEach var="dependentOption" items="${tariff.getOptions()}">
                                 <tr>
@@ -97,9 +97,10 @@
                         <c:otherwise>
                             empty.
             </p>
-            <br>
                         </c:otherwise>
                     </c:choose>
+
+            <br>
 
             <hr>
 
@@ -113,21 +114,21 @@
             <br>
             <table>
                 <tr>
-                    <td>
+                    <th>
                         Option ID
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Title
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Price
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Cost of connection
-                    </td>
-                    <td>
-                        Check
-                    </td>
+                    </th>
+                    <th style="width: 0">
+                            ${HtmlUtil.EMPTY_TD}
+                    </th>
                 </tr>
                 <c:forEach var="incompatibleOption" items="${tariff.getOptions()}">
                     <tr>

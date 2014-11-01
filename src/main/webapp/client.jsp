@@ -85,26 +85,26 @@
             <br>
                 <table>
                     <tr>
-                        <td>
+                        <th>
                             Number
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Tariff
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Is blocked by client?
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Is blocked by operator?
-                        </td>
+                        </th>
                         <c:if test="${session.role == 'admin'}">
-                            <td>
-                                ${HtmlUtil.EMPTY_TD}
-                            </td>
+                            <th style="width: 0">
+                                    ${HtmlUtil.EMPTY_TD}
+                            </th>
                         </c:if>
-                        <td>
+                        <th style="width: 0">
                                 ${HtmlUtil.EMPTY_TD}
-                        </td>
+                        </th>
                     </tr>
                     <c:forEach var="contract" items="${client.getContracts()}">
                         <tr>

@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.dao;
 
+import org.springframework.stereotype.Component;
 import ru.tsystems.tsproject.ecare.entities.Tariff;
 import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * Created by Selvin
  * on 06.10.2014.
  */
+@Component
 public class SqlTariffDAO extends AbstractDAO<Tariff> {
     private static SqlTariffDAO instance;
     private EntityManager em = SqlEntityManager.getEm();

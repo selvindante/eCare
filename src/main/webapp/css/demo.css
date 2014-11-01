@@ -32,18 +32,36 @@ body {
 }
 
 th, td {
-    padding: 4px 10px 4px 0;
-    vertical-align: top;
+    padding: 4px 10px 4px 10px;
+    vertical-align: middle;
+    width: 150px;
+    text-align: left;
+    border: 1px solid #DDDDDD;
+}
+
+th {
+    background: #3A3351;
+    text-align: center;
+    color: #EAEAEA;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.7);
 }
 
 tr {
-    border-bottom: 1px solid #DDDDDD;
+    border: 1px solid #DDDDDD;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(229, 222, 233, 0.25);
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(229, 222, 233, 0.50);
 }
 
 table {
-    margin-bottom: 1.4em;
     border-collapse: collapse;
     border-spacing: 0;
+
 }
 
 #center {

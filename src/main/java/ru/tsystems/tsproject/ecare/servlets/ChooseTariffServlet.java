@@ -44,7 +44,7 @@ public class ChooseTariffServlet extends HttpServlet {
             req.setAttribute("contract", contract);
             req.setAttribute("tariff", tariff);
             req.setAttribute("options", options);
-            req.setAttribute("pagename", PageName.CHOOSEOPTIONS.toString());
+            req.setAttribute("pagename", PageName.CHOOSE_OPTIONS.toString());
             req.getRequestDispatcher("/chooseOptions.jsp").forward(req, resp);
         }
     }

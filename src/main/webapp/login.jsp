@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Login</title>
@@ -17,11 +18,18 @@
         </h3>
 
         <c:if test="${errormessage != null}">
-            <div class="inner-wrapper-error">
+            <div class="inner-wrapper-error" id="error">
                 <p>
                     Error: ${errormessage}
                 </p>
             </div>
+
+            <SCRIPT language="javascript">
+                setInterval(function() {
+                    $("#error").attr("hidden", true);
+                }, 5000);
+            </SCRIPT>
+
         </c:if>
 
         <div class="inner-wrapper">

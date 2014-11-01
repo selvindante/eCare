@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.dao;
 
+import org.springframework.stereotype.Component;
 import ru.tsystems.tsproject.ecare.entities.Option;
 import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by Selvin
  * on 06.10.2014.
  */
+@Component
 public class SqlOptionDAO extends AbstractDAO<Option> {
     private static SqlOptionDAO instance;
     private EntityManager em = SqlEntityManager.getEm();
@@ -20,8 +22,7 @@ public class SqlOptionDAO extends AbstractDAO<Option> {
 
     public static SqlOptionDAO getInstance()
     {
-        if (instance == null)
-        {
+        if (instance == null) {
             instance = new SqlOptionDAO();
         }
         return instance;

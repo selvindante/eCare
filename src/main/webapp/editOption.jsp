@@ -56,21 +56,21 @@
                 <br>
                         <table>
                             <tr>
-                                <td>
+                                <th>
                                     Option ID
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Title
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Price
-                                </td>
-                                <td>
+                                </th>
+                                <th>
                                     Cost of connection
-                                </td>
-                                <td>
+                                </th>
+                                <th style="width: 0">
                                     ${HtmlUtil.EMPTY_TD}
-                                </td>
+                                </th>
                             </tr>
                             <c:forEach var="dependentOption" items="${tariff.getOptions()}">
                                 <c:if test="${option.id != dependentOption.id}">
@@ -91,25 +91,13 @@
                                             <c:choose>
                                                 <c:when test="${option.getDependentOptions().contains(dependentOption)}">
                                                     <input type="checkbox" id="box1${dependentOption.id}" name="dependentOptions" value="${dependentOption.id}" checked="checked">
-
-                                                    <%--<SCRIPT language="javascript">
-
-                                                        if($("#box1${dependentOption.id}").is(":checked")) {
-
-                                                            $("#box2${dependentOption.id}").attr("disabled", true);
-                                                            $("#inc2${dependentOption.id}").attr("style", "font-size: 12px; color: lightgray");
-
-                                                        }
-
-                                                    </SCRIPT>--%>
-
                                                 </c:when>
                                                 <c:otherwise>
                                                     <input type="checkbox" id="box1${dependentOption.id}" name="dependentOptions" value="${dependentOption.id}">
                                                 </c:otherwise>
                                             </c:choose>
                                             <span id="inc1${dependentOption.id}" style="display: none;">
-                                                (already incompatible)
+                                                (incompatible)
                                             </span>
                                         </td>
                                     </tr>
@@ -156,21 +144,21 @@
             <br>
             <table>
                 <tr>
-                    <td>
+                    <th>
                         Option ID
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Title
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Price
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Cost of connection
-                    </td>
-                    <td>
+                    </th>
+                    <th style="width: 0">
                         ${HtmlUtil.EMPTY_TD}
-                    </td>
+                    </th>
                 </tr>
                 <c:forEach var="incompatibleOption" items="${tariff.getOptions()}">
                     <c:if test="${option.id != incompatibleOption.id}">
@@ -198,7 +186,7 @@
                                 </c:choose>
 
                                 <span id="inc2${incompatibleOption.id}" style="display: none;">
-                                    (already dependent)
+                                    (dependent)
                                 </span>
 
                                 <SCRIPT language="javascript">

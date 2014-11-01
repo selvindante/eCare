@@ -4594,3 +4594,764 @@ javax.persistence.NoResultException: No entity found for query
 2014-10-31 17:54:56 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
 2014-10-31 17:54:56 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 17.
 2014-10-31 17:54:56 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 19:56:13 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 19:56:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 19:56:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 19:56:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 19:56:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 19:56:15 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 19:56:30 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 19:56:30 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 19:56:30 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 19:56:30 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 19:56:31 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 19:56:31 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 19:56:31 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 19:56:31 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 19:56:31 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 19:56:32 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 19:56:32 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 19:56:32 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 19:56:33 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 19:56:33 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 19:56:33 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 19:56:33 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 19:56:33 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 19:56:33 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 19:56:34 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 19:56:34 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 19:56:34 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 19:56:34 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 19:56:34 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 19:56:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 19:56:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.
+2014-10-31 19:57:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 9.
+2014-10-31 19:58:17 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 10.
+2014-10-31 19:58:26 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 11.
+2014-10-31 19:58:26 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 12.
+2014-10-31 19:58:29 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 13.
+2014-10-31 19:58:29 INFO  ClientService:95 - Load client with id: 3315 from DB.
+2014-10-31 19:58:29 INFO  ClientService:107 - Client Client{name='Brian', lastname='Carroll', passport=7348261743, address='USA', email='bucket@mail.com', password='123456', role='client', amount=0} loaded from DB.
+2014-10-31 19:58:29 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-31 19:59:31 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 14.
+2014-10-31 19:59:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 15.
+2014-10-31 20:00:10 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 16.
+2014-10-31 20:00:10 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-31 20:00:10 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-31 20:00:10 INFO  DashboardServlet:74 - User admin went to view all tariffs page.
+2014-10-31 20:00:11 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 17.
+2014-10-31 20:02:40 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:02:43 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:02:43 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:02:49 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:02:49 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:02:49 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:02:49 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:02:50 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:02:50 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:02:50 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:02:50 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:02:50 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:02:50 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:02:50 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:02:50 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:02:52 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:02:52 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:02:52 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:02:52 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:02:52 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:02:52 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:02:53 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:02:53 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:02:53 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:02:53 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:02:53 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:02:53 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:11:25 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 20:11:25 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 20:13:20 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:13:22 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:13:23 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:13:23 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:13:29 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:13:29 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:13:29 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:13:29 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:13:30 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:13:30 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:13:30 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:13:30 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:13:30 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:13:31 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:13:31 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:13:31 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:13:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:13:32 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:13:32 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:13:32 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:13:32 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:13:32 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:13:34 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:13:34 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:13:34 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:13:34 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:13:34 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:13:55 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 20:13:55 WARN  Util:100 - Entered the wrong data format.
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:601)
+	at java.lang.Long.valueOf(Long.java:803)
+	at ru.tsystems.tsproject.ecare.util.Util.checkLong(Util.java:91)
+	at ru.tsystems.tsproject.ecare.servlets.DashboardServlet.doPost(DashboardServlet.java:54)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:43)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-31 20:13:55 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:13:55 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:14:49 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 20:14:49 WARN  Util:100 - Entered the wrong data format.
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:601)
+	at java.lang.Long.valueOf(Long.java:803)
+	at ru.tsystems.tsproject.ecare.util.Util.checkLong(Util.java:91)
+	at ru.tsystems.tsproject.ecare.servlets.DashboardServlet.doPost(DashboardServlet.java:54)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:43)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-31 20:14:49 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:14:49 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:14:49 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.
+2014-10-31 20:14:49 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 9.
+2014-10-31 20:15:04 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 10.
+2014-10-31 20:15:04 INFO  LoginServlet:82 - User has logout from application.
+2014-10-31 20:15:04 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 20:15:11 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 11.
+2014-10-31 20:15:11 INFO  ClientService:131 - Find client with login: young@mail.com and password:123456 in DB.
+2014-10-31 20:15:11 INFO  ClientService:147 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} found and loaded from DB.
+2014-10-31 20:15:11 INFO  LoginServlet:49 - User(client): Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} login in application.
+2014-10-31 20:15:12 INFO  ClientService:131 - Find client with login: young@mail.com and password:123456 in DB.
+2014-10-31 20:15:12 INFO  ClientService:147 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} found and loaded from DB.
+2014-10-31 20:15:12 INFO  LoginServlet:49 - User(client): Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} login in application.
+2014-10-31 20:20:18 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:20:20 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:20:20 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:20:20 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:21:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:21:34 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:22:30 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:22:30 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:22:30 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:22:30 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:22:31 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:22:31 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:22:31 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:22:31 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:22:31 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:22:32 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:22:32 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:22:32 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:22:33 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:22:33 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:22:33 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:22:33 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:22:33 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:22:33 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:22:34 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:22:34 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:22:34 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:22:34 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:22:34 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:22:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:22:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:22:48 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 20:22:48 INFO  LoginServlet:82 - User has logout from application.
+2014-10-31 20:22:48 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 20:24:24 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:24:26 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:24:31 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:24:31 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:24:31 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:24:31 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:24:32 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:24:32 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:24:32 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:24:32 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:24:32 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:24:33 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:24:33 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:24:33 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:24:34 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:24:34 INFO  ClientService:131 - Find client with login: q and password: in DB.
+2014-10-31 20:24:34 WARN  ClientService:143 - Incorrect login/password or client does not exist.
+javax.persistence.NoResultException: No entity found for query
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
+	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByLoginAndPassword(SqlClientDAO.java:44)
+	at ru.tsystems.tsproject.ecare.service.ClientService.findClient(ClientService.java:138)
+	at ru.tsystems.tsproject.ecare.servlets.LoginServlet.doPost(LoginServlet.java:40)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-31 20:24:34 INFO  ClientService:131 - Find client with login: q and password: in DB.
+2014-10-31 20:24:34 WARN  ClientService:143 - Incorrect login/password or client does not exist.
+javax.persistence.NoResultException: No entity found for query
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
+	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByLoginAndPassword(SqlClientDAO.java:44)
+	at ru.tsystems.tsproject.ecare.service.ClientService.findClient(ClientService.java:138)
+	at ru.tsystems.tsproject.ecare.servlets.LoginServlet.doPost(LoginServlet.java:40)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:43)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-31 20:24:34 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:24:34 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:24:34 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 20:25:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:25:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:25:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:25:44 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:25:44 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:25:44 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:25:44 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:25:45 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:25:45 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:25:45 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:25:45 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:25:45 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:25:45 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:25:45 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:25:45 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:25:47 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:25:47 INFO  ClientService:131 - Find client with login: admin and password:123456 in DB.
+2014-10-31 20:25:47 WARN  ClientService:143 - Incorrect login/password or client does not exist.
+javax.persistence.NoResultException: No entity found for query
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
+	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByLoginAndPassword(SqlClientDAO.java:44)
+	at ru.tsystems.tsproject.ecare.service.ClientService.findClient(ClientService.java:138)
+	at ru.tsystems.tsproject.ecare.servlets.LoginServlet.doPost(LoginServlet.java:40)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-31 20:25:47 INFO  ClientService:131 - Find client with login: admin and password:123456 in DB.
+2014-10-31 20:25:47 WARN  ClientService:143 - Incorrect login/password or client does not exist.
+javax.persistence.NoResultException: No entity found for query
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:286)
+	at ru.tsystems.tsproject.ecare.dao.SqlClientDAO.findClientByLoginAndPassword(SqlClientDAO.java:44)
+	at ru.tsystems.tsproject.ecare.service.ClientService.findClient(ClientService.java:138)
+	at ru.tsystems.tsproject.ecare.servlets.LoginServlet.doPost(LoginServlet.java:40)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:43)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2014-10-31 20:25:55 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:25:55 INFO  LoginServlet:76 - New user has enter to the registration page.
+2014-10-31 20:25:55 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 20:26:05 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 20:26:05 WARN  Util:117 - Entered the wrong format of Date.
+ru.tsystems.tsproject.ecare.ECareException: Entered the wrong format of Date.
+	at ru.tsystems.tsproject.ecare.util.Util.checkDate(Util.java:116)
+	at ru.tsystems.tsproject.ecare.servlets.RegistrationServlet.doPost(RegistrationServlet.java:36)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:644)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:725)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at ru.tsystems.tsproject.ecare.servlets.AuthorizationFilter.doFilter(AuthorizationFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:503)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:136)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:610)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:526)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:655)
+	at org.apache.coyote.http11.Http11NioProtocol$Http11ConnectionHandler.process(Http11NioProtocol.java:222)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1566)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1523)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException
+	at java.sql.Date.valueOf(Date.java:143)
+	at ru.tsystems.tsproject.ecare.util.Util.checkDate(Util.java:114)
+	... 28 more
+2014-10-31 20:26:05 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 20:30:11 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 20:30:11 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 20:30:12 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.
+2014-10-31 20:30:12 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-10-31 20:30:18 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 9.
+2014-10-31 20:30:18 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:30:18 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:30:18 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:30:18 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:30:18 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:30:19 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:30:19 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:30:19 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:30:19 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:30:19 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:30:19 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 10.
+2014-10-31 20:30:19 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 11.
+2014-10-31 20:33:42 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:33:44 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:33:44 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:33:44 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:34:12 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:34:12 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:34:12 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:34:12 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:34:13 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:34:13 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:34:13 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:34:13 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:34:13 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:34:13 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:34:13 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:34:13 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:34:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:34:15 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:34:15 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:34:15 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:34:15 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:34:15 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:34:16 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:34:16 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:34:16 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:34:16 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:34:16 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:38:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 20:38:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 20:50:55 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:50:57 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:50:57 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:50:57 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:51:04 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:51:04 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:51:04 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:51:04 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:51:05 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:51:05 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:51:05 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:51:05 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:51:05 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:51:05 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:51:06 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:51:06 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:51:07 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:51:07 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:51:07 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:51:07 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:51:07 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:51:07 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:51:08 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:51:08 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:51:08 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:51:08 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:51:08 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:51:08 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 20:52:02 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 20:52:04 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 20:52:04 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 20:52:12 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 20:52:12 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 20:52:12 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 20:52:12 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 20:52:13 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 20:52:13 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 20:52:13 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 20:52:13 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 20:52:13 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 20:52:14 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 20:52:14 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 20:52:14 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 20:52:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 20:52:15 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:52:16 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:52:16 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:52:16 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:52:16 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:52:17 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 20:52:17 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 20:52:17 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 20:52:17 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 20:52:17 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 20:52:17 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 20:53:40 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 21:23:21 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 21:25:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 21:25:18 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 21:25:18 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 21:25:24 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 21:25:24 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 21:25:24 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 21:25:24 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 21:25:25 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 21:25:25 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 21:25:25 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 21:25:25 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 21:25:25 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 21:25:25 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 21:25:25 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 21:25:25 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 21:25:27 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 21:25:27 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 21:25:27 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 21:25:27 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:25:27 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:25:27 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 21:25:28 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 21:25:28 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 21:25:28 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:25:28 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:25:28 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 21:25:28 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 21:25:51 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 21:28:09 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 21:28:09 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-31 21:28:09 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-31 21:28:09 INFO  DashboardServlet:74 - User admin went to view all tariffs page.
+2014-10-31 21:28:10 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.
+2014-10-31 21:28:10 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 9.
+2014-10-31 21:29:31 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 10.
+2014-10-31 21:29:31 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:29:31 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:29:31 INFO  TariffServlet:66 - User admin went to view tariff page.
+2014-10-31 21:29:31 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 11.
+2014-10-31 21:29:31 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 12.
+2014-10-31 21:32:53 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 13.
+2014-10-31 21:32:53 INFO  OptionService:100 - Load option with id: 7100 from DB.
+2014-10-31 21:32:54 INFO  OptionService:112 - Options Option{title='Answerphone', price=4, costOfConnection=40} loaded from DB.
+2014-10-31 21:32:54 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:32:54 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:32:54 INFO  OptionServlet:106 - User admin went to view option page.
+2014-10-31 21:32:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 14.
+2014-10-31 21:32:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 15.
+2014-10-31 21:32:58 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 16.
+2014-10-31 21:32:58 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:32:58 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:32:58 INFO  TariffServlet:66 - User admin went to view tariff page.
+2014-10-31 21:33:01 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 17.
+2014-10-31 21:33:01 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-31 21:33:01 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-31 21:33:01 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:33:01 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:33:01 INFO  OptionServlet:106 - User admin went to view option page.
+2014-10-31 21:34:14 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 18.
+2014-10-31 21:34:14 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-31 21:34:14 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-31 21:34:14 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:34:14 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:34:14 INFO  OptionServlet:115 - User admin went to edit option page.
+2014-10-31 21:34:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 19.
+2014-10-31 21:34:15 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 20.
+2014-10-31 21:36:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 21.
+2014-10-31 21:36:37 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:36:37 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:36:37 INFO  TariffServlet:66 - User admin went to view tariff page.
+2014-10-31 21:36:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 22.
+2014-10-31 21:36:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 23.
+2014-10-31 21:36:39 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 24.
+2014-10-31 21:36:39 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:36:39 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:36:39 INFO  TariffServlet:84 - User admin went to create new option page.
+2014-10-31 21:40:40 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 25.
+2014-10-31 21:40:40 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:40:40 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:40:40 INFO  DashboardServlet:49 - User admin went to view dashboard page.
+2014-10-31 21:40:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 26.
+2014-10-31 21:40:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 27.
+2014-10-31 21:40:47 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 28.
+2014-10-31 21:40:47 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:40:47 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:40:47 INFO  DashboardServlet:49 - User admin went to view dashboard page.
+2014-10-31 21:40:52 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 29.
+2014-10-31 21:40:52 INFO  ClientService:95 - Load client with id: 3312 from DB.
+2014-10-31 21:40:52 INFO  ClientService:107 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} loaded from DB.
+2014-10-31 21:40:52 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-31 21:40:55 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 30.
+2014-10-31 21:42:29 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 31.
+2014-10-31 21:42:41 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 32.
+2014-10-31 21:42:41 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-31 21:42:41 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-31 21:42:41 INFO  Contract:51 - User admin went to view contract page.
+2014-10-31 21:42:42 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 33.
+2014-10-31 21:42:42 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 34.
+2014-10-31 21:42:47 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 35.
+2014-10-31 21:42:47 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-31 21:42:47 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-31 21:42:47 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-31 21:42:47 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-31 21:42:47 INFO  Contract:101 - User admin went to change tariff page for contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}}.
+2014-10-31 21:43:23 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 36.
+2014-10-31 21:43:23 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-31 21:43:23 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-31 21:43:23 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:43:23 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:43:23 INFO  OptionService:200 - Get all options from DB for tariff with id: 2042.
+2014-10-31 21:43:23 INFO  OptionService:212 - All options for tariff id: 2042 obtained from DB.
+2014-10-31 21:45:52 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-10-31 21:45:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-10-31 21:45:54 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-10-31 21:45:55 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-10-31 21:46:02 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-31 21:46:02 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-10-31 21:46:02 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-10-31 21:46:02 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-10-31 21:46:03 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2014-10-31 21:46:03 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2014-10-31 21:46:03 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2014-10-31 21:46:03 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/ecare]
+2014-10-31 21:46:03 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {user=root, password=****, autocommit=true, release_mode=auto}
+2014-10-31 21:46:04 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2014-10-31 21:46:04 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2014-10-31 21:46:04 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2014-10-31 21:46:05 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-10-31 21:46:05 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 21:46:06 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 21:46:06 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:46:06 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:46:06 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 21:46:07 INFO  ClientService:131 - Find client with login: admin and password:admin in DB.
+2014-10-31 21:46:07 INFO  ClientService:147 - Client Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} found and loaded from DB.
+2014-10-31 21:46:07 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:46:07 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:46:07 INFO  LoginServlet:60 - User(admin): Client{name='Operator', lastname='1', passport=null, address='', email='admin', password='admin', role='admin', amount=0} login in application.
+2014-10-31 21:46:07 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 6.
+2014-10-31 21:46:18 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 7.
+2014-10-31 21:46:18 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-31 21:46:18 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-31 21:46:18 INFO  DashboardServlet:74 - User admin went to view all tariffs page.
+2014-10-31 21:46:19 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 8.
+2014-10-31 21:46:58 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 9.
+2014-10-31 21:48:25 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 10.
+2014-10-31 21:48:25 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:48:25 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:48:25 INFO  DashboardServlet:49 - User admin went to view dashboard page.
+2014-10-31 21:48:25 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 11.
+2014-10-31 21:48:25 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 12.
+2014-10-31 21:48:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 13.
+2014-10-31 21:48:35 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:48:35 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:48:35 INFO  DashboardServlet:49 - User admin went to view dashboard page.
+2014-10-31 21:48:37 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 14.
+2014-10-31 21:48:37 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-31 21:48:37 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-31 21:48:37 INFO  DashboardServlet:74 - User admin went to view all tariffs page.
+2014-10-31 21:48:39 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 15.
+2014-10-31 21:48:39 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:48:39 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:48:39 INFO  TariffServlet:66 - User admin went to view tariff page.
+2014-10-31 21:49:56 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 16.
+2014-10-31 21:49:56 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:49:56 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:49:56 INFO  TariffServlet:84 - User admin went to create new option page.
+2014-10-31 21:49:57 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 17.
+2014-10-31 21:50:10 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 18.
+2014-10-31 21:50:10 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:50:10 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:50:10 INFO  TariffServlet:66 - User admin went to view tariff page.
+2014-10-31 21:50:14 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 19.
+2014-10-31 21:50:14 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-31 21:50:14 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-31 21:50:14 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:50:14 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:50:14 INFO  OptionServlet:106 - User admin went to view option page.
+2014-10-31 21:50:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 20.
+2014-10-31 21:50:35 INFO  OptionService:100 - Load option with id: 7118 from DB.
+2014-10-31 21:50:35 INFO  OptionService:112 - Options Option{title='Summer calls', price=2, costOfConnection=50} loaded from DB.
+2014-10-31 21:50:35 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:50:35 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:50:35 INFO  OptionServlet:115 - User admin went to edit option page.
+2014-10-31 21:50:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 21.
+2014-10-31 21:51:04 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 22.
+2014-10-31 21:51:04 INFO  ClientService:237 - Get all clients from DB.
+2014-10-31 21:51:04 INFO  ClientService:249 - All clients obtained from DB.
+2014-10-31 21:51:04 INFO  DashboardServlet:49 - User admin went to view dashboard page.
+2014-10-31 21:51:04 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 23.
+2014-10-31 21:51:04 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 24.
+2014-10-31 21:51:07 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 25.
+2014-10-31 21:51:07 INFO  ClientService:95 - Load client with id: 3312 from DB.
+2014-10-31 21:51:07 INFO  ClientService:107 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} loaded from DB.
+2014-10-31 21:51:07 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-31 21:52:08 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 26.
+2014-10-31 21:52:08 INFO  ClientService:95 - Load client with id: 3312 from DB.
+2014-10-31 21:52:08 INFO  ClientService:107 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} loaded from DB.
+2014-10-31 21:52:08 INFO  ClientServlet:48 - User admin went to create contract page.
+2014-10-31 21:52:09 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 27.
+2014-10-31 21:52:11 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 28.
+2014-10-31 21:52:11 INFO  ClientService:95 - Load client with id: 3312 from DB.
+2014-10-31 21:52:11 INFO  ClientService:107 - Client Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000} loaded from DB.
+2014-10-31 21:52:11 INFO  ClientServlet:43 - User admin went to client page.
+2014-10-31 21:52:17 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 29.
+2014-10-31 21:52:17 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-31 21:52:17 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-31 21:52:17 INFO  Contract:51 - User admin went to view contract page.
+2014-10-31 21:52:21 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 30.
+2014-10-31 21:52:21 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-31 21:52:21 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-31 21:52:21 INFO  TariffService:160 - Get all tariffs from DB.
+2014-10-31 21:52:21 INFO  TariffService:172 - All tariffs obtained from DB.
+2014-10-31 21:52:21 INFO  Contract:101 - User admin went to change tariff page for contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}}.
+2014-10-31 21:52:27 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 31.
+2014-10-31 21:52:27 INFO  ContractService:105 - Load contract with id: 1758 from DB.
+2014-10-31 21:52:27 INFO  ContractService:117 - Contract Contract{number=9210001122, tariff=Tariff{title='Summer', price=200}, isBlockedByClient=false, isBlockedByOperator=false, client=Client{name='Angus', lastname='Young', passport=2132435465, address='Scotland', email='young@mail.com', password='123456', role='client', amount=1000}} loaded from DB.
+2014-10-31 21:52:27 INFO  TariffService:96 - Load tariff with id: 2042 from DB.
+2014-10-31 21:52:27 INFO  TariffService:108 - Tariff Tariff{title='Summer', price=200} loaded from DB.
+2014-10-31 21:52:27 INFO  OptionService:200 - Get all options from DB for tariff with id: 2042.
+2014-10-31 21:52:27 INFO  OptionService:212 - All options for tariff id: 2042 obtained from DB.
+2014-11-01 17:27:32 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 1.
+2014-11-01 17:27:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 2.
+2014-11-01 17:27:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 3.
+2014-11-01 17:27:35 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 4.
+2014-11-01 17:27:36 INFO  AuthorizationFilter:29 - Checking of session by filter. Filter call count: 5.
+2014-11-01 17:27:36 WARN  AuthorizationFilter:39 - Session of this user has status: off. Redirect on login page.
+2014-11-01 17:27:45 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-11-01 17:27:45 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2014-11-01 17:27:45 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2014-11-01 17:27:45 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2014-11-01 17:27:45 INFO  Ejb3Configuration:321 - HHH000318: Could not find any META-INF/persistence.xml file in the classpath

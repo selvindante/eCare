@@ -10,16 +10,16 @@ public enum PageName {
     DASHBOARD ("Dashboard"),
     TARIFFS ("Tariffs"),
     TARIFF ("Tariff"),
-    NEWTARIFF ("New tariff"),
+    NEW_TARIFF("New tariff"),
     OPTION ("Option"),
-    OPTIONSETTINGS ("Option settings"),
-    NEWOPTION ("New option"),
+    OPTION_SETTINGS("Option settings"),
+    NEW_OPTION("New option"),
     CLIENT("Client"),
-    EDITCLIENT ("Edit client"),
+    EDIT_CLIENT("Edit client"),
     CONTRACT ("Contract"),
-    NEWCONTRACT ("New contract"),
-    CHOOSETARIFF ("Choose tariff"),
-    CHOOSEOPTIONS ("Choose options");
+    NEW_CONTRACT("New contract"),
+    CHOOSE_TARIFF("Choose tariff"),
+    CHOOSE_OPTIONS("Choose options");
 
     private String title;
 

@@ -1,5 +1,6 @@
 package ru.tsystems.tsproject.ecare.dao;
 
+import org.springframework.stereotype.Component;
 import ru.tsystems.tsproject.ecare.entities.Contract;
 import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by Selvin
  * on 06.10.2014.
  */
+@Component
 public class SqlContractDAO extends AbstractDAO<Contract> {
     private static SqlContractDAO instance;
     private EntityManager em = SqlEntityManager.getEm();
@@ -20,8 +22,7 @@ public class SqlContractDAO extends AbstractDAO<Contract> {
 
     public static SqlContractDAO getInstance()
     {
-        if (instance == null)
-        {
+        if (instance == null) {
             instance = new SqlContractDAO();
         }
         return instance;

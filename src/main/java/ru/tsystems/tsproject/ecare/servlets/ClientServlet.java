@@ -44,12 +44,12 @@ public class ClientServlet extends HttpServlet {
                 req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 break;
             case "createContract":
-                req.setAttribute("pagename", PageName.NEWCONTRACT.toString());
+                req.setAttribute("pagename", PageName.NEW_CONTRACT.toString());
                 logger.info("User " + session.getRole() + " went to create contract page.");
                 req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
                 break;
             case "editClient":
-                req.setAttribute("pagename", PageName.EDITCLIENT.toString());
+                req.setAttribute("pagename", PageName.EDIT_CLIENT.toString());
                 logger.info("User " + session.getRole() + " went to edit client page.");
                 req.getRequestDispatcher("/editClient.jsp").forward(req, resp);
                 break;
@@ -67,7 +67,7 @@ public class ClientServlet extends HttpServlet {
                     logger.info("Personal info of client " + client + " updated.");
                     req.getRequestDispatcher("/client.jsp").forward(req, resp);
                 } catch (ECareException ecx) {
-                    req.setAttribute("pagename", PageName.EDITCLIENT.toString());
+                    req.setAttribute("pagename", PageName.EDIT_CLIENT.toString());
                     req.setAttribute("errormessage", ecx.getMessage());
                     req.getRequestDispatcher("/editClient.jsp").forward(req, resp);
                 }

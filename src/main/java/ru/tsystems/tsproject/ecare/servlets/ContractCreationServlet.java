@@ -53,7 +53,7 @@ public class ContractCreationServlet extends HttpServlet {
             logger.info("New contract: " + contract + " has created.");
             req.getRequestDispatcher("/client.jsp").forward(req, resp);
         } catch (ECareException ecx) {
-            req.setAttribute("pagename", PageName.NEWCONTRACT.toString());
+            req.setAttribute("pagename", PageName.NEW_CONTRACT.toString());
             req.setAttribute("errormessage", ecx.getMessage());
             req.getRequestDispatcher("/createContract.jsp").forward(req, resp);
         }
