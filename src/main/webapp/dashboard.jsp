@@ -17,7 +17,7 @@
     <div class="inner-wrapper">
 
         <p>
-            List of clients:
+            Clients list:
 
             <c:choose>
                 <c:when test="${clientsList.size() != 0}">

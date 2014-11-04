@@ -32,26 +32,24 @@
 
         </c:if>
 
-        <div class="inner-wrapper">
+        <div class="inner-wrapper" style="padding-left: 100px">
                 <form method="post" action="login" enctype="application/x-www-form-urlencoded">
-                    <div id="center">
-                        <input type="hidden" name="action" value="login">
-                        <p>
-                            Login:
-                            &emsp;
-                            &emsp;
-                            <input type="text" placeholder="login" class="simple-input" name="login" size=20 value="">
-                        </p>
-                        <br>
-                        <p>
-                            Password:
-                            &nbsp;
-                            <input type="password" placeholder="password" class="simple-input" name="password" size=20 value="">
-                        </p>
-                        <br>
-                        <button type="submit" class="modern">Enter</button>
-                        <a href="#" onclick="document.getElementById('formId1').submit()" class="inline-link">Registration</a>
-                    </div>
+                    <input type="hidden" name="action" value="login">
+                    <p>
+                        Login:
+                        &emsp;
+                        &emsp;
+                        <input type="text" placeholder="login" class="simple-input" name="login" size=20 value="">
+                    </p>
+                    <br>
+                    <p>
+                        Password:
+                        &nbsp;
+                        <input type="password" placeholder="password" class="simple-input" name="password" size=20 value="">
+                    </p>
+                    <br>
+                    <button type="submit" class="modern">Enter</button>
+                    <a href="#" onclick="document.getElementById('formId1').submit()" class="inline-link">Registration</a>
                 </form>
 
             <form id="formId1" method="post" action="login" enctype="application/x-www-form-urlencoded">

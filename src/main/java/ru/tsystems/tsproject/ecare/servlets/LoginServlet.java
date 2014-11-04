@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
                 req.setAttribute("passport", "");
                 req.setAttribute("address", "");
                 req.setAttribute("email", "");
-                req.setAttribute("pagename", PageName.REGISTRATION);
+                req.setAttribute("pagename", PageName.REGISTRATION.toString());
                 logger.info("New user has enter to the registration page.");
                 req.getRequestDispatcher("/registration.jsp").forward(req, resp);
                 break;

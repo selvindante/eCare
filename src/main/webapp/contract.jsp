@@ -15,64 +15,60 @@
     <div class="inner-wrapper">
 
         <p>
-            Contract info:
-        </p>
-        <br>
-        <p>
-            Client: ${client.email}
+            Client: ${client.getFullName()}
         </p>
         <p>
             Balance: ${client.amount}
         </p>
         <p>
-            Number: ${contract.number}
-        </p>
-        <p>
-            Contract ID: ${contract.id}
+            Contract phone number: ${contract.number}
         </p>
         <p>
             Tariff title: ${contract.tariff.title}
         </p>
         <p>
-            Is blocked by operator: ${contract.isBlockedByOperator()}
+            Is blocked by operator:
+            <c:choose>
+                <c:when test="${contract.isBlockedByOperator()}">Yes</c:when>
+                <c:otherwise>No</c:otherwise>
+            </c:choose>
         </p>
         <p>
-            Is blocked by client: ${contract.isBlockedByClient()}
+            Is blocked by client:
+            <c:choose>
+                <c:when test="${contract.isBlockedByClient()}">Yes</c:when>
+                <c:otherwise>No</c:otherwise>
+            </c:choose>
         </p>
-        <c:if test="${contract.isBlockedByOperator() == false && contract.isBlockedByClient() == false && contract.getClient().amount > 0}">
-            <br>
-            <p>
-
             <form id="formId3" method="post" action="contract" enctype="application/x-www-form-urlencoded">
                 <input type="hidden" name="id" value=${contract.id}>
                 <input type="hidden" name="action" value="changeTariff">
                 <input type="hidden" name="sessionRole" value=${session.role}>
                 <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Change tariff or options</a>
             </form>
-
-            </p>
-        </c:if>
     </div>
 
     <div class="inner-wrapper">
         <p>
-            List of connected options:
+            Connected options list:
             <c:choose>
                 <c:when test="${contract.getOptions().size() != 0}">
+                    <c:if test="${contract.isBlockedByOperator() == false && contract.isBlockedByClient() == false && contract.getClient().amount > 0}">
+                        <a class="inline-link-edit" title="Change tariff or options" href="#" onclick="document.getElementById('formId3').submit()"></a>
+                    </c:if>
         </p>
             <br>
                     <table>
                         <tr>
-                            <td>
+                            <th>
                                 Title
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Price
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Cost of connection
-                            </td>
+                            </th>
                         </tr>
                         <c:forEach var="dependentOption" items="${contract.getOptions()}">
                             <tr>
@@ -91,6 +87,9 @@
                 </c:when>
                 <c:otherwise>
                     empty.
+                        <c:if test="${contract.isBlockedByOperator() == false && contract.isBlockedByClient() == false && contract.getClient().amount > 0}">
+                            <a class="inline-link-edit" title="Change tariff or options" href="#" onclick="document.getElementById('formId3').submit()"></a>
+                        </c:if>
                     </p>
                 </c:otherwise>
             </c:choose>

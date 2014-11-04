@@ -14,14 +14,13 @@
 
     <jsp:include page="header.jsp"></jsp:include>
 
-    <div class="inner-wrapper">
+    <div class="inner-wrapper-basket">
 
+        <header>
+            Basket
+        </header>
         <p>
-            Basket:
-        </p>
-        <br>
-        <p>
-            Contract number: ${contract.number}
+            Contract phone number: ${contract.number}
         </p>
         <p>
             Client balance: ${contract.getClient().amount}
@@ -34,7 +33,7 @@
         </p>
         <br>
         <p>
-            List of available tariffs:
+            Available tariffs list:
                 <c:choose>
                     <c:when test="${tariffs.size() != 0}">
                         </p>

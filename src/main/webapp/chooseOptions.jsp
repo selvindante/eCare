@@ -16,14 +16,13 @@
 
     <jsp:include page="header.jsp"></jsp:include>
 
-    <div class="inner-wrapper">
+    <div class="inner-wrapper-basket">
 
+        <header>
+            Basket
+        </header>
         <p>
-            Basket:
-        </p>
-        <br>
-        <p>
-            Contract number: ${contract.number}
+            Contract phone number: ${contract.number}
         </p>
         <p>
             Client balance: ${contract.getClient().amount}
@@ -43,7 +42,7 @@
         </p>
         <br>
         <p>
-            List of available options:
+            Available options list:
             <c:choose>
             <c:when test="${options.size() != 0}">
         </p>
@@ -72,7 +71,7 @@
                     <c:forEach var="option" items="${options}">
 
                         <tr>
-                            <td>
+                            <td style="width: 200px">
                                 ${option.title}
                             </td>
                             <td>
@@ -81,14 +80,14 @@
                             <td>
                                 ${option.costOfConnection}
                             </td>
-                            <td>
+                            <td style="width: 0">
                                 <input type="checkbox" class="case" id="box${option.id}" name="options" value="${option.id}">
-                                <span id="dep${option.id}" style="display: none;">
-                                    (will be enabled automatically)
-                                </span>
-                                <span id="inc${option.id}" style="display: none;">
-                                    (incompatible with chosen option)
-                                </span>
+                            </td>
+                            <td id="dep${option.id}" style="display: none;">
+                                (will be enabled automatically)
+                            </td>
+                            <td id="inc${option.id}" style="display: none;">
+                                (incompatible with chosen option)
                             </td>
                         </tr>
 
@@ -102,7 +101,7 @@
 
                                             <c:forEach items="${option.getDependentOptions()}" var="dependentOption">
                                                 $("#box${dependentOption.id}").attr("disabled", true);
-                                                $("#dep${dependentOption.id}").attr("style", "font-size: 12px; color: lightgray");
+                                                $("#dep${dependentOption.id}").attr("style", "width: 200; background: rgba(255, 232, 232, 0.52); font-size: 12px; color: #C90000");
                                             </c:forEach>
 
                                         </c:if>
@@ -111,7 +110,7 @@
 
                                             <c:forEach items="${option.getIncompatibleOptions()}" var="incompatibleOption">
                                                 $("#box${incompatibleOption.id}").attr("disabled", true);
-                                                $("#inc${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
+                                                $("#inc${incompatibleOption.id}").attr("style", "width: 200; background: rgba(216, 255, 213, 0.38); font-size: 12px; color: #008d47");
                                             </c:forEach>
 
                                         </c:if>

@@ -30,20 +30,14 @@
 
     <div class="inner-wrapper">
 
-        <p>
-
             <form id="formId4" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
                 <input type="hidden" name="id" value="${tariff.id}">
                 <input type="hidden" name="action" value="createOption">
                 <input type="hidden" name="sessionRole" value=${session.role}>
                 <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Create new option</a>
+                Available options list: <a class="inline-link-add" title="Create new option" href="#" onclick="document.getElementById('formId4').submit()"></a>
             </form>
 
-        </p>
-        <br>
-        <p>
-            List of available options:
             <c:choose>
                 <c:when test="${tariff.getOptions().size() != 0}">
 
@@ -90,7 +84,7 @@
                                 <td>
                                         ${option.costOfConnection}
                                 </td>
-                                <td>
+                                <td style="width: 0">
 
                                     <form id="formId7${option.id}" method="post" action="option" enctype="application/x-www-form-urlencoded">
                                         <input type="hidden" name="id" value=${option.id}>

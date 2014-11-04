@@ -16,20 +16,12 @@
 
     <div class="inner-wrapper">
 
-        <p>
-
             <form id="formId3" method="post" action="tariffsList" enctype="application/x-www-form-urlencoded">
                 <input type="hidden" name="action" value="createTariff">
                 <input type="hidden" name="sessionRole" value=${session.role}>
                 <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-                <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Create new tariff</a>
+                Tariffs list: <a class="inline-link-add" title="Create new tariff" href="#" onclick="document.getElementById('formId3').submit()"></a>
             </form>
-
-        </p>
-        <br>
-
-        <p>
-            List of tariffs:
 
             <c:choose>
                 <c:when test="${tariffs.size() != 0}">
@@ -70,7 +62,7 @@
                                 <td>
                                         ${tariff.price}
                                 </td>
-                                <td>
+                                <td style="width: 0">
 
                                     <form id="formId6${tariff.id}" method="post" action="tariff" enctype="application/x-www-form-urlencoded">
                                         <input type="hidden" name="id" value=${tariff.id}>

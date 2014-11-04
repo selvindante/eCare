@@ -87,7 +87,7 @@
                                     <td>
                                         ${dependentOption.costOfConnection}
                                     </td>
-                                    <td>
+                                    <td style="width: 0">
                                         <input type="checkbox" id="box1${dependentOption.id}" name="dependentOptions" value="${dependentOption.id}">
                                     </td>
                                 </tr>
@@ -144,7 +144,7 @@
                         <td>
                                 ${incompatibleOption.costOfConnection}
                         </td>
-                        <td>
+                        <td style="width: 0">
                             <input type="checkbox" id="box2${incompatibleOption.id}" name="incompatibleOptions" value="${incompatibleOption.id}">
                         </td>
                     </tr>

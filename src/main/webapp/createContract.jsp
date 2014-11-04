@@ -27,7 +27,7 @@
                 Telephone number (must be unique): <input type="text" placeholder="telephone number" class="simple-input" name="number" size=25 value="">
             </p>
             <button type="submit" class="modern">Create</button>
-            <a class="inline-link" href="#" onclick="document.getElementById('formId3').submit()">Back</a>
+            <a class="inline-link" href="#" onclick="document.getElementById('h3ClientForm').submit()">Back</a>
         </form>
 
     </div>

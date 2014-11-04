@@ -1,14 +1,12 @@
 package ru.tsystems.tsproject.ecare.dao;
 
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
  * Created by Selvin
  * on 15.10.2014.
  */
-@Component
+/*@Component*/
 public abstract class AbstractDAO<T> {
     protected abstract T doSaveOrUpdate(T t);
     protected abstract T doLoad(long id);

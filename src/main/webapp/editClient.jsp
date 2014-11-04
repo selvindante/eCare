@@ -19,48 +19,46 @@
             <input type="hidden" name="action" value="updateClient">
             <input type="hidden" name="sessionRole" value=${session.role}>
             <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-            <div id="center">
-                <p>
-                    Name*:
-                    <br>
-                    <input type="text" class="simple-input" name="name" size=25 value="${client.name}">
-                    <span style="font-size: 12px; color: lightgray">Example: John</span>
-                </p>
+            <p>
+                Name*:
                 <br>
-                <p>
-                    Lastname:
-                    <br>
-                    <input type="text" class="simple-input" name="lastname" size=25 value="${client.lastname}">
-                    <span style="font-size: 12px; color: lightgray">Example: Johnson</span>
-                </p>
+                <input type="text" class="simple-input" name="name" size=25 value="${client.name}">
+                <span style="font-size: 12px; color: lightgray">Example: John</span>
+            </p>
+            <br>
+            <p>
+                Lastname:
                 <br>
-                <p>
-                    Birth date*:
-                    <br>
-                    <input type="text" class="simple-input" name="birthdate" size=25 value="${client.getBirthDateToString()}">
-                    <span style="font-size: 12px; color: lightgray">Example: 1900-01-01</span>
-                </p>
+                <input type="text" class="simple-input" name="lastname" size=25 value="${client.lastname}">
+                <span style="font-size: 12px; color: lightgray">Example: Johnson</span>
+            </p>
+            <br>
+            <p>
+                Birth date*:
                 <br>
-                <p>
-                    Passport*:
-                    <br>
-                    <input type="text" class="simple-input"  name="passport" size=25 value="${client.passport}">
-                    <span style="font-size: 12px; color: lightgray">Example: 1234567890</span>
-                </p>
+                <input type="text" class="simple-input" name="birthdate" size=25 value="${client.getBirthDateToString()}">
+                <span style="font-size: 12px; color: lightgray">Example: 1900-01-01</span>
+            </p>
+            <br>
+            <p>
+                Passport*:
                 <br>
-                <p>
-                    Address:
-                    <br>
-                    <input type="text" class="simple-input" name="address" size=25 value="${client.address}">
-                    <span style="font-size: 12px; color: lightgray">Example: London, Baker Street, 221B</span>
-                </p>
+                <input type="text" class="simple-input"  name="passport" size=25 value="${client.passport}">
+                <span style="font-size: 12px; color: lightgray">Example: 1234567890</span>
+            </p>
+            <br>
+            <p>
+                Address:
                 <br>
-                <p>
-                    (*) - required fields.
-                </p>
-                <br>
-                <button type="submit" class="modern">Save</button>
-            </div>
+                <input type="text" class="simple-input" name="address" size=25 value="${client.address}">
+                <span style="font-size: 12px; color: lightgray">Example: London, Baker Street, 221B</span>
+            </p>
+            <br>
+            <p>
+                (*) - required fields.
+            </p>
+            <br>
+            <button type="submit" class="modern">Save</button>
         </form>
     </div>
 

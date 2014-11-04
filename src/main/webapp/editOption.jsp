@@ -87,7 +87,7 @@
                                         <td>
                                                 ${dependentOption.costOfConnection}
                                         </td>
-                                        <td>
+                                        <td style="width: 0">
                                             <c:choose>
                                                 <c:when test="${option.getDependentOptions().contains(dependentOption)}">
                                                     <input type="checkbox" id="box1${dependentOption.id}" name="dependentOptions" value="${dependentOption.id}" checked="checked">
@@ -96,10 +96,12 @@
                                                     <input type="checkbox" id="box1${dependentOption.id}" name="dependentOptions" value="${dependentOption.id}">
                                                 </c:otherwise>
                                             </c:choose>
-                                            <span id="inc1${dependentOption.id}" style="display: none;">
-                                                (incompatible)
-                                            </span>
                                         </td>
+
+                                        <td id="inc1${dependentOption.id}" style="display: none;">
+                                            (incompatible)
+                                        </td>
+
                                     </tr>
 
                                     <SCRIPT language="javascript">
@@ -109,7 +111,7 @@
                                                 if($("#box1${dependentOption.id}").is(":checked")) {
 
                                                     $("#box2${dependentOption.id}").attr("disabled", true);
-                                                    $("#inc2${dependentOption.id}").attr("style", "font-size: 12px; color: lightgray");
+                                                    $("#inc2${dependentOption.id}").attr("style", "width: 100px; background: rgba(216, 255, 213, 0.38); font-size: 12px; color: #008d47");
 
                                                 } else {
 
@@ -124,6 +126,7 @@
                                 </c:if>
                             </c:forEach>
                         </table>
+                        <br>
                     </c:when>
                     <c:otherwise>
                         empty.
@@ -175,7 +178,7 @@
                             <td>
                                     ${incompatibleOption.costOfConnection}
                             </td>
-                            <td>
+                            <td style="width: 0">
                                 <c:choose>
                                     <c:when test="${option.getIncompatibleOptions().contains(incompatibleOption)}">
                                         <input type="checkbox" id="box2${incompatibleOption.id}" name="incompatibleOptions" value="${incompatibleOption.id}" checked="checked">
@@ -185,29 +188,29 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                <span id="inc2${incompatibleOption.id}" style="display: none;">
-                                    (dependent)
-                                </span>
-
-                                <SCRIPT language="javascript">
-
-                                    if($("#box1${incompatibleOption.id}").is(":checked")) {
-
-                                        $("#box2${incompatibleOption.id}").attr("disabled", true);
-                                        $("#inc2${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
-
-                                    }
-
-                                    if($("#box2${incompatibleOption.id}").is(":checked")) {
-
-                                        $("#box1${incompatibleOption.id}").attr("disabled", true);
-                                        $("#inc1${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
-
-                                    }
-
-                                </SCRIPT>
-
                             </td>
+
+                            <td id="inc2${incompatibleOption.id}" style="display: none;">
+                                (dependent)
+                            </td>
+
+                            <SCRIPT language="javascript">
+
+                                if($("#box1${incompatibleOption.id}").is(":checked")) {
+
+                                    $("#box2${incompatibleOption.id}").attr("disabled", true);
+                                    $("#inc2${incompatibleOption.id}").attr("style", "width: 100; background: rgba(216, 255, 213, 0.38); font-size: 12px; color: #008d47");
+
+                                }
+
+                                if($("#box2${incompatibleOption.id}").is(":checked")) {
+
+                                    $("#box1${incompatibleOption.id}").attr("disabled", true);
+                                    $("#inc1${incompatibleOption.id}").attr("style", "width: 100; background: rgba(255, 232, 232, 0.52); font-size: 12px; color: #C90000");
+
+                                }
+
+                            </SCRIPT>
 
                         </tr>
 
@@ -218,7 +221,7 @@
                                     if($("#box2${incompatibleOption.id}").is(":checked")) {
 
                                         $("#box1${incompatibleOption.id}").attr("disabled", true);
-                                        $("#inc1${incompatibleOption.id}").attr("style", "font-size: 12px; color: lightgray");
+                                        $("#inc1${incompatibleOption.id}").attr("style", "width: 100; background: rgba(255, 232, 232, 0.52); font-size: 12px; color: #C90000");
 
                                     } else {
 
@@ -233,6 +236,7 @@
                     </c:if>
                 </c:forEach>
             </table>
+            <br>
             </c:when>
             <c:otherwise>
                 empty.

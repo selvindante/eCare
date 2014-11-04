@@ -1,6 +1,5 @@
 package ru.tsystems.tsproject.ecare.dao;
 
-import org.springframework.stereotype.Component;
 import ru.tsystems.tsproject.ecare.entities.Client;
 import ru.tsystems.tsproject.ecare.service.SqlEntityManager;
 
@@ -12,7 +11,7 @@ import java.util.List;
  * Created by Selvin
  * on 02.10.2014.
  */
-@Component
+/*@Component*/
 public class SqlClientDAO extends AbstractDAO<Client> {
     private static SqlClientDAO instance;
     private EntityManager em = SqlEntityManager.getEm();

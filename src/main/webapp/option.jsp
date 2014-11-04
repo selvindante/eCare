@@ -35,26 +35,23 @@
         <p>
             Cost of connection: ${option.costOfConnection}
         </p>
-        <br>
-        <p>
         <form id="formId4" method="post" action="option" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="id" value="${option.id}">
             <input type="hidden" name="tariffId" value="${tariff.id}">
             <input type="hidden" name="action" value="editOption">
             <input type="hidden" name="sessionRole" value=${session.role}>
             <input type="hidden" name="sessionStatus" value=${session.isOn()}>
-            <a class="inline-link" href="#" onclick="document.getElementById('formId4').submit()">Edit option dependencies</a>
         </form>
-        </p>
 
     </div>
 
     <div class="inner-wrapper">
 
         <p>
-            List of dependent options:
+            Dependent options list:
             <c:choose>
             <c:when test="${option.getDependentOptions().size() != 0}">
+            <a class="inline-link-edit" style="padding-right: 10px" title="Edit option dependencies" href="#" onclick="document.getElementById('formId4').submit()"></a>
             <a class="inline-link-delete" title="Clear all dependencies" href="#" onclick="document.getElementById('formId5').submit()"></a>
 
             <form id="formId5" method="post" action="option" enctype="application/x-www-form-urlencoded">
@@ -99,7 +96,7 @@
                             <td>
                                 ${dependentOption.costOfConnection}
                             </td>
-                            <td>
+                            <td style="width: 0">
                                 <form id="formId5${dependentOption.id}" method="post" action="option" enctype="application/x-www-form-urlencoded">
                                     <input type="hidden" name="id" value="${option.id}">
                                     <input type="hidden" name="dependentOptionId" value="${dependentOption.id}">
@@ -115,7 +112,7 @@
                 </table>
                 </c:when>
                 <c:otherwise>
-                    empty.
+                    empty. <a class="inline-link-edit" title="Edit option dependencies" href="#" onclick="document.getElementById('formId4').submit()"></a>
                 </c:otherwise>
         </c:choose>
 
@@ -124,9 +121,10 @@
     <div class="inner-wrapper">
 
         <p>
-            List of incompatible options:
+            Incompatible options list:
             <c:choose>
             <c:when test="${option.getIncompatibleOptions().size() != 0}">
+            <a class="inline-link-edit" style="padding-right: 10px" title="Edit option dependencies" href="#" onclick="document.getElementById('formId4').submit()"></a>
             <a class="inline-link-delete" title="Clear all incompatibilities" href="#" onclick="document.getElementById('formId6').submit()"></a>
 
         <form id="formId6" method="post" action="option" enctype="application/x-www-form-urlencoded">
@@ -171,7 +169,7 @@
                     <td>
                             ${incompatibleOption.costOfConnection}
                     </td>
-                    <td>
+                    <td style="width: 0">
                         <form id="formId6${incompatibleOption.id}" method="post" action="option" enctype="application/x-www-form-urlencoded">
                             <input type="hidden" name="id" value="${option.id}">
                             <input type="hidden" name="incompatibleOptionId" value="${incompatibleOption.id}">
@@ -187,7 +185,7 @@
         </table>
         </c:when>
         <c:otherwise>
-            empty.
+            empty. <a class="inline-link-edit" title="Edit option dependencies" href="#" onclick="document.getElementById('formId4').submit()"></a>
         </c:otherwise>
         </c:choose>
 

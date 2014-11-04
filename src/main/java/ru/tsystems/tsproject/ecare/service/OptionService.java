@@ -1,7 +1,6 @@
 package ru.tsystems.tsproject.ecare.service;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
 import ru.tsystems.tsproject.ecare.ECareException;
 import ru.tsystems.tsproject.ecare.dao.AbstractDAO;
 import ru.tsystems.tsproject.ecare.dao.SqlOptionDAO;
@@ -21,7 +20,7 @@ import java.util.Set;
  * @author Starostin Konstantin
  * @see ru.tsystems.tsproject.ecare.service.IOptionService
  */
-@Service
+/*@Service*/
 public class OptionService implements IOptionService {
 
     /*Instance of the singleton class*/
